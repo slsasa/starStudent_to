@@ -1,0 +1,24 @@
+<ion-view view-title="学校动态">
+  <ion-content>
+    <div>
+    <img ng-src="{{user.avatar || 'img/dyschool/dy1.jpeg'}}" class="photo">
+    <div class="up">
+      <a ng-repeat="schpost in schposts" class="name">{{schpost.name}}</a>
+      <p ng-repeat="schpost in schposts" class="time">{{schpost.time}} </p>
+
+      <p ng-repeat="schpost in schposts" class="mypost">{{schpost.mypost}}</p>
+      <div id="hid" style="display: none">
+        <p ng-repeat="schpost in schposts" class="txt">{{schpost.dispost}}</p>
+      </div>
+      <p class="slide">
+        <a href="#" id="strHref" class="yd-slide">更多选项+</a>
+      </p>
+    </div>
+    <div class="schcomment" >
+      <button class="ion-thumbsup" style="width: 48%;margin: 0 2% 0"></button>
+      <button class="ion-android-share-alt" style="width: 48%;margin: 0px -14px 0;" ng-click="share()"></button>
+    </div>
+    </div>
+    <hr>
+  </ion-content>
+</ion-view>

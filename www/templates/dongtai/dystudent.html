@@ -1,0 +1,18 @@
+<ion-view view-title="学校动态">
+  <ion-content>
+    <img ng-src="{{user.avatar || 'img/dyschool/dy1.jpeg'}}" class="photo">
+    <div class="up">
+      <a ng-repeat="post in postt" class="name">{{post.name}}</a>
+      <p ng-repeat="post in postt" class="mypost">{{post.mypost}}</p>
+      <div id="hid" style="display: none">
+        <p ng-repeat="post in postt" class="txt">{{post.dispost}}</p>
+      </div>
+      <p class="slide">
+        <a href="#" id="strHref" class="yd-slide">更多选项+</a>
+      </p>
+      <p ng-repeat="post in postt" class="time">{{post.time}} </p>
+      <div class="comments" ><i class="ion-chatbox-working"></i></div>
+    </div>
+    <hr>
+  </ion-content>
+</ion-view>

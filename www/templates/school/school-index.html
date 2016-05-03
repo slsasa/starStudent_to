@@ -1,0 +1,68 @@
+<ion-view view-title="明星学员">
+  <ion-content >
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true"
+                   slide-interval=2000 show-pager="true" pager-click="pageClick(index)"
+                   active-slide="model.activeIndex" delegate-handle="delegateHandler">
+      <ion-slide>
+        <div class="box blue">
+          <img src="http://img5.imgtn.bdimg.com/it/u=4041718731,746112096&fm=21&gp=0.jpg">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box yellow">
+          <img src="http://img.iyookee.cn/20150619/20150619_100607_883_670.png">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box pink">
+          <img src="http://img.iyookee.cn/20150714/20150714_172952_955_22.jpg">
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    <div class="box2">
+      <a ng-click="schooloutcome()"><button >校园成果</button></a>
+      <a ng-click="course()"><button >课程介绍</button></a>
+      <a ng-click="faculty()"><button >师资力量</button></a>
+      <a href="#/tab/honorUp/star"><button >荣誉区</button></a>
+      <a ng-click="teachermien()"><button >教师风采</button></a>
+    </div>
+    <div class="schooldyn">
+      <marquee onmouseover="stop()" onmouseout="start()" width="80%" scrollamount="5">
+        更辣火锅让 i 回归g给我任何噶文化
+      </marquee>
+      <a ng-click="resumeMome()"><button class="schooldyn-mome">更多</button></a>
+    </div>
+    <div class="schoolres">
+      <h5 style="text-align: center;margin-top: 5px;" ng-repeat="resume in resumess">{{resume.title}}</h5>
+      <p style="margin: 10px 0 -10px;" ng-repeat="resume in resumess">{{resume.text}}</p>
+      <div id="hid" style="display: none">
+        <p ng-repeat="resume in resumess" class="txt">{{resume.txt}}</p>
+      </div>
+      <p class="slide">
+        <a href="#" id="strHref" class="yd-slide">更多</a>
+      </p>
+    </div>
+    <div>
+        <div id="gpic" style="overflow:hidden; width:auto; height:146px;padding-top: 5px">
+
+          <table>
+            <tr>
+              <td id="gpic1" valign="top" align="center">
+                <table >
+                  <tr >
+                    <td > <img  src="img/resume/ty.jpg"></td>
+                    <td > <img src="img/resume/ty1.jpg"></td>
+                    <td > <img src="img/resume/ty2.jpg"></td>
+                    <td > <img src="img/resume/ty3.jpg"></td>
+                    <td > <img src="img/resume/ty4.jpg"></td>
+                  </tr>
+
+                </table>
+              </td>
+              <td id="gpic2" valign="top"></td>
+            </tr>
+          </table>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>
