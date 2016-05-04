@@ -1,8 +1,26 @@
 <ion-view view-title="校园快讯" >
   <ion-content>
-   <div>
-     <p>舞蹈类</p>
+    <div class="list">
 
-   </div>
+      <div>
+        <div  class="has-header" ng-repeat="course in courses">
+
+          <div class="h5 title item-divider "> {{course.courseKind}}</div>
+
+          <div class="row">
+
+            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail.courseDetailId <= 2">
+              <a href="#/course-introduce/{{course.id}}">{{detail.name}}</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail.courseDetailId> 2">
+              <a  href=" #/course-introduce/{{course.id}}">{{detail.name}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </ion-content>
 </ion-view>

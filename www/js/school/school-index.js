@@ -5,12 +5,9 @@ angular.module('starter')
   .controller('ResumeCtrl', function($scope,$state,$ionicSlideBoxDelegate,resumeService) {
     $scope.resumess = resumeService.getR().Resume;
 
-    $(document).ready(function () {
-      $(".yd-slide").click(function () {
-        $("#hid").slideToggle();
-      });
-    });
-
+    $scope.intro = function(){
+      $state.go('tab.schProfile')
+    }
     $scope.schooloutcome = function () { //学校成果跳转
       $state.go('tab.school-outcome')
     };

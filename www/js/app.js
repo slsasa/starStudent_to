@@ -97,6 +97,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('tab.outcome-detail', {
+      url: '/school-outcome/outcome:outcomeId',
+      views: {
+        'school-resume': {
+          templateUrl: 'templates/school/outcome-detail.html',
+          controller: 'outcomeDetailCtrl'
+        }
+      }
+    })
     .state('tab.school-course', {
       url: '/school-course',
       views: {
@@ -112,6 +121,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         'school-resume': {
           templateUrl: 'templates/school/school-faculty.html',
           controller: 'FacultyCtrl'
+        }
+      }
+    })
+    .state('tab.schProfile', {
+      url: '/schProfile',
+      views: {
+        'school-resume': {
+          templateUrl: 'templates/school/schProfile.html',
+          controller: 'schProfileCtrl'
         }
       }
     })
