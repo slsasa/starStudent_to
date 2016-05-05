@@ -4,7 +4,7 @@
   </ion-nav-title>
 
   <ion-content class="list">
-    <ion-slide-box class="has-header" does-continue="true" auto-play="true" show-pager="true">
+    <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
       <ion-slide ng-repeat="banner in banners">
         <img ng-src="{{banner.bannerImg}}" height="80px" width="100%">
         <h4>{{banner.context}}</h4>
@@ -25,8 +25,8 @@
       <marquee  direction="left" onmouseover="this.stop()" onmouseout="this.start()" >
       <span  ng-repeat="dynamic in dynamics">
 
-        <a  href="#/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
-        <a  href="#/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
+        <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}"  ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
+        <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
       </span>
       </marquee>
       <span><a class="button" ng-click="intoSchoolDynamic()">更多</a></span>
