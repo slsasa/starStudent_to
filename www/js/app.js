@@ -32,8 +32,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
+    .state('tabs', {
+    url: '/tabs',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
@@ -78,52 +78,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    //首页部分
-    .state('tab.school-resume', {
-      url: '/school-resume',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/school-index.html',
-          controller: 'ResumeCtrl'
-        }
-      }
-    })
-    .state('tab.school-outcome', {
-      url: '/school-outcome',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/school-outcome.html',
-          controller: 'OutcomeCtrl'
-        }
-      }
-    })
-    .state('tab.outcome-detail', {   //成果详情
-      url: '/school-outcome/outcome:outcomeId',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/outcome-detail.html',
-          controller: 'outcomeDetailCtrl'
-        }
-      }
-    })
-    .state('tab.school-course', {
-      url: '/school-course',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/school-course.html',
-          controller: 'CourseCtrl'
-        }
-      }
-    })
-    .state('tab.school-faculty', {
-      url: '/school-faculty',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/school-faculty.html',
-          controller: 'FacultyCtrl'
-        }
-      }
-    })
+
+
+
+
+
     .state('tab.schProfile', {
       url: '/schProfile',
       views: {
@@ -133,35 +92,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.honorUp', {  //教师风采
-      url: '/honorUp',
-      abstract: true,
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/honorUp/school-honor.html',
-          controller: 'HonorCtrl'
-        }
-      }
-    })
 
-    .state('tab.honorUp.star', {  //明星榜
-      url: '/star',
-      views: {
-        'star': {
-          templateUrl: 'templates/honorUp/star.html',
-          controller: 'StarupCtrl'
-        }
-      }
-    })
-    .state('tab.honorUp.honor', {    //荣誉墙
-      url: '/honor',
-      views: {
-        'honor': {
-          templateUrl: 'templates/honorUp/honor.html',
-          controller: 'HonorupCtrl'
-        }
-      }
-    })
+
+
     .state('tab.school-teachermien', {
       url: '/school-teachermien',
       views: {
@@ -211,6 +144,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/school-resume');
+  $urlRouterProvider.otherwise('/tabs/school-index');
 
 });

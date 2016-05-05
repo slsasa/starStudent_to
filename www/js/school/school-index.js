@@ -2,62 +2,91 @@
  * Created by apple-ty on 16-4-28.
  */
 angular.module('starter')
-  .controller('ResumeCtrl', function($scope,$state,$ionicSlideBoxDelegate,resumeService) {
-    $scope.resumess = resumeService.getR().Resume;
-
-    $scope.intro = function(){
-      $state.go('tab.schProfile')
-    }
-    $scope.schooloutcome = function () { //学校成果跳转
-      $state.go('tab.school-outcome')
-    };
-    $scope.course = function () { //课程介绍
-      $state.go('tab.school-course')
-    };
-    $scope.faculty = function () { //课程介绍
-      $state.go('tab.school-faculty')
-    };
-
-    $scope.teachermien = function () { //课程介绍
-      $state.go('tab.school-teachermien')
-    };
-
-
-    $scope.resumeMome = function () {
-      $state.go('tab.resume-mone')
-    };
-
-
-
-    $scope.model = {
-      activeIndex:0
-    };
-
-//此事件对应的是pager-click属性，当显示图片是有对应数量的小圆点，这是小圆点的点击事件
-    $scope.pageClick = function(index){
-      //alert(index);
-
-      $scope.model.activeIndex = 2;
-    };
-
-//当图片切换后，触发此事件，注意参数
-    $scope.slideHasChanged = function($index){
-      //alert($index);
-
-    };
-    //这是属性delegate-handle的验证使用的，其实没必要重定义，直接使用$ionicSlideBoxDelegate就可以
-    $scope.delegateHandle = $ionicSlideBoxDelegate;
-
-    var speed=20
-    gpic2.innerHTML=gpic1.innerHTML
-    function Marquee(){
-      if(gpic2.offsetWidth-gpic.scrollLeft<=0)
-        gpic.scrollLeft-=gpic1.offsetWidth
-      else{
-        gpic.scrollLeft++
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('tabs.home',{
+        url:'/school-index',
+        views:{'tabs-home':{
+          templateUrl:'templates/school/school-index.html',
+          controller:'homeCtrl'
+        }}
+      });
+  })
+  .controller('homeCtrl',function($scope,$state,Base){
+    //横幅
+    $scope.banners =[
+      {
+        id:0,
+        bannerImg:'img/img2.png',
+        context:'擦擦',
+        time:1461340799000
+      },{
+        id:1,
+        bannerImg:'img/img3.png',
+        context:'什么什么学院东东',
+        time:1461340549000
+      },{
+        id:2,
+        bannerImg:'img/img4.png',
+        context:'字符串',
+        time:1461240542302
+      },{
+        id:3,
+        bannerImg:'img/img1.png',
+        context:'行动的傻子，思想上的猪，嘴上的大侠',
+        time:143131231331
+      }];
+    //学校动态
+    $scope.dynamics = [
+      {
+        id:0,
+        title:'2016年港澳校董迎春座谈会举行',
+        content:'1月7日和13日，我校分别在澳门和香港两地举行了2016年校董迎春座谈会',
+        time:'1461340799000'
+      },{
+        id:1,
+        title:'澳门特区行政长官崔世安会见胡军校长',
+        content:'1月7日，澳门特别行政长官，我校董事会副董事长崔世安在特区政府礼宾府会见胡军校长',
+        time:'1461340799531'
+      },{
+        id:2,
+        title:'我校优秀学子抵澳开启参访之旅',
+        content:'5月4日，我校2014年优秀学生访澳团一行32人抵达澳门，开始了为期4天的参访之旅。',
+        time:'1461350799000'
       }
+    ];
+
+    //跳转到学校成果
+    $scope.intoSchOutcome = function(){
+      $state.go('tabs.school-outcome');
     }
-    var MyMar=setInterval(Marquee,speed)
-    gpic.onmouseover=function() {clearInterval(MyMar)}
-    gpic.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+
+    //跳转到课程介绍
+    $scope.intoCourseIntr = function(){
+      $state.go('tabs.course-introduce');
+    }
+
+
+
+    //进入校园动态
+    $scope.intoSchoolDynamic = function(){
+      $state.go('tabs.dynamic-tabs.school-dynamic');
+    }
+
+    //跳转到师质力量
+    $scope.intoTeacherApti = function(){
+      $state.go('tabs.school-faculty');
+    }
+
+    //跳转到荣誉区
+    $scope.goHonor = function(){
+
+      $state.go('tabs.honor-tabs.honor-wall');
+    }
+
+    //跳转到教师风采
+    $scope.goTeacherStyle = function(){
+      $state.go('tabs.teacher-tabs.teacher-chat')
+    }
+
   })

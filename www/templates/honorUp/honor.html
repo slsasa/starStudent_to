@@ -1,33 +1,13 @@
-<ion-view view-title="荣誉墙" >
-  <ion-content>
-    <div>
-      <div class="list">
-
-        <div class="item item-avatar" ng-click="study()">
-          <img src="img/adam.jpg">
-          <h2>生活窍门</h2>
-          <p>今日没有进程哦！</p>
-        </div>
-
-        <div class="item item-avatar" ng-click="share()">
-          <img src="#">
-          <h2>每日必读</h2>
-          <p>好东西，大家一起分享...</p>
-        </div>
-
-        <div class="item item-avatar" ng-click="read()">
-          <img src="#">
-          <h2>每日趣味</h2>
-          <p>做一个有梦想的孩纸，...</p>
-        </div>
-
-        <div class="item item-avatar" ng-click="notebook()">
-          <img src="#">
-          <h2>趣味专区</h2>
-          <p>书不能当饭吃.进来放松下视力吧.点点点..</p>
-        </div>
-
-      </div>
+<ion-view>
+  <br><br>
+  <div class="content has-header ionic-pseudo">
+    <div class="list">
+      <a class="item item-avatar" ng-repeat="honorMan in honorWall">
+        <img ng-src="{{honorMan.img}}">
+        <h5>{{honorMan.name}}</h5>
+        <p>{{honorMan.honorDetail}}</p>
+      </a>
     </div>
-  </ion-content>
+  </div>
+
 </ion-view>
