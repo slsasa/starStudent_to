@@ -39,41 +39,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
     //动态圈部分
-  .state('tab.dongtai', {  //动态圈
-    url: '/dongtai',
+  .state('tab.dynamic', {  //动态圈
+    url: '/dynamic',
       abstract: true,
       views: {
       'dynamic': {
-        templateUrl: 'templates/dongtai/dynamic.html',
+        templateUrl: 'templates/dynamic/dynamic.html',
         controller: 'DynamicCtrl'
       }
     }
   })
-    .state('tab.dongtai.dyschool', {  //学校动态
+    .state('tab.dynamic.dyschool', {  //学校动态
       url: '/dyschool',
       views: {
         'dyschool': {
-          templateUrl: 'templates/dongtai/dyschool.html',
+          templateUrl: 'templates/dynamic/dyschool.html',
           controller: 'dySchoolCtrl'
         }
       }
     })
 
-    .state('tab.dongtai.dystudent', {  //学员动态
+    .state('tab.dynamic.dystudent', {  //学员动态
       url: '/dystudent',
       views: {
         'dystudent': {
-          templateUrl: 'templates/dongtai/dystudent.html',
+          templateUrl: 'templates/dynamic/dystudent.html',
           controller: 'dyStudentCtrl'
         }
       }
     })
 
-    .state('tab.dongtai.dyteacher', {  //教师动态
+    .state('tab.dynamic.dyteacher', {  //教师动态
       url: '/dyteacher',
       views: {
         'dyteacher': {
-          templateUrl: 'templates/dongtai/dyteacher.html',
+          templateUrl: 'templates/dynamic/dyteacher.html',
           controller: 'dyTeacherCtrl'
         }
       }
@@ -97,7 +97,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.outcome-detail', {
+    .state('tab.outcome-detail', {   //成果详情
       url: '/school-outcome/outcome:outcomeId',
       views: {
         'school-resume': {
@@ -180,24 +180,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-
     .state('tab.apply', {
       url: '/apply',
       views: {
-        'apply': {
-          templateUrl: 'templates/apply.html',
-          controller: 'ChatsCtrl'
-        }
+      'apply': {
+        templateUrl: 'templates/apply/apply.html',
+          controller: 'ApplyCtrl'
       }
+    }
+  })
+    .state('apply/apply-details', {
+      url: '/apply/apply:applyId',
+      templateUrl: 'templates/apply/apply-details.html',
+      controller:'ApplydetaCtrl'
+    })
+    .state('submit-apply', {
+      url: '/submit-apply',
+      templateUrl: 'templates/apply/submit-apply.html',
+      controller:'submitApplyCtrl'
     })
 
-
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.stuPerson', {
+    url: '/stuPerson',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'stuPerson': {
+        templateUrl: 'templates/stuPerson/stuPerson.html',
+        controller: 'stuPersonCtrl'
       }
     }
   });

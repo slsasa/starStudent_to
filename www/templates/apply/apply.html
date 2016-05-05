@@ -1,0 +1,14 @@
+<ion-view view-title="明星学员">
+
+  <ion-content>
+    <div class="content has-header ionic-pseudo">
+      <div class="list">
+        <a class="item item-thumbnail-left" ng-repeat="apply in applys" href="#/apply/apply:apply{{apply.id}}">
+          <img ng-src="{{apply.img}}">
+          <h2>{{apply.title}}</h2>
+          <p>{{apply.application}}</p>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
