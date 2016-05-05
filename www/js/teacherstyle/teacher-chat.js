@@ -1,21 +1,19 @@
 /**
- * Created by apple-ty on 16-4-28.
+ * Created by sls on 16/5/3.
  */
-
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.teacher-tabs.personal-style',{
-        url:'/teacher-chat/personal-style:teacherId',
+      .state('tabs.teacher-tabs.teacher-chat',{
+        url:'/teacher-chat',
         views:{'teacher-chat':{
-          templateUrl:'personalstyle/personal-style.html',
-          controller:'personalCtrl'
+          templateUrl:'templates/teacherstyle/teacher-chat.html',
+          controller:'teacherChatCtrl'
         }}
       });
   })
-  .controller('personalCtrl',function($scope,$stateParams,$state,Base){
-    $scope.like = 0;
-    var teachers =  [{
+  .controller('teacherChatCtrl',function($scope){
+    $scope.teachers =  [{
       id:0,
       name:'李老师',
       longevity:'大专学历,小学一级教师。1999年参加工作,爱岗敬业,有才艺,有理想,。',
@@ -49,7 +47,7 @@ angular.module('starter')
         time:146775554442
       }]
 
-    },{
+     },{
       id:1,
       name:'白老师',
       longevity:'大专学历,小学一级教师。1999年参加工作,爱岗敬业,有才艺,有理想,。',
@@ -84,25 +82,4 @@ angular.module('starter')
       }]
     }];
 
-
-
-    var getTeacher = function(teacherId){
-      for(var i = 0; i < teachers.length;i++){
-        if( teachers[i].id == parseInt(teacherId)){
-          return teachers[i];
-        }
-      }
-    }
-
-    $scope.teacher = getTeacher($stateParams.teacherId);
-
-    //点赞
-    $scope.clickLike = function(){
-      $scope.like += 1;
-    }
-
-    //跳转到日志界面
-    $scope.goTeachinglog = function(){
-      $state.go('teachering-tabs.teaching-log')
-    }
   })

@@ -38,36 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/tabs.html'
   })
 
-    //动态圈部分
-  .state('tab.dynamic', {  //动态圈
-    url: '/dynamic',
-      abstract: true,
-      views: {
-      'dynamic': {
-        templateUrl: 'templates/dynamic/dynamic.html',
-        controller: 'DynamicCtrl'
-      }
-    }
-  })
-    .state('tab.dynamic.dyschool', {  //学校动态
-      url: '/dyschool',
-      views: {
-        'dyschool': {
-          templateUrl: 'templates/dynamic/dyschool.html',
-          controller: 'dySchoolCtrl'
-        }
-      }
-    })
 
-    .state('tab.dynamic.dystudent', {  //学员动态
-      url: '/dystudent',
-      views: {
-        'dystudent': {
-          templateUrl: 'templates/dynamic/dystudent.html',
-          controller: 'dyStudentCtrl'
-        }
-      }
-    })
 
     .state('tab.dynamic.dyteacher', {  //教师动态
       url: '/dyteacher',
@@ -95,15 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
 
-    .state('tab.school-teachermien', {
-      url: '/school-teachermien',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/school-teachermien.html',
-          controller: 'TeachermienCtrl'
-        }
-      }
-    })
+
     .state('tab.resume-mone', {
       url: '/resume-mone',
       views: {

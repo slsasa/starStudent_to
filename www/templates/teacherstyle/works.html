@@ -1,0 +1,15 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">作品中心</span>
+  </ion-nav-title>
+  <ion-content class="list">
+    <ion-item ng-repeat="tearLog in teacher.tearchingLog">
+      <h5>
+        {{tearLog.title}}
+      </h5>
+      <p>{{tearLog.content}}</p>
+      <h6>{{tearLog.time | date:'yyyy-MM-dd'}}</h6>
+    </ion-item>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">教师圈</span>
+  </ion-nav-title>
+  <br><br>
+  <div class="content has-header ionic-pseudo">
+    <div class="list">
+      <div class="item item-avatar" ng-repeat="teacher in teachers" >
+        <img ng-src="{{teacher.headImg}}">
+        <h5>{{teacher.name}}</h5>
+        <p>{{teacher.longevity}}</p>
+        <div class="button-bar">
+        <a class="button" href="#/tabs/teacher-tabs/teacher-chat/personal-style{{teacher.id}}">个人风采</a>
+        <a class="button" href="#/tabs/teacher-tabs/teacher-chat/works{{teacher.id}}">作品中心</a>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</ion-view>

@@ -1,24 +1,21 @@
-<ion-view view-title="学校动态">
+<ion-view>
+  <ion-nav-title class="title">
+    <span class="title">学校动态</span>
+  </ion-nav-title>
   <ion-content>
-    <div>
-    <img ng-src="{{user.avatar || 'img/dyschool/dy1.jpeg'}}" class="photo">
-    <div class="up">
-      <a ng-repeat="schpost in schposts" class="name">{{schpost.name}}</a>
-      <p ng-repeat="schpost in schposts" class="time">{{schpost.time}} </p>
+    <ion-list>
+      <ion-slide-box class="has-header" does-continue="true" auto-play="true" show-pager="true">
+        <ion-slide ng-repeat="banner in banners">
+          <img ng-src="{{banner.bannerImg}}" height="80px" width="100%">
+          <h4>{{banner.context}}</h4>
+        </ion-slide>
+      </ion-slide-box>
 
-      <p ng-repeat="schpost in schposts" class="mypost">{{schpost.mypost}}</p>
-      <div id="hid" style="display: none">
-        <p ng-repeat="schpost in schposts" class="txt">{{schpost.dispost}}</p>
-      </div>
-      <p class="slide">
-        <a href="#" id="strHref" class="yd-slide">更多选项+</a>
-      </p>
-    </div>
-    <div class="schcomment" >
-      <button class="ion-thumbsup" style="width: 48%;margin: 0 2% 0"></button>
-      <button class="ion-android-share-alt" style="width: 48%;margin: 0px -14px 0;" ng-click="share()"></button>
-    </div>
-    </div>
-    <hr>
+      <ion-item  ng-repeat="dynamic in dynamics"  href="#tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}">
+        <h4>{{dynamic.title}}</h4>
+        <p>{{dynamic.content}}</p>
+        <h6 style="float: right">{{dynamic.time | date : 'yyyy-MM-dd'}}</h6>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

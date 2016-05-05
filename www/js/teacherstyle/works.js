@@ -1,20 +1,18 @@
 /**
- * Created by apple-ty on 16-4-28.
+ * Created by sls on 16/5/4.
  */
-
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.teacher-tabs.personal-style',{
-        url:'/teacher-chat/personal-style:teacherId',
+      .state('tabs.teacher-tabs.works',{
+        url:'/teacher-chat/works:teacherId',
         views:{'teacher-chat':{
-          templateUrl:'personalstyle/personal-style.html',
-          controller:'personalCtrl'
+          templateUrl:'templates/teacherstyle/works.html',
+          controller:'worksCtrl'
         }}
       });
   })
-  .controller('personalCtrl',function($scope,$stateParams,$state,Base){
-    $scope.like = 0;
+  .controller('worksCtrl',function($scope,$stateParams){
     var teachers =  [{
       id:0,
       name:'李老师',
@@ -72,7 +70,7 @@ angular.module('starter')
         img:'img/img1.png'
       }],
       tearchingLog:[{
-        title:'主型智能网络磁盘存储系统',
+        title:'主型系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
         time:146131231331
@@ -83,9 +81,6 @@ angular.module('starter')
         time:146775554442
       }]
     }];
-
-
-
     var getTeacher = function(teacherId){
       for(var i = 0; i < teachers.length;i++){
         if( teachers[i].id == parseInt(teacherId)){
@@ -96,13 +91,4 @@ angular.module('starter')
 
     $scope.teacher = getTeacher($stateParams.teacherId);
 
-    //点赞
-    $scope.clickLike = function(){
-      $scope.like += 1;
-    }
-
-    //跳转到日志界面
-    $scope.goTeachinglog = function(){
-      $state.go('teachering-tabs.teaching-log')
-    }
   })
