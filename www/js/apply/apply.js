@@ -1,7 +1,19 @@
 /**
  * Created by apple-ty on 16-5-4.
  */
+
 angular.module('starter')
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('tabs.apply',{
+        url:'/apply',
+        views:{'apply':{
+          templateUrl: 'templates/apply/apply.html',
+          controller: 'ApplyCtrl'
+        }}
+      });
+  })
+
   .controller('ApplyCtrl',function($scope){
     $scope.applys = [
       {

@@ -40,15 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
 
-    .state('tab.dynamic.dyteacher', {  //教师动态
-      url: '/dyteacher',
-      views: {
-        'dyteacher': {
-          templateUrl: 'templates/dynamic/dyteacher.html',
-          controller: 'dyTeacherCtrl'
-        }
-      }
-    })
+
 
 
 
@@ -76,15 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.apply', {
-      url: '/apply',
-      views: {
-      'apply': {
-        templateUrl: 'templates/apply/apply.html',
-          controller: 'ApplyCtrl'
-      }
-    }
-  })
+
     .state('apply/apply-details', {
       url: '/apply/apply:applyId',
       templateUrl: 'templates/apply/apply-details.html',
@@ -96,15 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       controller:'submitApplyCtrl'
     })
 
-  .state('tab.stuPerson', {
-    url: '/stuPerson',
-    views: {
-      'stuPerson': {
-        templateUrl: 'templates/stuPerson/stuPerson.html',
-        controller: 'stuPersonCtrl'
-      }
-    }
-  });
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tabs/school-index');
