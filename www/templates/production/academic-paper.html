@@ -1,14 +1,11 @@
-<ion-view>
-  <ion-nav-title>
-    <span class="title">作品中心</span>
-  </ion-nav-title>
+<ion-view title="学术论文">
   <ion-content class="list">
-    <ion-item ng-repeat="tearingPage in teacher.tear">
+    <ion-item ng-repeat="tearingPage in teacher.thesis">
       <h5>
-        {{tearLog.title}}
+        {{tearingPage.title}}
       </h5>
-      <p>{{tearLog.content}}</p>
-      <h6>{{tearLog.time | date:'yyyy-MM-dd'}}</h6>
+      <p>{{tearingPage.content}}</p>
+      <h6>{{tearingPage.time | date:'yyyy-MM-dd'}}</h6>
     </ion-item>
 
   </ion-content>

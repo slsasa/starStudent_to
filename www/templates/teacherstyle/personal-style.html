@@ -28,12 +28,11 @@
     </ion-item>
 
   </ion-content>
-
-    <div class="bar bar-footer">
-
-      <button class="button button-clear" style="font-size: 12px" ng-click="goTeachinglog()">教学日志</button>
-      <button class="button">点赞</button>
-      <button class="button">送花</button>
-      <button class="button button-clear">学术论文</button>
-    </div>
+  <div class="bar bar-subfooter row">
+    <a href="#/tabs/teacher-tabs/teacher-chat/pro-tabs{{teacher.id}}/works{{teacher.id}}" class="col col-25 button">教学日志</a>
+    <a href="#/tabs/teacher-tabs/teacher-chat/pro-tabs{{teacher.id}}/papers{{teacher.id}}" class="col col-25 button">学术论文</a>
+    <a href="" class="col col-25 button">点赞</a>
+    <a href="" class="col col-25 button">送花</a>
+    </a>
+  </div>
 </ion-view>

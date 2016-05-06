@@ -83,7 +83,8 @@ angular.module('starter')
     }];
 
     $scope.goPersonal = function(teacherId){
-      $state.go('tabs.teacher-tabs.pro-tabs.works',{teacherId:teacherId});
+      //$state.go('tabs.teacher-tabs.pro-tabs.works',{teacherId:teacherId});
+      $state.go('tabs.teacher-tabs.pro-tabs.papers',{teacherId:teacherId});
     }
 
   })
