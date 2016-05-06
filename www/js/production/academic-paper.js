@@ -4,7 +4,7 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.teacher-tabs.pro-tabs.papers',{
+      .state('tabs.pro-tabs.papers',{
         url:'/papers:teacherId',
         views:{'teaching-paper':{
           templateUrl:'templates/production/academic-paper.html',
