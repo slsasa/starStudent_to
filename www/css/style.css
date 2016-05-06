@@ -26,6 +26,11 @@ td {
 .txt{
   margin: 0 0 0px;
 }
+.button-bar > .button {    padding: 0 0px;}
+.item{padding: 10px 5px 0px;    margin: 0px;}
+.more{  float: right;
+  margin: -5px 7px 0;font-size: 15px;}
+
 .photo{max-width:55px ;max-height: 55px;float: left;    margin: 10px 2% 0;}
 .up{margin: 10px 10px 0 75px;height: auto;padding-top: 5px}
 .time{    margin: 0px 0 5px;}
@@ -38,6 +43,11 @@ td {
   margin-left: 8%;
 }
 .apply2{margin: 0 38% 0}
-.headbk{border: dashed black 1px;height: 140px}
+
+.headbk{height: 140px}
 .mebk{width: 100%;height: 100px}
-.head{width: 45px;height: 45px}
+.head{width: 55px;height: 55px;    margin: -30px 20px 0;}
+.myneme{ margin: -24px 95px 0;}
+.ion-edit{font-size: 25px;float: right;margin: -27px 20px 0;}
+.stud{margin-top: 5%}
+.buttonPer{width: 32%;line-height: 2.42857;margin: 0 -5px 0}

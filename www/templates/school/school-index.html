@@ -20,16 +20,16 @@
     </div>
 
 
-    <div class="item" style="padding-left: 6%;padding-right: 6%">
+    <div class="item">
 
-      <marquee  direction="left" onmouseover="this.stop()" onmouseout="this.start()" >
+      <marquee onmouseover="stop()" onmouseout="start()" width="80%" scrollamount="5" >
       <span  ng-repeat="dynamic in dynamics">
 
-        <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}"  ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
-        <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
+        <a  href="#/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
+        <a  href="#/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
       </span>
       </marquee>
-      <span><a class="button" ng-click="intoSchoolDynamic()">更多</a></span>
+      <button ng-click="intoSchoolDynamic()" class="more">更多</button>
     </div>
     <div class="item">
       <p>格林艺术培训学校</p>

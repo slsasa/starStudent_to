@@ -1,14 +1,25 @@
 <ion-view view-title="明星学员">
   <ion-content>
-   <div class="headbk">
-     <img src="img/mebk.jpeg" class="mebk">
-     <img src="img/head.jpeg" class="head">
-   </div>
-    <div>
-      <button>学习情况</button>
-      <button>学员荣耀</button>
-      <button>教室评语</button>
+    <div class="headbk" ng-repeat="headbk in headbks">
+      <img src="{{headbk.img}}" class="mebk">
+      <img src="{{headbk.headimg}}" class="head">
+      <p class="myneme">{{headbk.myname}}</p>
+      <i class="ion-edit" ng-click=""></i>
+      <hr>
+    </div>
+    <div class="stud">
+      <button ng-click="learnSit()" class="buttonPer">学习情况</button>
+      <button ng-click="studentHon()" class="buttonPer">学员荣耀</button>
+      <button ng-click="techerCom()" class="buttonPer">教室评语</button>
     </div>
 
+    <div style="margin-top: 5px">
+      <div class="list" >
+        <ion-item class=" item-icon-right" ng-repeat="person in persondetails" href="#/tabs/stuPerson/person{{person.id}}">
+          {{person.title}}
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

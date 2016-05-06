@@ -40,35 +40,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
 
-
-
-
-
-
-
-    .state('tab.schProfile', {
-      url: '/schProfile',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/schProfile.html',
-          controller: 'schProfileCtrl'
-        }
-      }
-    })
-
-
-
-
-    .state('tab.resume-mone', {
-      url: '/resume-mone',
-      views: {
-        'school-resume': {
-          templateUrl: 'templates/school/resume-mone.html',
-          controller: 'resumeMoneCtrl'
-        }
-      }
-    })
-
     .state('apply/apply-details', {
       url: '/apply/apply:applyId',
       templateUrl: 'templates/apply/apply-details.html',
