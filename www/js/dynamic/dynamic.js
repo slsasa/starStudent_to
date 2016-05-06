@@ -9,6 +9,10 @@ angular.module('starter')
         abstract: true,
         views:{'dynamic':{
           templateUrl: 'templates/dynamic/dynamic.html',
+          controller:'dynamicCtrl'
+
         }}
       });
   })
+
+

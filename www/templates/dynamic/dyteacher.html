@@ -1,24 +1,17 @@
-<ion-view view-title="学校动态">
-  <ion-content>
-    <div>
-      <img ng-src="{{user.avatar || 'img/dyschool/dy1.jpeg'}}" class="photo">
-      <div class="up">
-        <a ng-repeat="teachpost in teachposts" class="name">{{teachpost.name}}</a>
-        <p ng-repeat="teachpost in teachposts" class="time">{{teachpost.time}} </p>
+<ion-view>
+  <ion-nav-title class="title">
+    <span class="title">教师动态</span>
+  </ion-nav-title>
+  <ion-content class="list">
+    <ion-item class="item-avatar" ng-repeat="terDynamic in  terDynamics">
+      <img src="{{terDynamic.img}}">
+      <h5>{{terDynamic.name}}</h5>
+      <p>{{terDynamic.content}}</p>
+      <p>{{terDynamic.time | date:'yyyy-MM-dd'}}</p>
+      <div class="comments" ><i class="ion-chatbox-working"></i></div>
 
-        <p ng-repeat="teachpost in teachposts" class="mypost">{{teachpost.mypost}}</p>
-        <div id="hid" style="display: none">
-          <p ng-repeat="teachpost in teachposts" class="txt">{{teachpost.dispost}}</p>
-        </div>
-        <p class="slide">
-          <a href="#" id="strHref" class="yd-slide">更多选项+</a>
-        </p>
-      </div>
-      <div class="schcomment" >
-        <button class="ion-thumbsup" style="width: 48%;margin: 0 2% 0"></button>
-        <button class="ion-android-share-alt" style="width: 48%;margin: 0px -14px 0;" ng-click="share()"></button>
-      </div>
-    </div>
-    <hr>
+    </ion-item>
+
   </ion-content>
 </ion-view>
+
