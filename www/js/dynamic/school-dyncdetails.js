@@ -12,6 +12,7 @@ angular.module('starter')
         }}
       })
   })
+
   .controller('dynamicDetailsCtrl',function($scope,$stateParams){
       var dynamics =  [
       {
