@@ -14,6 +14,10 @@ td {
 .box2{
   border: dashed black 1px;height: 60px;width: auto;padding-top: 10px
 }
+.loginbk{height: auto}
+.login4{text-align: center;padding-top: 50px;}
+
+
 .schooldyn{
   border: dashed black 1px;height: 35px;width: auto;line-height:30px
 }

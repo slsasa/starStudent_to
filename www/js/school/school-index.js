@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('homeCtrl',function($scope,$state,Base){
+  .controller('homeCtrl',function($scope,$state){
     //横幅
     $scope.banners =[
       {
