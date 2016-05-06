@@ -11,7 +11,7 @@
         </ion-slide>
       </ion-slide-box>
 
-      <ion-item  ng-repeat="dynamic in dynamics"  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}">
+      <ion-item  ng-repeat="dynamic in dynamics"  href="#/tabs/school-dynamic/{{dynamic.id}}">
         <h4>{{dynamic.title}}</h4>
         <p>{{dynamic.content}}</p>
         <h6 style="float: right">{{dynamic.time | date : 'yyyy-MM-dd'}}</h6>

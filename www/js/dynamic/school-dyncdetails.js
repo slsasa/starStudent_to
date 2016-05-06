@@ -4,14 +4,15 @@
 angular.module('starter')
   .config(function($stateProvider){
     $stateProvider
-      .state('tabs.dynamic-tabs.school-dyncdetails',{
+      .state('tabs.school-dyncdetails',{
         url:'/school-dynamic/:schoolDynsId',
-        views:{'dyschool':{
+        views:{'dynamic':{
           templateUrl:'templates/dynamic/school-dyncdetails.html',
           controller:'dynamicDetailsCtrl'
         }}
       })
   })
+
   .controller('dynamicDetailsCtrl',function($scope,$stateParams){
       var dynamics =  [
       {

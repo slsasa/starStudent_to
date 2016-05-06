@@ -4,10 +4,10 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.teacher-tabs.pro-tabs',{
+      .state('tabs.pro-tabs',{
         url:'/teacher-chat/pro-tabs:teacherId',
         abstract:true,
-        views:{'teacher-chat':{
+        views:{'tabs-home':{
           templateUrl:'templates/production/production-tabs.html',
           controller:'productionCtrl'
         }}
