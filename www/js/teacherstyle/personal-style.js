@@ -100,8 +100,5 @@ angular.module('starter')
         $scope.like += 1;
       }
 
-      //跳转到日志界面
-      $scope.goTeachinglog = function(){
-        $state.go('teachering-tabs.teaching-log')
-      }
+
   })
