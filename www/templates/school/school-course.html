@@ -19,13 +19,13 @@
 
           <div class="row">
 
-            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail.courseDetailId <= 2">
-              <a href="#/course-introduce/{{course.id}}">{{detail.name}}</a>
+            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
+              <a href="#/tabs/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
             </div>
           </div>
           <div class="row">
-            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail.courseDetailId> 2">
-              <a  href=" #/course-introduce/{{course.id}}">{{detail.name}}</a>
+            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
+              <a  href=" #/tabs/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
             </div>
           </div>
         </div>
