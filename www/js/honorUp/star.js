@@ -15,13 +15,23 @@ angular.module('starter')
   .controller('starListCtrl',function($scope){
     $scope.starList  = [{
       id:0,
-      name:'moumou',
+      name:'张三',
       img:'img/img3.png',
-      honorDetail:'获奖情况：2015年下半年年级一等经，语文119、数学110、英语120、综合280'
+      honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
     },{
       id:1,
+      img:'img/img1.png',
+      name:'王五',
+      honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
+    },{
+      id:2,
       img:'img/img2.png',
       name:'moumou',
-      honorDetail:'获奖情况：43015年下半年年级一等经，语文119、数学110、英语120、综合280'
+      honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
+    },{
+      id:3,
+      img:'img/img4.png',
+      name:'moumou',
+      honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
     }];
   })

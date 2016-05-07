@@ -16,6 +16,18 @@
         <input type="text" placeholder="输入密码" ng-model="user.pwd">
       </label>
 
+      <label class="item item-input item-select">
+        <div class="input-label fill">
+          身份
+        </div>
+        <select ng-model="user.type" style="font-size: 18px;font-weight:500">
+          <option>教师</option>
+          <option selected>学生</option>
+        </select>
+      </label>
+
+    </ion-list>
+
 
 
       <div style="padding: 10%">
@@ -23,6 +35,6 @@
         <button class="button" ng-click="register()">注册</button>
       </div>
       <a  style="float: right"  href="#/pwd-find">忘记密码</a>
-    </ion-list>
+
   </ion-content>
 </ion-view>

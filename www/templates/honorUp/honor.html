@@ -1,11 +1,13 @@
 <ion-view>
-  <br><br>
+<br><br>
   <div class="content has-header ionic-pseudo">
     <div class="list">
-      <a class="item item-avatar" ng-repeat="honorMan in honorWall">
+      <a class="item" ng-repeat="honorMan in honorWall">
+        <div class="item-avatar">
         <img ng-src="{{honorMan.img}}">
         <h5>{{honorMan.name}}</h5>
         <p>{{honorMan.honorDetail}}</p>
+        </div>
       </a>
     </div>
   </div>

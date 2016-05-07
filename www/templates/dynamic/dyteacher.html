@@ -3,11 +3,13 @@
     <span class="title">教师动态</span>
   </ion-nav-title>
   <ion-content class="list">
-    <ion-item class="item-avatar" ng-repeat="terDynamic in  terDynamics">
+    <ion-item class="item" ng-repeat="terDynamic in  terDynamics">
+      <div class="item-avatar">
       <img src="{{terDynamic.img}}">
       <h5>{{terDynamic.name}}</h5>
       <p>{{terDynamic.content}}</p>
       <p>{{terDynamic.time | date:'yyyy-MM-dd'}}</p>
+      </div>
       <div class="comments" ><i class="ion-chatbox-working"></i></div>
 
     </ion-item>

@@ -1,11 +1,13 @@
 <ion-view>
   <br><br>
-  <div class="content has-header ionic-pseudo">
+  <div class="content ionic-pseudo">
     <div class="list">
-      <a class="item item-avatar" ng-repeat="star in starList">
+      <a class="item has-header item-avatar" ng-repeat="star in starList">
+        <div class="item-avatar">
         <img ng-src="{{star.img}}">
         <h5>{{star.name}}</h5>
-        <p>{{star.honorDetail}}</p>
+        <p>获奖情况：{{star.honorDetail}}</p>
+        </div>
       </a>
     </div>
 </ion-view>

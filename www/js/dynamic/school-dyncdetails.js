@@ -41,8 +41,5 @@ angular.module('starter')
     }
     $scope.dynamic = getDaynmic($stateParams.schoolDynsId);
 
-    $scope.$on('$ionicView.enter', function () {
-      // 显示 tabs
-      $rootScope.hideTabs = false;
-    });
+
   })
