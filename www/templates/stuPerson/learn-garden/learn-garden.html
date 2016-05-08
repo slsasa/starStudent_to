@@ -1,0 +1,12 @@
+<ion-view view-title="详情">
+  <ion-content>
+    <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
+      <ion-slide ng-repeat="banner in banners">
+        <img ng-src="{{banner.bannerImg}}" height="80px" width="100%">
+        <h4>{{banner.context}}</h4>
+        <hr>
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

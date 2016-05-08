@@ -13,13 +13,30 @@
       <button ng-click="techerCom()" class="buttonPer">教室评语</button>
     </div>
 
-    <div style="margin-top: 5px">
-      <div class="list" >
-        <ion-item class=" item-icon-right" ng-repeat="person in persondetails" href="#/tabs/stuPerson/person{{person.id}}">
-          {{person.title}}
+
+    <div>
+          <ion-item ui-sref="tabs.learn-garden" class=" item-icon-right"  >
+            <a><h2 class="persontext"> 学习园</h2></a>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+
+        <ion-item class=" item-icon-right" ui-sref="tabs.learn-garden">
+          <a><h2 class="persontext"> 我的动态</h2></a>
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
-      </div>
+
+        <ion-item class=" item-icon-right" ui-sref="tabs.learn-garden">
+          <a><h2 class="persontext"> 我的报名</h2></a>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
     </div>
+
+    <div style="padding-top: 25px">
+      <ion-item class=" item-icon-right"  ui-sref="tabs.learn-garden">
+        <a><h2 class="persontext"> 设置</h2></a>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </div>
+
   </ion-content>
 </ion-view>

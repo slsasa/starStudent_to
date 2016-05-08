@@ -36,7 +36,7 @@ angular.module('starter')
         context:'行动的傻子，思想上的猪，嘴上的大侠',
         time:143131231331
       }];
-    //学校动态
+    //学校成果
     $scope.dynamics = [
       {
         id:0,

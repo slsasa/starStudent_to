@@ -39,7 +39,7 @@ angular.module('starter')
     }
 
 
-    $scope.persondetails = [
+    $scope.stuPerson = [
       {
         "id":"0",
         "title":"学习园"
