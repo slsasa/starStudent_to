@@ -1,12 +1,17 @@
-<ion-view view-title="明星学员">
+<ion-view>
+ <ion-nav-title>
+   <span class="title">报名</span>
+ </ion-nav-title>
 
   <ion-content>
-    <div class="content has-header ionic-pseudo">
+    <div class="content ionic-pseudo">
       <div class="list">
-        <a class="item item-thumbnail-left" ng-repeat="apply in applys" href="#/apply/apply:apply{{apply.id}}">
-          <img ng-src="{{apply.img}}">
+        <a class="item" ng-repeat="apply in applys" ng-click="goApplyDeatil(apply.id)">
+          <div class="item-thumbnail-left">
+          <img ng-src={{apply.img}}>
           <h2>{{apply.title}}</h2>
-          <p>{{apply.application}}</p>
+          <p>报名费:{{apply.cost}}</p>
+          </div>
         </a>
       </div>
     </div>
