@@ -42,4 +42,8 @@ angular.module('starter')
     $scope.register = function(){
       $state.go('register');
     }
+      //进入找回密码
+      $scope.Forgotpw = function(){
+        $state.go('forgotpw');
+      }
   })
