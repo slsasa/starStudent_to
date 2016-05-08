@@ -81,7 +81,7 @@ angular.module('starter')
     //跳转到荣誉区
     $scope.goHonor = function(){
 
-      $state.go('tabs.honor-tabs.honor-wall');
+      $state.go('tabs.school-honor.star');
     }
 
     //跳转到教师风采

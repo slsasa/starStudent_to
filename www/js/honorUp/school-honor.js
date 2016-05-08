@@ -5,11 +5,11 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.honor-tabs',{
+      .state('tabs.school-honor',{
         abstract:true,
-        url:'/honor-tabs',
+        url:'/school-honor',
         views:{'tabs-home':{
-          templateUrl: 'templates/honorUp/school-honor.html',
+          templateUrl: 'templates/honorUp/school-honor.html'
         }}
       });
   })

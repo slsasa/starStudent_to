@@ -4,8 +4,8 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.honor-tabs.honor-wall',{
-        url:'/honor-wall',
+      .state('tabs.school-honor.honor',{
+        url:'/honor',
         views:{'honor':{
           templateUrl: 'templates/honorUp/honor.html',
           controller:'honorWallCtrl'
