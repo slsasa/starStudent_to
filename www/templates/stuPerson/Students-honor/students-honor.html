@@ -1,0 +1,20 @@
+<ion-view view-title="学员荣耀">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.stuPerson"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="list" >
+      <ion-item class=" learn item-icon-right" ng-repeat="learn in learns" ng-click="goApplyDeatil(learn.id)" >
+        <div >
+          {{learn.certificateName}}
+        </div>
+
+        <p style="width: 95%;">{{learn.synopsis}}</p>
+        <div style="float: right">{{learn.asTime |date:'yyyy-MM-dd'}}</div>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </div>
+  </ion-content>
+</ion-view>

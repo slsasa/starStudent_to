@@ -1,0 +1,19 @@
+<ion-view view-title="教师评语">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.stuPerson"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-android-funnel" ></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list">
+      <a class="item" ng-repeat="comment in comments" ng-click="goApplyDeatil(comment.id)">
+        <div class="item-thumbnail-left">
+          <img ng-src={{comment.img}}>
+          <p style=" padding-top: 13px;">{{comment.name}}<p style="margin: -22px 35% 0;">{{comment.position}}</p></p>
+          <p>{{comment.introduce}}</p>
+        </div>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

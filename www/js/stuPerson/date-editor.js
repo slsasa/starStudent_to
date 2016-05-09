@@ -4,14 +4,12 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.date-editor',{
+      .state('date-editor',{
         url:'/date-editor',
-        views:{'stuPerson':{
           templateUrl: 'templates/stuPerson/date-editor.html',
           controller: 'dateEditorCtrl'
-        }}
       });
   })
   .controller('dateEditorCtrl',function($scope){
-
+    $scope.items=["账号","昵称","姓名","性别","名族","入学年份","入学概况","所学专业"];
   })

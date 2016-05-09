@@ -4,12 +4,10 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.my-dynamic',{
+      .state('my-dynamic',{
         url:'/my-dynamic',
-        views:{'stuPerson':{
           templateUrl: 'templates/stuPerson/my-dynamic/my-dynamic.html',
           controller: 'myDayamicCtrl'
-        }}
       });
   })
   .controller('myDayamicCtrl',function($scope){
