@@ -21,14 +21,19 @@ angular.module('starter')
     $scope.user = {
       num:'',
       pwd:'',
-      type:''
+      type:'学生'
     }
     //进入主页面
     $scope.login = function(){
-
+      var t;
       if($scope.user.num !=='' && $scope.user.pwd !==''){
-
-        $state.go('tabs.home');
+        if($scope.user.type == '学生') {
+          t = '_stu'
+          $state.go('tabs.home',{type:t});
+        }else{
+          t = '_teacher'
+          $state.go('tabs.home',{type:t});
+        }
       }else{
         $ionicPopup.alert({
           title:'提醒',

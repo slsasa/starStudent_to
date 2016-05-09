@@ -30,8 +30,8 @@
 
 
 
-        <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
-        <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
+        <a  href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
+        <a  href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
 
       </span>
       </marquee>

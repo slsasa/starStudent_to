@@ -1,9 +1,6 @@
 /**
  * Created by apple-ty on 16-5-8.
  */
-/**
- * Created by apple-ty on 16-5-4.
- */
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
