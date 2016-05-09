@@ -4,9 +4,9 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.stuPerson',{
-        url:'/stuPerson_stu',
-        views:{'stuPerson':{
+      .state('tabs.person_stu',{
+        url:'/person_stu',
+        views:{'person':{
           templateUrl: 'templates/stuPerson/stuPerson.html',
           controller: 'stuPersonCtrl'
         }}
