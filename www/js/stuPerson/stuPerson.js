@@ -27,7 +27,7 @@ angular.module('starter')
     }
     //学习情况
     $scope.learnSit = function(){
-      $state.go('tabs.learn-situation')
+      $state.go('learn-situation')
     }
     //学员荣耀
     $scope.studentHon = function(){

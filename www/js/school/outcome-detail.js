@@ -5,12 +5,11 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.outcome-detail',{
+      .state('outcome-detail',{
         url:'/school-outcome/outcome:outcomeId',
-        views:{'tabs-home':{
           templateUrl: 'templates/school/outcome-detail.html',
           controller:'outcomeDetailCtrl'
-        }}
+
       });
   })
   .controller('outcomeDetailCtrl',function($scope,$stateParams){

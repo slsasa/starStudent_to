@@ -58,12 +58,12 @@ angular.module('starter')
 
     //跳转到学校成果
     $scope.intoSchOutcome = function(){
-      $state.go('tabs.school-outcome');
+      $state.go('school-outcome');
     }
 
     //跳转到课程介绍
     $scope.intoCourseIntr = function(){
-      $state.go('tabs.course-introduce');
+      $state.go('school-course');
     }
 
 

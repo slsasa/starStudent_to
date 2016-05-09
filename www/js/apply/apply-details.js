@@ -4,12 +4,12 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.applyDetail',{
+      .state('applyDetail',{
         url:'/apply/applyDetail:applyId',
-        views:{'apply':{
+
           templateUrl: 'templates/apply/apply-details.html',
           controller: 'applyDetailCtrl'
-        }}
+
       });
   })
 .controller('applyDetailCtrl',function($scope,$state,$stateParams){
@@ -53,6 +53,6 @@ angular.module('starter')
     $scope.apply = getApply($stateParams.applyId);
 
     $scope.goSubmitApply = function(applyId){
-      $state.go('tabs.applySubmit',{applyId:applyId})
+      $state.go('applySubmit',{applyId:applyId})
     }
   })

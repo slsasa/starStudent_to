@@ -27,10 +27,16 @@
       <marquee onmouseover="stop()" onmouseout="start()" width="80%" scrollamount="5" >
       <span  ng-repeat="dynamic in dynamics">
 
+<<<<<<< HEAD
 
         <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
         <a  href="#/tabs/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
 
+=======
+        <a  href="#/tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
+        <a  href="#/tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
+
+>>>>>>> 08e34093937937064b213314afff33d7c7d7e472
       </span>
       </marquee>
       <button ng-click="intoSchoolDynamic()" class="more">更多</button>

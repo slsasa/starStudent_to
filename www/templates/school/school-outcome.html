@@ -1,8 +1,13 @@
 <ion-view view-title="校园成果" >
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
+  </ion-nav-buttons>
+
   <ion-content>
-    <div class="content has-header ionic-pseudo">
+    <div class="content ionic-pseudo">
       <div class="list">
-        <a class="item item-thumbnail-left" ng-repeat="outcome in schOutcomes" href="#/tabs/school-outcome/outcome{{outcome.id}}">
+        <a class="item item-thumbnail-left" ng-repeat="outcome in schOutcomes" href="#/school-outcome/outcome{{outcome.id}}">
           <div class="item-thumbnail-left">
           <img ng-src="{{outcome.img}}">
           <h5>{{outcome.title}}</h5>

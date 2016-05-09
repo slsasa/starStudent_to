@@ -4,12 +4,10 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.applySubmit',{
+      .state('applySubmit',{
         url:'/applyDetail:applyId/submit',
-        views:{'apply':{
           templateUrl: 'templates/apply/submit-apply.html',
           controller: 'applySubmitCtrl'
-        }}
       });
   })
   .controller('applySubmitCtrl',function($scope,$stateParams){
