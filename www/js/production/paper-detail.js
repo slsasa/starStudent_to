@@ -1,17 +1,16 @@
 /**
- * Created by sls on 16/5/6.
+ * Created by sls on 16/5/9.
  */
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('works-detail',{
-        url:'/works:teacherId/works-detail:index',
-        templateUrl:'templates/production/works-detail.html',
-        controller:'worksDetailCtrl'
+      .state('paper-detail',{
+        url:'/papers:teacherId/paper-detail:index',
+        templateUrl:'templates/production/paper-detail.html',
+        controller:'paperDetailCtrl'
       });
   })
-
-  .controller('worksDetailCtrl', function ($scope,$stateParams) {
+  .controller('paperDetailCtrl', function ($scope,$stateParams) {
     var teachers =  [{
       id:0,
       name:'李老师',
@@ -128,5 +127,6 @@ angular.module('starter')
     }];
 
     $scope.teacher = teachers[parseInt($stateParams.teacherId)];
-    $scope.teacherLog = $scope.teacher.tearchingLog[parseInt($stateParams.index)];
+    $scope.thesis = $scope.teacher.thesis[parseInt($stateParams.index)];
   })
+

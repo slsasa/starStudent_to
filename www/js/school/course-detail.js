@@ -118,32 +118,27 @@ angular.module('starter')
         id:4,
         courseKind:'音乐类',
 
-        courseDetail:[{
-          _id:1,
+        courseDetail:[
+          {
+          _id:0,
           name:'独唱',
           coverImg:'img/img3.png',
           content:'独唱China classic dance作为我国舞蹈艺术中的一个类别，是在民族民间传统舞蹈的基础上，经过历代专业工作者提炼、整理、加工、创造，并经过较长期艺术实践的检验流传下来的具有一定典范意义的古典风格的特色舞蹈。古典舞创立于二十世纪五十年代，曾一度被一些人称作“戏曲舞蹈”，它本身就是介于戏曲与舞蹈之间的混合物。 戏曲和武术是建立中国古典舞训练的基础，中国古典舞的基础训练充分体现了我们中华民族鲜明的民族特色。基训中的技术、技巧有着独具一格的民族特性，与其它舞种中的技术、技巧有着很大的不同。'
+         },{
+          _id:1,
+          name:'音乐素养',
+          coverImg:'img/mebk.jpeg',
+          content:'音乐素养China classic dance作为我国舞蹈艺术中的一个类别，是在民族民间传统舞蹈的基础上，经过历代专业工作者提炼、整理、加工、创造，并经过较长期艺术实践的检验流传下来的具有一定典范意义的古典风格的特色舞蹈。古典舞创立于二十世纪五十年代，曾一度被一些人称作“戏曲舞蹈”，它本身就是介于戏曲与舞蹈之间的混合物。 戏曲和武术是建立中国古典舞训练的基础，中国古典舞的基础训练充分体现了我们中华民族鲜明的民族特色。基训中的技术、技巧有着独具一格的民族特性，与其它舞种中的技术、技巧有着很大的不同。'
         },{
           _id:2,
           name:'合唱',
           coverImg:'img/mebk.jpeg',
-          content:'合唱China classic dance作为我国舞蹈艺术中的一个类别，是在民族民间传统舞蹈的基础上，经过历代专业工作者提炼、整理、加工、创造，并经过较长期艺术实践的检验流传下来的具有一定典范意义的古典风格的特色舞蹈。古典舞创立于二十世纪五十年代，曾一度被一些人称作“戏曲舞蹈”，它本身就是介于戏曲与舞蹈之间的混合物。 戏曲和武术是建立中国古典舞训练的基础，中国古典舞的基础训练充分体现了我们中华民族鲜明的民族特色。基训中的技术、技巧有着独具一格的民族特性，与其它舞种中的技术、技巧有着很大的不同。'
-        },{
-          _id:3,
-          name:'音乐素养',
-          coverImg:'img/mebk.jpeg',
-          content:'音乐素养China classic dance作为我国舞蹈艺术中的一个类别，是在民族民间传统舞蹈的基础上，经过历代专业工作者提炼、整理、加工、创造，并经过较长期艺术实践的检验流传下来的具有一定典范意义的古典风格的特色舞蹈。古典舞创立于二十世纪五十年代，曾一度被一些人称作“戏曲舞蹈”，它本身就是介于戏曲与舞蹈之间的混合物。 戏曲和武术是建立中国古典舞训练的基础，中国古典舞的基础训练充分体现了我们中华民族鲜明的民族特色。基训中的技术、技巧有着独具一格的民族特性，与其它舞种中的技术、技巧有着很大的不同。'
-        }]
+          content:'大合唱是非常好的体验'
+
+          }]
       }];
-      var getCourse = function(courseId){
-        for(var i = 0;i<courses.length;i++){
-          for(var j = 0;j<courses[i].courseDetail.length;j++){
-            if(courses[i].id == parseInt(courseId/10) && courses[i].courseDetail[j]._id == parseInt(courseId%10)){
-              return courses[i].courseDetail[j];
-            }
-          }
-        }
-      }
-    $scope.course = getCourse($stateParams.courseId);
+
+    $scope.courseKind = courses[parseInt($stateParams.courseId/10)];
+    $scope.course = $scope.courseKind.courseDetail[parseInt($stateParams.courseId%10)];
 
   })

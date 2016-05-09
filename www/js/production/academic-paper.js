@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('papersCtrl',function($scope,$stateParams){
+  .controller('papersCtrl',function($scope,$stateParams,$state){
     var teachers =  [{
       id:0,
       name:'李老师',
@@ -112,5 +112,9 @@ angular.module('starter')
     }
 
     $scope.teacher = getTeacher($stateParams.teacherId);
+
+    $scope.goPaperDetail = function(index){
+      $state.go('paper-detail',{teacherId:$stateParams.teacherId,index:index});
+    }
 
   })

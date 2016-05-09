@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('worksCtrl',function($scope,$stateParams){
+  .controller('worksCtrl',function($scope,$state,$stateParams){
     var teachers =  [{
       id:0,
       name:'李老师',
@@ -39,23 +39,35 @@ angular.module('starter')
         title:'主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146131231331
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
       },{
         title:'全自主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146775554442
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
       }],
       thesis:[{
         title:'这是个论文',
         content:'我们探讨理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'学术论文',
-        time:146131231331
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
       },{
         title:'还是论文',
         content:'探讨怎样不挂科盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'学术论文',
-        time:146775554442
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
       }]
 
     },{
@@ -84,23 +96,35 @@ angular.module('starter')
         title:'主型系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146131231331
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
       },{
         title:'全自主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146775554442
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
       }],
       thesis:[{
         title:'论文',
         content:'神经病是怎样炼成的，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'学术论文',
-        time:146131231331
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
       },{
         title:'哇哈哈论文',
         content:'探讨猪是怎么吃饭的系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'学术论文',
-        time:146775554442
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
       }]
     }];
     var getTeacher = function(teacherId){
@@ -113,4 +137,7 @@ angular.module('starter')
 
     $scope.teacher = getTeacher($stateParams.teacherId);
 
+    $scope.goWorksDetail = function(index){
+      $state.go('works-detail',{teacherId:$stateParams.teacherId,index:index})
+    }
   })

@@ -7,8 +7,8 @@ angular.module('starter')
     $stateProvider
       .state('outcome-detail',{
         url:'/school-outcome/outcome:outcomeId',
-          templateUrl: 'templates/school/outcome-detail.html',
-          controller:'outcomeDetailCtrl'
+        templateUrl: 'templates/school/outcome-detail.html',
+        controller:'outcomeDetailCtrl'
 
       });
   })

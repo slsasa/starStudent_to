@@ -5,7 +5,7 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('tabs.stuPerson',{
-        url:'/stuPerson',
+        url:'/stuPerson_stu',
         views:{'stuPerson':{
           templateUrl: 'templates/stuPerson/stuPerson.html',
           controller: 'stuPersonCtrl'

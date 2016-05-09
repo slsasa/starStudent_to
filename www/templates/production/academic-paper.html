@@ -5,7 +5,11 @@
         {{tearingPage.title}}
       </h5>
       <p>{{tearingPage.content}}</p>
+
+      <span>
       <h6>{{tearingPage.time | date:'yyyy-MM-dd'}}</h6>
+      <a class="button" ng-click="goPaperDetail($index)" style="float: right">>>详情</a>
+      </span>
     </ion-item>
 
   </ion-content>
