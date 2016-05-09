@@ -10,14 +10,14 @@
     </div>
 
     <ion-item>
-    <span ng-repeat="img in teacher.imgs">
+    <span ng-repeat="img in teacher.imgs" ng-if="img._id <=2">
       <img ng-src="{{img.img}}" style="width: 30%;height: 30%">
     </span><br>
       <span>
         <button ng-click="clickLike()" style="float: left">点赞</button>
         <p style="float: left">{{like}}</p>
       </span>
-        <button style="float: right">更多>></button>
+        <button style="float: right" ng-click="goImgs()">更多>></button>
 
     </ion-item>
 

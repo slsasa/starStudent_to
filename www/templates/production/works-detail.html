@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<ion-view>
+  <ion-content>
+  <h5 style="text-align: center">{{teacherLog.title}}</h5>
+    <span>
+      <p> 类型:{{teacherLog.type}}</p>
+      <div class="bar  row">
+       <a class="col col-25">送花：{{teacherLog.flower}}</a>
+       <a class="col col-25">点赞：{{teacherLog.praise}}</a>
+       <a class="col col-25">分享：{{teacherLog.share}}</a>
+      </div>
+    </span><br><br>
+    <span>
+      <p>作者:{{teacher.name}}</p>
+      <p>{{teacherLog.time |date:'yyyy-MM-dd'}}</p>
+    </span>
+    <div>
+      {{teacherLog.content}}
+    </div>
 
-</body>
-</html>
+  </ion-content>
+  <div class="bar bar-footer row">
+    <a href="" class="col col-50 button">点赞</a>
+    <a href="" class="col col-50 button">送花</a>
+    </a>
+  </div>
+</ion-view>
+

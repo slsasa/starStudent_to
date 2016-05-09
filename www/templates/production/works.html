@@ -1,3 +1,9 @@
+<style>
+  a{
+    text-decoration: none;
+    color: #111111;
+  }
+</style>
 <ion-view>
   <ion-nav-title>
     <span class="title">教学日志</span>
@@ -8,7 +14,12 @@
         {{tearLog.title}}
       </h5>
       <p>{{tearLog.content}}</p>
-      <h6>{{tearLog.time | date:'yyyy-MM-dd'}}</h6>
+
+      <br>
+      <span>
+      <a style="float: left">{{tearLog.time | date:'yyyy-MM-dd'}}</a>
+      <a class="button" ng-click="goWorksDetail($index)" style="float: right">>>详情</a>
+      </span>
     </ion-item>
 
   </ion-content>

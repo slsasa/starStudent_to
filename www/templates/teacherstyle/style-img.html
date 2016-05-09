@@ -1,0 +1,12 @@
+<ion-view>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+       <span ng-repeat="imgDetail in teacherImgs">
+         <p>{{imgDetail.time |date:'yyyy-MM-dd'}}</p>
+        <img ng-src="{{imgDetail.img}}" style="width: 30%;height: 30%">
+      </span>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
