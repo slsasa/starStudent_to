@@ -18,7 +18,6 @@ angular.module('starter')
         assessmentName:'李老师',
         score:'优秀',
         asTime:1462765734379
-
       },
       {
         id:1,
@@ -26,8 +25,8 @@ angular.module('starter')
         assessmentName:'李老师',
         score:'优秀',
         asTime:1462765734379
-
-      }, {
+      },
+      {
         id:2,
         subjectsname:'街舞',
         assessmentName:'李老师',

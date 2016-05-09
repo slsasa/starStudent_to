@@ -23,7 +23,7 @@ angular.module('starter')
 
     //资料编辑
     $scope.editor = function () {
-      $state.go('tabs.date-editor')
+      $state.go('date-editor')
     }
     //学习情况
     $scope.learnSit = function(){
@@ -31,11 +31,11 @@ angular.module('starter')
     }
     //学员荣耀
     $scope.studentHon = function(){
-      $state.go('tabs.students-honor')
+      $state.go('students-honor')
     }
     //教师评语
     $scope.techerCom = function(){
-      $state.go('tabs.techer-comment')
+      $state.go('techer-comment')
     }
 
 

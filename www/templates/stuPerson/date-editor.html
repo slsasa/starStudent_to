@@ -1,5 +1,17 @@
 <ion-view view-title="个人资料">
-  <ion-content>
 
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.stuPerson"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <label class="item item-input " ng-repeat="item in items">
+      <span class="input-label" style="margin-left: 5px"> {{item}}</span>
+      <h3 style="float: right"><input type="text"></h3>
+    </label>
+    <div class="item item-input " >
+      <span class="input-label" style="margin-left: 5px;"> 入学照片</span>
+      <h3 style="float: right"><input type="text"></h3>
+    </div>
   </ion-content>
 </ion-view>

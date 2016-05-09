@@ -1,5 +1,18 @@
 <ion-view view-title="我的报名">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.stuPerson"></button>
+  </ion-nav-buttons>
+
   <ion-content>
-    歌太好听
+    <div class="list">
+      <a class="item" ng-repeat="apply in applys" ng-click="goApplyDeatil(apply.id)">
+        <div class="item-thumbnail-left">
+          <img ng-src={{apply.img}}>
+          <h2>{{apply.title}}</h2>
+          <p>报名费:{{apply.cost}}</p>
+        </div>
+      </a>
+    </div>
   </ion-content>
 </ion-view>
