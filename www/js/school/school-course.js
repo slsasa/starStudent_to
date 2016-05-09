@@ -4,12 +4,10 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.course-introduce',{
-        url:'/course-introduce',
-        views:{'tabs-home':{
+      .state('school-course',{
+        url:'/school-course',
           templateUrl: 'templates/school/school-course.html',
           controller:'introduceCtrl'
-        }}
       });
   })
   .controller('introduceCtrl',function($scope,$state){

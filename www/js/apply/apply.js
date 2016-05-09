@@ -47,6 +47,6 @@ angular.module('starter')
       }];
 
     $scope.goApplyDeatil = function(applyId){
-      $state.go('tabs.applyDetail',{applyId:applyId});
+      $state.go('applyDetail',{applyId:applyId});
     }
   });
