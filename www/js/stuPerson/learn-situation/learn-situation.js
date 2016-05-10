@@ -10,7 +10,7 @@ angular.module('starter')
           controller:'LearnSitCtrl'
       });
   })
-  .controller('LearnSitCtrl',function($scope){
+  .controller('LearnSitCtrl',function($scope,$state){
     $scope.learns = [
       {
         id:0,
@@ -33,4 +33,7 @@ angular.module('starter')
         score:'优秀',
         asTime:1462765734379
       }];
+    $scope.goCheckDeatil = function(checkId){
+      $state.go('checkDetails',{checkId:checkId});
+    }
   })
