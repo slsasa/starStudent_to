@@ -4,12 +4,11 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.school-faculty',{
+      .state('school-faculty',{
         url:'/school-faculty',
-        views:{'tabs-home':{
-          templateUrl: 'templates/school/school-faculty.html',
-          controller: 'FacultyCtrl'
-        }}
+        templateUrl: 'templates/school/school-faculty.html',
+        controller: 'FacultyCtrl'
+
       });
   })
   .controller('FacultyCtrl',function($scope){

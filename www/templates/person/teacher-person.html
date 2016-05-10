@@ -1,0 +1,51 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">教师个人中心</span>
+  </ion-nav-title>
+
+  <ion-content>
+
+      <ion-list>
+      <div class="headbk">
+      <img ng-src="{{teacherPerson.backImg}}"  class="mebk">
+      <span>
+        <img ng-src="{{teacherPerson.headImg}}" class="head">
+         <p class='myneme'> {{teacherPerson.signature}}  {{teacherPerson.username}}</p>
+         <i class="ion-edit" ng-click="edit()"></i>
+      </span>
+      </div>
+
+
+     <div class="item row">
+       <a class="button-clear col col-35" ng-click="addPraise()">点赞：{{teacherPerson.praise}}</a>
+       <a class="button-clear col col-35" ng-click="addFlower()">送花：{{teacherPerson.flower}}</a>
+     </div>
+
+    <ion-item ui-sref="tabs.learn-garden" class=" item-icon-right"  >
+      <a><h2 class="persontext">个人风采</h2></a>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+    <ion-item ui-sref="tabs.learn-garden" class=" item-icon-right"  >
+      <a><h2 class="persontext">我的动态</h2></a>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+    <ion-item ui-sref="tabs.learn-garden" class=" item-icon-right"  >
+      <a><h2 class="persontext">作品中心</h2></a>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+
+    <ion-item style="padding-top: 10%" ui-sref="tabs.learn-garden" class=" item-icon-right"  >
+      <hr>
+      <a><h2 class="persontext">设置</h2></a>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+
+  </ion-list>
+
+  <button class="" ng-click="">退出</button>
+
+
+
+
+  </ion-content>
+</ion-view>

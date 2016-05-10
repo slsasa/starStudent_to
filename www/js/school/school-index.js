@@ -75,7 +75,7 @@ angular.module('starter')
 
     //跳转到师质力量
     $scope.intoTeacherApti = function(){
-      $state.go('tabs.school-faculty');
+      $state.go('school-faculty');
     }
 
     //跳转到荣誉区
