@@ -60,4 +60,8 @@ td {
 .ziliao-title{ margin-left: 5px;  }
 .persontext{    padding: 0px 25px 0;}
 
+.checkDet{    margin: 0 10px 0;}
+.cheComments{    margin: 10px;
+  text-align: justify;}
+.checkscose{margin: -30px 75% 0;}
 .learn{padding: 18px 15px;font-size: 14px}
