@@ -19,15 +19,15 @@
 
           <div class="h5 title item-divider "> {{course.courseKind}}</div>
 
-          <div class="row">
+          <div class="row" >
 
-            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
+            <div class="col col-33" ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
               <a href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
             </div>
           </div>
           <div class="row">
-            <div class="col-20" ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
-              <a  href=" #/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+            <div class="col col-33" ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
+              <a  href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
             </div>
           </div>
         </div>
