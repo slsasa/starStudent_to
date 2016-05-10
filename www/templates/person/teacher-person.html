@@ -21,28 +21,30 @@
        <a class="button-clear col col-35" ng-click="addFlower()">送花：{{teacherPerson.flower}}</a>
      </div>
 
-    <ion-item ui-sref="tabs.learn-garden" class=" item-icon-right"  >
-      <a><h2 class="persontext">个人风采</h2></a>
+    <ion-item  class="item-divider item-icon-right"  >
+      <a ng-click="goMyStyle()"><h2 class="persontext">个人风采</h2></a>
       <i class="icon ion-chevron-right icon-accessory"></i>
     </ion-item>
-    <ion-item ui-sref="tabs.learn-garden" class=" item-icon-right"  >
+    <ion-item  class="item-divider  item-icon-right"  >
       <a><h2 class="persontext">我的动态</h2></a>
       <i class="icon ion-chevron-right icon-accessory"></i>
     </ion-item>
-    <ion-item ui-sref="tabs.learn-garden" class=" item-icon-right"  >
+    <ion-item  class="item-divider item-icon-right "  >
       <a><h2 class="persontext">作品中心</h2></a>
       <i class="icon ion-chevron-right icon-accessory"></i>
     </ion-item>
 
-    <ion-item style="padding-top: 10%" ui-sref="tabs.learn-garden" class=" item-icon-right"  >
-      <hr>
+
+
+  </ion-list>
+    <div style="padding-top: 20%">
+    <ion-item  class="item-divider item-icon-right "  >
+
       <a><h2 class="persontext">设置</h2></a>
       <i class="icon ion-chevron-right icon-accessory"></i>
     </ion-item>
-
-  </ion-list>
-
-  <button class="" ng-click="">退出</button>
+    </div>
+  <button class="" ng-click="exit()">退出</button>
 
 
 

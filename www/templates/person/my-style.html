@@ -1,0 +1,23 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">
+      个人风采
+    </span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_teacher"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+       <span ng-repeat="imgDetail in teacherPerson.styleImg">
+         <p>{{imgDetail.time |date:'yyyy-MM-dd'}}</p>
+         <span ng-repeat="img in imgDetail.imgs">
+           <img ng-src="{{img}}" style="height: 30%;width: 30%">
+         </span>
+      </span>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

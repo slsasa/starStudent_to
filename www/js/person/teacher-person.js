@@ -25,11 +25,14 @@ angular.module('starter')
       headImg:'img/img2.png',
       backImg:'img/mebk.jpeg',
       styleImg:[{
-        time:1471340799000,
-        img:'img/img3.png'
+        time:1482994422123,
+        imgs:['img/img2.png','img/mebk.jpeg','img/img3.png','img/apply.jpeg']
       },{
-        time:1462797786709,
-        img:'img/mebk.jpeg'
+        time:147323424234,
+        imgs:['img/img1.png','img/mebk.jpeg','img/img3.png']
+      },{
+        time:149423424242,
+        imgs:['img/img4.png','img/mebk.jpeg','img/img3.png']
       }],
       myDetail:[{
         time:1462998886709,
@@ -48,7 +51,7 @@ angular.module('starter')
 
     };
     $scope.edit = function(){
-      $state.go('teacher-person');
+      $state.go('personage-msg');
     };
 
     $scope.addPraise = function(){
@@ -56,6 +59,12 @@ angular.module('starter')
     }
     $scope.addFlower = function(){
       $scope.teacherPerson.flower +=1;
+    }
+    $scope.exit = function(){
+      $state.go('login');
+    }
+    $scope.goMyStyle = function(){
+      $state.go('my-style')
     }
 
   })

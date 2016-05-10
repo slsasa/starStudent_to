@@ -29,23 +29,16 @@ angular.module('starter')
       }],
       Detail:'网络工程技术专业工学博士，计算机工程技术学院教授。软件技术与工程中心副主任。中国计算机学会高级会员，IEEE会员。广东省科技咨询专家库专家，广东省综合评标专家库专家，珠海市政府采购评审专家，广东企业科技特派员。',
       headImg:'img/img1.png',
-        imgs:[{
-          _id:0,
-          time:146131231331,
-          img:'img/img1.png'
-        },{
-          _id:1,
-          time:146131231331,
-          img:'img/img2.png'
-        },{
-          _id:2,
-          time:146231231331,
-          img:'img/perry.png'
-        },{
-          _id:3,
-          time:146231231331,
-          img:'img/mike.png'
-        }],
+      styleImg:[{
+          time:1482994422123,
+          imgs:['img/img2.png','img/mebk.jpeg','img/img3.png','img/apply.jpeg']
+      },{
+          time:1483064422123,
+          imgs:['img/img1.png','img/mebk.jpeg','img/img3.png']
+      },{
+          time:1482934422123,
+          imgs:['img/img4.png','img/mebk.jpeg','img/img3.png']
+      }],
       tearchingLog:[{
         title:'主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
@@ -73,19 +66,16 @@ angular.module('starter')
       }],
       Detail:'计算机应用技术专业工学博士，计算机工程技术学院教授。软件技术与工程中心副主任。中国计算机学会高级会员，IEEE会员。广东省科技咨询专家库专家，广东省综合评标专家库专家，珠海市政府采购评审专家，广东企业科技特派员。',
       headImg:'img/img3.png',
-        imgs:[{
-          _id:0,
-          time:146111230331,
-          img:'img/img4.png'
-        },{
-          _id:1,
-          time:146111230331,
-          img:'img/img1.png'
-        },{
-          _id:2,
-          time:146831231331,
-          img:'img/mebk.jpeg'
-        }],
+      styleImg:[{
+        time:1482994422123,
+        imgs:['img/img2.png','img/mebk.jpeg','img/img3.png','img/apply.jpeg']
+      },{
+        time:1483064422123,
+        imgs:['img/img1.png','img/mebk.jpeg','img/img3.png']
+      },{
+        time:1482934422123,
+        imgs:['img/img4.png','img/mebk.jpeg','img/img3.png']
+      }],
       tearchingLog:[{
         title:'主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
@@ -119,6 +109,9 @@ angular.module('starter')
     $scope.goImgs = function(){
       $state.go('style-img',{teacherId:$stateParams.teacherId});
     }
+
+   $scope.showImgLen = 0;
+
 
 
   })

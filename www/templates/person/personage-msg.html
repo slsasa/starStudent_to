@@ -2,6 +2,32 @@
   <ion-nav-title>
     <span class="title">个人资料</span>
   </ion-nav-title>
-</ion-view>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_teacher"></button>
+  </ion-nav-buttons>
 <ion-content>
+
+  <ion-list>
+  <ion-item class="item-divider">
+       姓名<b style="float: right">{{teacherPerson.name}}</b>
+  </ion-item>
+  <ion-item class="item-divider">
+    性别<b style="float: right">{{teacherPerson.sex}}</b>
+  </ion-item>
+  <ion-item class="item-divider">
+    民族<b style="float: right">{{teacherPerson.nation}}</b>
+  </ion-item>
+  <ion-item class="item-divider">
+    入职时间<b style="float: right">{{teacherPerson.entryTime |date:'yyyy-MM-dd'}}</b>
+  </ion-item>
+  <ion-item class="item-divider">
+   负责专业<b style="float: right">{{teacherPerson.principalMajor}}</b>
+  </ion-item>
+
+    <div class="item-divider">
+      教师信息
+    </div>
+  </ion-list><br><br>
+  <textarea ng-model="teacherPerson.teacherMeg" style="width: 100%;height: 40%"></textarea>
 </ion-content>
+</ion-view>

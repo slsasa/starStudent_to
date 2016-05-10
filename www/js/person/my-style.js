@@ -1,17 +1,17 @@
 /**
- * Created by sls on 16/5/9.
+ * Created by sls on 16/5/10.
  */
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('personage-msg',{
-        url:'/person-teacher/personage-msg',
-        templateUrl: 'templates/person/personage-msg.html',
-        controller: 'personageMsgCtrl'
+      .state('my-style',{
+        url:'/person-teacher/my-style',
+        templateUrl: 'templates/person/my-style.html',
+        controller: 'myStyleCtrl'
 
       });
   })
-  .controller('personageMsgCtrl',function($scope){
+  .controller('myStyleCtrl',function($scope){
     $scope.teacherPerson = {
       name:'李伟峰',
       sex:'男',
@@ -26,14 +26,14 @@ angular.module('starter')
         time:1482994422123,
         imgs:['img/img2.png','img/mebk.jpeg','img/img3.png','img/apply.jpeg']
       },{
-        time:1482994422123,
+        time:1483064422123,
         imgs:['img/img1.png','img/mebk.jpeg','img/img3.png']
       },{
-        time:1482994422123,
+        time:1482934422123,
         imgs:['img/img4.png','img/mebk.jpeg','img/img3.png']
       }],
       myDetail:[{
-        time:1462998886709,
+        time:1482924422123,
         img:'img/img2.png',
         content:'学习,不可无目标;做人,不能没理想;发动态,怎么可能没图'
       },{

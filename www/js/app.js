@@ -54,4 +54,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $ionicConfigProvider.tabs.position('bottom');
 
 })
+  .filter('ifImg',function(){
+    return function(imgs){
+      if(imgs.length >3){
+        return '';
+      }else{
+        return imgs;
+      }
+    }
+  })
 
