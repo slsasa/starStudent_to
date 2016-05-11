@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('logCtrl',function($scope,$state,$stateParams){
+  .controller('logCtrl',function($scope,$state,$ionicModal, $ionicPopup){
     $scope.teacher = {
       id: 0,
       name: '李老师',
@@ -65,4 +65,36 @@ angular.module('starter')
       $state.go('myLogs-detail',{index:index});
     }
 
+
+
+    //提交文章选择器
+    $ionicModal.fromTemplateUrl('templates/person/submit-log.html',
+      function(modal){
+        $scope.editmodal_star = modal;
+      },{
+        scope:$scope,
+        animation:'slide-in-up'
+      }
+    );
+
+    //打开选择器
+    $scope.openModel_start = function(){
+      $scope.editmodal_star.show();
+    }
+
+    $scope.close = function(){
+      $scope.editmodal_star.hide();
+    }
+
+    $scope.articleType = '教学日志';
+
+    $scope.closeEditModal = function(article,articleContent){
+      if(article){
+        $scope.editmodal_star.hide();
+
+        $scope.articleType = article;
+        $scope.articleContent= articleContent;
+        alert($scope.articleType+":"+$scope.articleContent);
+      }
+    }
   })
