@@ -3,7 +3,26 @@
     <span class="我的动态"></span>
   </ion-nav-title>
 
+  <ion-nav-title>
+    <span class="title">
+      个人动态
+    </span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_teacher"></button>
+  </ion-nav-buttons>
   <ion-content>
-
+    <ion-list>
+      <ion-item ng-repeat="dynamic in myDynamic">
+        <div>
+        {{dynamic.time |date:'yyyy-MM-dd'}}
+        </div>
+        <div>
+          <img ng-src="{{dynamic.img}}" style="width: 25%;height: 25%">
+          <label>{{dynamic.content}}</label>
+      </div>
+        <button>分享</button><button>点赞</button>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

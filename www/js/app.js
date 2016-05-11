@@ -54,13 +54,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $ionicConfigProvider.tabs.position('bottom');
 
 })
-  .filter('ifImg',function(){
-    return function(imgs){
-      if(imgs.length >3){
-        return '';
-      }else{
-        return imgs;
+  .filter('ifMore', function () {
+    return function (input) {
+      input = input || [];
+      if (input.length > 16) {
+        return input.slice(0, 16) + "...";
+      } else {
+        return input;
       }
     }
   })
-

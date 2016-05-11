@@ -1,0 +1,33 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">日志详情</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="works-tabs.works-log"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <h5 style="text-align: center">{{log.title}}</h5>
+    <span>
+      <p> 类型:{{log.type}}</p>
+      <div class="row">
+        <a class="col col-25">送花：{{log.flower}}</a>
+        <a class="col col-25">点赞：{{log.praise}}</a>
+        <a class="col col-25">分享：{{log.share}}</a>
+      </div>
+    </span>
+    <span>
+      <p>作者:{{teacher.name}}</p>
+      <p>{{log.time |date:'yyyy-MM-dd'}}</p>
+    </span>
+    <div>
+      {{log.content}}
+    </div>
+
+  </ion-content>
+  <div class="bar bar-footer row">
+    <a href="" class="col col-50 button">点赞</a>
+    <a href="" class="col col-50 button">送花</a>
+    </a>
+  </div>
+</ion-view>
+
