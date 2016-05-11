@@ -4,12 +4,11 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.teacher-tabs.personal-style',{
-        url:'/teacher-chat/personal-style:teacherId',
-        views:{'teacher-chat':{
-          templateUrl:'templates/teacherstyle/personal-style.html',
-          controller:'personalCtrl'
-        }}
+      .state('personal-style',{
+        url:'/teacher-mine/personal-style:teacherId',
+        templateUrl:'templates/teacherstyle/personal-style.html',
+        controller:'personalCtrl'
+
       });
   })
   .controller('personalCtrl',function($scope,$stateParams,$state,Base){
@@ -112,6 +111,9 @@ angular.module('starter')
 
    $scope.showImgLen = 0;
 
+   $scope.goPaper = function(teacherId){
+     $state.go('works-centre',{teacherId:teacherId})
+   }
 
 
   })
