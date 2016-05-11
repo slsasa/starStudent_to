@@ -1,17 +1,17 @@
 /**
- * Created by apple-ty on 16-5-9.
+ * Created by apple-ty on 16-5-10.
  */
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('myApply',{
-        url:'/myApply',
-          templateUrl: 'templates/stuPerson/myApply/myApply.html',
-          controller: 'myApplyCtrl'
+      .state('myApplydet',{
+        url:'/myApply/myApplydet:myApplydetId',
+        templateUrl: 'templates/stuPerson/myApply/myApplydet.html',
+        controller: 'myApplydetCtrl'
       });
   })
-  .controller('myApplyCtrl',function($scope,$state){
-    $scope.applys = [
+  .controller('myApplydetCtrl',function($scope ,$stateParams){
+    var myapplys = [
       {
         id:0,
         title: '汽车之家试驾捷豹F-PACE',
@@ -41,7 +41,12 @@ angular.module('starter')
         img:'img/img1.png',
         content:'在这个SUV风起云涌的年代，没有一款有小豹子在车头霸气坐镇的SUV始终感到遗憾，但是现在他们可以了此情结了。“每款捷豹都能在200米外就吸引您的注意，而我相信与同级车型相比，全新捷豹F-PACE在道路上的魅力首屈一指。 全新捷豹F-PACE是全天候、全路况的捷豹跑车型SUV。”'
       }];
-    $scope.myApplyDeatil = function(myApplydetId){
-      $state.go('myApplydet',{myApplydetId:myApplydetId});
+    var getApply = function(myApplydetId){
+      for(var i = 0; i < myapplys.length;i++){
+        if( myapplys[i].id == parseInt(myApplydetId)){
+          return myapplys[i];
+        }
+      }
     }
+    $scope.myapply = getApply($stateParams.myApplydetId);
   })

@@ -38,19 +38,4 @@ angular.module('starter')
       $state.go('techer-comment')
     }
 
-
-    $scope.stuPerson = [
-      {
-        "id":"0",
-        "title":"学习园"
-      },
-      {
-        "id":"1",
-        "title":"我的动态"
-      },
-      {
-        "id":"2",
-        "title":"我的报名"
-      },
-    ];
   })

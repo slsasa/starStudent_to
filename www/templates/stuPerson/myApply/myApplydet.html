@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">我的报名</span>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-android-share-alt" ></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <h4 style="text-align: center">{{myapply.title}}</h4>
+    <img  style="width: 65%;height: 25%" ng-src="{{myapply.img}}"/>
+    <p>报名规则</p>
+    <p>报名费:{{myapply.cost}}元</p>
+    <p>奖励积分:{{myapply.awardIntegral}}</p>
+    <p>截止时间:{{myapply.stopTime | date:'yyyy-MM-dd'}}</p>
+    <br>
+    <p>{{myapply.content}}</p>
+  </ion-content>
+</ion-view>
