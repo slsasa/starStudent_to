@@ -13,5 +13,9 @@ angular.module('starter')
 
 
     .controller('forgotpwCtrl',function($scope){
-
+    $scope.loginbks = [
+      {
+        "img":"img/logobk.jpg"
+      }
+    ]
     })

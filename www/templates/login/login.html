@@ -1,44 +1,36 @@
 <ion-view view-title="登录">
   <ion-content class="has-header" style="background-image:url(img/loginbk.jpg);position:fixed ;height: 100%;width:100%">
 
+
     <div class="loginbk" ng-repeat="loginbk in loginbks">
-      <img src="{{loginbk.img}}" class="mebk">
+      <div style="border: solid white 2px;width:120px;height:120px;border-radius:120px;margin: 10% 32%">
+        <img src="{{loginbk.img}}" class="mebk">
+      </div>
     </div>
 
-    <ion-list>
-      <label class="item item-input">
-        <span class="input-label fill" >帐号</span>
-        <input type="text" placeholder="输入账号" ng-model="user.num">
-      </label>
-      <label class="item item-input">
-        <span class="input-label fill">密码</span>
-        <input type="text" placeholder="输入密码" ng-model="user.pwd">
-      </label>
-
-      <label class="item item-input item-select">
-        <div class="input-label fill">
-          身份
-        </div>
-        <select ng-model="user.type" style="font-size: 18px;font-weight:500">
-          <option selected="">教师</option>
-          <option>学生</option>
-        </select>
-      </label>
-
-    </ion-list>
-
-<div>
-  <i class="ion-ios-person-outline" style="font-size: 30px ;color: white"></i>
-  <input type="text" class="loginaccount " placeholder="请输入账号" ng-model="user.num " style="border: 1px solid white">
-</div>
-
-
-      <div style="padding: 10%">
-        <button class="button" ng-click="login()">登陆</button>
-        <button class="button" ng-click="register()">注册</button>
+    <div class="logininput">
+      <i class="ion-ios-person-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
+      <input type="text" class="loginaccount " placeholder="请输入账号" ng-model="user.num " >
+    </div>
+    <div class="logininput">
+      <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
+      <input type="text" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
+    </div>
+    <div class="logininput item-select">
+      <div class="input-label fill" style="color: white;padding-left: 8%">
+        身份
+      </div>
+      <select ng-model="user.type" style="font-size: 18px;font-weight:500">
+        <option selected="">教师</option>
+        <option>学生</option>
+      </select>
+    </div>
+      <div >
+        <button class="button  button-pink" style="width: 80%;margin: 5% 11%;" ng-click="login()">登录</button>
+        <button class="button  button-pink" style="width: 80%;margin: 0% 11%;" ng-click="register()">注册</button>
       </div>
 
-      <a  style="float: right"  ng-click="Forgotpw()">忘记密码</a>
+      <a  style="float: right"  ng-click="Forgotpw()" class="loginforget">忘记密码</a>
 
 
   </ion-content>
