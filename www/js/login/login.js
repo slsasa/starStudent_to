@@ -15,7 +15,7 @@ angular.module('starter')
   .controller('loginCtrl',function($scope,$state,$ionicPopup){
     $scope.loginbks = [
       {
-        "img":"img/mebk.jpeg"
+        "img":"img/logobk.jpg"
       }
     ]
     $scope.user = {

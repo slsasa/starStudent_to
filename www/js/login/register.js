@@ -16,5 +16,9 @@ angular.module('starter')
 
 
   .controller('registerCtrl',function($scope){
-
+    $scope.loginbks = [
+      {
+        "img":"img/logobk.jpg"
+      }
+    ]
   })

@@ -3,12 +3,10 @@
     <span class="title">明星学员</span>
   </ion-nav-title>
 
-
-
   <ion-content class="list">
     <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
       <ion-slide ng-repeat="banner in banners">
-        <img ng-src="{{banner.bannerImg}}" height="80px" width="100%">
+        <img ng-src="{{banner.bannerImg}}" height="90px" width="100%">
         <h4>{{banner.context}}</h4>
       </ion-slide>
     </ion-slide-box>
@@ -24,10 +22,10 @@
 
     <div class="item">
 
-      <marquee onmouseover="stop()" onmouseout="start()" width="80%" scrollamount="5" >
+      <marquee onmouseover="stop()" onmouseout="start()"  scrollamount="5"style=" width: 80%;   line-height: 30px;">
       <span  ng-repeat="dynamic in dynamics">
-        <a  href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
-        <a  href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
+        <a class="schsynopsis" href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
+        <a class="schsynopsis" href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
       </span>
       </marquee>
       <button ng-click="intoSchoolDynamic()" class="more">更多</button>
