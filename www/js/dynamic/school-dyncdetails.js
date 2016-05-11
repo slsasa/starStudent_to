@@ -4,12 +4,11 @@
 angular.module('starter')
   .config(function($stateProvider){
     $stateProvider
-      .state('tabs.dynamic-tabs.school-dyncdetails',{
-        url:'/school-dynamic/:schoolDynsId',
-        views:{'dyschool':{
-          templateUrl:'templates/dynamic/school-dyncdetails.html',
-          controller:'dynamicDetailsCtrl'
-        }}
+      .state('school-dyncdetails',{
+        url:'/school-dynamics/:schoolDynsId',
+        templateUrl:'templates/dynamic/school-dyncdetails.html',
+        controller:'dynamicDetailsCtrl'
+
       })
   })
 

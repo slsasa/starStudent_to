@@ -1,0 +1,56 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">明星学员</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="bar-subheader">
+      <a class="button" ng-click="showSchoolDynamic()">校园动态</a>
+      <a class="button" ng-click="showStudentDynamic()">学员动态</a>
+      <a class="button" ng-click="showTeacherDynamic()">教师动态</a>
+    </div>
+
+    <div id="school" class="list" style="display: none">
+      <ion-item class="item-avatar"  ng-repeat="shcoolDynamic in schoolDynamics">
+        <div class="item-avatar">
+        <img ng-src="{{shcoolDynamic.img}}">
+        <h4>{{shcoolDynamic.schoolName}}</h4>
+        <p>{{shcoolDynamic.content}}</p>
+        <h6 style="float: left">{{shcoolDynamic.time | date : 'yyyy-MM-dd'}}</h6>
+        </div>
+      </ion-item>
+    </div>
+
+    <div id="student" class="list" >
+      <ion-item class="item" ng-repeat="stuDynamic in  stuDynamics">
+        <div class="item-avatar">
+          <img src="{{stuDynamic.img}}">
+          <h5>{{stuDynamic.name}}</h5>
+          <p>{{stuDynamic.content}}</p>
+          <p>{{stuDynamic.time | date:'yyyy-MM-dd'}}</p>
+        </div>
+        <div class="comments" ><i class="ion-chatbox-working"></i></div>
+
+      </ion-item>
+    </div>
+
+    <div id="teacher" class="list" style="display: none">
+      <ion-item class="item" ng-repeat="terDynamic in  terDynamics">
+        <div class="item-avatar">
+          <img src="{{terDynamic.img}}">
+          <h5>{{terDynamic.name}}</h5>
+          <p>{{terDynamic.content}}</p>
+          <p>{{terDynamic.time | date:'yyyy-MM-dd'}}</p>
+        </div>
+        <div class="comments" ><i class="ion-chatbox-working"></i></div>
+
+      </ion-item>
+    </div>
+
+
+  </ion-content>
+
+
+
+
+
+</ion-view>
