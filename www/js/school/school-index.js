@@ -81,12 +81,16 @@ angular.module('starter')
     //跳转到荣誉区
     $scope.goHonor = function(){
 
-      $state.go('tabs.school-honor.star');
+      $state.go('honor-area');
     }
 
     //跳转到教师风采
     $scope.goTeacherStyle = function(){
-      $state.go('tabs.teacher-tabs.teacher-chat')
+      $state.go('teacher-mine')
+    }
+    //关于我们
+    $scope.goIntro = function(){
+      $state.go('school-intro');
     }
 
   })

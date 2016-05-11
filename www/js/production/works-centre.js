@@ -1,19 +1,18 @@
 /**
- * Created by sls on 16/5/3.
+ * Created by sls on 16/5/11.
  */
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.teacher-tabs.teacher-charm',{
-        url:'/teacher-charm',
-        views:{'teacher-charm':{
-          templateUrl:'templates/teacherstyle/teacher-charm.html',
-          controller:'teacherCharmCtrl'
-        }}
+      .state('works-centre',{
+        url:'/works:teacherId',
+        templateUrl:'templates/production/works-centre.html',
+        controller:'worksCtrl'
+
       });
   })
-  .controller('teacherCharmCtrl',function($scope){
-    $scope.teachers =  [{
+  .controller('worksCtrl',function($scope,$state,$stateParams){
+    var teachers =  [{
       id:0,
       name:'李老师',
       longevity:'大专学历,小学一级教师。1999年参加工作,爱岗敬业,有才艺,有理想,。',
@@ -39,12 +38,35 @@ angular.module('starter')
         title:'主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146131231331
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
       },{
         title:'全自主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146775554442
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
+      }],
+      thesis:[{
+        title:'这是个论文',
+        content:'我们探讨理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
+        type:'学术论文',
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
+      },{
+        title:'还是论文',
+        content:'探讨怎样不挂科盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
+        type:'学术论文',
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
       }]
 
     },{
@@ -70,18 +92,71 @@ angular.module('starter')
         img:'img/img1.png'
       }],
       tearchingLog:[{
-        title:'主型智能网络磁盘存储系统',
+        title:'主型系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146131231331
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
       },{
         title:'全自主型智能网络磁盘存储系统',
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
-        time:146775554442
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
+      }],
+      thesis:[{
+        title:'论文',
+        content:'神经病是怎样炼成的，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
+        type:'学术论文',
+        time:146131231331,
+        flower:10,
+        praise:32,
+        share:311
+      },{
+        title:'哇哈哈论文',
+        content:'探讨猪是怎么吃饭的系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
+        type:'学术论文',
+        time:146775554442,
+        flower:10,
+        praise:32,
+        share:311
       }]
     }];
+    var getTeacher = function(teacherId){
+      for(var i = 0; i < teachers.length;i++){
+        if( teachers[i].id == parseInt(teacherId)){
+          return teachers[i];
+        }
+      }
+    }
 
+    $scope.showLog = function(){
+      var objLog = document.getElementById('log');
+      var objPaper = document.getElementById('paper');
+      if(objLog.style.display == "none"){
+        objPaper.style.display = "none";
+        objLog.style.display = "";
+      }
+    }
+    $scope.showPaper = function(){
+      var objLog = document.getElementById('log');
+      var objPaper = document.getElementById('paper');
+      if(objPaper.style.display == "none"){
+        objLog.style.display = "none";
+        objPaper.style.display = "";
+      }
+    }
 
+    $scope.teacher = getTeacher($stateParams.teacherId);
 
+    $scope.goWorksDetail = function(index){
+      $state.go('works-detail',{teacherId:$stateParams.teacherId,index:index})
+    }
+    $scope.goPaperDetail = function(index){
+      $state.go('paper-detail',{teacherId:$stateParams.teacherId,index:index});
+    }
   })

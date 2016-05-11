@@ -74,6 +74,10 @@ angular.module('starter')
       $state.go('works-tabs.works-log');
     }
 
+    $scope.goSetting = function(){
+      $state.go('setting');
+    }
+
   })
 
 

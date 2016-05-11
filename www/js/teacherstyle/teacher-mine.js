@@ -1,18 +1,17 @@
 /**
- * Created by sls on 16/5/3.
+ * Created by sls on 16/5/11.
  */
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('tabs.teacher-tabs.teacher-chat',{
-        url:'/teacher-chat',
-        views:{'teacher-chat':{
-          templateUrl:'templates/teacherstyle/teacher-chat.html',
-          controller:'teacherChatCtrl'
-        }}
+      .state('teacher-mine',{
+        url:'/teacher-mine',
+        templateUrl:'templates/teacherstyle/teacher-mine.html',
+        controller:'teacherMineCtrl'
+
       });
   })
-  .controller('teacherChatCtrl',function($scope,$state){
+  .controller('teacherMineCtrl',function($scope,$state){
     $scope.teachers =  [{
       id:0,
       name:'李老师',
@@ -47,7 +46,7 @@ angular.module('starter')
         time:146775554442
       }]
 
-     },{
+    },{
       id:1,
       name:'白老师',
       longevity:'大专学历,小学一级教师。1999年参加工作,爱岗敬业,有才艺,有理想,。',
@@ -82,9 +81,29 @@ angular.module('starter')
       }]
     }];
 
-    $scope.goPersonal = function(teacherId){
+    $scope.showChat = function(){
+      var objChat = document.getElementById('chat');
+      var objCharm = document.getElementById('charm');
+      if(objChat.style.display == "none"){
+        objCharm.style.display = "none";
+        objChat.style.display = "";
+      }
+    }
 
-      $state.go('tabs.pro-tabs.works',{teacherId:teacherId});
+    $scope.showCharm = function(){
+      var objChat = document.getElementById('chat');
+      var objCharm = document.getElementById('charm');
+      if(objCharm.style.display == "none"){
+        objChat.style.display = "none";
+        objCharm.style.display = "";
+      }
+    }
+
+    $scope.goPersonalMine = function(teacherId){
+      $state.go('personal-style',{teacherId:teacherId});
+    }
+    $scope.goWorks = function(teacherId){
+      $state.go('works-centre',{teacherId:teacherId});
     }
 
   })

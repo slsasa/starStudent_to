@@ -1,0 +1,41 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">明星学员</span>
+  </ion-nav-title>
+  <ion-nav-buttons>
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="bar-subheader">
+      <a class="button" ng-click="showChat()">教师圈</a>
+      <a class="button" ng-click="showCharm()">魅力教师榜</a>
+    </div>
+
+    <div id="chat" class="list">
+      <div class="item" ng-repeat="teacher in teachers" >
+        <div class="item-avatar">
+          <img ng-src="{{teacher.headImg}}">
+          <h5>{{teacher.name}}</h5>
+          <p>{{teacher.longevity}}</p>
+          <div class="button-bar">
+            <a class="button" ng-click="goPersonalMine(teacher.id)">个人风采</a>
+            <a class="button" ng-click="goWorks(teacher.id)">作品中心</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="charm" class="list" style="display: none">
+      <div class="item item-avatar" ng-repeat="teacher in teachers" >
+        <div class="item-avatar">
+          <img ng-src="{{teacher.headImg}}">
+          <h5>{{teacher.name}}</h5>
+          <p>{{teacher.longevity}}</p>
+        </div>
+      </div>
+    </div>
+
+
+  </ion-content>
+
+</ion-view>

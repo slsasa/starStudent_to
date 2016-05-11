@@ -32,8 +32,8 @@
 
   </ion-content>
   <div class="bar bar-subfooter row">
-    <a href="#/tabs{{type}}/teacher-chat/pro-tabs{{teacher.id}}/works{{teacher.id}}" class="col col-25 button">教学日志</a>
-    <a href="#/tabs{{type}}/teacher-chat/pro-tabs{{teacher.id}}/papers{{teacher.id}}" class="col col-25 button">学术论文</a>
+    <a href="#/works{{teacher.id}}" class="col col-25 button">教学日志</a>
+    <a  ng-click="goPaper(teacher.id)" class="col col-25 button">学术论文</a>
     <a href="" class="col col-25 button">点赞</a>
     <a href="" class="col col-25 button">送花</a>
     </a>

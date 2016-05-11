@@ -1,0 +1,37 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">明星学员</span>
+  </ion-nav-title>
+  <ion-nav-buttons>
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="bar-subheader">
+      <a class="button" ng-click="showStar()">明星榜</a>
+      <a class="button" ng-click="showHonor()">荣誉墙</a>
+    </div>
+
+    <div id="star" class="list">
+      <a class="item " ng-repeat="star in starList">
+        <div class="item-avatar">
+          <img ng-src="{{star.img}}">
+          <h5>{{star.name}}</h5>
+          <p>获奖情况：{{star.honorDetail}}</p>
+        </div>
+      </a>
+    </div>
+
+    <div id="honor" class="list" style="display: none">
+      <a class="item" ng-repeat="honorMan in honorWall">
+        <div class="item-avatar">
+          <img ng-src="{{honorMan.img}}">
+          <h5>{{honorMan.name}}</h5>
+          <p>{{honorMan.honorDetail}}</p>
+        </div>
+      </a>
+    </div>
+
+
+  </ion-content>
+
+</ion-view>
