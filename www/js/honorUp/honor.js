@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('honorWallCtrl',function($scope){
+  .controller('honorWallCtrl',function($scope,$ionicModal){
     $scope.honorWall = [{
       id:0,
       name:'李德老师',
@@ -34,4 +34,18 @@ angular.module('starter')
       img:'img/img4.png',
       honorDetail:'大专学历,小学一级教师。1999年参加工作,爱岗敬业,有才艺,有理想,。'
     }];
+
+    $scope.showStar = function(){
+      $scope.showModal('star.html');
+    }
+
+    $scope.showModal = function(templateUrt){
+      $ionicModal.fromTemplateUrl(templateUrt,{
+        scope:$scope
+      }).then(function(modal){
+        $scope.modal = modal;
+        $scope.modal.show();
+      })
+    }
+
   })

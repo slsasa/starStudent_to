@@ -88,5 +88,9 @@ angular.module('starter')
     $scope.goTeacherStyle = function(){
       $state.go('tabs.teacher-tabs.teacher-chat')
     }
+    //关于我们
+    $scope.goIntro = function(){
+      $state.go('school-intro');
+    }
 
   })
