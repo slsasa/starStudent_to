@@ -1,0 +1,29 @@
+<style>
+  a{
+    text-decoration: none;
+    color: #111111;
+  }
+</style>
+<ion-view>
+  <ion-nav-title>
+    <span class="title">教学日志</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.teacher-tabs.teacher-chat"></button>
+  </ion-nav-buttons>
+  <ion-content class="list">
+    <ion-item ng-repeat="tearLog in teacher.tearchingLog">
+      <h5>
+        {{tearLog.title}}
+      </h5>
+      <p>{{tearLog.content}}</p>
+
+      <br>
+      <span>
+      <a style="float: left">{{tearLog.time | date:'yyyy-MM-dd'}}</a>
+      <a class="button" ng-click="goLogsDetail($index)" style="float: right">>>详情</a>
+      </span>
+    </ion-item>
+
+  </ion-content>
+</ion-view>

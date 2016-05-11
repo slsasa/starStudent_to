@@ -64,7 +64,14 @@ angular.module('starter')
       $state.go('login');
     }
     $scope.goMyStyle = function(){
-      $state.go('my-style')
+      $state.go('my-style');
+    }
+    $scope.goMyDynamic = function(){
+      $state.go('my_dynamic');
+    }
+
+    $scope.goWorksLog = function(){
+      $state.go('works-tabs.works-log');
     }
 
   })
