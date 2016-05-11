@@ -1,5 +1,5 @@
 <ion-view view-title="登录">
-  <ion-content class="has-header">
+  <ion-content class="has-header" style="background-image:url(img/loginbk.jpg);position:fixed ;height: 100%;width:100%">
 
     <div class="loginbk" ng-repeat="loginbk in loginbks">
       <img src="{{loginbk.img}}" class="mebk">
@@ -27,6 +27,10 @@
 
     </ion-list>
 
+<div>
+  <i class="ion-ios-person-outline" style="font-size: 30px ;color: white"></i>
+  <input type="text" class="loginaccount " placeholder="请输入账号" ng-model="user.num " style="border: 1px solid white">
+</div>
 
 
       <div style="padding: 10%">
@@ -35,8 +39,6 @@
       </div>
 
       <a  style="float: right"  ng-click="Forgotpw()">忘记密码</a>
-
-    </ion-list>
 
 
   </ion-content>
