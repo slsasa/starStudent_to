@@ -71,7 +71,7 @@ angular.module('starter')
     }
 
     $scope.goWorksLog = function(){
-      $state.go('works-tabs.works-log');
+      $state.go('my-works');
     }
 
     $scope.goSetting = function(){
