@@ -153,8 +153,8 @@ angular.module('starter')
 
     $scope.teacher = getTeacher($stateParams.teacherId);
 
-    $scope.goWorksDetail = function(index){
-      $state.go('works-detail',{teacherId:$stateParams.teacherId,index:index})
+    $scope.goLogsDetail = function(index){
+      $state.go('logs-detail',{teacherId:$stateParams.teacherId,index:index})
     }
     $scope.goPaperDetail = function(index){
       $state.go('paper-detail',{teacherId:$stateParams.teacherId,index:index});

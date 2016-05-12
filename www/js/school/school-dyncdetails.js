@@ -5,8 +5,8 @@ angular.module('starter')
   .config(function($stateProvider){
     $stateProvider
       .state('school-dyncdetails',{
-        url:'/school-dynamics/:schoolDynsId',
-        templateUrl:'templates/dynamic/school-dyncdetails.html',
+        url:'/school-dynamic/:dynamicId',
+        templateUrl:'templates/school/school-dyncdetails.html',
         controller:'dynamicDetailsCtrl'
 
       })
@@ -38,7 +38,7 @@ angular.module('starter')
         }
       }
     }
-    $scope.dynamic = getDaynmic($stateParams.schoolDynsId);
+    $scope.dynamic = getDaynmic($stateParams.dynamicId);
 
 
   })

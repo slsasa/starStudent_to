@@ -70,7 +70,7 @@ angular.module('starter')
 
     //进入校园动态
     $scope.intoSchoolDynamic = function(){
-      $state.go('tabs.dynamic-tabs.school-dynamic');
+      $state.go('school-dynamic');
     }
 
     //跳转到师质力量

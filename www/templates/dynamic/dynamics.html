@@ -17,7 +17,14 @@
         <p>{{shcoolDynamic.content}}</p>
         <h6 style="float: left">{{shcoolDynamic.time | date : 'yyyy-MM-dd'}}</h6>
         </div>
-        <div class="comments" ng-click="test()"><i class="ion-chatbox-working" ></i></div>
+
+        <div class="comments" ng-click="showClickSchool(shcoolDynamic.id)">
+          <span id="{{shcoolDynamic.id+'school'}}" style="display: none">
+          <a class="button" ng-click="">点赞</a>
+          <a class="button" ng-click="">分享</a>
+        </span>
+          <i class="ion-chatbox-working" ></i>
+        </div>
       </ion-item>
     </div>
 
@@ -29,7 +36,14 @@
           <p>{{stuDynamic.content}}</p>
           <p>{{stuDynamic.time | date:'yyyy-MM-dd'}}</p>
         </div>
-        <div class="comments" ng-click="test()"><i class="ion-chatbox-working" ></i></div>
+
+        <div class="comments" ng-click="showClickStudent(stuDynamic.id)">
+           <span id="{{stuDynamic.id+'stu'}}" style="display: none">
+          <a class=" button" ng-click="">点赞</a>
+          <a class=" button" ng-click="">分享</a>
+        </span>
+          <i class="ion-chatbox-working" ></i>
+        </div>
 
       </ion-item>
     </div>
@@ -43,7 +57,14 @@
           <p>{{terDynamic.time | date:'yyyy-MM-dd'}}</p>
         </div>
 
-        <div class="comments" ng-click="test()"><i class="ion-chatbox-working" ></i></div>
+
+        <div class="comments">
+          <span id="{{terDynamic.id+'teacher'}}" style="display: none" >
+          <a class=" button" ng-click="">点赞</a>
+          <a class=" button" ng-click="">分享</a>
+        </span>
+          <i  ng-click="showClickTeacher(terDynamic.id)" class="ion-chatbox-working" ></i>
+        </div>
       </ion-item>
     </div>
 

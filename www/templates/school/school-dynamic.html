@@ -1,0 +1,25 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">学校动态</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
+  </ion-nav-buttons>
+
+<ion-content>
+  <ion-content class="list">
+    <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
+      <ion-slide ng-repeat="dynamic in schoolDynamic">
+        <img ng-src="{{dynamic.img}}" height="90px" width="100%">
+      </ion-slide>
+    </ion-slide-box>
+    <ion-item ng-repeat="dynamic in schoolDynamic" ng-click="goDetail(dynamic.id)">
+
+      <h4>{{dynamic.title}}</h4>
+      <p>{{dynamic.content}}</p>
+      <h6 style="float: right">{{dynamic.time |date:'yyyy-MM-dd'}}</h6>
+
+    </ion-item>
+
+</ion-content>
+  </ion-view>
