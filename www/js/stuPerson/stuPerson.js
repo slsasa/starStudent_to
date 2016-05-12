@@ -15,9 +15,9 @@ angular.module('starter')
   .controller('stuPersonCtrl',function($scope,$state){
     $scope.headbks = [
       {
-        "img":"img/mebk.jpeg",
+        "img":"img/stuperson/stubk.png",
         "myname":"名字",
-        "headimg":"img/head.jpeg"
+        "headimg":"img/stuperson/stuh.png"
       }
     ]
 

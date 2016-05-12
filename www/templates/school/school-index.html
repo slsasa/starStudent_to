@@ -3,11 +3,58 @@
     <span class="title">明星学员</span>
   </ion-nav-title>
 
-  <ion-content class="list"  style="background-color: #f1f1f1">
-    <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
+  <!--<ion-content class="list"  style="background-color: #f1f1f1">-->
+    <!--<ion-slide-box  does-continue="true" auto-play="true" show-pager="true">-->
+      <!--<ion-slide ng-repeat="banner in banners">-->
+        <!--<img ng-src="{{banner.bannerImg}}" height="90px" width="100%">-->
+        <!--<h4>{{banner.context}}</h4>-->
+      <!--</ion-slide>-->
+    <!--</ion-slide-box>-->
+
+    <!--<div class="button-bar a_image shadow" style="height: 100px;margin-bottom:15px;">-->
+      <!--<a class="button button-light" ng-click="intoSchOutcome()"><img src="img/logo/go1.png"/>学校成果</a>-->
+      <!--<a class="button button-light" ng-click="intoCourseIntr()"><img src="img/logo/go2.png"/>课程介绍</a>-->
+      <!--<a class="button button-light" ng-click="intoTeacherApti()"><img src="img/logo/go3.png"/>师资力量</a>-->
+      <!--<a class="button button-light " ng-click="goHonor()"><img src="img/logo/go4.png"/>荣誉区</a>-->
+      <!--<a class="button button-light" ng-click="goTeacherStyle()"><img src="img/logo/go5.png"/>教师风采</a>-->
+    <!--</div>-->
+
+
+    <!--<div class="shadow">-->
+
+      <!--<marquee onmouseover="stop()" onmouseout="start()"  scrollamount="5"style=" width: 80%;   line-height: 30px;">-->
+      <!--<span  ng-repeat="dynamic in dynamics">-->
+        <!--<a class="schsynopsis"  ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>-->
+        <!--<a class="schsynopsis" ng-if="dynamic.id!=0">{{dynamic.title}}</a>-->
+      <!--</span>-->
+      <!--</marquee>-->
+      <!--<button ng-click="intoSchoolDynamic()" class="more">更多</button>-->
+    <!--</div>-->
+    <!--<div class="item">-->
+      <!--<p>格林艺术培训学校</p>-->
+      <!--<p>简介</p>-->
+      <!--<div>-->
+        <!--<p>格林艺术培训学校是艺海艺术教育直营的第四分校。艺海艺术教育成立于2009年，七年来迅速发展成湖南省知名度、美誉度极高的艺术类培训学校。学校以先进的办学理念，独到的办学特色，致力于打造全明星优秀少年儿童，培养孩子健全人格，让孩子在充满快乐与爱的氛围中萌发出对美好事物的追求。</p>-->
+        <!--<a  class="button-clear" ng-click="goIntro()">更多</a >-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<marquee  onmouseover="this.stop()" onmouseout="this.start()">-->
+        <!--<span ng-repeat="banner in banners">-->
+         <!--<a href="#"><img ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%"></a>-->
+
+        <!--</span>-->
+    <!--</marquee>-->
+
+
+  <!--</ion-content>-->
+  <ion-content style="background: #eeeeee">
+    <ion-slide-box does-continue="true" auto-play="true" show-pager="true" style="margin-bottom: -5px">
       <ion-slide ng-repeat="banner in banners">
-        <img ng-src="{{banner.bannerImg}}" height="90px" width="100%">
-        <h4>{{banner.context}}</h4>
+        <img ng-src="{{banner.bannerImg}}" height="150px" width="100%">
+
+        <p class="dark " style="margin:-50px 10px 10px 10px ;font-size: 14px;">{{banner.context}}</p>
       </ion-slide>
     </ion-slide-box>
 
@@ -20,34 +67,33 @@
     </div>
 
 
-    <div class="item">
-
-      <marquee onmouseover="stop()" onmouseout="start()"  scrollamount="5"style=" width: 80%;   line-height: 30px;">
-      <span  ng-repeat="dynamic in dynamics">
-        <a class="schsynopsis"  ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
-        <a class="schsynopsis" ng-if="dynamic.id!=0">{{dynamic.title}}</a>
+    <div class="light-bg shadow" style="height: 30px;margin: 10px 0px">
+      <marquee onmouseover="stop()" onmouseout="start()" width="80%" scrollamount="5">
+      <span ng-repeat="dynamic in dynamics" style="line-height: 30px;">
+        <a style="text-decoration: none" href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}"
+           ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
+        <a style="text-decoration: none" href="#/tabs{{type}}/dynamic-tabs/school-dynamic/{{dynamic.id}}"
+           ng-if="dynamic.id!=0">{{dynamic.title}}</a>
       </span>
       </marquee>
-      <button ng-click="intoSchoolDynamic()" class="more">更多</button>
-    </div>
-    <div class="item">
-      <p>格林艺术培训学校</p>
-      <p>简介</p>
-      <div>
-        <p>格林艺术培训学校是艺海艺术教育直营的第四分校。艺海艺术教育成立于2009年，七年来迅速发展成湖南省知名度、美誉度极高的艺术类培训学校。学校以先进的办学理念，独到的办学特色，致力于打造全明星优秀少年儿童，培养孩子健全人格，让孩子在充满快乐与爱的氛围中萌发出对美好事物的追求。</p>
-        <a  class="button-clear" ng-click="goIntro()">更多</a >
-      </div>
+      <button ng-click="intoSchoolDynamic()" class="more button-clear " style="line-height: 35px;    margin: -5px 0px 0;font-size: 14px">更多<i
+        class="iocn ion-chevron-right"></i></button>
     </div>
 
+     <div>
+       <img src="img/indexSch.png" style="height: 78%;"/>
+       <a  ng-click="goIntro()" class="more button-clear " style="line-height: 35px;margin: -20px 0px 0;font-size: 14px">更多
+         <i class="iocn ion-chevron-right"></i></a>
+     </div>
 
-    <marquee  onmouseover="this.stop()" onmouseout="this.start()">
+    <div class="light-bg shadow" style="margin: 10px 0px 0;">
+      <marquee onmouseover="this.stop()" onmouseout="this.start()">
         <span ng-repeat="banner in banners">
-         <a href="#"><img ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%"></a>
+         <a href="#"><img ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%;border: solid 1px gainsboro;margin: 0 5px"></a>
 
         </span>
-    </marquee>
-
+      </marquee>
+    </div>
 
   </ion-content>
-
 </ion-view>
