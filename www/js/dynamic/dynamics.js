@@ -13,19 +13,22 @@ angular.module('starter')
       });
   })
 
-  .controller('dynamicCtrl',function($scope){
+  .controller('dynamicCtrl',function($scope,$ionicPopup){
 
     $scope.schoolDynamics =[{
+      id:0,
       img:'img/img1.png',
       schoolName:'格林艺术培训学校',
       time:14613407993000,
       content:'1月7日和13日，我校分别在澳门和香港两地举行了2016年校董迎春座谈会',
       },{
+      id:1,
       img:'img/img1.png',
       schoolName:'格林艺术培训学校',
       time:14634242424244,
       content:'1月7日，澳门特别行政长官，我校董事会副董事长崔世安在特区政府礼宾府会见胡军校长'
       },{
+      id:2,
       img:'img/img1.png',
       schoolName:'格林艺术培训学校',
       time:14645353453534,
@@ -33,22 +36,26 @@ angular.module('starter')
       }];
 
     $scope.stuDynamics = [{
+      id:0,
       time: 1462281859141,
       name: '李四',
       img: 'img/dy1.jpeg',
       content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
     },{
+      id:1,
       time: 1462081859141,
       name: '李我',
       img: 'img/img2.png',
       content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
     }];
     $scope.terDynamics = [{
+      id:0,
       time: 1462281859141,
       name: '李4四',
       img: 'img/dy1.jpeg',
       content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
     },{
+      id:1,
       time: 1462081859141,
       name: '李3我',
       img: 'img/img2.png',
@@ -84,6 +91,36 @@ angular.module('starter')
 
 
     }
+
+    $scope.showClickSchool = function(schoolId){
+      var objClick = document.getElementById(schoolId+'school');
+
+      if(objClick.style.display == "none"){
+        objClick.style.display = "";
+      }else{
+        objClick.style.display = "none";
+      }
+
+
+    }
+    $scope.showClickStudent = function(studentId){
+      var objClick = document.getElementById(studentId+'stu');
+      if(objClick.style.display == "none"){
+        objClick.style.display = "";
+      }else if(objClick.style.display == ""){
+        objClick.style.display = "none";
+      }
+    }
+    $scope.showClickTeacher = function(teacherId){
+      var objClick = document.getElementById(teacherId + 'teacher');
+      if(objClick.style.display == "none"){
+        objClick.style.display = "";
+      }else{
+        objClick.style.display = "none";
+      }
+    }
+
+
 
     $scope.test = function(){
       alert('aa');
