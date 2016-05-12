@@ -3,32 +3,25 @@
     <span class="title">提交报名</span>
   </ion-nav-title>
   <div class="content has-header">
-    <h3 style="text-align: center">{{apply.title}}</h3>
-    <div class="list">
-      <label class="item item-input">
-        <input type="text" placeholder="姓名">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="电话">
-      </label>
-      <label class="item item-input item-select">
-        <div class="input-label">
-       专业：
-        </div>
-        <select>
-          <option>舞蹈类</option>
-          <option>器乐类</option>
-        </select>
-      </label>
-
-      <label class="item item-input"> 现有积分:</label>
-
-      <label class="item item-input">
-        <textarea placeholder="money"></textarea>
-      </label>
+    <!--<h3 style="text-align: center">{{apply.title}}</h3>-->
+    <p style="text-align: center;margin-top: 15%;margin-bottom: 20%;font-size: 16px">请填写如下你的信息</p>
+    <div class="container ">
+      <div class="word">姓名：</div>
+      <div class="warp">
+        <input type="text" class="sub-input" ng-model="user.name"/>
+      </div>
     </div>
-    <div class="padding">
-      <button class="button">提交</button>
+    <div class="container ">
+      <div class="word">
+        电话：
+      </div>
+      <div class="warp">
+        <input type="text" class="sub-input" ng-model="user.tele"/>
+      </div>
+    </div>
+
+    <div style="width: 70%;margin-left: 15%">
+      <a class="button button-pink width-sumbit-btn " style="width:100%;margin-top: 25%">提交确认</a>
     </div>
   </div>
 </ion-view>

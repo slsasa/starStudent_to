@@ -61,22 +61,37 @@ td {
 .apply1{
   margin-left: 8%;
 }
-.apply2{margin: 0 38% 0}
+/*.apply2{margin: 0 38% 0}*/
 
 .headbk{height: 140px}
 
 
-.head{width: 55px;height: 55px;    margin: -30px 20px 0;}
-.myneme{ margin: -24px 95px 0;}
-.ion-edit{font-size: 25px;float: right;margin: -27px 20px 0;}
+.head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
+.myneme{ color: white;font-size: 23px}
+.ion-edit{font-size: 28px;color: white;margin: 0px 0px 0px 65%;}
 .stud{margin-top: 5%}
 .buttonPer{width: 32%;line-height: 2.42857;margin: 0 -5px 0}
 .item{  padding: 0px 0px;}
 .ziliao-title{ margin-left: 5px;  }
-.persontext{    padding: 0px 25px 0;}
+
 
 .checkDet{    margin: 0 10px 0;}
 .cheComments{    margin: 10px;
   text-align: justify;}
 .checkscose{margin: -30px 75% 0;}
 .learn{padding: 18px 15px;font-size: 14px}
+
+/*提交报名-2*/
+.pink-bg{background-color: #f96a9f}
+.width-sumbit-btn{border-radius: 10px;box-shadow:#f96a9f 0px 23px 20px -20px ;}
+.container{width: 85%;height: 40px ;line-height: 40px;margin-top: 8%;}
+.warp{width: 65%;height:40px;border:solid 2px gainsboro;border-radius: 10px;margin-top: -40px;margin-left: 35%}
+.sub-input{border-radius: 10px;width: 100%}
+.word{width: 35%;text-align: right;}
+/*提交报名-1*/
+.np p{padding:0;margin: 5px;}
+.opa-div{width:50%;height: 40px;font-size:12px;background: black;opacity:0.5;margin-top: -45px;}
+.content_details{padding: 0 10px;text-indent: 2em;line-height:25px;margin-bottom: 20%}
+
+
+.up{    margin: 10px 10px 0 75px;height: auto;padding-top: 5px}

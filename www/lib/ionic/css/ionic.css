@@ -5952,7 +5952,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .item-content p {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  }
 
 a.item {
   color: inherit;

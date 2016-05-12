@@ -14,7 +14,7 @@ angular.module('starter')
     $scope.comments = [
       {
         id:0,
-        name: '李四',
+        name: '吴都',
         position:'舞蹈教师',
         introduce:'性格沉静,常常不拘小节,待人接物却稳重大方。',
         img:'img/img1.png',
@@ -22,16 +22,10 @@ angular.module('starter')
 
       {
         id:1,
-        name: '李四',
-        position:'舞蹈教师',
+        name: '李德',
+        position:'创意口才教师',
         img:'img/img3.png',
-        introduce:'性格沉静,常常不拘小节,待人接物却稳重大方。'
-      }, {
-        id:2,
-        name: '李四',
-        position:'舞蹈教师',
-        img:'img/img3.png',
-        introduce:'性格沉静,常常不拘小节,待人接物却稳重大方。'
-      },
+        introduce:'平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。'
+      }
     ];
   })
