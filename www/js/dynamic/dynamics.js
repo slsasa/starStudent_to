@@ -60,31 +60,35 @@ angular.module('starter')
     $scope.objStudent = document.getElementById('student');
     $scope.objTeacher = document.getElementById('teacher');
     $scope.showSchoolDynamic = function() {
-
-
-      if ($scope.objSchool.style.display == "none") {
-        $scope.objSchool.style.display = "";
         $scope.objStudent.style.display = "none";
         $scope.objTeacher.style.display = "none";
-      }
+        $scope.objSchool.style.display = "";
+
     }
 
     $scope.showStudentDynamic = function() {
 
-      if (objStudent.style.display == "none") {
-        $scope.objSchool.style.display = "none";
-        $scope.objTeacher.style.display = "none";
-        $scope.objStudent.style.display = "";
-      }
+      $scope.objTeacher.style.display = "none";
+
+      $scope.objSchool.style.display = "none";
+      $scope.objStudent.style.display = "";
+
     }
 
     $scope.showTeacherDynamic = function() {
 
-      if (objTeacher.style.display == "none") {
-        $scope.objSchool.style.display = "none";
-        $scope.objStudent.style.display = "none";
-        $scope.objTeacher.style.display = "";
-      }
+      $scope.objSchool.style.display = "none";
+      $scope.objStudent.style.display = "none";
+      $scope.objTeacher.style.display = "";
+
+
+      //if (objTeacher.style.display == "none" && $scope.objStudent.style.display == "none") {
+      //  $scope.objSchool.style.display = "none";
+      //  $scope.objTeacher.style.display = "";
+      //}else if(objTeacher.style.display == "none" &&  $scope.objSchool.style.display == "none"){
+      //  $scope.objStudent.style.display == "none";
+      //  $scope.objTeacher.style.display = "";
+      //}
     }
 
 
