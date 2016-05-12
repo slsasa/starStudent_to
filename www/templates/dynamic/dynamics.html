@@ -2,7 +2,7 @@
   <ion-nav-title>
     <span class="title">明星学员</span>
   </ion-nav-title>
-  <ion-content>
+  <ion-content  style="background-color: #f1f1f1">
     <div class="bar-subheader text-center" style="padding: 6px">
       <a class="button" ng-click="showSchoolDynamic()">校园动态</a>
       <a class="button" ng-click="showStudentDynamic()">学员动态</a>
@@ -10,7 +10,7 @@
     </div>
 
     <div id="school" class="list" style="display: none;padding: 15px 0px;">
-      <ion-item class="item-avatar"  ng-repeat="shcoolDynamic in schoolDynamics">
+      <ion-item class="item-avatar card"  ng-repeat="shcoolDynamic in schoolDynamics">
         <div class="item-avatar">
         <img ng-src="{{shcoolDynamic.img}}">
         <h4>{{shcoolDynamic.schoolName}}</h4>
@@ -26,15 +26,18 @@
           <i class="ion-chatbox-working" ></i>
         </div>
       </ion-item>
+
     </div>
 
+
+
     <div id="student" class="list" style="padding: 15px 0px;">
-      <ion-item class="item" ng-repeat="stuDynamic in  stuDynamics">
+      <ion-item class="item-avatar card" ng-repeat="stuDynamic in  stuDynamics">
         <div class="item-avatar">
           <img src="{{stuDynamic.img}}">
           <h5>{{stuDynamic.name}}</h5>
-          <p>{{stuDynamic.content}}</p>
-          <p>{{stuDynamic.time | date:'yyyy-MM-dd'}}</p>
+          <p >{{stuDynamic.content}}</p>
+          <h6 style="float: left" >{{stuDynamic.time | date:'yyyy-MM-dd'}}</h6>
         </div>
 
         <div class="comments" ng-click="showClickStudent(stuDynamic.id)">
@@ -48,15 +51,16 @@
       </ion-item>
     </div>
 
+
     <div id="teacher" class="list" style="display: none;padding: 15px 0px;">
-      <ion-item class="item" ng-repeat="terDynamic in  terDynamics">
+      <ion-item class="item-avatar card " ng-repeat="terDynamic in  terDynamics">
         <div class="item-avatar">
           <img src="{{terDynamic.img}}">
           <h5>{{terDynamic.name}}</h5>
-          <p>{{terDynamic.content}}</p>
           <p>{{terDynamic.time | date:'yyyy-MM-dd'}}</p>
-        </div>
+          <p style="float: left">{{terDynamic.content}}</p>
 
+        </div>
 
         <div class="comments">
           <span id="{{terDynamic.id+'teacher'}}" style="display: none" >

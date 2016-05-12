@@ -3,7 +3,7 @@
     <span class="title">明星学员</span>
   </ion-nav-title>
 
-  <ion-content class="list">
+  <ion-content class="list"  style="background-color: #f1f1f1">
     <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
       <ion-slide ng-repeat="banner in banners">
         <img ng-src="{{banner.bannerImg}}" height="90px" width="100%">
@@ -11,12 +11,12 @@
       </ion-slide>
     </ion-slide-box>
 
-    <div class="item button-bar">
-      <a class="button button-light" ng-click="intoSchOutcome()">学校成果</a>
-      <a class="button button-light" ng-click="intoCourseIntr()">课程介绍</a>
-      <a class="button button-light" ng-click="intoTeacherApti()">师资力量</a>
-      <a class="button button-light" ng-click="goHonor()">荣誉区</a>
-      <a class="button button-light" ng-click="goTeacherStyle()">教师风采</a>
+    <div class="button-bar a_image shadow" style="height: 100px;margin-bottom:15px;">
+      <a class="button button-light" ng-click="intoSchOutcome()"><img src="img/logo/go1.png"/>学校成果</a>
+      <a class="button button-light" ng-click="intoCourseIntr()"><img src="img/logo/go2.png"/>课程介绍</a>
+      <a class="button button-light" ng-click="intoTeacherApti()"><img src="img/logo/go3.png"/>师资力量</a>
+      <a class="button button-light " ng-click="goHonor()"><img src="img/logo/go4.png"/>荣誉区</a>
+      <a class="button button-light" ng-click="goTeacherStyle()"><img src="img/logo/go5.png"/>教师风采</a>
     </div>
 
 

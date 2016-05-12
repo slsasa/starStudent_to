@@ -8685,27 +8685,28 @@ progress {
     border-color: transparent;
     background-color: #f96a9f;
     color: #fff; }
-    .button.button-calm:hover {
+    .button.button-pink:hover {
       color: #fff;
       text-decoration: none; }
-    .button.button-calm.active, .button.button-calm.activated {
-      background-color: #0a9dc7; }
-    .button.button-calm.button-clear {
+    .button.button-pink.active, .button.button-pink.activated {
+      background-color: #f74d84; }
+    .button.button-pink.button-clear {
       border-color: transparent;
       background: none;
       box-shadow: none;
       color: #11c1f3; }
-    .button.button-calm.button-icon {
+    .button.button-pink.button-icon {
       border-color: transparent;
       background: none; }
-    .button.button-calm.button-outline {
+    .button.button-pink.button-outline {
       border-color: #11c1f3;
       background: transparent;
       color: #11c1f3; }
-      .button.button-calm.button-outline.active, .button.button-calm.button-outline.activated {
-        background-color: #11c1f3;
+      .button.button-pink.button-outline.active, .button.button-pink.button-outline.activated {
+        background-color: #f74d84;
         box-shadow: none;
         color: #fff; }
+
   .button.button-assertive {
     border-color: transparent;
     background-color: #ef473a;

@@ -17,7 +17,7 @@
       <i class="ion-ios-person-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
       <input type="text" class="loginaccount " placeholder="请输入账号" ng-model="user.numverify " >
     </div>
-    <button class="button pink-bg light width-sumbit-btn " >获取验证码</button>
+    <a class="button button-pink tt"  ng-click="">提交确认</a>
     <div class="reginput">
       <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
       <input type="password" name="password" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
@@ -26,30 +26,20 @@
       <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
       <input type="password" name="passwordsure" class="loginaccount " placeholder="再次输入" ng-model="user.pwdsure " >
     </div>
+    <div class="logininput item-select">
+      <div class="input-label fill" style="color: white;padding-left: 8%">
+        身份
+      </div>
+      <select ng-model="user.type" style="font-size: 18px;font-weight:500">
+        <option selected="">教师</option>
+        <option>学生</option>
+      </select>
+    </div>
 
     <div class="padding text-center ">
-    <button class="button pink-sure light width-sumbit-sure ">提交确认</button>
+      <a class="button button-pink" style="width: 80%;margin: 5% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;" ng-click="">提交确认</a>
+
     </div>
-    <!--<div class="login-body">-->
-      <!--<label class="item item-input ">-->
-        <!--账号：-->
-        <!--<input  type="text" placeholder="手机号码" style="padding-left: 5%">-->
-      <!--</label>-->
-      <!--<label class="item item-input ">-->
-        <!--<input  type="text" placeholder="请输入手机验证吗" style="padding-left: 4%">-->
-        <!--<button class="button  button-calm"-->
-                <!--style="width: 45%" ng-click="login()">获取验证码</button>-->
-      <!--</label>-->
-      <!--<label class="item item-input ">-->
-<!--密码：        <input  type="text" placeholder="请输入密码" style="padding-left: 6%">-->
-      <!--</label>-->
-      <!--<label class="item item-input ">-->
-        <!--再次输入：        <input  type="text" placeholder="请输入密码" style="padding-left: 6%">-->
-      <!--</label>-->
-    <!--</div >-->
-    <!--<div class="login4">-->
-      <!--<button class="button  button-calm"-->
-              <!--style="width: 89%" ng-click="sign()">注册</button>-->
-    <!--</div>-->
+
   </ion-content>
 </ion-view>
