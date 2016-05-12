@@ -57,8 +57,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   .filter('ifMore', function () {
     return function (input) {
       input = input || [];
-      if (input.length > 16) {
-        return input.slice(0, 16) + "...";
+      if (input.length > 36) {
+        return input.slice(0, 36);
       } else {
         return input;
       }

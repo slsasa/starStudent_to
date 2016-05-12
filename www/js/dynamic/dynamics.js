@@ -20,13 +20,13 @@ angular.module('starter')
       img:'img/img1.png',
       schoolName:'格林艺术培训学校',
       time:14613407993000,
-      content:'1月7日和13日，我校分别在澳门和香港两地举行了2016年校董迎春座谈会',
+      content:'1月7日和13日，我校分别在澳门和香港两地举行了2016年校董迎春座谈会卧槽我也不知道了嗯哼对对对',
       },{
       id:1,
       img:'img/img1.png',
       schoolName:'格林艺术培训学校',
       time:14634242424244,
-      content:'1月7日，澳门特别行政长官，我校董事会副董事长崔世安在特区政府礼宾府会见胡军校长'
+      content:'1月7日'
       },{
       id:2,
       img:'img/img1.png',
@@ -119,6 +119,56 @@ angular.module('starter')
         objClick.style.display = "none";
       }
     }
+
+
+
+    $scope.showContentSchool = function(schoolId){
+
+      var objMoreContent = document.getElementById(schoolId+"moreContentSchool");
+      var objContentSchool = document.getElementById(schoolId+"contentSchool");
+      if(objMoreContent.style.display == "none"){
+        objContentSchool.style.display = "none";
+        objMoreContent.style.display = "";
+
+
+      }else{
+        objMoreContent.style.display = "none";
+        objContentSchool.style.display = "";
+
+      }
+    }
+
+    $scope.showContentStu = function(stuId){
+      var objMoreContent = document.getElementById(stuId+"moreContentStu");
+      var objContentSchool = document.getElementById(stuId+"contentStu");
+      if(objMoreContent.style.display == "none"){
+        objContentSchool.style.display = "none";
+        objMoreContent.style.display = "";
+
+
+      }else{
+        objMoreContent.style.display = "none";
+        objContentSchool.style.display = "";
+
+      }
+    }
+
+    $scope.showContentTer = function(teacherId){
+      var objMoreContent = document.getElementById(teacherId+"moreContentTer");
+      var objContentSchool = document.getElementById(teacherId+"contentTer");
+      if(objMoreContent.style.display == "none"){
+        objContentSchool.style.display = "none";
+        objMoreContent.style.display = "";
+
+
+      }else{
+        objMoreContent.style.display = "none";
+        objContentSchool.style.display = "";
+
+      }
+
+    }
+
 
 
 
