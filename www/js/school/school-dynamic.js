@@ -7,11 +7,11 @@ angular.module('starter')
       .state('school-dynamic',{
         url:'/school-dynamic',
         templateUrl:'templates/school/school-dynamic.html',
-        controller:'dynamicCtrl'
+        controller:'schoolDynamicCtrl'
 
       })
   })
-  .controller('dynamicCtrl',function($scope) {
+  .controller('schoolDynamicCtrl',function($scope) {
     $scope.schoolDynamic = [
       {
         id: 0,
