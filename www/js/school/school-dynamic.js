@@ -11,7 +11,7 @@ angular.module('starter')
 
       })
   })
-  .controller('schoolDynamicCtrl',function($scope) {
+  .controller('schoolDynamicCtrl',function($scope,$state) {
     $scope.schoolDynamic = [
       {
         id: 0,
@@ -33,4 +33,8 @@ angular.module('starter')
         img:'img/img3.png'
       }
     ];
+
+    $scope.goDetail = function(dynamicId){
+      $state.go('school-dyncdetails',{dynamicId:dynamicId})
+    }
   })
