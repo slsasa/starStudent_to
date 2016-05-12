@@ -1,39 +1,42 @@
 <ion-view view-title="明星学员">
-  <ion-content>
+  <ion-content style="background-color: #f1f1f1">
     <div class="headbk" ng-repeat="headbk in headbks">
-      <img src="{{headbk.img}}" style="width: 100%;height: 100px">
-      <img src="{{headbk.headimg}}" class="head">
-      <p class="myneme">{{headbk.myname}}</p>
-      <i class="ion-edit" ng-click="editor()"></i>
-      <hr>
+      <img src="{{headbk.img}}" style="width: 100%;height: 110%;">
+
+      <img src="{{headbk.headimg}}" class="head" >
+     <div style="background: black;opacity:0.5;height: 35px;width: 68%;  margin: -80px 29%;">
+       <p class="myneme light" >{{headbk.myname}}<i class="ion-edit  "ng-click="editor();" ></i></p>
+
+     </div>
     </div>
     <div class="stud">
       <button ng-click="learnSit()" class="buttonPer">学习情况</button>
       <button ng-click="studentHon()" class="buttonPer">学员荣耀</button>
-      <button ng-click="techerCom()" class="buttonPer">教室评语</button>
+      <button ng-click="techerCom()" class="buttonPer">教师评语</button>
     </div>
 
 
     <div>
           <ion-item class=" item-icon-right" ui-sref="learn-garden" >
-            <a><h2 class="persontext"> 学习园</h2></a>
+            <i class="ion-ios-book-outline" style="font-size: 35px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 学习园</h2></i>
+
             <i class="icon ion-chevron-right icon-accessory"></i>
           </ion-item>
 
         <ion-item class=" item-icon-right" ui-sref="my-dynamic">
-          <a><h2 class="persontext"> 我的动态</h2></a>
+          <i class="ion-android-star-outline" style="font-size: 35px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 我的动态</h2></i>
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
 
         <ion-item class=" item-icon-right" ui-sref="myApply">
-          <a><h2 class="persontext"> 我的报名</h2></a>
+          <i class="ion-ios-paper-outline" style="font-size: 35px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 我的报名</h2></i>
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
     </div>
 
     <div style="padding-top: 25px">
       <ion-item class=" item-icon-right"  ui-sref="setting">
-        <a><h2 class="persontext"> 设置</h2></a>
+        <i class="ion-ios-gear-outline" style="font-size: 35px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 设置</h2></i>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </div>
