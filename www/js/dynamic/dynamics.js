@@ -82,14 +82,11 @@ angular.module('starter')
       $scope.objTeacher.style.display = "";
 
 
-      //if (objTeacher.style.display == "none" && $scope.objStudent.style.display == "none") {
-      //  $scope.objSchool.style.display = "none";
-      //  $scope.objTeacher.style.display = "";
-      //}else if(objTeacher.style.display == "none" &&  $scope.objSchool.style.display == "none"){
-      //  $scope.objStudent.style.display == "none";
-      //  $scope.objTeacher.style.display = "";
-      //}
+
     }
 
+    $scope.test = function(){
+      alert('aa');
+    }
 
   })

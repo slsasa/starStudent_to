@@ -1,0 +1,51 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="title">作品中心</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_teacher"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-android-share-alt" ng-click="openModel_start()" ></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="bar-subheader">
+      <a class="button" ng-click="showLog()">教学日志({{teacher.tearchingLog.length}})</a>
+      <a class="button" ng-click="showPaper()">学术论文({{teacher.thesis.length}})</a>
+    </div>
+
+    <div id="log" class="list">
+      <ion-item ng-repeat="tearLog in teacher.tearchingLog">
+        <h5>
+          {{tearLog.title}}
+        </h5>
+        <p>{{tearLog.content}}</p>
+
+        <br>
+      <span>
+      <a style="float: left">{{tearLog.time | date:'yyyy-MM-dd'}}</a>
+      <a class="button" ng-click="goLogsDetail($index)" style="float: right">>>详情</a>
+      </span>
+      </ion-item>
+
+    </div>
+
+    <div id="paper" class="list" style="display: none">
+      <ion-item ng-repeat="tearingPage in teacher.thesis">
+        <h5>
+          {{tearingPage.title}}
+        </h5>
+        <p>{{tearingPage.content}}</p>
+
+      <span>
+      <h6>{{tearingPage.time | date:'yyyy-MM-dd'}}</h6>
+      <a class="button" ng-click="goPaperDetail($index)" style="float: right">>>详情</a>
+      </span>
+      </ion-item>
+    </div>
+
+
+  </ion-content>
+
+</ion-view>
