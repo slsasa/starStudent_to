@@ -5,7 +5,7 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('my_dynamic',{
-        url:'/person-teacher/my-dynamic',
+        url:'/my-dynamic',
         templateUrl: 'templates/person/my-dynamic.html',
         controller: 'myDynamicCtrl'
 
