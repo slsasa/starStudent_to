@@ -1,0 +1,14 @@
+<ion-view>
+  <ion-nav-title>
+    <span class="学校动态"></span>
+  </ion-nav-title>
+
+</ion-view>
+<ion-content>
+  <ion-content class="list">
+    <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
+      <ion-slide ng-repeat="dynamic in schoolDynamic">
+        <img ng-src="{{dynamic.img}}" height="90px" width="100%">
+      </ion-slide>
+    </ion-slide-box>
+</ion-content>
