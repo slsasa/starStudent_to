@@ -122,8 +122,4 @@ angular.module('starter')
 
 
 
-    $scope.test = function(){
-      alert('aa');
-    }
-
   })
