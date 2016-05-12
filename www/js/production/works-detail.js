@@ -4,14 +4,14 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('works-detail',{
-        url:'/works:teacherId/works-detail:index',
+      .state('logs-detail',{
+        url:'/logs:index',
         templateUrl:'templates/production/works-detail.html',
-        controller:'worksDetailCtrl'
+        controller:'logsDetailCtrl'
       });
   })
 
-  .controller('worksDetailCtrl', function ($scope,$stateParams) {
+  .controller('logsDetailCtrl', function ($scope,$stateParams) {
     var teachers =  [{
       id:0,
       name:'李老师',
@@ -127,6 +127,6 @@ angular.module('starter')
       }]
     }];
 
-    $scope.teacher = teachers[parseInt($stateParams.teacherId)];
+
     $scope.teacherLog = $scope.teacher.tearchingLog[parseInt($stateParams.index)];
   })
