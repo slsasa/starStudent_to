@@ -2,8 +2,12 @@
   <ion-nav-title>
     <span class="title">明星学员</span>
   </ion-nav-title>
+<<<<<<< HEAD
 
   <ion-content>
+=======
+  <ion-content  style="background-color: #f1f1f1">
+>>>>>>> 97738befcb75792e32aee077c7f708a8cbaeb8db
     <div class="bar-subheader text-center" style="padding: 6px">
       <a class="button" ng-click="showSchoolDynamic()">校园动态</a>
       <a class="button" ng-click="showStudentDynamic()">学员动态</a>
@@ -11,8 +15,12 @@
     </div>
 
     <div id="school" class="list" style="display: none;padding: 15px 0px;">
+<<<<<<< HEAD
+      <ion-item class="item-avatar card"  ng-repeat="shcoolDynamic in schoolDynamics">
+=======
       <ion-item class="item-avatar"  ng-repeat="shcoolDynamic in schoolDynamics">
 
+>>>>>>> 2779961ac9b45334abce9f53c13ab6a2f4145559
         <div class="item-avatar">
 
         <img ng-src="{{shcoolDynamic.img}}">
@@ -45,13 +53,20 @@
         </div>
 
       </ion-item>
+
     </div>
 
+
+
     <div id="student" class="list" style="padding: 15px 0px;">
-      <ion-item class="item" ng-repeat="stuDynamic in  stuDynamics">
+      <ion-item class="item-avatar card" ng-repeat="stuDynamic in  stuDynamics">
         <div class="item-avatar">
           <img src="{{stuDynamic.img}}">
           <h5>{{stuDynamic.name}}</h5>
+<<<<<<< HEAD
+          <p >{{stuDynamic.content}}</p>
+          <h6 style="float: left" >{{stuDynamic.time | date:'yyyy-MM-dd'}}</h6>
+=======
 
 
           <div ng-if="stuDynamic.content.length >=36">
@@ -68,6 +83,7 @@
           </div>
             <h6 style="float: left">{{stuDynamic.time | date : 'yyyy-MM-dd'}}</h6>
 
+>>>>>>> 2779961ac9b45334abce9f53c13ab6a2f4145559
         </div>
 
 
@@ -86,11 +102,16 @@
       </ion-item>
     </div>
 
+
     <div id="teacher" class="list" style="display: none;padding: 15px 0px;">
-      <ion-item class="item" ng-repeat="terDynamic in  terDynamics">
+      <ion-item class="item-avatar card " ng-repeat="terDynamic in  terDynamics">
         <div class="item-avatar">
           <img src="{{terDynamic.img}}">
           <h5>{{terDynamic.name}}</h5>
+<<<<<<< HEAD
+          <p>{{terDynamic.time | date:'yyyy-MM-dd'}}</p>
+          <p style="float: left">{{terDynamic.content}}</p>
+=======
 
 
           <div ng-if="terDynamic.content.length >=36">
@@ -108,7 +129,9 @@
           <h6 style="float: left">{{terDynamic.time | date : 'yyyy-MM-dd'}}</h6>
 
         </div>
+>>>>>>> 2779961ac9b45334abce9f53c13ab6a2f4145559
 
+        </div>
 
         <div class="comments">
           <span id="{{terDynamic.id+'teacher'}}" style="display: none" >

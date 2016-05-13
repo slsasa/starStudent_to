@@ -21,6 +21,8 @@ td {
 .loginbk{height: auto;}
 .loginforget{color: #ffffff;font-weight:bold;    margin: 5% 5% 0px 0;
 }
+.login{width: 80%;margin: 5% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
+.register{width: 80%;margin: 0% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 
 /*注册界面*/
 .reginput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
@@ -28,8 +30,7 @@ td {
 .login4{text-align: center;padding-top: 50px;}
 .pink-bg{background-color: #f96a9f;}
 .pink-sure{background-color: #f96a9f;}
-.width-sumbit-btn{ border-radius: 10px;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px; float: right;  margin: -55px 10%; width: 30%;min-height: 39px;}
-.width-sumbit-sure{ border-radius: 10px;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px; width: 75% ;  min-height: 39px;}
+.tt{border-radius: 10px;font-size: 14px; float: right;  margin: -55px 10%; width: 30%;min-height: 39px;box-shadow:#f96a9f 0px 23px 20px -20px ;}
 /*首页*/
 .schooldyn{
   border: dashed black 1px;height: 35px;width: auto;line-height:30px
@@ -42,9 +43,8 @@ td {
 }
 .schsynopsis{text-decoration: none;
   color: black;}
-.txt{
-  margin: 0 0 0px;
-}
+.txt{  margin: 0 0 0px;  }
+.shadow{box-shadow: 0 1px 3px 1px gainsboro }
 .button-bar > .button {    padding: 0 0px;}
 .item{padding: 10px 5px 0px;    margin: 0px;}
 .more{  float: right;
@@ -61,19 +61,25 @@ td {
 .apply1{
   margin-left: 8%;
 }
+
+.a_image img{width: 60px;height:60px;display: block;margin: 10px auto -10px;}
+.a_image a{font-size: 14px}
+.word_green{width: 85%;margin-left: 50px;text-indent: 1.4em}
+.shadow{box-shadow: 0 1px 3px 1px gainsboro }
+
 /*.apply2{margin: 0 38% 0}*/
-
+/*学生个人中心*/
+.a_image1 img{width: 35px;height:35px;display: block;margin: 10px auto -10px;}
+.head2{    margin: 6px 6%;}
 .headbk{height: 140px}
-
-
 .head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
 .myneme{ color: white;font-size: 23px}
 .ion-edit{font-size: 28px;color: white;margin: 0px 0px 0px 65%;}
-.stud{margin-top: 5%}
-.buttonPer{width: 32%;line-height: 2.42857;margin: 0 -5px 0}
-.item{  padding: 0px 0px;}
-.ziliao-title{ margin-left: 5px;  }
+.stud{background-color: white;height: 80px;width: auto}
 
+/*.buttonPer{width: 32%;line-height: 2.42857;margin: 0 -5px 0}*/
+.item{  padding: 0px 0px;}
+.outlogin{width: 80%;margin: 20% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 
 .checkDet{    margin: 0 10px 0;}
 .cheComments{    margin: 10px;
