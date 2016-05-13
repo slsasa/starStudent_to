@@ -1,15 +1,38 @@
 <ion-view view-title="学习园">
   <ion-nav-buttons side="left">
-    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_stu"></button>
+    <button class="button light button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_stu"></button>
   </ion-nav-buttons>
-  <ion-content>
-    <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
-      <ion-slide ng-repeat="banner in banners">
-        <img ng-src="{{banner.bannerImg}}" height="80px" width="100%">
-        <h4>{{banner.context}}</h4>
-        <hr>
-      </ion-slide>
+  <ion-nav-buttons side="right " >
+    <button class="button light button-icon icon ion-paper-airplane " ng-click=""></button>
+  </ion-nav-buttons >
+  <ion-content style="background-color: #f1f1f1">
+    <div >
+      <img src="img/learn-garder/img2.png"/>
+      <h5 style="color: white;margin: -40px 10px 0px;font-size: 15px">计算机Java基础教学视频</h5>
+    </div>
 
-    </ion-slide-box>
+    <div id="student" class="list" style="padding: 15px 0px;">
+      <ion-item class="item-avatar card" ng-repeat="leagarden in  leagardens">
+        <div class="item-avatar">
+          <img src="{{leagarden.img}}" style="border-radius: 40px">
+          <h4 style="    margin: 15px 0px 5px 0px;">{{leagarden.name}}</h4>
+          <p>{{leagarden.time | date : 'yyyy-MM-dd'}}</p>
+
+          <div ng-if="leagarden.content.length >=36">
+            <div id="{{leagarden.id+'contentLea'}}"> {{leagarden.content |ifMore}}</div>
+            <div id="{{leagarden.id+'moreContentLea'}}" style="display: none"> {{leagarden.content}}</div>
+
+            <div>
+              <a ng-click="showleagarden(leagarden.id)">更多</a>
+            </div>
+          </div>
+
+          <div ng-if="leagarden.content.length <36">
+            <p> {{leagarden.content}}</p>
+          </div>
+
+        </div>
+      </ion-item>
+    </div>
   </ion-content>
 </ion-view>

@@ -11,26 +11,31 @@ angular.module('starter')
       });
   })
   .controller('learnGardenCtrl',function($scope){
-    $scope.banners =[
-      {
-        id:0,
-        bannerImg:'img/img2.png',
-        context:'擦擦',
-        time:1461340799000
-      },{
-        id:1,
-        bannerImg:'img/img3.png',
-        context:'什么什么学院东东',
-        time:1461340549000
-      },{
-        id:2,
-        bannerImg:'img/img4.png',
-        context:'字符串',
-        time:1461240542302
-      },{
-        id:3,
-        bannerImg:'img/img1.png',
-        context:'行动的傻子，思想上的猪，嘴上的大侠',
-        time:143131231331
-      }];
+    $scope.leagardens = [{
+      id:0,
+      time: 1462281859141,
+      name: '李四',
+      img: 'img/learn-garder/header.png',
+      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
+    },{
+      id:1,
+      time: 1462281859141,
+      name: '李我',
+      img: 'img/learn-garder/header.png',
+      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了,五一过得真快，没感觉，就过了，五一过得真快，',
+    }];
+    $scope.showleagarden = function(stuId){
+      var objMoreContent = document.getElementById(stuId+"moreContentLea");
+      var objContentLearn = document.getElementById(stuId+"contentLea");
+      if(objMoreContent.style.display == "none"){
+        objContentLearn.style.display = "none";
+        objMoreContent.style.display = "";
+
+
+      }else{
+        objMoreContent.style.display = "none";
+        objContentLearn.style.display = "";
+
+      }
+    }
   })

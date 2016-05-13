@@ -18,8 +18,8 @@
         <div class="item-avatar">
 
         <img ng-src="{{shcoolDynamic.img}}">
-           <h4>{{shcoolDynamic.schoolName}}</h4>
-
+           <h4 style="    margin: 15px 0px 5px 0px;">{{shcoolDynamic.schoolName}}</h4>
+          <p >{{shcoolDynamic.time | date : 'yyyy-MM-dd'}}</p>
         <div ng-if="shcoolDynamic.content.length >=36">
 
           <div id="{{shcoolDynamic.id+'contentSchool'}}"> {{shcoolDynamic.content |ifMore}}</div>
@@ -34,14 +34,14 @@
         <div ng-if="shcoolDynamic.content.length <36">
           <p> {{shcoolDynamic.content}}</p>
         </div>
-        <h6 style="float: left">{{shcoolDynamic.time | date : 'yyyy-MM-dd'}}</h6>
+
         </div>
 
 
         <div class="comments" >
-           <span id="{{shcoolDynamic.id+'school'}}" style="display: none">
-               <a class="button" ng-click="">点赞</a>
-               <a class="button" ng-click="">分享</a>
+           <span id="{{shcoolDynamic.id+'school'}}" style="display: none;    padding: 0px 10px 0px;">
+               <a class="button buttonDy" ng-click="">点赞</a>
+               <a class="button buttonDy" ng-click="">分享</a>
            </span>
                <i class="ion-chatbox-working" ng-click="showClickSchool(shcoolDynamic.id)"></i>
         </div>
@@ -55,9 +55,9 @@
     <div id="student" class="list" style="padding: 15px 0px;">
       <ion-item class="item-avatar card" ng-repeat="stuDynamic in  stuDynamics">
         <div class="item-avatar">
-          <img src="{{stuDynamic.img}}">
-          <h5>{{stuDynamic.name}}</h5>
-
+          <img src="{{stuDynamic.img}}" style="border-radius: 40px">
+          <h4 style="    margin: 15px 0px 5px 0px;">{{stuDynamic.name}}</h4>
+          <p>{{stuDynamic.time | date : 'yyyy-MM-dd'}}</p>
 
           <div ng-if="stuDynamic.content.length >=36">
             <div id="{{stuDynamic.id+'contentStu'}}"> {{stuDynamic.content |ifMore}}</div>
@@ -71,55 +71,75 @@
           <div ng-if="stuDynamic.content.length <36">
             <p> {{stuDynamic.content}}</p>
           </div>
-            <h6 style="float: left">{{stuDynamic.time | date : 'yyyy-MM-dd'}}</h6>
-
 
         </div>
-
-
-
-
-
-
         <div class="comments" >
-           <span id="{{stuDynamic.id+'stu'}}" style="display: none">
-          <a class=" button" ng-click="">点赞</a>
-          <a class=" button" ng-click="">分享</a>
+           <span id="{{stuDynamic.id+'stu'}}" style="display: none;    padding: 0px 10px 0px;">
+          <a class=" button buttonDy" ng-click="">点赞</a>
+          <a class=" button buttonDy" ng-click="">分享</a>
         </span>
           <i class="ion-chatbox-working" ng-click="showClickStudent(stuDynamic.id)"></i>
         </div>
-
       </ion-item>
     </div>
 
-
-    <div id="teacher" class="list" style="display: none;padding: 15px 0px;">
-      <ion-item class="item-avatar card " ng-repeat="terDynamic in  terDynamics">
+    <div id="teacher" class="list" style="padding: 15px 0px;display: none;">
+      <ion-item class="item-avatar card" ng-repeat="terDynamic in  terDynamics">
         <div class="item-avatar">
-          <img src="{{terDynamic.img}}">
-          <h5>{{terDynamic.name}}</h5>
+          <img src="{{terDynamic.img}}" style="border-radius: 100px">
+          <h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic.name}}</h4>
+          <p>{{terDynamic.time | date : 'yyyy-MM-dd'}}</p>
+
           <div ng-if="terDynamic.content.length >=36">
             <div id="{{terDynamic.id+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>
             <div id="{{terDynamic.id+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>
+
             <div>
-              <a ng-click="showContentTer(terDynamic.id)" >更多</a>
+              <a ng-click="showContentTer(terDynamic.id)">更多</a>
             </div>
           </div>
-          <div ng-if="terDynamic.content.length <36">
-            <p> {{terDynamic.content}}</p>
-          </div>
-          <h6 style="float: left">{{terDynamic.time | date : 'yyyy-MM-dd'}}</h6>
-        </div>
 
-        <div class="comments">
-          <div id="{{terDynamic.id+'teacher'}}" style="display: none" >
-          <a class=" button" ng-click="">点赞</a>
-          <a class=" button" ng-click="">分享</a>
+          <div ng-if="stuDynamic.content.length <36">
+            <p> {{stuDynamic.content}}</p>
           </div>
-          <i  ng-click="showClickTeacher(terDynamic.id)" class="ion-chatbox-working" ></i>
+
         </div>
-        </ion-item>
+        <div class="comments" >
+           <span id="{{terDynamic.id+'teacher'}}" style="display: none;    padding: 0px 10px 0px;">
+          <a class=" button buttonDy" ng-click="">点赞</a>
+          <a class=" button buttonDy" ng-click="">分享</a>
+        </span>
+          <i class="ion-chatbox-working" ng-click="showClickTeacher(terDynamic.id)"></i>
+        </div>
+      </ion-item>
     </div>
+
+    <!--<div id="teacher" class="list" style="display: none;padding: 15px 0px;">-->
+      <!--<ion-item class="item-avatar card " ng-repeat="terDynamic in  terDynamics">-->
+        <!--<div class="item-avatar">-->
+          <!--<img src="{{terDynamic.img}}">-->
+          <!--<h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic.name}}</h4>-->
+          <!--<p >{{terDynamic.time | date : 'yyyy-MM-dd'}}</p>-->
+          <!--<div ng-if="terDynamic.content.length >=36">-->
+            <!--<div id="{{terDynamic.id+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>-->
+            <!--<div id="{{terDynamic.id+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>-->
+            <!--<div>-->
+              <!--<a ng-click="showContentTer(terDynamic.id)" >更多</a>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div ng-if="terDynamic.content.length <36">-->
+            <!--<p> {{terDynamic.content}}</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="comments">-->
+          <!--<div id="{{terDynamic.id+'teacher'}}" style="display: none;    padding: 0px 10px 0px;" >-->
+          <!--<a class=" button buttonDy" ng-click="">点赞</a>-->
+          <!--<a class=" button buttonDy" ng-click="">分享</a>-->
+          <!--</div>-->
+          <!--<i class="ion-chatbox-working" ng-click="showClickTeacher(terDynamic.id)"  ></i>-->
+        <!--</div>-->
+        <!--</ion-item>-->
+    <!--</div>-->
 
 
 
