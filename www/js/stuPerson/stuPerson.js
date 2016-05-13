@@ -38,4 +38,12 @@ angular.module('starter')
       $state.go('techer-comment')
     }
 
+    $scope.goStuSetting = function(stu){
+      $state.go('setting',{type:stu});
+    }
+
+    $scope.goDynamic = function(type){
+      $state.go('my-dynamic',{type:type})
+    }
+
   })
