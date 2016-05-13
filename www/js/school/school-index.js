@@ -90,8 +90,13 @@ angular.module('starter')
     }
     //关于学校简介　
     $scope.goIntro = function(){
-      alert('fff')
+
       $state.go('school-intro');
+    }
+
+    //放大图片
+    $scope.goMagnifyImg = function(imgId){
+      $state.go('magnify-img',{imgId:imgId});
     }
 
   })

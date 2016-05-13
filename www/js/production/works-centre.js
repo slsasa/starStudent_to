@@ -5,7 +5,7 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('works-centre',{
-        url:'/works:teacherId',
+        url:'/works-centre:teacherId',
         templateUrl:'templates/production/works-centre.html',
         controller:'worksCtrl'
 
@@ -134,21 +134,41 @@ angular.module('starter')
       }
     }
 
+
+    $scope.objLog = document.getElementById('log');
+    $scope.objPaper = document.getElementById('paper');
+    $scope.objLogClick = document.getElementById('logClick');
+    $scope.objPaperClick = document.getElementById('paperClick');
+
+    $scope.objLogClick.style.backgroundColor = "#F96A9F";
+    $scope.objLogClick.style.color = "#fff";
     $scope.showLog = function(){
-      var objLog = document.getElementById('log');
-      var objPaper = document.getElementById('paper');
-      if(objLog.style.display == "none"){
-        objPaper.style.display = "none";
-        objLog.style.display = "";
+
+      $scope.objPaper.style.display = "none";
+      $scope.objLog.style.display = "";
+      if($scope.objLog.style.display == ""){
+        changeClickLogBgColor("#F96A9F","");
+        changeClickFontColor("#fff","black");
+
       }
     }
     $scope.showPaper = function(){
-      var objLog = document.getElementById('log');
-      var objPaper = document.getElementById('paper');
-      if(objPaper.style.display == "none"){
-        objLog.style.display = "none";
-        objPaper.style.display = "";
+      $scope.objLog.style.display = "none";
+      $scope.objPaper.style.display = "";
+      if($scope.objPaper.style.display == ""){
+        changeClickLogBgColor("","#F96A9F");
+        changeClickFontColor("black","#fff");
       }
+    }
+
+    var changeClickLogBgColor = function(log,paper){
+      $scope.objLogClick.style.backgroundColor = log;
+      $scope.objPaperClick.style.backgroundColor = paper;
+    }
+
+    var changeClickFontColor = function(log,paper){
+      $scope.objLogClick.style.color= log;
+      $scope.objPaperClick.style.color = paper;
     }
 
     $scope.teacher = getTeacher($stateParams.teacherId);
