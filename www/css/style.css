@@ -69,8 +69,8 @@ td {
 
 /*.apply2{margin: 0 38% 0}*/
 /*学生个人中心*/
-.a_image1 img{width: 35px;height:35px;display: block;margin: 10px auto -10px;}
-.head2{    margin: 6px 6%;}
+.a_image1 img{width: 35px;height:35px;margin: 10px auto;}
+.head2{    margin: 6px 6%;display: block;}
 .headbk{height: 140px}
 .head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
 .myneme{ color: white;font-size: 23px}

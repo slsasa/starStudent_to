@@ -17,6 +17,16 @@
       <input type="text" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
     </div>
 
+    <div class="logininput item-select">
+      <div class="input-label fill" style="color: white;padding-left: 8%">
+        身份
+      </div>
+      <select ng-model="user.type" style="font-size: 18px;font-weight:500">
+        <option selected="">教师</option>
+        <option>学生</option>
+      </select>
+    </div>
+
       <div >
         <a class="button button-pink login"  ng-click="login()">登录</a>
         <a class="button  button-pink register"  ng-click="register()">注册</a>
