@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('worksCtrl',function($scope,$state,$ionicModal){
+  .controller('worksCtrl',function($scope,$state,$ionicModal,$cordovaImagePicker,$cordovaFileTransfer){
     $scope.teacher = {
       id: 0,
       name: '李老师',
@@ -117,4 +117,52 @@ angular.module('starter')
         objPaper.style.display = "";
       }
     }
+
+    $scope.photos =['add.jpg'];
+    $scope.clickPhoto = function (index) {
+      //
+      var item = $scope.photos[index];
+      if (item != "add.jpg") {
+        $ionicLoading.show();
+        $http.post(serverAddr + '/delete_message_file', {file: item}).success(function () {
+          $ionicLoading.hide();
+          $scope.photos.splice(index, 1);
+        });
+      } else {
+        //
+        var options = {
+          maximumImagesCount: 1,
+          width: 800,
+          height: 800,
+          quality: 80
+        };
+        $cordovaImagePicker.getPictures(options)
+          //以下为选好图片后的方法
+          .then(function (results) {
+            if (results[0] !== undefined) {
+              //message.photos.push({src:results[0]});
+              // $scope.openModal(i = 2);
+              $ionicLoading.show();
+              $scope.imgSrc_after = results[0];
+              var fileName = $scope.imgSrc_after.split('/').pop();
+              var fileURL = $scope.imgSrc_after;
+              var options = {
+                fileKey: "file",
+                fileName: fileName,
+                mimeType: "image/jpeg"
+              };
+              $cordovaFileTransfer.upload(encodeURI(serverAddr + "/message_file"), fileURL, options)
+                .then(function (data) {
+                  //
+                  $ionicLoading.hide();
+                  $scope.photos.splice($scope.photos.length - 1, 0, fileName);
+                  //
+                });
+            }
+          }, function (error) {
+          });
+      }
+
+    };
+
   })

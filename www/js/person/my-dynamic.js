@@ -12,23 +12,44 @@ angular.module('starter')
       });
   })
   .controller('myDynamicCtrl',function($scope){
-    $scope.myDynamic = [{
-      time:148620235252,
-      content:'你说什么就是什么鬼东西，发动态，神经病,今天晚上是个夜光高照的页面',
-      img:'img/img1.png'
-    },{
-      time:146620235252,
-      content:'你说什么就是什么鬼东西，发动态，神经病',
-      img:'img/img3.png'
-    },{
-      time:147620235252,
-      content:'你说什么就是什么鬼东西，发动态，神经病',
 
+    $scope.terDynamics = [{
+      id:0,
+      time: 1462281859141,
+      name: '李4四',
+      img: 'img/dy1.jpeg',
+      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
     },{
-      time:148620235252,
-      content:'你说什么就是什么鬼东西，发动态，神经病',
-      img:'img/img2.png'
-    }]
+      id:1,
+      time: 1462081859141,
+      name: '李3我',
+      img: 'img/img2.png',
+      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
+    }];
+
+    $scope.showClickTeacher = function(teacherId){
+      var objClick = document.getElementById(teacherId + 'teacher');
+      if(objClick.style.display == "none"){
+        objClick.style.display = "";
+      }else{
+        objClick.style.display = "none";
+      }
+    }
+
+    $scope.showContentTer = function(teacherId) {
+      var objMoreContent = document.getElementById(teacherId + "moreContentTer");
+      var objContentSchool = document.getElementById(teacherId + "contentTer");
+      if (objMoreContent.style.display == "none") {
+        objContentSchool.style.display = "none";
+        objMoreContent.style.display = "";
+
+
+      } else {
+        objMoreContent.style.display = "none";
+        objContentSchool.style.display = "";
+
+      }
+    }
 
 
   })
