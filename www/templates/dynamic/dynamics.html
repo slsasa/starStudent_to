@@ -2,12 +2,9 @@
   <ion-nav-title>
     <span class="title">明星学员</span>
   </ion-nav-title>
-<<<<<<< HEAD
 
-  <ion-content>
-=======
   <ion-content  style="background-color: #f1f1f1">
->>>>>>> 97738befcb75792e32aee077c7f708a8cbaeb8db
+
     <div class="bar-subheader text-center" style="padding: 6px">
       <a class="button" ng-click="showSchoolDynamic()">校园动态</a>
       <a class="button" ng-click="showStudentDynamic()">学员动态</a>
@@ -15,12 +12,9 @@
     </div>
 
     <div id="school" class="list" style="display: none;padding: 15px 0px;">
-<<<<<<< HEAD
-      <ion-item class="item-avatar card"  ng-repeat="shcoolDynamic in schoolDynamics">
-=======
-      <ion-item class="item-avatar"  ng-repeat="shcoolDynamic in schoolDynamics">
 
->>>>>>> 2779961ac9b45334abce9f53c13ab6a2f4145559
+      <ion-item class="item-avatar card"  ng-repeat="shcoolDynamic in schoolDynamics">
+
         <div class="item-avatar">
 
         <img ng-src="{{shcoolDynamic.img}}">
@@ -63,10 +57,6 @@
         <div class="item-avatar">
           <img src="{{stuDynamic.img}}">
           <h5>{{stuDynamic.name}}</h5>
-<<<<<<< HEAD
-          <p >{{stuDynamic.content}}</p>
-          <h6 style="float: left" >{{stuDynamic.time | date:'yyyy-MM-dd'}}</h6>
-=======
 
 
           <div ng-if="stuDynamic.content.length >=36">
@@ -83,7 +73,7 @@
           </div>
             <h6 style="float: left">{{stuDynamic.time | date : 'yyyy-MM-dd'}}</h6>
 
->>>>>>> 2779961ac9b45334abce9f53c13ab6a2f4145559
+
         </div>
 
 
@@ -108,40 +98,29 @@
         <div class="item-avatar">
           <img src="{{terDynamic.img}}">
           <h5>{{terDynamic.name}}</h5>
-<<<<<<< HEAD
-          <p>{{terDynamic.time | date:'yyyy-MM-dd'}}</p>
-          <p style="float: left">{{terDynamic.content}}</p>
-=======
-
-
           <div ng-if="terDynamic.content.length >=36">
             <div id="{{terDynamic.id+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>
             <div id="{{terDynamic.id+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>
-
             <div>
               <a ng-click="showContentTer(terDynamic.id)" >更多</a>
             </div>
           </div>
-
           <div ng-if="terDynamic.content.length <36">
             <p> {{terDynamic.content}}</p>
           </div>
           <h6 style="float: left">{{terDynamic.time | date : 'yyyy-MM-dd'}}</h6>
-
-        </div>
->>>>>>> 2779961ac9b45334abce9f53c13ab6a2f4145559
-
         </div>
 
         <div class="comments">
-          <span id="{{terDynamic.id+'teacher'}}" style="display: none" >
+          <div id="{{terDynamic.id+'teacher'}}" style="display: none" >
           <a class=" button" ng-click="">点赞</a>
           <a class=" button" ng-click="">分享</a>
-        </span>
+          </div>
           <i  ng-click="showClickTeacher(terDynamic.id)" class="ion-chatbox-working" ></i>
         </div>
-      </ion-item>
+        </ion-item>
     </div>
+
 
 
   </ion-content>
