@@ -4,14 +4,14 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('my_dynamic',{
-        url:'/my-dynamic',
+      .state('my-dynamic',{
+        url:'/my-dynamic:type',
         templateUrl: 'templates/person/my-dynamic.html',
         controller: 'myDynamicCtrl'
 
       });
   })
-  .controller('myDynamicCtrl',function($scope){
+  .controller('myDynamicCtrl',function($scope,$stateParams){
 
     $scope.terDynamics = [{
       id:0,
@@ -50,6 +50,8 @@ angular.module('starter')
 
       }
     }
+
+    $scope.type = $stateParams.type;
 
 
   })

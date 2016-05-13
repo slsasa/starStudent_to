@@ -5,12 +5,12 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('setting',{
-        url:'/setting',
+        url:'/setting:type',
         templateUrl: 'templates/setting/setting.html',
         controller: 'settingCtrl'
       });
   })
-  .controller('settingCtrl',function($scope){
+  .controller('settingCtrl',function($scope,$stateParams){
 $scope.settings = [
 
   {
@@ -22,4 +22,6 @@ $scope.settings = [
     title:'关于我们'
   },
 ]
+        $scope.type = $stateParams.type;
+
   })

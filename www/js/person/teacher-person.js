@@ -66,16 +66,16 @@ angular.module('starter')
     $scope.goMyStyle = function(){
       $state.go('my-style');
     }
-    $scope.goMyDynamic = function(){
-      $state.go('my_dynamic');
+    $scope.goMyDynamic = function(type){
+      $state.go('my-dynamic',{type:type});
     }
 
     $scope.goWorksLog = function(){
       $state.go('my-works');
     }
 
-    $scope.goSetting = function(){
-      $state.go('setting');
+    $scope.goTerSetting = function(teacher){
+      $state.go('setting',{type:teacher});
     }
 
   })
