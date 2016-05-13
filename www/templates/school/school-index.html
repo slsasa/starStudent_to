@@ -72,7 +72,7 @@
       <span ng-repeat="dynamic in dynamics" style="line-height: 30px;">
         <a style="text-decoration: none"
            ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
-        <a style="text-decoration: none" 
+        <a style="text-decoration: none"
            ng-if="dynamic.id!=0">{{dynamic.title}}</a>
       </span>
       </marquee>
@@ -89,7 +89,7 @@
     <div class="light-bg shadow" style="margin: 10px 0px 0;">
       <marquee onmouseover="this.stop()" onmouseout="this.start()">
         <span ng-repeat="banner in banners">
-         <a href="#"><img ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%;border: solid 1px gainsboro;margin: 0 5px"></a>
+         <img ng-click="goMagnifyImg(banner.id)"  ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%;border: solid 1px gainsboro;margin: 0 5px">
 
         </span>
       </marquee>

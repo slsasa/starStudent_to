@@ -55,12 +55,23 @@ angular.module('starter')
       honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
     }];
 
+    $scope.objStarClick = document.getElementById('starClick');
+    $scope.objHonorClick = document.getElementById('honorClick');
+
+    $scope.objStarClick.style.backgroundColor = "#F96A9F";
+    $scope.objStarClick.style.color = "#fff";
+
     $scope.showStar  = function(){
+
       var objStar = document.getElementById('star');
       var objHonor = document.getElementById('honor');
-      if(objStar.style.display == "none"){
-        objHonor.style.display = "none";
-        objStar.style.display = "";
+      objHonor.style.display = "none";
+      objStar.style.display = "";
+
+      if(objStar.style.display == ""){
+
+        changeClickBg("#F96A9F","");
+        changeClickFontColor("#fff","black");
 
       }
     }
@@ -68,11 +79,26 @@ angular.module('starter')
     $scope.showHonor = function(){
       var objStar = document.getElementById('star');
       var objHonor = document.getElementById('honor');
-      if(objHonor.style.display == "none"){
+      objStar.style.display = "none";
+      objHonor.style.display = "";
+      if(objHonor.style.display == ""){
 
-        objStar.style.display = "none";
-        objHonor.style.display = "";
+        changeClickBg("","#F96A9F");
+        changeClickFontColor("black","#fff");
+
       }
+    }
+
+
+    var changeClickBg = function(star,honor){
+      $scope.objStarClick.style.backgroundColor = star;
+      $scope.objHonorClick.style.backgroundColor = honor;
+    }
+
+    var changeClickFontColor = function(star,honor){
+
+      $scope.objStarClick.style.color = star;
+      $scope.objHonorClick.style.color = honor;
     }
 
   })

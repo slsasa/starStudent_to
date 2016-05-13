@@ -13,7 +13,7 @@ angular.module('starter')
       });
   })
 
-  .controller('dynamicCtrl',function($scope,$ionicPopup){
+  .controller('dynamicCtrl',function($scope){
 
     $scope.schoolDynamics =[{
       id:0,
@@ -68,19 +68,40 @@ angular.module('starter')
     $scope.objSchool = document.getElementById('school');
     $scope.objStudent = document.getElementById('student');
     $scope.objTeacher = document.getElementById('teacher');
+
+    $scope.objSchoolClick = document.getElementById('showSchoolClick');
+    $scope.objStuClick = document.getElementById('showStuClick');
+    $scope.objTeacherClick = document.getElementById('showTeacherClick');
+
+
+    $scope.objStuClick.style.backgroundColor = "#F96A9F";
+    $scope.objStuClick.style.color = "#fff";
     $scope.showSchoolDynamic = function() {
-        $scope.objStudent.style.display = "none";
-        $scope.objTeacher.style.display = "none";
-        $scope.objSchool.style.display = "";
+
+      $scope.objStudent.style.display = "none";
+      $scope.objTeacher.style.display = "none";
+      $scope.objSchool.style.display = "";
+      if($scope.objSchool.style.display == ""){
+
+        changeColorBg("","#F96A9F","");
+        changeColorFont("black","#fff","black");
+
+      }
+
 
     }
 
     $scope.showStudentDynamic = function() {
 
       $scope.objTeacher.style.display = "none";
-
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "";
+
+      if($scope.objStudent.style.display == ""){
+        changeColorBg("#F96A9F","","");
+        changeColorFont("#fff","black","black");
+
+      }
 
     }
 
@@ -89,6 +110,25 @@ angular.module('starter')
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "none";
       $scope.objTeacher.style.display = "";
+
+      if($scope.objTeacher.style.display == ""){
+        changeColorBg("","","#F96A9F");
+        changeColorFont("black","black","#fff");
+      }
+
+
+    }
+
+    var changeColorBg = function(stu,school,teacher){
+      $scope.objStuClick.style.backgroundColor = stu;
+      $scope.objSchoolClick.style.backgroundColor = school;
+      $scope.objTeacherClick.style.backgroundColor = teacher;
+    }
+
+    var changeColorFont = function(stu,school,teacher){
+      $scope.objStuClick.style.color = stu;
+      $scope.objSchoolClick.style.color = school;
+      $scope.objTeacherClick.style.color = teacher;
 
 
 
