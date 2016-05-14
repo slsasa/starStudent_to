@@ -1,3 +1,12 @@
+<!--<style>-->
+  <!--#logClick{-->
+    <!--background-color: #0066bb;-->
+  <!--}-->
+  <!--#paperClick{-->
+    <!--background-color: red;-->
+  <!--}-->
+<!--</style>-->
+
 <ion-view>
   <ion-nav-title>
     <span class="title">作品中心</span>
@@ -5,11 +14,11 @@
 
   <ion-content>
     <div class="bar-subheader">
-      <a class="button" ng-click="showLog()" id="logClick">教学日志({{teacher.tearchingLog.length}})</a>
-      <a class="button" ng-click="showPaper()" id="paperClick">学术论文({{teacher.thesis.length}})</a>
+      <button class="button" ng-click="showCentreLog()" id="centreLogClick">1教学日志({{teacher.tearchingLog.length}})</button>
+      <a class="button" ng-click="showCentrePaper()" id="centrePaperClick">1学术论文({{teacher.thesis.length}})</a>
     </div>
 
-    <div id="log" class="list">
+    <div id="logCentre" class="list">
       <ion-item ng-repeat="tearLog in teacher.tearchingLog">
         <h5>
           {{tearLog.title}}
@@ -24,7 +33,7 @@
       </ion-item>
     </div>
 
-    <div id="paper" class="list" style="display: none">
+    <div id="paperCentre" class="list" style="display: none">
       <ion-item ng-repeat="tearingPage in teacher.thesis">
         <h5>
           {{tearingPage.title}}
