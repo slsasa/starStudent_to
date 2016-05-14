@@ -74,8 +74,8 @@ td {
 .head2{    margin: 6px 4%;display: block;}
 .headbk{height: 140px}
 .head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
-.myneme{ color: white;font-size: 23px}
-.ion-edit{font-size: 28px;color: white;margin: 0px 0px 0px 65%;}
+.myneme{ color: white;font-size: 23px;margin: -70px 0 0 0;}
+.ion-edit{font-size: 28px;color: white;margin: 0px 0px 0px 77%;}
 .stud{background-color: white;height: 80px;width: auto;    padding: 35px 0 0px 0px;}
 
 /*考核情况*/
@@ -90,6 +90,13 @@ td {
 
 /*教师个人中心*/
 .flor{    margin: 13px 55px 0 32%;}
+
+/*教师个人资料*/
+.message{background: white;
+  margin: 20px 0px 0 0;
+  padding: 10px 10px;
+  text-align: justify;}
+
 
 /*.buttonPer{width: 32%;line-height: 2.42857;margin: 0 -5px 0}*/
 .item{  padding: 0px 0px;}

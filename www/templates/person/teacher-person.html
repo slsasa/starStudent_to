@@ -8,20 +8,19 @@
 
       <div class="headbk" >
       <img ng-src="{{teacherPerson.backImg}}"  style="width: 100%;height: 110%;">
+        <div style="background: black;-moz-opacity:0.5; -webkit-opacity:0.5; opacity:0.5;;height: 35px;width: 68%;margin: -16% 0 30px 30%;"></div>
         <img ng-src="{{teacherPerson.headImg}}" class="head">
-        <div style="background: black;opacity:0.5;height: 35px;width: 68%;  margin: -80px 29%;">
-          <p class='myneme'> {{teacherPerson.signature}}  {{teacherPerson.username}}
-            <i class="ion-edit" ng-click="edit()"></i>
-          </p>
-        </div>
+        <p class='myneme'> {{teacherPerson.signature}}  {{teacherPerson.username}}
+          <i class="ion-edit" ng-click="edit()"></i>
+        </p>
+
       </div>
 
     <div class="stud">
-      <div style="">
-        <a  ng-click="addPraise()"><img src="img/teachper/z1.png"/></a>
-        <p style=" ">点赞：{{teacherPerson.praise}}</p>
-        <a  ng-click="addFlower()"><img src="img/teachper/h1.png"/></a>
-        <p style="">送花：{{teacherPerson.flower}}</p>
+      <div style="    margin: -14px 0 0 23%;">
+        <a  ng-click="addPraise()" style="    margin: 0px 15px 1px 0px;"><img style="    margin: 0 0 -16px 0px;" src="img/teachper/z1.png"/>点赞：{{teacherPerson.praise}}</a>
+        <a  ng-click="addFlower()"><img style="    margin: 0 0 -16px 0px;" src="img/teachper/h1.png"/>送花：{{teacherPerson.flower}}</a>
+
       </div>
     </div>
     <ion-list>
@@ -33,9 +32,9 @@
       <!--<i class="icon ion-chevron-right icon-accessory" ></i>-->
     <!--</ion-item>-->
 
-      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;">
-        <i class="ion-android-star-outline" style="font-size: 35px;color: #f65492" ng-click="goMyStyle()">
-          <h2 style="margin: -28px 33px 0px;"> 个人风采</h2></i>
+      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;" ng-click="goMyStyle()">
+        <img src="img/teachper/grfc.png"   style="    width: 28px;">
+          <h2 style="margin: -28px 33px 0px;"> 个人风采</h2></img>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
@@ -44,15 +43,15 @@
       <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
     <!--</ion-item>-->
 
-      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;">
-        <i class="ion-android-star-outline" style="font-size: 35px;color: #f65492" ng-click="goMyDynamic('teacher')">
-          <h2 style="margin: -28px 33px 0px;"> 我的动态</h2></i>
+      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;" ng-click="goMyDynamic('teacher')">
+        <img src="img/teachper/mydy.png"   style="    width: 28px;">
+          <h2 style="margin: -28px 33px 0px;"> 我的动态</h2>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
-      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;">
-        <i class="ion-android-star-outline" style="font-size: 35px;color: #f65492" ng-click="goWorksLog()">
-          <h2 style="margin: -28px 33px 0px;"> 我的动态</h2></i>
+      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;" ng-click="goWorksLog()">
+        <img src="img/teachper/zpzx.png"   style="    width: 28px;">
+          <h2 style="margin: -28px 33px 0px;"> 作品中心</h2>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
@@ -66,9 +65,9 @@
   </ion-list>
     <div style="padding-top:10%">
 
-      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;">
-        <i class="ion-android-star-outline" style="font-size: 35px;color: #f65492" ng-click="goTerSetting('teacher')">
-          <h2 style="margin: -28px 33px 0px;"> 我的动态</h2></i>
+      <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;" ng-click="goTerSetting('teacher')">
+        <img src="img/teachper/sz.png"   style="    width: 28px;">
+        <h2 style="margin: -28px 33px 0px;"> 我的动态</h2></i>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
