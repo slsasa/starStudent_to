@@ -44,7 +44,7 @@ angular.module('starter')
         share:311
       },{
         title:'全自主型智能网络磁盘存储系统',
-        content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
+        content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等,全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等构、网络存储、移动计算与云计算等',
         type:'教学日志',
         time:146775554442,
         flower:10,
@@ -93,7 +93,7 @@ angular.module('starter')
       }],
       tearchingLog:[{
         title:'主型系统',
-        content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
+        content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等,',
         type:'教学日志',
         time:146131231331,
         flower:10,
@@ -179,7 +179,7 @@ angular.module('starter')
 
     $scope.teacher = getTeacher($stateParams.teacherId);
 
-    $scope.goLogsDetail = function(index){
+    $scope.goCentreLogsDetail = function(index){
       $state.go('logs-detail',{teacherId:$stateParams.teacherId,index:index})
     }
     $scope.goPaperDetail = function(index){

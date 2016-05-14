@@ -6,25 +6,26 @@
   <ion-content>
     <h5 style="text-align: center">{{log.title}}</h5>
     <span>
-      <p> 类型:{{log.type}}</p>
-      <div class="row">
-        <a class="col col-25">送花：{{log.flower}}</a>
-        <a class="col col-25">点赞：{{log.praise}}</a>
-        <a class="col col-25">分享：{{log.share}}</a>
+     <div>
+       <p style="    float: left; margin:0px 5% 0px 10px;"> 类型:{{log.type}}</p>
+       <p style="    float: left;margin:0px 5% 0px 10px;">作者:{{teacher.name}}</p>
+       <p>{{log.time |date:'yyyy-MM-dd'}}</p>
+     </div>
+      <div style=" ">
+        <a style="margin: 0 7% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #5D97F9;" class="ion-android-contacts"></i>{{log.flower}}</a>
+        <a style="margin: 0 12% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #44c6fb;" class="ion-thumbsup" ></i>{{log.praise}}</a>
+        <a ><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #f48b46;" class="ion-android-share-alt"></i>{{log.share}}</a>
       </div>
     </span>
-    <span>
-      <p>作者:{{teacher.name}}</p>
-      <p>{{log.time |date:'yyyy-MM-dd'}}</p>
-    </span>
-    <div>
+
+    <div style="margin:10px 10px 0px 10px;text-align: justify;">
       {{log.content}}
     </div>
 
   </ion-content>
   <div class="bar bar-footer row">
-    <a href="" class="col col-50 button">点赞</a>
-    <a href="" class="col col-50 button">送花</a>
+    <a href="" class="button button-pink "  style=" border-radius: 20px;line-height: 29px;height: 29px">点赞</a>
+    <a href="" class="button button-pink "  style=" border-radius: 20px;line-height: 29px;height: 29px">送花</a>
     </a>
   </div>
 </ion-view>
