@@ -13,6 +13,8 @@ angular.module('starter')
 
 
   .controller('loginCtrl',function($scope,$state,$ionicPopup){
+
+
     $scope.loginbks = [
       {
         "img":"img/logobk.jpg"
