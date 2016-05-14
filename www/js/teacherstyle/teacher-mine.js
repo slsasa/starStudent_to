@@ -44,7 +44,9 @@ angular.module('starter')
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
         time:146775554442
-      }]
+      }],
+      praise:34,
+      flower:32
 
     },{
       id:1,
@@ -78,8 +80,20 @@ angular.module('starter')
         content:'全自主型智能网络磁盘存储系统的存储管理方法研究，主要研究方向为计算机系统结构、网络存储、移动计算与云计算等',
         type:'教学日志',
         time:146775554442
-      }]
+      }],
+      praise:34,
+      flower:32
     }];
+
+
+    //$scope.count =0;
+    //$scope.countFlower = function() {
+    //  for (var i = 0; i < $scope.teachers.length; i++) {
+    //    $scope.count += $scope.teachers[i].flower;
+    //  }
+    //  return $scope.count;
+    //}
+
 
     $scope.objChat = document.getElementById('chat');
     $scope.objCharm = document.getElementById('charm');

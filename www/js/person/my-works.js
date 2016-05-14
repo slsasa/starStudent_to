@@ -101,20 +101,42 @@ angular.module('starter')
       $state.go('myPapers-detail',{index:index})
     }
 
+
+    //按钮状态
+    var changeClickLogBgColor = function(log,paper){
+      $scope.objLogClick.style.backgroundColor = log;
+      $scope.objPaperClick.style.backgroundColor = paper;
+    }
+
+    var changeClickFontColor = function(log,paper){
+      $scope.objLogClick.style.color= log;
+      $scope.objPaperClick.style.color = paper;
+    }
+
+    $scope.objLog = document.getElementById('log');
+    $scope.objPaper = document.getElementById('paper');
+    $scope.objLogClick = document.getElementById('logClick');
+    $scope.objPaperClick = document.getElementById('paperClick');
+
+
+    $scope.objLogClick.style.backgroundColor = "#f96a9f";
+    $scope.objLogClick.style.color = "#fff";
     $scope.showLog = function(){
-      var objLog = document.getElementById('log');
-      var objPaper = document.getElementById('paper');
-      if(objLog.style.display == "none"){
-        objPaper.style.display = "none";
-        objLog.style.display = "";
+      $scope.objPaper.style.display = "none";
+      $scope.objLog.style.display = "";
+      if($scope.objLog.style.display == ""){
+        changeClickLogBgColor("#f96a9f","");
+        changeClickFontColor("#fff","black");
       }
     }
+
     $scope.showPaper = function() {
-      var objLog = document.getElementById('log');
-      var objPaper = document.getElementById('paper');
-      if (objPaper.style.display == "none") {
-        objLog.style.display = "none";
-        objPaper.style.display = "";
+      $scope.objLog.style.display = "none";
+      $scope.objPaper.style.display = "";
+
+      if ($scope.objPaper.style.display == "") {
+        changeClickLogBgColor("","#f96a9f");
+        changeClickFontColor("black","#fff");
       }
     }
 
