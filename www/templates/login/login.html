@@ -1,5 +1,5 @@
 <ion-view view-title="登录">
-  <ion-content class="has-header" style="background-image:url(img/loginbk.jpg);position:fixed ;height: 100%;width:100%">
+  <ion-content class="has-header" style="background-image:url(img/loginbk.jpg);background-repeat: no-repeat;height: 100%;width:100%">
 
 
     <div class="loginbk" ng-repeat="loginbk in loginbks">
@@ -14,7 +14,7 @@
     </div>
     <div class="logininput">
       <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
-      <input type="text" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
+      <input type="password" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
     </div>
 
     <div class="logininput item-select">

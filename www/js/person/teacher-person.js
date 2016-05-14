@@ -22,8 +22,8 @@ angular.module('starter')
       username:'李老师',
       password:'123',
       teacherMeg:'1999年参加工作，爱岗敬业，有才艺，有理想，与人为善，沟通能力强。多次获镇优秀教师称号。人生格言是：爱就是教育，没有爱便没有教育。教师讲课深入浅出，条理清楚，层层剖析，环环相扣，论证严密，结构严谨，用思维的逻辑力量吸引学生的注意力用理智控制课堂教学进程。',
-      headImg:'img/img2.png',
-      backImg:'img/mebk.jpeg',
+      headImg:'img/stuperson/stuh.png',
+      backImg:'img/stuperson/stubk.png',
       styleImg:[{
         time:1482994422123,
         imgs:['img/img2.png','img/mebk.jpeg','img/img3.png','img/apply.jpeg']

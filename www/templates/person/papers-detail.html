@@ -1,30 +1,32 @@
 <ion-view>
   <ion-nav-title>
-    <span class="title">论文详情</span>
+    <span class="title">日志详情</span>
   </ion-nav-title>
 
   <ion-content>
-    <h5 style="text-align: center">{{thesis.title}}</h5>
+    <h5 style="text-align: center">{{log.title}}</h5>
     <span>
-      <p> 类型:{{thesis.type}}</p>
+      <p style="padding-left: 10px"> 类型:{{log.type}}</p>
       <div class="row">
-        <a class="col col-25">送花：{{thesis.flower}}</a>
-        <a class="col col-25">点赞：{{thesis.praise}}</a>
-        <a class="col col-25">分享：{{thesis.share}}</a>
+        <a class="col col-25">送花：{{log.flower}}</a>
+        <a class="col col-25">点赞：{{log.praise}}</a>
+        <a class="col col-25">分享：{{log.share}}</a>
       </div>
     </span>
-    <span>
-      <p>作者:{{teacher.name}}</p>
-      <p>{{thesis.time |date:'yyyy-MM-dd'}}</p>
-    </span>
     <div>
-      {{thesis.content}}
+      <p style="    margin: 0px 10px 10px;">作者:{{teacher.name}}</p>
+      <p style="padding-left: 10px">{{log.time |date:'yyyy-MM-dd'}}</p>
+    </div>
+    <div style="padding: 0 10px">
+      {{log.content}}
     </div>
 
   </ion-content>
   <div class="bar bar-footer row">
-    <a href="" class="col col-50 button">点赞</a>
-    <a href="" class="col col-50 button">送花</a>
-    </a>
+
+    <a class="button button-pink wordD" >点赞</a>
+    <a class="button button-pink wordD" >送花</a>
+
+
   </div>
 </ion-view>

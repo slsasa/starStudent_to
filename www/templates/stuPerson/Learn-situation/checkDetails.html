@@ -1,10 +1,12 @@
 <ion-view view-title="考核详情">
 
   <ion-content>
-    <div>
-      <div class="checkDet">
-        <h5>科目名称：{{checkdetails.coursetitle}}</h5>
-        <h5>综合成绩：{{checkdetails.synscore}}</h5>
+    <div >
+      <img src="img/stuperson/tit1.png" class="tit1">
+      <div class="checkDet ">
+
+        <p>科目名称：{{checkdetails.coursetitle}}</p>
+        <p>综合成绩：{{checkdetails.synscore}}</p>
       </div>
       <div style="margin: 0 40px 0;">
         <p>语音基础：<p class="checkscose">{{checkdetails.Speechbase}}</p></p>
@@ -14,8 +16,9 @@
         <p>舞台展现能力：<p class="checkscose">{{checkdetails.stageshow}}</p></p>
         <p>表演技巧：<p class="checkscose">{{checkdetails.performskills}}</p></p>
       </div>
-      <hr>
+      <hr style="border: solid 1px gainsboro;opacity: 0.3">
       <div>
+        <img src="img/stuperson/tit1.png" class="tit1">
         <p class="cheComments">评语：{{checkdetails.comments}}</p>
       </div>
     </div>
