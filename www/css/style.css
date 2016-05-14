@@ -131,4 +131,5 @@ td {
 
 /*教师风采*/
 .buttonMin{ background: #f96a9f ; color: white;   margin: 0px -8px 0 0;  width: 110px;}
-
+.mine{box-shadow:#f96a9f 0px 23px 20px -20px ;   }
+.kk{padding: 10px 5px 10px 0px;}
