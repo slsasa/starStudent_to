@@ -23,7 +23,8 @@ angular.module('starter')
     $scope.user = {
       num:'',
       pwd:'',
-      type:'学生'
+      type:'学生',
+      numverify :''
     }
     //进入主页面
     $scope.login = function(){

@@ -16,6 +16,12 @@ angular.module('starter')
 
 
   .controller('registerCtrl',function($scope){
+    $scope.user = {
+      num:'',
+      pwd:'',
+      type:'学生',
+      numverify :''
+    }
     $scope.loginbks = [
       {
         "img":"img/logobk.jpg"

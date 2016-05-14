@@ -54,7 +54,7 @@ td {
 .up{margin: 10px 10px 0 75px;height: auto;padding-top: 5px}
 .time{    margin: 0px 0 5px;}
 .mypost{margin: 0 0 0px;text-align: justify;}
-.comments{text-align: right;font-size: 20px;    margin: -30px 5px 0px;}
+.comments{text-align: right;font-size: 20px;    margin: 20px 3% 7px;}
 .apply{
   width: 85%;height: 150px;    margin: 5% 8% 0px;
 }
@@ -70,7 +70,7 @@ td {
 /*.apply2{margin: 0 38% 0}*/
 /*学生个人中心*/
 .a_image1 img{width: 35px;height:35px;margin: 10px auto;}
-.head2{    margin: 6px 6%;display: block;}
+.head2{    margin: 6px 4%;display: block;}
 .headbk{height: 140px}
 .head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
 .myneme{ color: white;font-size: 23px}
@@ -79,7 +79,7 @@ td {
 
 /*.buttonPer{width: 32%;line-height: 2.42857;margin: 0 -5px 0}*/
 .item{  padding: 0px 0px;}
-.outlogin{width: 80%;margin: 20% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
+.outlogin{width: 80%;margin: 20% 11%;box-shadow: #f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 
 .checkDet{    margin: 0 10px 0;}
 .cheComments{    margin: 10px;
@@ -101,3 +101,11 @@ td {
 
 
 .up{    margin: 10px 10px 0 75px;height: auto;padding-top: 5px}
+
+/*动态圈*/
+.ion-chatbox-working{color: #f96a9f}
+.buttonDy{background-color:#f96a9f;color: white;display: inline;    margin: 0 -10px 0px 0px;}
+
+
+/*教师风采*/
+.buttonMin{ background: #f96a9f ; color: white;   margin: 0px -8px 0 0;  width: 110px;}

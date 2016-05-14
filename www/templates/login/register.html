@@ -15,9 +15,9 @@
 
     <div class="verify">
       <i class="ion-ios-person-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
-      <input type="text" class="loginaccount " placeholder="请输入账号" ng-model="user.numverify " >
+      <input type="text" class="loginaccount " placeholder="请输入验证码" ng-model="user.numverify " >
     </div>
-    <a class="button button-pink tt"  ng-click="">提交确认</a>
+    <a class="button button-pink tt"  ng-click="">获取验证码</a>
     <div class="reginput">
       <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
       <input type="password" name="password" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
@@ -26,7 +26,15 @@
       <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
       <input type="password" name="passwordsure" class="loginaccount " placeholder="再次输入" ng-model="user.pwdsure " >
     </div>
-
+    <div class="logininput item-select">
+      <div class="input-label fill" style="color: white;padding-left: 8%">
+        身份
+      </div>
+      <select ng-model="user.type" style="font-size: 18px;font-weight:500">
+        <option selected="">教师</option>
+        <option>学生</option>
+      </select>
+    </div>
 
     <div class="padding text-center ">
       <a class="button button-pink" style="width: 80%;margin: 5% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;" ng-click="">提交确认</a>
