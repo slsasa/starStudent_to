@@ -1,8 +1,9 @@
 <ion-view view-title="成果详情">
 
-  <ion-content>
-    <h4 class="title">{{outcomeDetail.title}}</h4>
+  <ion-content style="background-image:url(img/outcom/outcombk.png);height: 100%;width:100%;background-repeat: no-repeat">
+    <img src="{{outcomeDetail.img}}" class="outcomeImg"/>
+    <h4 class="title" style="    margin: -85px 0px 50px 33%;">{{outcomeDetail.title}}</h4>
     <p style="font-size: 13px;float: right">{{outcomeDetail.time| date : 'yyyy-MM-dd'}}</p><br>
-    <p>{{outcomeDetail.content}}</p>
+    <div><p style=" text-align: justify;   margin: 0px 15px;">{{outcomeDetail.content}}</p></div>
   </ion-content>
 </ion-view>

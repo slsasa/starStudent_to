@@ -1,17 +1,17 @@
 <ion-view view-title="学习情况">
 
   <ion-nav-buttons side="left">
-    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_stu"></button>
+    <button class="button light button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_stu"></button>
   </ion-nav-buttons>
   <ion-content>
 
     <div class="list" >
       <ion-item class=" learn item-icon-right" ng-repeat="learn in learns" ng-click="goCheckDeatil(learn.id)" >
-        <div >
-          舞蹈科目：{{learn.subjectsname}}<div style="margin: -20px 51% 0;">综合成绩：{{learn.score}}</div>
+        <div style="     margin: 0 3% 0px 0px;">
+          舞蹈科目：{{learn.subjectsname}}<div style="    margin: -21px 0 0 47%;">综合成绩：{{learn.score}}</div>
         </div>
 
-        <div>考核老师：{{learn.assessmentName}}<div style="margin: -20px 51% 0;">考核时间：{{learn.asTime |date:'yyyy-MM-dd'}}</div></div>
+        <div style="     margin: 0 3% 0px 0px;">考核老师：{{learn.assessmentName}}<div style="    margin: -21px 0 0 47%;">考核时间：{{learn.asTime |date:'yyyy-MM-dd'}}</div></div>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </div>

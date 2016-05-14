@@ -12,27 +12,25 @@
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
   </ion-nav-buttons>
   <ion-content class="has-header ionic-pseudo">
-    <div class="list">
 
+
+    <div class="list">
       <div>
         <div  class="has-header" ng-repeat="course in courses">
-
           <div class="h5 title item-divider "> {{course.courseKind}}</div>
-
           <div class="row" >
-
-            <div class="col col-33" ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
-              <a href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+            <div ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
+              <a class="button" href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
             </div>
           </div>
           <div class="row">
-            <div class="col col-33" ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
-              <a  href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+            <div  ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
+              <a class="button"  href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
             </div>
           </div>
         </div>
       </div>
-
     </div>
+
   </ion-content>
 </ion-view>

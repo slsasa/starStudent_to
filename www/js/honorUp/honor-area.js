@@ -14,44 +14,45 @@ angular.module('starter')
     $scope.honorWall = [{
       id:0,
       name:'李德老师',
-      img:'img/img1.png',
+      img:'img/honor-a/starh.png',
       honorDetail:'荣获湖南省教育局舞蹈类比赛拉丁舞的冠军'
     },{
       id:1,
       name:'彭而老师',
-      img:'img/img2.png',
+      img:'img/honor-a/starh.png',
       honorDetail:'荣获全国书法比赛一等奖'
     },{
       id:2,
       name:'吴杜尔老师',
-      img:'img/img3.png',
+      img:'img/honor-a/starh.png',
       honorDetail:'大专学历,小学一级教师。1999年参加工作,爱岗敬业,有才艺,有理想,。'
     },{
       id:3,
       name:'李老师',
-      img:'img/img4.png',
+      img:'img/honor-a/starh.png',
       honorDetail:'大专学历,小学一级教师。1999年参加工作,爱岗敬业,有才艺,有理想,。'
     }];
 
     $scope.starList  = [{
       id:0,
-      name:'张三',
-      img:'img/img3.png',
+      name:'李小风',
+      img:'img/honor-a/starh.png',
       honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
     },{
       id:1,
-      img:'img/img1.png',
-      name:'王五',
-      honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
+      img:'img/honor-a/starh.png',
+      name:'李小风',
+      honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280,' +
+      '2015年下半年年级一等经，语文119、数学110、英语120、综合280'
     },{
       id:2,
-      img:'img/img2.png',
-      name:'moumou',
+      img:'img/honor-a/starh.png',
+      name:'李小风',
       honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
     },{
       id:3,
-      img:'img/img4.png',
-      name:'moumou',
+      img:'img/honor-a/starh.png',
+      name:'李小风',
       honorDetail:'2015年下半年年级一等经，语文119、数学110、英语120、综合280'
     }];
 

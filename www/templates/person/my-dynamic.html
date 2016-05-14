@@ -3,10 +3,10 @@
     <span class="我的动态"></span>
   </ion-nav-title>
   <ion-nav-buttons side="left">
-    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_{{type}}"></button>
+    <button class="button light button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_{{type}}"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-android-share-alt" ng-click="" ></button>
+    <button class="button light button-icon icon ion-plus" ng-click="" ></button>
   </ion-nav-buttons>
   <ion-nav-title>
     <span class="title">
@@ -14,13 +14,11 @@
     </span>
   </ion-nav-title>
 
-  <ion-content>
+  <ion-content style="background-color: #f1f1f1">
     <div  class="list" style="padding: 15px 0px;" >
       <ion-item class="item card" ng-repeat="terDynamic in  terDynamics">
-        <div class="item-avatar">
-          <img src="{{terDynamic.img}}">
-          <h5>{{terDynamic.name}}</h5>
-
+        <p style="    margin: 5px 0px 0px 10px;">{{terDynamic.time | date : 'yyyy-MM-dd'}}</p>
+        <div class="item-avatar mydy">
 
           <div ng-if="terDynamic.content.length >=36">
             <div id="{{terDynamic.id+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>
@@ -34,15 +32,11 @@
           <div ng-if="terDynamic.content.length <36">
             <p> {{terDynamic.content}}</p>
           </div>
-          <h6 style="float: left">{{terDynamic.time | date : 'yyyy-MM-dd'}}</h6>
-
         </div>
-
-
         <div class="comments">
-          <span id="{{terDynamic.id+'teacher'}}" style="display: none" >
-          <a class=" button" ng-click="">点赞</a>
-          <a class=" button" ng-click="">分享</a>
+          <span id="{{terDynamic.id+'teacher'}}" style="display: none; padding: 0px 10px 0px;" >
+          <a class=" button buttonDy" ng-click="">点赞</a>
+          <a class=" button buttonDy" ng-click="">分享</a>
         </span>
           <i  ng-click="showClickTeacher(terDynamic.id)" class="ion-chatbox-working" ></i>
         </div>

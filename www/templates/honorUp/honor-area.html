@@ -5,17 +5,17 @@
   <ion-nav-buttons>
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
   </ion-nav-buttons>
-  <ion-content>
-    <div class="bar-subheader">
+  <ion-content style="background-color: #f1f1f1">
+    <div class="bar-subheader" style="text-align: center;    margin: 7px 0px 9px 0px;">
       <a class="button" ng-click="showStar()" id="starClick">明星榜</a>
       <a class="button" ng-click="showHonor()" id="honorClick">荣誉墙</a>
     </div>
 
     <div id="star" class="list">
-      <a class="item " ng-repeat="star in starList">
+      <a class="item " ng-repeat="star in starList" style="padding: 10px 0px;">
         <div class="item-avatar">
           <img ng-src="{{star.img}}">
-          <h5>{{star.name}}</h5>
+          <p>{{star.name}}</p>
           <p>获奖情况：{{star.honorDetail}}</p>
         </div>
       </a>
@@ -25,7 +25,7 @@
       <a class="item" ng-repeat="honorMan in honorWall">
         <div class="item-avatar">
           <img ng-src="{{honorMan.img}}">
-          <h5>{{honorMan.name}}</h5>
+          <p>{{honorMan.name}}</p>
           <p>{{honorMan.honorDetail}}</p>
         </div>
       </a>
