@@ -13,56 +13,61 @@ angular.module('starter')
       });
   })
 
-  .controller('dynamicCtrl',function($scope){
+  .controller('dynamicCtrl',function($scope, $ionicPopup, $http){
 
-    $scope.schoolDynamics =[{
-      id:0,
-      img:'img/img1.png',
-      schoolName:'格林艺术培训学校',
-      time:14613407993000,
-      content:'1月7日和13日，我校分别在澳门和香港两地举行了2016年校董迎春座谈会,1月7日和13日，我校分别在澳门和香港两地举行了2016年校董迎春座谈',
+    var getSchoolData = function(){
+      var url = rootUrl + "/school_dynamic/get_list";
 
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var data = result.data;
+          data.forEach(function(item){
+            item.school_head_url = "http://115.159.115.145:3000/" + item.school_head_url;
+            item.pic_url_list.forEach(function(img){
+              img = rootPicUrl + img;
+            })
+          });
+          $scope.schoolDynamics = data;
+        })
+        .error(function(err){
+          console.log("获取数据失败");
+        })
+    }
 
-      },{
-      id:1,
-      img:'img/img1.png',
-      schoolName:'格林艺术培训学校',
-      time:14634242424244,
-      content:'1月7日'
-      },{
-      id:2,
-      img:'img/img1.png',
-      schoolName:'格林艺术培训学校',
-      time:14645353453534,
-      content:'5月4日，我校2014年优秀学生访澳团一行32人抵达澳门，开始了为期4天的参访之旅我校2014年优秀学生访澳团一行32人抵达澳门，开始了为期4天的参访之旅我校2014年优秀学生访澳团一行32人抵达澳门，开始了为期4天的参访之旅。'
-      }];
+    var getStundetData = function(){
+      var url = rootUrl + "/student_dynamic/get_all_list";
 
-    $scope.stuDynamics = [{
-      id:0,
-      time: 1462281859141,
-      name: '李四',
-      img: 'img/dy1.jpeg',
-      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
-    },{
-      id:1,
-      time: 1462281859141,
-      name: '李我',
-      img: 'img/img2.png',
-      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
-    }];
-    $scope.terDynamics = [{
-      id:0,
-      time: 1462281859141,
-      name: '李4四',
-      img: 'img/dy1.jpeg',
-      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
-    },{
-      id:1,
-      time: 1462081859141,
-      name: '李3我',
-      img: 'img/img2.png',
-      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
-    }];
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var data = result.data;
+          data.forEach(function(item){
+            item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
+          })
+          $scope.stuDynamics = data;
+        })
+        .error(function(err){
+          console.log("获取数据失败");
+        })
+    }
+
+    var getTeacherData = function(){
+      var url = rootUrl + "/teacher_dynamic/get_all_list";
+
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var data = result.data;
+          data.forEach(function(item){
+            item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
+          })
+          $scope.terDynamics = data;
+        })
+        .error(function(err){
+          console.log("获取数据失败");
+        })
+    }
 
 
     $scope.objSchool = document.getElementById('school');
@@ -76,8 +81,9 @@ angular.module('starter')
 
     $scope.objStuClick.style.backgroundColor = "#F96A9F";
     $scope.objStuClick.style.color = "#fff";
-    $scope.showSchoolDynamic = function() {
 
+    //学校动态按钮
+    $scope.showSchoolDynamic = function() {
       $scope.objStudent.style.display = "none";
       $scope.objTeacher.style.display = "none";
       $scope.objSchool.style.display = "";
@@ -87,36 +93,36 @@ angular.module('starter')
         changeColorFont("black","#fff","black");
 
       }
-
-
+      getSchoolData();
     }
 
+    //学员动态按钮
     $scope.showStudentDynamic = function() {
-
       $scope.objTeacher.style.display = "none";
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "";
-
       if($scope.objStudent.style.display == ""){
         changeColorBg("#F96A9F","","");
         changeColorFont("#fff","black","black");
 
       }
-
+      getStundetData();
     }
 
+    //一开始显示学员动态
+
+
+    //教师动态按钮
     $scope.showTeacherDynamic = function() {
 
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "none";
       $scope.objTeacher.style.display = "";
-
       if($scope.objTeacher.style.display == ""){
         changeColorBg("","","#F96A9F");
         changeColorFont("black","black","#fff");
       }
-
-
+      getTeacherData();
     }
 
     var changeColorBg = function(stu,school,teacher){
@@ -129,10 +135,9 @@ angular.module('starter')
       $scope.objStuClick.style.color = stu;
       $scope.objSchoolClick.style.color = school;
       $scope.objTeacherClick.style.color = teacher;
-
-
-
     }
+
+    $scope.showStudentDynamic();
 
     $scope.showClickSchool = function(schoolId){
       var objClick = document.getElementById(schoolId+'school');

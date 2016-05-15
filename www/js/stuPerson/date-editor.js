@@ -10,7 +10,22 @@ angular.module('starter')
           controller: 'dateEditorCtrl'
       });
   })
-  .controller('dateEditorCtrl',function($scope){
+  .controller('dateEditorCtrl',function($scope, userInfo, $http){
+
+    //var update = function(){
+    //  var url = rootUrl + "/student_info/get_info?student_id=" + userInfo._id;
+    //
+    //  $http.get(url)
+    //    .success(function(result){
+    //      var data = result;
+    //      data.pic_entrance_id = rootPicUrl + data.pic_entrance_id;
+    //
+    //    })
+    //    .error(function(err){
+    //      console.log("获取信息失败");
+    //    })
+    //}
+
     $scope.teacherPerson = {
       name:'李伟峰',
       sex:'男',

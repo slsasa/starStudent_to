@@ -13,7 +13,7 @@
   <ion-content>
 
 
-    <textarea class="card" ng-model="contentDynamic" style="width: 90%;height: 60%"></textarea>
+    <textarea class="card" ng-model="msg.content" style="width: 90%;height: 60%"></textarea>
 
     <div class="item item-stacked-label">
       <span class="input-label "><strong>上传图片:</strong></span>
@@ -22,7 +22,7 @@
              ng-click="clickPhoto($index)" class="image-list-thumb"/>
       </ion-scroll>
     </div>
-    <a class="button">确定提交</a>
+    <a class="button" ng-click="onSubmit()">确定提交</a>
 
   </ion-content>
 

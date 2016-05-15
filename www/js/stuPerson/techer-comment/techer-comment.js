@@ -10,22 +10,44 @@ angular.module('starter')
           controller:'techerComCtrl'
       });
   })
-  .controller('techerComCtrl',function($scope){
-    $scope.comments = [
-      {
-        id:0,
-        name: '吴都',
-        position:'舞蹈教师',
-        introduce:'性格沉静,常常不拘小节,待人接物却稳重大方。',
-        img:'img/img1.png',
-      },
+  .controller('techerComCtrl',function($scope, $http, userInfo){
 
-      {
-        id:1,
-        name: '李德',
-        position:'创意口才教师',
-        img:'img/img3.png',
-        introduce:'平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。'
-      }
-    ];
+    var updata = function(){
+      var url = rootUrl + "/student_teacher_com/get_info?student_id=" + userInfo._id;
+
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var data = result.data;
+          data.forEach(function(item){
+            item.teacher_avatar_id.pic_url = rootPicUrl + item.teacher_avatar_id.pic_url;
+          })
+          $scope.comments = data;
+        })
+        .error(function(err){
+          console.log("获取教师评语失败");
+        })
+    }
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+      updata();
+    })
+
+    //$scope.comments = [
+    //  {
+    //    id:0,
+    //    name: '吴都',
+    //    position:'舞蹈教师',
+    //    introduce:'性格沉静,常常不拘小节,待人接物却稳重大方。',
+    //    img:'img/img1.png',
+    //  },
+    //
+    //  {
+    //    id:1,
+    //    name: '李德',
+    //    position:'创意口才教师',
+    //    img:'img/img3.png',
+    //    introduce:'平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。平日里言语不多,但我知道你心志高远，骨子里一种倔强和坚韧。'
+    //  }
+    //];
   })

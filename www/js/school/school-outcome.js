@@ -10,44 +10,39 @@ angular.module('starter')
         controller:'outcomeCtrl'
       });
   })
-  .controller('outcomeCtrl',function($scope){
-
-    //学校成果
-    $scope.schOutcomes = [
-      {
-        id:0,
-        img:'img/img1.png',
-        title:'中国音乐学院、中国歌剧舞剧院批准的国家艺术水平考级点。',
-        time:'1461350859000'
-
-      },{
-        id:1,
-        img:'img/img2.png',
-        title:'连续六年被长沙市教育局评为民办教育工作先进单位。',
-        time:'1471350854000'
-      },{
-        id:2,
-        img:'img/img3.png',
-        title:'连续六年被评为湖南省优秀民办学校。',
-        time:'14613503058000'
-      }
-    ];
+  .controller('outcomeCtrl',function($scope, $http){
 
     var update = function(){
-      $scope.schOutcomes = [{
-        id:0,
-        img:'img/img3.png',
-        title:'dadad',
-        time:14343434343422
-      }];
 
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-      $scope.$broadcast('scroll.refreshComplete');
+      var url = rootUrl + "/school_achievement/get_list";
+
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+
+          var data = result.data;
+          data.forEach(function(item){
+            item.img = rootPicUrl + item.img;
+          });
+
+          $scope.schOutcomes = data;
+
+          $ionicLoading.hide();
+          refresh = true;
+        })
+        .error(function(err){
+          console.log(err);
+        })
     }
 
-    $scope.doRefresh = function(){
-      $scope.schOutcomes = [];
+    $scope.$on('$ionicView.beforeEnter',function(){
       update();
+    })
+
+    $scope.doRefresh = function(){
+      update();
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+      $scope.$broadcast('scroll.refreshComplete');
     }
 
 

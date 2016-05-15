@@ -15,7 +15,7 @@
 
     <div class="verify">
       <i class="ion-ios-person-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
-      <input type="text" class="loginaccount " placeholder="请输入账号" ng-model="user.numverify " >
+      <input type="text" class="loginaccount " placeholder="请输入验证码" ng-model="user.numverify " >
     </div>
     <button class="button pink-bg light width-sumbit-btn " >获取验证码</button>
     <div class="reginput">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="padding text-center ">
-      <button class="button pink-sure light width-sumbit-sure ">提交确认</button>
+      <button class="button pink-sure light width-sumbit-sure " ng-click="onSubmit()">提交确认</button>
     </div>
   </ion-content>
 </ion-view>

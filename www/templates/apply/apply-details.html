@@ -10,7 +10,7 @@
   </ion-nav-buttons>
   <ion-content  style="background-color: #f1f1f1">
 
-    <img style="width: 100%;height: 300px" ng-src="{{apply.img}}"/>
+    <img style="width: 100%;height: 300px" ng-src="{{apply.pic_url}}"/>
 
     <div class="opa-div">
       <p class="padding left light" style="margin-top: -40px;">{{apply.title}}</p>
@@ -18,11 +18,11 @@
     <div class="np padding">
       <p>报名规则</p>
 
-      <p>报名费:{{apply.cost}}元</p>
+      <p>报名费:{{apply.sign_up_cost}}元</p>
 
-      <p>奖励积分:{{apply.awardIntegral}}</p>
+      <p>奖励积分:{{apply.reward_score}}</p>
 
-      <p>截止时间:{{apply.stopTime | date:'yyyy-MM-dd'}}</p>
+      <p>截止时间:{{apply.end_time | date:'yyyy-MM-dd'}}</p>
     </div>
     <br>
 
