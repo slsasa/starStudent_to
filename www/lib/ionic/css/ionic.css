@@ -8588,7 +8588,7 @@ progress {
   display: inline-block;
   margin: 0;
   padding: 0 12px;
-  min-width: 52px;
+  min-width: 73px;
 
   border-width: 1px;
   border-style: solid;
@@ -8603,6 +8603,10 @@ progress {
 }
 
 
+.button-courselist.active,.button-courselist.activated{
+  color: #fff;
+  background-color: #f74d84;
+}
 .button-courselist {
   border-color: #e5e5e5;
   background-color: rgba(241, 241, 241, 0.86);
