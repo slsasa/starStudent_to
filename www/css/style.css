@@ -74,8 +74,8 @@ td {
 .head2{    margin: 6px 4%;display: block;}
 .headbk{height: 140px}
 .head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
-.myneme{ color: white;font-size: 23px;margin: -70px 0 0 0;}
-.ion-edit{font-size: 28px;color: white;margin: 0px 0px 0px 77%;}
+.myneme{ color: white;font-size: 17px;padding: -2px 0px 0px 10px;}
+.ion-edit{font-size: 28px;color: white;    float: right;margin: 3px 5% 0px 0px;}
 .stud{background-color: white;height: 80px;width: auto;    padding: 35px 0 0px 0px;}
 
 /*考核情况*/
@@ -131,4 +131,5 @@ td {
 
 /*教师风采*/
 .buttonMin{ background: #f96a9f ; color: white;   margin: 0px -8px 0 0;  width: 110px;}
-
+.mine{box-shadow:#f96a9f 0px 23px 20px -20px ;   }
+.kk{padding: 10px 5px 10px 0px;}

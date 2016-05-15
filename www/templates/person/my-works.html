@@ -9,23 +9,23 @@
     <button class="button button-icon icon ion-android-share-alt" ng-click="openModel_start()" ></button>
   </ion-nav-buttons>
 
-  <ion-content>
-    <div class="bar-subheader">
+  <ion-content style="background-color: #f1f1f1">
+    <div class="bar-subheader" style="margin: 6px;text-align: center">
       <a class="button" ng-click="showLog()" id="logClick">教学日志({{teacher.tearchingLog.length}})</a>
       <a class="button" ng-click="showPaper()" id="paperClick">学术论文({{teacher.thesis.length}})</a>
     </div>
 
     <div id="log" class="list">
       <ion-item ng-repeat="tearLog in teacher.tearchingLog">
-        <h5>
+        <p style="margin: 10px 0 0 10px;">
           {{tearLog.title}}
-        </h5>
-        <p>{{tearLog.content}}</p>
+        </p>
+        <p style=" padding: 0 10px; text-align: justify;">{{tearLog.content}}</p>
 
         <br>
       <span>
-      <a style="float: left">{{tearLog.time | date:'yyyy-MM-dd'}}</a>
-      <a class="button" ng-click="goLogsDetail($index)" style="float: right">>>详情</a>
+      <a style="float: left;margin: 0 0 0 10px;color: #b2b2b2;">{{tearLog.time | date:'yyyy-MM-dd'}}</a>
+      <a class="button" ng-click="goLogsDetail($index)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
       </span>
       </ion-item>
 
@@ -33,14 +33,14 @@
 
     <div id="paper" class="list" style="display: none">
       <ion-item ng-repeat="tearingPage in teacher.thesis">
-        <h5>
+        <p style="margin: 10px 0 0 10px;">
           {{tearingPage.title}}
-        </h5>
-        <p>{{tearingPage.content}}</p>
+        </p>
+        <p style=" padding: 0 10px; text-align: justify;">{{tearingPage.content}}</p>
 
       <span>
-      <h6>{{tearingPage.time | date:'yyyy-MM-dd'}}</h6>
-      <a class="button" ng-click="goPaperDetail($index)" style="float: right">>>详情</a>
+      <p style="float: left;margin: 0 0 0 10px;color: #b2b2b2;">{{tearingPage.time | date:'yyyy-MM-dd'}}</p>
+      <a class="button" ng-click="goPaperDetail($index)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
       </span>
       </ion-item>
     </div>
