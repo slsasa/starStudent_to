@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('myDynamicCtrl',function($scope,$stateParams){
+  .controller('myDynamicCtrl',function($scope,$stateParams,$state){
 
     $scope.terDynamics = [{
       id:0,
@@ -53,5 +53,8 @@ angular.module('starter')
 
     $scope.type = $stateParams.type;
 
+    $scope.goIssue = function(){
+      $state.go('issue')
+    }
 
   })

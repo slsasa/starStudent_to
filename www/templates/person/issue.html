@@ -1,3 +1,8 @@
+<style>
+  .card{
+    padding-bottom: 80px;
+  }
+</style>
 <ion-view>
   <ion-nav-title>
     <span class="我要发布"></span>
@@ -6,10 +11,19 @@
     <button class="button button-icon icon ion-android-share-alt" ng-click="" ></button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="has-header card">
-    <textarea ng-model="contents" style="width: 100%;height: 90%;padding-top: 40%"></textarea>
+
+
+    <textarea class="card" ng-model="contentDynamic" style="width: 90%;height: 60%"></textarea>
+
+    <div class="item item-stacked-label">
+      <span class="input-label "><strong>上传图片:</strong></span>
+      <ion-scroll direction="x">
+        <img style="width: 34%;height: 34%" ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
+             ng-click="clickPhoto($index)" class="image-list-thumb"/>
+      </ion-scroll>
     </div>
-  <button>发布图片</button>
+    <a class="button">确定提交</a>
+
   </ion-content>
 
 </ion-view>
