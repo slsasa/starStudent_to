@@ -16,11 +16,11 @@
 
       <textarea ng-model="articleContent" style="width: 100%;height: 90%"></textarea>
 
-    <br><br>
+
     <div class="item item-stacked-label">
       <span class="input-label "><strong>上传图片:</strong></span>
       <ion-scroll direction="x">
-        <img ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
+        <img style="width: 34%;height: 34%" ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
              ng-click="clickPhoto($index)" class="image-list-thumb"/>
       </ion-scroll>
     </div>
@@ -29,7 +29,7 @@
 
 
     <div class="padding">
-      <button class="button button-full button-positive" style="opacity: 0.8" ng-click="closeEditModal(articleType,articleContent)">确定提交</button>
+      <button class="button button-full" style="opacity: 0.8" ng-click="onSubmit(articleType,articleContent)">确定提交</button>
     </div>
 
   </ion-content>

@@ -4,14 +4,14 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('my-works',{
-        url:'/works',
-        templateUrl:'templates/person/my-works.html',
-        controller:'worksCtrl'
+      .state('my-works', {
+        url: '/works',
+        templateUrl: 'templates/person/my-works.html',
+        controller: 'worksCtrl'
 
       });
   })
-  .controller('worksCtrl',function($scope,$state,$ionicModal,$cordovaImagePicker, $cordovaFileTransfer,$ionicLoading, $filter,$ionicPopup){
+  .controller('worksCtrl', function ($rootScope, $scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup) {
     $scope.teacher = {
       id: 0,
       name: '李老师',
@@ -56,137 +56,163 @@ angular.module('starter')
         type: '学术论文',
         time: 146775554442
       }],
-      flower:10,
-      praise:32,
-      share:311
+      flower: 10,
+      praise: 32,
+      share: 311
     }
-    $scope.goLogsDetail = function(index){
-      $state.go('myLogs-detail',{index:index});
-    }
-
+    $scope.goLogsDetail = function (index) {
+      $state.go('myLogs-detail', {index: index});
+    };
 
 
     //提交文章选择器
     $ionicModal.fromTemplateUrl('templates/person/submit-log.html',
-      function(modal){
+      function (modal) {
         $scope.editmodal_star = modal;
-      },{
-        scope:$scope,
-        animation:'slide-in-up'
+      }, {
+        scope: $scope,
+        animation: 'slide-in-up'
       }
     );
 
     //打开选择器
-    $scope.openModel_start = function(){
+    $scope.openModel_start = function () {
       $scope.editmodal_star.show();
-    }
+    };
 
-    $scope.close = function(){
+    $scope.close = function () {
       $scope.editmodal_star.hide();
-    }
+    };
 
     $scope.articleType = '教学日志';
 
-    $scope.closeEditModal = function(article,articleContent){
-      if(article){
-        $scope.editmodal_star.hide();
 
-        $scope.articleType = article;
-        $scope.articleContent= articleContent;
-        alert($scope.articleType+":"+$scope.articleContent);
-      }
-    }
+    //var data = {
+    //   articleType: $scope.articleType,
+    //   articleContent: $scope.articleContent,
+    //   photos: $scope.photos.forEach(function(item){
+    //     return item
+    //   })
+    //}
 
-    $scope.goPaperDetail = function(index){
-      $state.go('myPapers-detail',{index:index})
-    }
-
+    $scope.goPaperDetail = function (index) {
+      $state.go('myPapers-detail', {index: index})
+    };
 
     //按钮状态
-    var changeClickLogBgColor = function(log,paper){
+    var changeClickLogBgColor = function (log, paper) {
       $scope.objLogClick.style.backgroundColor = log;
       $scope.objPaperClick.style.backgroundColor = paper;
-    }
+    };
 
-    var changeClickFontColor = function(log,paper){
-      $scope.objLogClick.style.color= log;
+    var changeClickFontColor = function (log, paper) {
+      $scope.objLogClick.style.color = log;
       $scope.objPaperClick.style.color = paper;
-    }
+    };
 
     $scope.objLog = document.getElementById('log');
     $scope.objPaper = document.getElementById('paper');
     $scope.objLogClick = document.getElementById('logClick');
     $scope.objPaperClick = document.getElementById('paperClick');
 
-
     $scope.objLogClick.style.backgroundColor = "#f96a9f";
-    $scope.objLogClick.style.color = "#fff";
-    $scope.showLog = function(){
+    $scope.objLogClick.style.color = '#fff';
+    $scope.showLog = function () {
       $scope.objPaper.style.display = "none";
       $scope.objLog.style.display = "";
-      if($scope.objLog.style.display == ""){
-        changeClickLogBgColor("#f96a9f","");
-        changeClickFontColor("#fff","black");
+      if ($scope.objLog.style.display == "") {
+        changeClickLogBgColor("#f96a9f", "");
+        changeClickFontColor("#fff", "black");
       }
-    }
+    };
 
-    $scope.showPaper = function() {
+    $scope.showPaper = function () {
       $scope.objLog.style.display = "none";
       $scope.objPaper.style.display = "";
 
       if ($scope.objPaper.style.display == "") {
-        changeClickLogBgColor("","#f96a9f");
-        changeClickFontColor("black","#fff");
+        changeClickLogBgColor("", "#f96a9f");
+        changeClickFontColor("black", "#fff");
       }
-    }
+    };
 
-    $scope.photos =['img/img1.png'];
-    $scope.clickPhoto = function (index) {
-      //
-      var item = $scope.photos[index];
-      if (item != "img/img1.png") {
+
+    $scope.onSubmit = function (article, articleContent) {
+      $scope.articleType = article;
+      $scope.$scope.articleContent = articleContent;
+      if (article) {
         $ionicLoading.show();
-        $http.post(serverAddr + '/delete_message_file', {file: item}).success(function () {
-          $ionicLoading.hide();
-          $scope.photos.splice(index, 9);
-        });
+
+        $http.post('http://115.159.115.145:3000/upload/', data)
+          .success(function () {
+            $ionicLoading.hide();
+            $ionicPopup.alert({
+              title: '提示',
+              template: '提交申请成功'
+            }).then(function () {
+              $ionicHistory.goBack();
+            });
+          }).error(function () {
+
+          });
+      }
+    };
+
+
+    $scope.photos = ['img/img2.png'];
+    $scope.img_id = [];
+    $scope.clickPhoto = function (index) {
+
+      var item = $scope.photos[index];
+      if (item != 'img/img2.png') {
+        $ionicLoading.show();
+        //$http.post('http://115.159.115.145:3000/upload/', {file: item}).success(function () {
+        //  $ionicLoading.hide();
+        //  $scope.photos.splice(index, 1);
+        //});
+
       } else {
         //
         var options = {
           maximumImagesCount: 9,
-          width: 800,
-          height: 800,
+          width: 500,
+          height: 500,
           quality: 80
         };
+
         $cordovaImagePicker.getPictures(options)
           //以下为选好图片后的方法
+          // @type: results [1, 2, 3]
           .then(function (results) {
-            if (results[0] !== undefined) {
-              //message.photos.push({src:results[0]});
-              // $scope.openModal(i = 2);
-              $ionicLoading.show();
 
 
-              $scope.imgSrc_after = results[0];
-              var fileName = $scope.imgSrc_after.split('/').pop();
-              var fileURL = $scope.imgSrc_after;
-              var options = {
-                fileKey: "file",
-                fileName: fileName,
-                mimeType: "image/jpeg"
-              };
-              $cordovaFileTransfer.upload(encodeURI(serverAddr + "/message_file"), fileURL, options)
-                .then(function (data) {
-                  //
-                  $ionicLoading.hide();
-                  $scope.photos.splice($scope.photos.length - 1, 0, fileName);
-                  //
-                });
-            }
+            results.forEach(function (item) {
+              if (item != undefined) {
+                //$scope.imgSrc_after = item;
+                $scope.photos.push(item);
+                var fileName = item.split('/').pop();
+                var fileURL = item;
+
+                var options = {
+                  fileKey: "image",
+                  fileName: fileName,
+                  mimeType: "image/jpeg"
+                };
+
+                $cordovaFileTransfer.upload(encodeURI('http://115.159.115.145:3000/upload/'), fileURL, options)
+                  .then(function (result) {
+                    //
+                    alert(JSON.stringify(result));
+                    console.log(result);
+                    $ionicLoading.hide();
+                    $scope.img_id = result._id
+                  });
+              }
+            });
+
           }, function (error) {
-          });
+          })
       }
-
-    };
-
+    }
   })
+

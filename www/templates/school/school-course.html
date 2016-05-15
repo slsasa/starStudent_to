@@ -1,8 +1,12 @@
 <style>
-  a{
+  a {
     text-decoration: none;
     color: #111111;
   }
+  .col{
+    padding: 0px;
+  }
+
 </style>
 <ion-view>
   <ion-nav-title>
@@ -13,20 +17,29 @@
   </ion-nav-buttons>
   <ion-content class="has-header ionic-pseudo">
 
-
     <div class="list">
       <div>
-        <div  class="has-header" ng-repeat="course in courses">
-          <div class="h5 title item-divider "> {{course.courseKind}}</div>
-          <div class="row" >
-            <div ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
-              <a class="button" href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
-            </div>
-          </div>
+        <div  ng-repeat="course in courses">
+
           <div class="row">
-            <div  ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
-              <a class="button"  href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+
+            <div>
+              <a class="button">{{course.courseKind}}</a>
             </div>
+
+            <div>
+            <div class="row">
+              <div ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
+                <a class="button" href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+              </div>
+            </div>
+            <div class="row">
+              <div ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
+                <a class="button" href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+              </div>
+            </div>
+            </div>
+
           </div>
         </div>
       </div>

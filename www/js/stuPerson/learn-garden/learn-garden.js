@@ -10,7 +10,7 @@ angular.module('starter')
           controller: 'learnGardenCtrl'
       });
   })
-  .controller('learnGardenCtrl',function($scope){
+  .controller('learnGardenCtrl',function($scope,$state){
     $scope.leagardens = [{
       id:0,
       time: 1462281859141,
@@ -37,5 +37,9 @@ angular.module('starter')
         objContentLearn.style.display = "";
 
       }
+    }
+
+    $scope.goAddGarden = function(){
+      $state.go('post-garden');
     }
   })
