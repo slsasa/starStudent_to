@@ -205,7 +205,7 @@ angular.module('starter')
                     alert(JSON.stringify(result));
                     console.log(result);
                     $ionicLoading.hide();
-                    $scope.img_id = result._id
+                    //$scope.img_id
                   });
               }
             });

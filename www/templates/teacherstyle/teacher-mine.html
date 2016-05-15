@@ -6,9 +6,9 @@
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
   </ion-nav-buttons>
 
-  <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-ios-search-strong" ui-sref="tabs.home"></button>
-  </ion-nav-buttons>
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-icon icon ion-ios-search-strong" ui-sref="tabs.home"></button>-->
+  <!--</ion-nav-buttons>-->
   <ion-content style="background-color: #f1f1f1">
 
     <div class="bar-subheader" style="margin: 6px;text-align: center">
@@ -39,8 +39,8 @@
           <p>{{teacher.name}}</p>
           <p>{{teacher.longevity}}</p>
           <div class="button-bar">
-            <a class="button" ng-click="goPersonalMine(teacher.id)">个人2风采</a>
-            <a class="button" ng-click="goWorks(teacher.id)">作品2中心</a>
+            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goPersonalMine(teacher.id)">个人2风采</a>
+            <a class="button button-pink"  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品2中心</a>
 
           </div>
         </div>
