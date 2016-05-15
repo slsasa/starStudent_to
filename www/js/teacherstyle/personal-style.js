@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('personalCtrl',function($scope,$stateParams,$state,Base){
+  .controller('personalCtrl',function($scope,$stateParams,$state){
       $scope.like = 0;
       var teachers =  [{
       id:0,
