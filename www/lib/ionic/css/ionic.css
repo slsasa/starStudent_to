@@ -8562,8 +8562,8 @@ progress {
   background-color: #f74d84; }
 .button {
   border-color: transparent;
-  background-color: #f8f8f8;
-  color: #444;
+  background-color: rgba(255, 85, 147, 0.86);
+  color: #ffffff;
   position: relative;
   display: inline-block;
   margin: 0;
@@ -8579,11 +8579,55 @@ progress {
   font-size: 16px;
   line-height: 38px;
    }
+/*课程介绍按钮样式*/
+.button-course {
+  border-color: #e5e5e5;
+  background-color: #f1f1f1;
+  color: #000000;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0 12px;
+  min-width: 52px;
+
+  border-width: 1px;
+  border-style: solid;
+
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  line-height: 125px;
+  height: 80px;
+  width: 85px;
+}
+
+
+.button-courselist {
+  border-color: #e5e5e5;
+  background-color: rgba(241, 241, 241, 0.86);
+  color: #000000;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0 12px;
+  min-width: 78px;
+
+  border-width: 1px;
+  border-style: solid;
+
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  line-height: 38px;
+}
+
   .button:hover {
-    color: #444;
+    color: #f1f1f1;
     text-decoration: none; }
   .button.active, .button.activated {
-    background-color: #e5e5e5; }
+    background-color: rgba(220, 56, 53, 0.86); }
   .button:after {
     position: absolute;
     top: -6px;

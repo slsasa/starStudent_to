@@ -3,40 +3,41 @@
     <span class="title">教师风采</span>
   </ion-nav-title>
   <ion-content class="list">
-    <div class="item-avatar">
+    <div >
 
-      <img ng-src="{{teacher.headImg}}">
-      <p>{{teacher.Detail}}</p>
+      <img ng-src="{{teacher.headImg}}" class="styleh">
+      <p style="margin: 5px 0 0 15px;">{{teacher.name}}</p>
+      <p class="stylec">{{teacher.Detail}}</p>
     </div>
 
     <ion-item>
 
-         <span>
-           <img ng-src="{{teacher.styleImg[0].imgs[0]}}" style="height: 30%;width: 30%">
-           <img ng-src="{{teacher.styleImg[0].imgs[1]}}" style="height: 30%;width: 30%">
-           <img ng-src="{{teacher.styleImg[0].imgs[2]}}" style="height: 30%;width: 30%">
-         </span>
+         <div style="    padding: 5px 0 5px 0;text-align: center;">
+           <img ng-src="{{teacher.styleImg[0].imgs[0]}}" style="height: 125px;width: 100px">
+           <img ng-src="{{teacher.styleImg[0].imgs[1]}}" style="height: 125px;width: 100px">
+           <img ng-src="{{teacher.styleImg[0].imgs[2]}}" style="height: 125px;width: 100px">
+         </div>
 
       <span>
-        <button ng-click="clickLike()" style="float: left">点赞{{showImgLen}}</button>
+        <img src="img/teachper/z1.png" ng-click="clickLike()" class="stylez1">点赞</img>
         <p style="float: left">{{like}}</p>
       </span>
-        <button style="float: right" ng-click="goImgs()">更多>></button>
+        <a class="button" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;" ng-click="goImgs()">更多>></a>
 
     </ion-item>
 
-    <ion-item ng-repeat="reward in teacher.honor">
-      <h5>{{reward.reward}}</h5>
+    <ion-item ng-repeat="reward in teacher.honor" class="styleHistor">
+      <p>{{reward.reward}}</p>
       <p>{{reward.rewardDetail}}</p>
-      <p>{{reward.time | date: 'yyyy-MM-dd'}}</p>
+      <p style="    float: right;margin: 5px 10px 0 0;">{{reward.time | date: 'yyyy-MM-dd'}}</p>
     </ion-item>
 
   </ion-content>
-  <div class="bar bar-subfooter row">
+  <div class="bar bar-footer row">
     <a ng-click="goPaper(teacher.id)" class="col col-25 button">教学日志</a>
     <a  ng-click="goPaper(teacher.id)" class="col col-25 button">学术论文</a>
     <a ng-click="" class="col col-25 button">点赞</a>
-    <a ng-click="" class="col col-25 button">送花</a>
-    </a>
+    <a ng-click="" class="col col-25 button" style="right: 2px">送花</a>
+
   </div>
 </ion-view>
