@@ -33,4 +33,22 @@ angular.module('starter')
       }
     ];
 
+    var update = function(){
+      $scope.schOutcomes = [{
+        id:0,
+        img:'img/img3.png',
+        title:'dadad',
+        time:14343434343422
+      }];
+
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+      $scope.$broadcast('scroll.refreshComplete');
+    }
+
+    $scope.doRefresh = function(){
+      $scope.schOutcomes = [];
+      update();
+    }
+
+
   })

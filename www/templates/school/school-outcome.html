@@ -5,7 +5,11 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <div class="content ionic-pseudo">
+    <ion-refresher
+      pulling-text="下拉刷新"
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="ionic-pseudo">
       <div class="list">
         <a class="item item-thumbnail-left" ng-repeat="outcome in schOutcomes" href="#/school-outcome/outcome{{outcome.id}}">
           <div class="item-thumbnail-left">
