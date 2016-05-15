@@ -14,6 +14,7 @@ angular.module('starter')
     $scope.courses  = [
       {
         id:0,
+        kindImg:'img/course/wd.png',
         courseKind:'舞蹈类',
         courseDetail:[{
           _id:0,
@@ -38,6 +39,7 @@ angular.module('starter')
         }]
       },{
         id:1,
+        kindImg:'img/course/gq.png',
         courseKind:'器乐类',
         courseDetail:[
           {
@@ -73,6 +75,7 @@ angular.module('starter')
           }]
       },{
         id:2,
+        kindImg:'img/course/by.png',
         courseKind:'表演类',
         courseDetail:[{
           _id:0,
@@ -92,6 +95,7 @@ angular.module('starter')
         }]
       },{
         id:3,
+        kindImg:'img/course/sh.png',
         courseKind:'书画类',
         courseDetail:[{
           _id:0,
@@ -116,6 +120,7 @@ angular.module('starter')
         }]
       },{
         id:4,
+        kindImg:'img/course/yy.png',
         courseKind:'音乐类',
 
         courseDetail:[{

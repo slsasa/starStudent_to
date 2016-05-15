@@ -4,14 +4,31 @@
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_stu"></button>
   </ion-nav-buttons>
 
-  <ion-content>
-    <label class="item item-input " ng-repeat="item in items">
-      <span class="input-label" style="margin-left: 5px"> {{item}}</span>
-      <h3 style="float: right"><input type="text"></h3>
-    </label>
-    <div class="item item-input " >
-      <span class="input-label" style="margin-left: 5px;"> 入学照片</span>
-      <h3 style="float: right"><input type="text"></h3>
+  <ion-content style="background-color: #f1f1f1">
+
+    <ion-list>
+      <ion-item class="item-divider" style="padding: 10px 10px;">
+        姓名<b style="float: right">{{teacherPerson.name}}</b>
+      </ion-item>
+      <ion-item class="item-divider" style="padding: 10px 10px;">
+        性别<b style="float: right">{{teacherPerson.sex}}</b>
+      </ion-item>
+      <ion-item class="item-divider" style="padding: 10px 10px;">
+        民族<b style="float: right">{{teacherPerson.nation}}</b>
+      </ion-item>
+      <ion-item class="item-divider" style="padding: 10px 10px;">
+        入职时间<b style="float: right">{{teacherPerson.entryTime |date:'yyyy-MM-dd'}}</b>
+      </ion-item>
+      <ion-item class="item-divider" style="padding: 10px 10px;">
+        负责专业<b style="float: right">{{teacherPerson.principalMajor}}</b>
+      </ion-item>
+    </ion-list>
+    <div class="message">
+      <div>教师信息</div>
+      <hr>
+      <p>{{teacherPerson.teacherMeg}}</p>
     </div>
+
+
   </ion-content>
 </ion-view>

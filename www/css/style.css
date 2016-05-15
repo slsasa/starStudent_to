@@ -133,3 +133,7 @@ td {
 .buttonMin{ background: #f96a9f ; color: white;   margin: 0px -8px 0 0;  width: 110px;}
 .mine{box-shadow:#f96a9f 0px 23px 20px -20px ;   }
 .kk{padding: 10px 5px 10px 0px;}
+.styleh{ max-height: 60px;max-width: 60px;border-radius: 60px;margin: 15px 0px 0px 5px}
+.stylec{margin: -80px 10px 10px 75px; text-align: justify;}
+.stylez1{    height: 27px;margin: -2px 5px 0 20px;float: left}
+.styleHistor{    padding: 10px 0px 10px 10px;}
