@@ -1,6 +1,6 @@
 <ion-view>
   <ion-nav-title>
-    <span class="title">学校动态</span>
+    <span class="title">学校2动态</span>
   </ion-nav-title>
   <ion-nav-buttons side="left">
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
@@ -8,18 +8,21 @@
 
   <ion-content style="background: rgba(209, 211, 214, 0.29)">
     <ion-content class="list">
-      <ion-slide-box  does-continue="true" auto-play="true" show-pager="true">
+      <ion-slide-box does-continue="true" auto-play="true" show-pager="true">
         <ion-slide ng-repeat="dynamic in schoolDynamic">
           <img ng-src="{{dynamic.img}}" height="160px" width="100%">
         </ion-slide>
       </ion-slide-box>
-      <ion-item style="padding-left: 10px;padding-top: 10px" ng-repeat="dynamic in schoolDynamic" ng-click="goDetail(dynamic.id)">
+      <ion-item style="padding-left: 10px;padding-top: 10px" ng-repeat="dynamic in schoolDynamic"
+                ng-click="goDetail(dynamic.id)">
 
         <h4 style="font-size: 16px;">{{dynamic.title}}</h4>
+
         <p style="color: rgba(16, 16, 16, 0.93)">{{dynamic.content}}</p>
-        <h6 style="float: right;color: #737373;padding-right: 10px;padding-bottom: 4px">{{dynamic.time |date:'yyyy-MM-dd'}}</h6>
+        <h6 style="float: right;color: #737373;padding-right: 10px;padding-bottom: 4px">{{dynamic.time
+          |date:'yyyy-MM-dd'}}</h6>
 
       </ion-item>
 
     </ion-content>
-  </ion-view>
+</ion-view>

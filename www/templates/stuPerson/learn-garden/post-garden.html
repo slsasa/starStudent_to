@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-nav-title>
+    <ion-nav-title>
+      <span class="title">发布</span>
+    </ion-nav-title>
+  </ion-nav-title>
+  <ion-content>
+    <div class="card">
+      <textarea></textarea>
+    </div>
+
+    <div class="item item-stacked-label">
+      <span class="input-label "><strong>上传图片:</strong></span>
+      <ion-scroll direction="x">
+        <img style="width: 34%;height: 34%" ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
+             ng-click="clickImg($index)" class="image-list-thumb"/>
+      </ion-scroll>
+    </div>
+
+    <div class="logininput">
+      <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;padding: 0px 13px 0;"></i>
+      <input type="password" class="loginaccount " placeholder="输入网址" ng-model="addUrl" >
+    </div>
+
+    <div>
+      <a class="button" ng-click="">提交</a>
+    </div>
+
+  </ion-content>
+</ion-view>
