@@ -12,6 +12,7 @@ angular.module('starter')
 
       });
   })
+<<<<<<< HEAD
 .controller('applyDetailCtrl',function($scope,$state,$stateParams,$ionicActionSheet,$timeout){
     //分享弹出框
     $scope.show = function() {
@@ -80,8 +81,15 @@ angular.module('starter')
       }
     }
     $scope.apply = getApply($stateParams.applyId);
+=======
+.controller('applyDetailCtrl',function($scope, $state, $stateParams, userInfo){
+    $scope.apply = userInfo.apply;
+    userInfo.apply = '';
+>>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
 
-    $scope.goSubmitApply = function(applyId){
-      $state.go('applySubmit',{applyId:applyId})
+    $scope.goSubmitApply = function(){
+      userInfo.apply = $scope.apply;
+      $state.go('applySubmit');
     }
+
   })

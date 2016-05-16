@@ -14,9 +14,9 @@
     <div id="star" class="list">
       <a class="item " ng-repeat="star in starList" style="padding: 10px 0px;">
         <div class="item-avatar">
-          <img ng-src="{{star.img}}">
-          <p>{{star.name}}</p>
-          <p>获奖情况：{{star.honorDetail}}</p>
+          <img ng-src="{{star.pic_avatar_url}}">
+          <p>{{star.user_name}}</p>
+          <p>获奖情况：{{star.description}}</p>
         </div>
       </a>
     </div>
@@ -24,9 +24,9 @@
     <div id="honor" class="list" style="display: none">
       <a class="item" ng-repeat="honorMan in honorWall"style="padding: 10px 0px;">
         <div class="item-avatar">
-          <img ng-src="{{honorMan.img}}">
-          <p>{{honorMan.name}}</p>
-          <p>{{honorMan.honorDetail}}</p>
+          <img ng-src="{{honorMan.pic_avatar_url}}">
+          <p>{{honorMan.user_name}}</p>
+          <p>{{honorMan.description}}</p>
         </div>
       </a>
     </div>

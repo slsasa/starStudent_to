@@ -43,7 +43,11 @@ angular.module('starter')
     }
 
     $scope.goDynamic = function(type){
-      $state.go('my-dynamic',{type:type})
+      $state.go('my-dynamic',{type:type});
+    }
+
+    $scope.outlogin = function(){
+      $state.go('login');
     }
 
   })

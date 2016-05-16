@@ -5,21 +5,21 @@
       <img src="img/stuperson/tit1.png" class="tit1">
       <div class="checkDet ">
 
-        <p>科目名称：{{checkdetails.coursetitle}}</p>
-        <p>综合成绩：{{checkdetails.synscore}}</p>
+        <p>科目名称：{{learn.course_name}}</p>
+        <p>综合成绩：{{learn.grade}}</p>
       </div>
       <div style="margin: 0 40px 0;">
-        <p>语音基础：<p class="checkscose">{{checkdetails.Speechbase}}</p></p>
-        <p>朗诵技巧：<p class="checkscose">{{checkdetails.Readskills}}</p></p>
-        <p>礼仪：<p class="checkscose">{{checkdetails.etiquette}}</p></p>
-        <p>情感表达：<p class="checkscose">{{checkdetails.feelings}}</p></p>
-        <p>舞台展现能力：<p class="checkscose">{{checkdetails.stageshow}}</p></p>
-        <p>表演技巧：<p class="checkscose">{{checkdetails.performskills}}</p></p>
+        <p>{{learn.grade_details[0].lesson}}：<p class="checkscose">{{learn.grade_details[0].level}}</p></p>
+        <p>{{learn.grade_details[1].lesson}}：<p class="checkscose">{{learn.grade_details[1].level}}</p></p>
+        <p>{{learn.grade_details[2].lesson}}：<p class="checkscose">{{learn.grade_details[2].level}}</p></p>
+        <p>{{learn.grade_details[3].lesson}}：<p class="checkscose">{{learn.grade_details[3].level}}</p></p>
+        <p>{{learn.grade_details[4].lesson}}：<p class="checkscose">{{learn.grade_details[4].level}}</p></p>
+        <p>{{learn.grade_details[5].lesson}}：<p class="checkscose">{{learn.grade_details[5].level}}</p></p>
       </div>
       <hr style="border: solid 1px gainsboro;opacity: 0.3">
       <div>
         <img src="img/stuperson/tit1.png" class="tit1">
-        <p class="cheComments">评语：{{checkdetails.comments}}</p>
+        <p class="cheComments">评语：{{learn.assessment_comment}}</p>
       </div>
     </div>
   </ion-content>

@@ -12,30 +12,57 @@ angular.module('starter')
         }}
       });
   })
-  .controller('homeCtrl',function($scope,$state){
-    //横幅
-    $scope.banners =[
-      {
-        id:0,
-        bannerImg:'img/img2.png',
-        context:'擦擦',
-        time:1461340799000
-      },{
-        id:1,
-        bannerImg:'img/img3.png',
-        context:'什么什么学院东东',
-        time:1461340549000
-      },{
-        id:2,
-        bannerImg:'img/img4.png',
-        context:'字符串',
-        time:1461240542302
-      },{
-        id:3,
-        bannerImg:'img/img1.png',
-        context:'行动的傻子，思想上的猪，嘴上的大侠',
-        time:143131231331
-      }];
+  .controller('homeCtrl',function($scope, $state, $http, userInfo, $ionicSlideBoxDelegate){
+
+    var update = function(){
+
+      var url = rootUrl + "/banner/get_list";
+
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var data = result.data.splice(0,5);
+          data.forEach(function(item){
+            item.bannerImg = rootPicUrl + item.bannerImg;
+          });
+          console.log(data);
+          $scope.banners = data;
+          $ionicSlideBoxDelegate.update();
+          $ionicSlideBoxDelegate.loop(true);
+        })
+        .error(function(err){
+          console.log(err);
+        })
+    }
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+      update();
+    })
+
+
+    ////横幅
+    //$scope.banners =[
+    //  {
+    //    id:0,
+    //    bannerImg:'img/img2.png',
+    //    context:'擦擦',
+    //    time:1461340799000
+    //  },{
+    //    id:1,
+    //    bannerImg:'img/img3.png',
+    //    context:'什么什么学院东东',
+    //    time:1461340549000
+    //  },{
+    //    id:2,
+    //    bannerImg:'img/img4.png',
+    //    context:'字符串',
+    //    time:1461240542302
+    //  },{
+    //    id:3,
+    //    bannerImg:'img/img1.png',
+    //    context:'行动的傻子，思想上的猪，嘴上的大侠',
+    //    time:143131231331
+    //  }];
     //学校成果
     $scope.dynamics = [
       {

@@ -1,6 +1,9 @@
+<style>
+
+</style>
 <ion-view>
   <ion-nav-title>
-    <span class="title">学校2动态</span>
+    <span class="title">学校动态</span>
   </ion-nav-title>
   <ion-nav-buttons side="left">
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
@@ -9,11 +12,11 @@
   <ion-content style="background: rgba(209, 211, 214, 0.29)">
     <ion-content class="list">
       <ion-slide-box does-continue="true" auto-play="true" show-pager="true">
-        <ion-slide ng-repeat="dynamic in schoolDynamic">
-          <img ng-src="{{dynamic.img}}" height="160px" width="100%">
+        <ion-slide ng-repeat="pic in pic_arr track  by $index">
+          <img ng-src="{{pic}}" height="160px" width="100%">
         </ion-slide>
       </ion-slide-box>
-      <ion-item style="padding-left: 10px;padding-top: 10px" ng-repeat="dynamic in schoolDynamic"
+      <ion-item style="padding-left: 10px;padding-top: 10px" ng-repeat="dynamic in schoolDynamics"
                 ng-click="goDetail(dynamic.id)">
 
         <h4 style="font-size: 16px;">{{dynamic.title}}</h4>

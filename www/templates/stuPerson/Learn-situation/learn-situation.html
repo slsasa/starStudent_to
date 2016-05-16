@@ -6,12 +6,12 @@
   <ion-content>
 
     <div class="list" >
-      <ion-item class=" learn item-icon-right" ng-repeat="learn in learns" ng-click="goCheckDeatil(learn.id)" >
+      <ion-item class=" learn item-icon-right" ng-repeat="learn in learns" ng-click="goCheckDeatil(learn)" >
         <div style="     margin: 0 3% 0px 0px;">
-          舞蹈科目：{{learn.subjectsname}}<div style="    margin: -21px 0 0 47%;">综合成绩：{{learn.score}}</div>
+          科目：{{learn.course_name}}<div style="    margin: -21px 0 0 47%;">综合成绩：{{learn.grade}}</div>
         </div>
 
-        <div style="     margin: 0 3% 0px 0px;">考核老师：{{learn.assessmentName}}<div style="    margin: -21px 0 0 47%;">考核时间：{{learn.asTime |date:'yyyy-MM-dd'}}</div></div>
+        <div style="     margin: 0 3% 0px 0px;">考核老师：{{learn.assessment_id.name}}<div style="    margin: -21px 0 0 47%;">考核时间：{{learn.asTime |date:'yyyy-MM-dd'}}</div></div>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </div>

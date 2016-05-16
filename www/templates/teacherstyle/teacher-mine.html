@@ -6,9 +6,9 @@
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
   </ion-nav-buttons>
 
-  <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-ios-search-strong" ui-sref="tabs.home"></button>
-  </ion-nav-buttons>
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-icon icon ion-ios-search-strong" ui-sref="tabs.home"></button>-->
+  <!--</ion-nav-buttons>-->
   <ion-content style="background-color: #f1f1f1">
 
     <div class="bar-subheader" style="margin: 6px;text-align: center">
@@ -16,25 +16,33 @@
       <a class="button" ng-click="showCharm()" id="charmClick" style="width: 115px;border-radius: 10px;">魅力教师榜</a>
     </div>
 
+    <!--教师圈-->
     <div id="chat" class="list">
       <div class="item kk" ng-repeat="teacher in teachers" >
         <div class="item-avatar">
-          <img ng-src="{{teacher.headImg}}">
-          <h5>{{teacher.name}}</h5>
-          <p style="    text-align: justify;">{{teacher.longevity}}</p>
+          <img ng-src="{{teacher.pic_avatar_url}}">
+          <h5>{{teacher.teacher_name}}</h5>
+          <p style="text-align: justify;">{{teacher.content}}</p>
           <div class="button-bar" style="    margin: 20px 0px 0px 0px;">
+<<<<<<< HEAD
             <a class="button button-pink " style=" border-radius: 20px;line-height: 29px;height: 29px"  ng-click="goPersonalMine(teacher.id)">个人风采</a>
             <a class="button  "  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品中心</a>
+=======
+            <a class="button button-pink " style=" border-radius: 20px;line-height: 29px;height: 29px"  ng-click="goPersonalMine(teacher)">个人风采</a>
+            <a class="button button-pink "  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher)">作品中心</a>
+>>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
 
           </div>
         </div>
       </div>
     </div>
 
+    <!--魅力教师榜-->
     <div id="charm" class="list" style="display: none">
 
       <div class="item item-avatar" ng-repeat="teacher in teachers">
         <div class="item-avatar">
+<<<<<<< HEAD
           <img ng-src="{{teacher.headImg}}">
           <p>{{teacher.name}}</p>
           <p>{{teacher.longevity}}</p>
@@ -42,6 +50,14 @@
             <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goPersonalMine(teacher.id)">个人2风采</a>
             <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品2中心</a>
 
+=======
+          <img ng-src="{{teacher.pic_avatar_url}}">
+          <p>{{teacher.teacher_name}}</p>
+          <p>{{teacher.content}}</p>
+          <div class="button-bar">
+            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goPersonalMine(teacher)">个人2风采</a>
+            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品2中心</a>
+>>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
           </div>
         </div>
       </div>

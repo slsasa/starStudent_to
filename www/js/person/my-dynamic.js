@@ -11,21 +11,44 @@ angular.module('starter')
 
       });
   })
-  .controller('myDynamicCtrl',function($scope,$stateParams,$state){
+  .controller('myDynamicCtrl',function($scope,$stateParams,$state, $http, userInfo){
 
-    $scope.terDynamics = [{
-      id:0,
-      time: 1462281859141,
-      name: '李4四',
-      img: 'img/dy1.jpeg',
-      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
-    },{
-      id:1,
-      time: 1462081859141,
-      name: '李3我',
-      img: 'img/img2.png',
-      content: '五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了，五一过得真快，没感觉，就过了',
-    }];
+    var update = function(){
+
+      if(userInfo.personType == "_stu"){
+        var url = rootUrl + "/student_dynamic/get_self_list";
+      }else if(userInfo.personType == '_teacher'){
+        var url = rootUrl + "/teacher_dynamic/get_self_list";
+      }
+
+
+      var query = {
+        issuer_id: userInfo._id
+      }
+
+      $http.get(url, {params:query})
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var data = result.data;
+          data.forEach(function(item){
+            var data2 = []
+            item.pic_url_list.forEach(function(img){
+              data2.push(rootPicUrl + img)
+            })
+            item.pic_url_list = data2
+          })
+          $scope.terDynamics = data;
+          console.log($scope.terDynamics);
+        })
+        .error(function(err){
+          console.log("获取数据错误")
+        })
+
+    }
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+      update();
+    })
 
     $scope.showClickTeacher = function(teacherId){
       var objClick = document.getElementById(teacherId + 'teacher');

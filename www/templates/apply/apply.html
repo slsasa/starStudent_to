@@ -5,11 +5,11 @@
   <ion-content  style="background-color: #f1f1f1">
 
       <div class="list">
-        <a class="item" ng-repeat="apply in applys" ng-click="goApplyDeatil(apply.id)">
+        <a class="item" ng-repeat="apply in applys" ng-click="goApplyDetail(apply)">
           <div class="item-thumbnail-left">
-          <img ng-src={{apply.img}}>
+          <img ng-src={{apply.pic_url}}>
           <h2 class="padding">{{apply.title}}</h2>
-          <p class="padding">报名费:{{apply.cost}}</p>
+          <p class="padding">报名费:{{apply.sign_up_cost}}</p>
           </div>
         </a>
       </div>

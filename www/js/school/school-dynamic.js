@@ -11,7 +11,7 @@ angular.module('starter')
 
       })
   })
-  .controller('schoolDynamicCtrl',function($scope,$state) {
+  .controller('schoolDynamicCtrl',function($scope, $state, $http, $ionicSlideBoxDelegate) {
     $scope.schoolDynamic = [
       {
         id: 0,
@@ -33,6 +33,38 @@ angular.module('starter')
         img:'img/img3.png'
       }
     ];
+
+    var update = function(){
+      var url = rootUrl + "/school_dynamic/get_list";
+
+
+
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var pic_arr = [];
+          var data = result.data;
+          data.forEach(function(item){
+            item.school_head_url = "http://115.159.115.145:3000/" + item.school_head_url;
+            item.pic_url_list.forEach(function(img){
+              img = rootPicUrl + img;
+              pic_arr.push(img);
+            })
+          });
+          $scope.schoolDynamics = data;
+          $scope.pic_arr = pic_arr;
+          console.log($scope.pic_arr);
+          $ionicSlideBoxDelegate.update();
+          $ionicSlideBoxDelegate.loop(true);
+        })
+        .error(function(err){
+          console.log("获取数据失败");
+        })
+    }
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+      update();
+    })
 
     $scope.goDetail = function(dynamicId){
       $state.go('school-dyncdetails',{dynamicId:dynamicId})

@@ -25,19 +25,19 @@
           <div class="row" style="padding: 0">
 
             <div class="col col-10" style="    margin: 0px 5px 0px 0px;">
-              <a class="button-course "><img src="{{course.kindImg}}" style="height: 40px;margin: 0 -36px 15px 0px;"/>{{course.courseKind}}</a>
+              <a class="button-course "><img src="{{course.kindImg}}" style="height: 40px;margin: 0 -36px 15px 0px;"/>{{course.profession_name}}</a>
 
             </div>
 
             <div class="col" style="    margin: 0 0 0 30px;">
             <div class="row" style="margin: 0px 0px 6px 19px;padding: 0;">
-              <div ng-repeat="detail in course.courseDetail" ng-if="detail._id <= 2">
-                <a class="button-courselist" href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+              <div ng-repeat="detail in course.course" ng-if="detail.detail_id <= 2">
+                <a class="button-courselist" href="#/course-introduce/{{course._id}}{{detail.detail_id}}">{{detail.course_name}}</a>
               </div>
             </div>
             <div class="row" style="    margin: -5px 0px 0 14px;">
-              <div ng-repeat="detail in course.courseDetail" ng-if="detail._id> 2">
-                <a class="button-courselist" href="#/course-introduce/{{course.id}}{{detail._id}}">{{detail.name}}</a>
+              <div ng-repeat="detail in course.course" ng-if="detail.detail_id> 2">
+                <a class="button-courselist" href="#/course-introduce/{{course.id}}{{detail.detail_id}}">{{detail.course_name}}</a>
               </div>
             </div>
             </div>
