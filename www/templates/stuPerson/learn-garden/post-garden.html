@@ -1,29 +1,30 @@
-<ion-view>
-  <ion-nav-title>
-    <ion-nav-title>
-      <span class="title">发布</span>
-    </ion-nav-title>
-  </ion-nav-title>
-  <ion-content>
-    <div class="card">
-      <textarea></textarea>
+<ion-view view-title="我要发布">
+
+  <ion-content style="background-color: #f1f1f1">
+    <div style="background: white;">
+      <div style="padding: 5px 10px;">
+        <textarea  placeholder="说点什么……" style="width: 100%;    height: 100px;" ></textarea>
+      </div>
     </div>
 
-    <div class="item item-stacked-label">
-      <span class="input-label "><strong>上传图片:</strong></span>
+    <div class="item item-stacked-label" style="    background: white;">
+      <p style="margin: 10px 10px"><strong>上传图片:</strong></p>
       <ion-scroll direction="x">
-        <img style="width: 34%;height: 34%" ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
-             ng-click="clickImg($index)" class="image-list-thumb"/>
+        <img  ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
+             ng-click="clickImg($index)" class="image-list-thumb" style="height: 84px;width: 70px;border: solid #c6c6c6 1px; margin: 5px 10px;"/>
       </ion-scroll>
     </div>
 
-    <div class="logininput">
-      <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;padding: 0px 13px 0;"></i>
-      <input type="password" class="loginaccount " placeholder="输入网址" ng-model="addUrl" >
-    </div>
+     <div style="    margin: 10px 0px 0px 15px;">
+       <p>视频链接上传：</p>
+       <input type="text" class="perpost " placeholder="输入网址" ng-model="addUrl"style="     padding: 0px 5px;   border: 1px red solid;" >
+     </div>
 
-    <div>
-      <a class="button" ng-click="">提交</a>
+
+    <div class="padding">
+
+      <button class="button button-full button-pink " style="border-radius: 10px" ng-click="closeEditModal(articleType,articleContent)">确定提交</button>
+
     </div>
 
   </ion-content>

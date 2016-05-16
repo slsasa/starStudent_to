@@ -76,17 +76,18 @@
            ng-if="dynamic.id!=0">{{dynamic.title}}</a>
       </span>
       </marquee>
-      <button ng-click="intoSchoolDynamic()" class="more button-clear " style="line-height: 35px;    margin: -5px 0px 0;font-size: 14px">更多<i
+      <button ng-click="intoSchoolDynamic()" class="more button-clear " style="line-height: 35px; margin: -5px 0px 0;font-size: 14px">更多<i
         class="iocn ion-chevron-right"></i></button>
     </div>
 
-     <div>
-       <img src="img/indexSch.png" style="height: 78%;"/>
-       <a  ng-click="goIntro()" class="more button-clear " style="line-height: 35px;margin: -20px 0px 0;font-size: 14px">更多
-         <i class="iocn ion-chevron-right"></i></a>
-     </div>
+      <div style="    background: white;">
+        <img src="img/indexSch.png" />
+      </div>
+    <a  ng-click="goIntro()" class="more button-clear " style="line-height: 35px;font-size: 14px">更多
+      <i class="iocn ion-chevron-right"></i></a>
 
-    <div class="light-bg shadow" style="margin: 10px 0px 0;">
+
+    <div class="light-bg shadow" style="margin: 30px 0px 0;padding: 5px 0 5px 0;">
       <marquee onmouseover="this.stop()" onmouseout="this.start()">
         <span ng-repeat="banner in banners">
          <img ng-click="goMagnifyImg(banner.id)"  ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%;border: solid 1px gainsboro;margin: 0 5px">

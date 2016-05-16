@@ -28,13 +28,13 @@ angular.module('starter')
       headImg:'img/img1.png',
       styleImg:[{
         time:1482994422123,
-        imgs:['img/img2.png','img/mebk.jpeg','img/img3.png','img/apply.jpeg']
+        imgs:['img/personal/p1.png','img/personal/p2.png','img/personal/p3.png']
       },{
         time:1483064422123,
-        imgs:['img/img1.png','img/mebk.jpeg','img/img3.png']
+        imgs:['img/personal/p1.png','img/personal/p2.png','img/personal/p3.png']
       },{
         time:1482934422123,
-        imgs:['img/img4.png','img/mebk.jpeg','img/img3.png']
+        imgs:['img/personal/p1.png','img/personal/p2.png','img/personal/p3.png']
       }],
       tearchingLog:[{
         title:'主型智能网络磁盘存储系统',
@@ -65,13 +65,13 @@ angular.module('starter')
       headImg:'img/img3.png',
       styleImg:[{
         time:1482994422123,
-        imgs:['img/img2.png','img/mebk.jpeg','img/img3.png','img/apply.jpeg']
+        imgs:['img/personal/p1.png','img/personal/p2.png','img/personal/p3.png']
       },{
         time:1483064422123,
-        imgs:['img/img1.png','img/mebk.jpeg','img/img3.png']
+        imgs:['img/personal/p1.png','img/personal/p2.png','img/personal/p3.png']
       },{
         time:1482934422123,
-        imgs:['img/img4.png','img/mebk.jpeg','img/img3.png']
+        imgs:['img/personal/p1.png','img/personal/p2.png','img/personal/p3.png']
       }],
       tearchingLog:[{
         title:'主型智能网络磁盘存储系统',

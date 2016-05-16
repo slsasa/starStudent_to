@@ -33,11 +33,21 @@
     </ion-item>
 
   </ion-content>
-  <div class="bar bar-footer row">
-    <a ng-click="goPaper(teacher.id)" class="col col-25 button">教学日志</a>
-    <a  ng-click="goPaper(teacher.id)" class="col col-25 button">学术论文</a>
-    <a ng-click="" class="col col-25 button">点赞</a>
-    <a ng-click="" class="col col-25 button" style="right: 2px">送花</a>
+  <!--<div class="bar bar-footer row" style="height: 70px">-->
+    <!--<a ng-click="goPaper(teacher.id)" class="col col-25 "><img src="img/personal/jxrz.png"/>教学日志</a>-->
+    <!--<a  ng-click="goPaper(teacher.id)" class="col col-25 button">学术论文</a>-->
+    <!--<a ng-click="" class="col col-25 button">点赞</a>-->
+    <!--<a ng-click="" class="col col-25 button" style="right: 2px">送花</a>-->
+
+  <!--</div>-->
+
+  <div class="bar bar-footer button-bar a_image1"style="height: 75px;text-align: center ;    padding: 0;">
+
+     <a class="perhead2" ng-click="learnSit()" ><img style="display: block;" src="img/personal/jxrz.png"/>教学日志</a>
+     <a class="perhead2" ng-click="studentHon()"><img style="display: block;" src="img/personal/xslw.png"/>学术论文</a>
+     <a class="perhead2" ng-click="studentHon()"><img style="display: block;" src="img/personal/dz.png"/>点赞</a>
+     <a class="perhead2" ng-click="techerCom()"><img style="display: block;" src="img/personal/sh.png"/>送花</a>
 
   </div>
+
 </ion-view>

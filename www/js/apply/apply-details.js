@@ -12,7 +12,36 @@ angular.module('starter')
 
       });
   })
-.controller('applyDetailCtrl',function($scope,$state,$stateParams){
+.controller('applyDetailCtrl',function($scope,$state,$stateParams,$ionicActionSheet,$timeout){
+    //分享弹出框
+    $scope.show = function() {
+
+      // Show the action sheet
+      var hideSheet = $ionicActionSheet.show({
+        titleText: "分享到",
+        buttons: [
+          { text:"我的动态"},
+          { text: "新浪微博" },
+          { text: "微信" }
+        ],
+        buttonClicked: function(index) {
+          return true;
+        },
+        cancelText: "取消",
+        cancel: function() {
+          // add cancel code..
+        }
+
+      });
+
+      // For example's sake, hide the sheet after two seconds
+      $timeout(function() {
+        //	hideSheet();
+      }, 2000);
+
+    };
+
+
    var applys = [
       {
         id:0,

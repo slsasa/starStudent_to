@@ -87,9 +87,15 @@ td {
 
 .mydy{    margin: 15px 0px 0px 5%;}
 
+/*学员》》我要发布*/
+.perpost{background-color: white;border-radius: 4px;width: 93% ;}
+
+
 
 /*教师个人中心*/
 .flor{    margin: 13px 55px 0 32%;}
+.card{ padding-bottom: 80px;
+  width: 96%;height: 60%;margin: 5px 0px 10px 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0)}
 
 /*教师个人资料*/
 .message{background: white;
@@ -137,3 +143,4 @@ td {
 .stylec{margin: -80px 10px 10px 75px; text-align: justify;}
 .stylez1{    height: 27px;margin: -2px 5px 0 20px;float: left}
 .styleHistor{    padding: 10px 0px 10px 10px;}
+.perhead2{   display: block;    margin: 0 3%;       width: 90px;}
