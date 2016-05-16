@@ -129,8 +129,8 @@ angular.module('starter')
       }];
 
 
-      $scope.teacher = teachers[parseInt($stateParams.teacherId)];
-      $scope.teacherLog = $scope.teacher.tearchingLog[parseInt($stateParams.index)];
+    $scope.teacher = teachers[parseInt($stateParams.index)];
+    $scope.tearchingLog = $scope.teacher.tearchingLog[parseInt($stateParams.index)];
 
 
   })

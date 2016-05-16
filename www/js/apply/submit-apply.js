@@ -10,8 +10,9 @@ angular.module('starter')
           controller: 'applySubmitCtrl'
       });
   })
-  .controller('applySubmitCtrl',function($scope,$stateParams, userInfo, $http, $ionicPopup, $ionicHistory){
-    $scope.apply = userInfo.apply;
+  .controller('applySubmitCtrl',function($rootScope,$scope,$stateParams, userInfo, $http, $ionicPopup, $ionicHistory){
+    //$scope.apply = userInfo.apply;
+    $scope.apply = $rootScope.apply;
 
     $scope.user = {
       apply_id: $scope.apply._id,

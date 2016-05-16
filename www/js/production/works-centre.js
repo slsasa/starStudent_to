@@ -5,7 +5,7 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('works-centre',{
-        url:'/works-centre:teacherId',
+        url:'/works-centre:index',
         templateUrl:'templates/production/works-centre.html',
         controller:'worksCentreCtrl'
 
@@ -177,10 +177,10 @@ angular.module('starter')
       $scope.objCentrePaperClick.style.color = paper;
     }
 
-    $scope.teacher = getTeacher($stateParams.teacherId);
+    $scope.teacher = getTeacher($stateParams.index);
 
     $scope.goCentreLogsDetail = function(index){
-      $state.go('logs-detail',{teacherId:$stateParams.teacherId,index:index})
+      $state.go('paper-detail',{teacherId:$stateParams.teacherId,index:index})
     }
     $scope.goPaperDetail = function(index){
       $state.go('paper-detail',{teacherId:$stateParams.teacherId,index:index});

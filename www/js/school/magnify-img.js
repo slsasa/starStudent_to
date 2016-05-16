@@ -10,7 +10,7 @@ angular.module('starter')
         controller:'magnifyImgCtrl'
       });
   })
-  .controller('magnifyImgCtrl',function($scope,$stateParams){
+  .controller('magnifyImgCtrl',function($rootScope,$scope,$stateParams){
 
 
    var   banners =[
@@ -35,7 +35,7 @@ angular.module('starter')
         context:'行动的傻子，思想上的猪，嘴上的大侠',
         time:143131231331
       }];
-    $scope.img  =  banners[parseInt($stateParams.imgId)].bannerImg;
+    $scope.img  =   $rootScope.banner.bannerImg;
 
     //$scope.img =$scope.banners[parseInt( $stateParams.imgId)].bannerImg ;
   })

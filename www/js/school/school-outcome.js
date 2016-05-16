@@ -10,7 +10,7 @@ angular.module('starter')
         controller:'outcomeCtrl'
       });
   })
-  .controller('outcomeCtrl',function($scope, $http){
+  .controller('outcomeCtrl',function($rootScope,$scope, $http,$state){
 
     var update = function(){
 
@@ -27,7 +27,7 @@ angular.module('starter')
 
           $scope.schOutcomes = data;
 
-          $ionicLoading.hide();
+
           refresh = true;
         })
         .error(function(err){
@@ -45,5 +45,8 @@ angular.module('starter')
       $scope.$broadcast('scroll.refreshComplete');
     }
 
-
+    $scope.goDetailOutcome = function(outcome){
+      $rootScope.outComeDetail  = outcome;
+      $state.go('outcome-detail')
+    }
   })

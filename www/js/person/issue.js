@@ -10,18 +10,74 @@ angular.module('starter')
         controller:'issueCtrl'
       });
   })
-<<<<<<< HEAD
-  .controller('issueCtrl',function($scope,$cordovaImagePicker,$cordovaFileTransfer){
-    $scope.contents;
+//<<<<<<< HEAD
+//  .controller('issueCtrl',function($scope,$cordovaImagePicker,$cordovaFileTransfer){
+//    $scope.contents;
+//
+//    $scope.photos = ['img/img2.png'];
+//    $scope.img_id = [];
+//    $scope.clickPhoto = function (index) {
+//
+//      var item = $scope.photos[index];
+//      if (item != 'img/img2.png') {
+//        $ionicLoading.show();
+//
+//
+//      } else {
+//        //
+//        var options = {
+//          maximumImagesCount: 9,
+//          width: 500,
+//          height: 500,
+//          quality: 80
+//        };
+//
+//        $cordovaImagePicker.getPictures(options)
+//          //以下为选好图片后的方法
+//          // @type: results [1, 2, 3]
+//          .then(function (results) {
+//
+//
+//            results.forEach(function (item) {
+//              if (item != undefined) {
+//                //$scope.imgSrc_after = item;
+//                $scope.photos.push(item);
+//                var fileName = item.split('/').pop();
+//                var fileURL = item;
+//
+//                var options = {
+//                  fileKey: "image",
+//                  fileName: fileName,
+//                  mimeType: "image/jpeg"
+//                };
+//
+//                $cordovaFileTransfer.upload(encodeURI('http://115.159.115.145:3000/upload/'), fileURL, options)
+//                  .then(function (result) {
+//                    //
+//                    alert(JSON.stringify(result));
+//                    console.log(result);
+//                    $ionicLoading.hide();
+//                    $scope.img_id = result._id
+//                  });
+//              }
+//            });
+//
+//          }, function (error) {
+//          })
+//      }
+//=======
+  .controller('issueCtrl',function($scope, userInfo, $http, $ionicHistory, $ionicPopup,$cordovaImagePicker,$cordovaFileTransfer){
 
-    $scope.photos = ['img/img2.png'];
-    $scope.img_id = [];
+    $scope.photos =['img/personal/FB.png']
     $scope.clickPhoto = function (index) {
 
       var item = $scope.photos[index];
-      if (item != 'img/img2.png') {
+      if (item != 'img/personal/FB.png') {
         $ionicLoading.show();
-
+        //$http.post('http://115.159.115.145:3000/upload/', {file: item}).success(function () {
+        //  $ionicLoading.hide();
+        //  $scope.photos.splice(index, 1);
+        //});
 
       } else {
         //
@@ -57,7 +113,7 @@ angular.module('starter')
                     alert(JSON.stringify(result));
                     console.log(result);
                     $ionicLoading.hide();
-                    $scope.img_id = result._id
+                    //$scope.img_id
                   });
               }
             });
@@ -65,8 +121,8 @@ angular.module('starter')
           }, function (error) {
           })
       }
-=======
-  .controller('issueCtrl',function($scope, userInfo, $http, $ionicHistory, $ionicPopup){
+    }
+
     $scope.msg = {
       content: '',
       img: []
@@ -103,6 +159,7 @@ angular.module('starter')
           console.log("提交表单错误");
         })
 
->>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
+
     }
+
   })

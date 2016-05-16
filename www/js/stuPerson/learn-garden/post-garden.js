@@ -13,11 +13,11 @@ angular.module('starter')
   })
   .controller('postGardenCtrl',function($scope,$cordovaImagePicker,$cordovaFileTransfer){
 
-    $scope.photos = ['img/img2.png']
+    $scope.photos = ['img/personal/FB.png']
     $scope.clickImg = function (index) {
 
       var item = $scope.photos[index];
-      if (item != 'img/img2.png') {
+      if (item != 'img/personal/FB.png') {
         $ionicLoading.show();
 
 

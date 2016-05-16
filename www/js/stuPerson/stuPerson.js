@@ -42,7 +42,7 @@ angular.module('starter')
       $state.go('setting',{type:stu});
     }
 
-    $scope.goDynamic = function(type){
+    $scope.goStuMyDynamic = function(type){
       $state.go('my-dynamic',{type:type});
     }
 

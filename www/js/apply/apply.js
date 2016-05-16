@@ -14,7 +14,7 @@ angular.module('starter')
       });
   })
 
-  .controller('ApplyCtrl',function($scope, $state, $http, userInfo){
+  .controller('ApplyCtrl',function($scope, $state, $http, $rootScope){
     //$scope.applys = [
     //  {
     //    id:0,
@@ -72,7 +72,8 @@ angular.module('starter')
     })
 
     $scope.goApplyDetail = function(apply){
-      userInfo.apply = apply;
+      //userInfo.apply = apply;
+      $rootScope.apply = apply;
       $state.go('applyDetail');
     }
 

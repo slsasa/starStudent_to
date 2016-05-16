@@ -78,6 +78,10 @@ angular.module('starter')
       $state.go('setting',{type:teacher});
     }
 
+    $scope.outLogin = function(){
+      $state.go('login');
+    }
+
   })
 
 

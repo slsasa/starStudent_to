@@ -32,12 +32,12 @@
             <div class="col" style="    margin: 0 0 0 30px;">
             <div class="row" style="margin: 0px 0px 6px 19px;padding: 0;">
               <div ng-repeat="detail in course.course" ng-if="detail.detail_id <= 2">
-                <a class="button-courselist" href="#/course-introduce/{{course._id}}{{detail.detail_id}}">{{detail.course_name}}</a>
+                <a class="button-courselist" ng-click="goCourse(detail)" >{{detail.course_name}}</a>
               </div>
             </div>
             <div class="row" style="    margin: -5px 0px 0 14px;">
               <div ng-repeat="detail in course.course" ng-if="detail.detail_id> 2">
-                <a class="button-courselist" href="#/course-introduce/{{course.id}}{{detail.detail_id}}">{{detail.course_name}}</a>
+                <a class="button-courselist" ng-click="goCourse(detail)">{{detail.course_name}}</a>
               </div>
             </div>
             </div>

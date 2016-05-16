@@ -11,7 +11,7 @@
     </ion-refresher>
     <div class="ionic-pseudo">
       <div class="list">
-        <a class="item item-thumbnail-left" ng-repeat="outcome in schOutcomes" href="#/school-outcome/outcome{{outcome.id}}">
+        <a class="item item-thumbnail-left" ng-repeat="outcome in schOutcomes" ng-click="goDetailOutcome(outcome)">
           <div class="item-thumbnail-left">
           <img ng-src="{{outcome.img}}">
           <p style="margin: 10px 0 0 0px;">{{outcome.title}}</p>

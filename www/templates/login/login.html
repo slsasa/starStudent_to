@@ -1,5 +1,6 @@
 <ion-view view-title="登录">
-  <ion-content class="has-header" style="background-image:url(img/loginbk.jpg);background-repeat: no-repeat;height: 100%;width:100%">
+  <ion-content class="has-header" style="background-image:url(img/loginbk.jpg);background-attachment:fixed;
+  background-repeat:no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;">
 
 
     <div class="loginbk" ng-repeat="loginbk in loginbks">
@@ -17,15 +18,7 @@
       <input type="password" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
     </div>
 
-    <div class="logininput item-select">
-      <div class="input-label fill" style="color: white;padding-left: 8%">
-        身份
-      </div>
-      <select ng-model="user.type" style="font-size: 18px;font-weight:500">
-        <option selected="">教师</option>
-        <option>学员</option>
-      </select>
-    </div>
+
 
       <div >
         <a class="button button-pink login"  ng-click="login()">登录</a>

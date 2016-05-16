@@ -139,8 +139,8 @@ angular.module('starter')
 
     $scope.showStudentDynamic();
 
-    $scope.showClickSchool = function(schoolId){
-      var objClick = document.getElementById(schoolId+'school');
+    $scope.showClickSchool = function(index){
+      var objClick = document.getElementById(index+'school');
 
       if(objClick.style.display == "none"){
         objClick.style.display = "";
@@ -150,16 +150,16 @@ angular.module('starter')
 
 
     }
-    $scope.showClickStudent = function(studentId){
-      var objClick = document.getElementById(studentId+'stu');
+    $scope.showClickStudent = function(index){
+      var objClick = document.getElementById(index+'stu');
       if(objClick.style.display == "none"){
         objClick.style.display = "";
       }else if(objClick.style.display == ""){
         objClick.style.display = "none";
       }
     }
-    $scope.showClickTeacher = function(teacherId){
-      var objClick = document.getElementById(teacherId + 'teacher');
+    $scope.showClickTeacher = function(index){
+      var objClick = document.getElementById(index + 'teacher');
       if(objClick.style.display == "none"){
         objClick.style.display = "";
       }else{

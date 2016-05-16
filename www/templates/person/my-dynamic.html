@@ -21,11 +21,11 @@
         <div class="item-avatar mydy">
 
           <div ng-if="terDynamic.content.length >=36">
-            <div id="{{terDynamic.id+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>
-            <div id="{{terDynamic.id+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>
+            <div id="{{$index+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>
+            <div id="{{$index+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>
 
             <div>
-              <a ng-click="showContentTer(terDynamic.id)" >更多</a>
+              <a ng-click="showContentTer($index)" >更多</a>
             </div>
           </div>
 
@@ -34,11 +34,11 @@
           </div>
         </div>
         <div class="comments">
-          <span id="{{terDynamic.id+'teacher'}}" style="display: none; padding: 0px 10px 0px;" >
+          <span id="{{$index+'teacher'}}" style="display: none; padding: 0px 10px 0px;" >
           <a class=" button buttonDy" ng-click="">点赞</a>
           <a class=" button buttonDy" ng-click="">分享</a>
         </span>
-          <i  ng-click="showClickTeacher(terDynamic.id)" class="ion-chatbox-working" ></i>
+          <i  ng-click="showClickTeacher($index)" class="ion-chatbox-working" ></i>
         </div>
       </ion-item>
     </div>

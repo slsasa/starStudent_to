@@ -24,13 +24,13 @@
           <h5>{{teacher.teacher_name}}</h5>
           <p style="text-align: justify;">{{teacher.content}}</p>
           <div class="button-bar" style="    margin: 20px 0px 0px 0px;">
-<<<<<<< HEAD
-            <a class="button button-pink " style=" border-radius: 20px;line-height: 29px;height: 29px"  ng-click="goPersonalMine(teacher.id)">个人风采</a>
-            <a class="button  "  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品中心</a>
-=======
+<!--<<<<<<< HEAD-->
+            <!--<a class="button button-pink " style=" border-radius: 20px;line-height: 29px;height: 29px"  ng-click="goPersonalMine(teacher.id)">个人风采</a>-->
+            <!--<a class="button  "  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品中心</a>-->
+
             <a class="button button-pink " style=" border-radius: 20px;line-height: 29px;height: 29px"  ng-click="goPersonalMine(teacher)">个人风采</a>
-            <a class="button button-pink "  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher)">作品中心</a>
->>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
+            <a class="button button-pink "  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks($index)">作品中心</a>
+
 
           </div>
         </div>
@@ -42,22 +42,14 @@
 
       <div class="item item-avatar" ng-repeat="teacher in teachers">
         <div class="item-avatar">
-<<<<<<< HEAD
-          <img ng-src="{{teacher.headImg}}">
-          <p>{{teacher.name}}</p>
-          <p>{{teacher.longevity}}</p>
-          <div class="button-bar" style="    margin: 20px 0px 0px 0px;">
-            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goPersonalMine(teacher.id)">个人2风采</a>
-            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品2中心</a>
 
-=======
           <img ng-src="{{teacher.pic_avatar_url}}">
           <p>{{teacher.teacher_name}}</p>
           <p>{{teacher.content}}</p>
           <div class="button-bar">
-            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goPersonalMine(teacher)">个人2风采</a>
-            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher.id)">作品2中心</a>
->>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
+            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goPersonalMine(teacher)">个人风采</a>
+            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks($index)">作品中心</a>
+
           </div>
         </div>
       </div>

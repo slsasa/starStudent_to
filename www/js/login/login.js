@@ -21,11 +21,16 @@ angular.module('starter')
       }
     ]
     $scope.user = {
-      num:'456',
-      pwd:'456',
-      type:'教师',
+      num:'',
+      pwd:'',
+      type:''
       //numverify :''
     }
+
+
+
+
+
 
     //提交表单 **登录**
     $scope.login = function(){

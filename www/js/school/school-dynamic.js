@@ -11,7 +11,7 @@ angular.module('starter')
 
       })
   })
-  .controller('schoolDynamicCtrl',function($scope, $state, $http, $ionicSlideBoxDelegate) {
+  .controller('schoolDynamicCtrl',function($rootScope,$scope, $state, $http, $ionicSlideBoxDelegate) {
     $scope.schoolDynamic = [
       {
         id: 0,
@@ -66,7 +66,8 @@ angular.module('starter')
       update();
     })
 
-    $scope.goDetail = function(dynamicId){
-      $state.go('school-dyncdetails',{dynamicId:dynamicId})
+    $scope.goDetail = function(dynamic){
+      $rootScope.dynamicDetail = dynamic;
+      $state.go('school-dyncdetails')
     }
   })

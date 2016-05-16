@@ -3,32 +3,31 @@
   <ion-nav-title>
     <p class="title">我要发布</p>
   </ion-nav-title>
-  <ion-nav-buttons side="right">
-    <button class="button button-icon ion-paper-airplane" ng-click="" ></button>
-  </ion-nav-buttons>
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-icon ion-paper-airplane" ng-click="" ></button>-->
+  <!--</ion-nav-buttons>-->
   <ion-content >
 
 
-<<<<<<< HEAD
-    <textarea class="card" placeholder="我想说……" ng-model="contentDynamic" ></textarea>
-=======
-    <textarea class="card" ng-model="msg.content" style="width: 90%;height: 60%"></textarea>
->>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
+
+    <!--<textarea class="card" placeholder="我想说……" ng-model="contentDynamic" ></textarea>-->
+
+    <textarea class="issue" placeholder="我想说……" ng-model="msg.content"></textarea>
+
 
     <div class="item item-stacked-label" style="padding: 10px 0 10px 10px;">
       <ion-scroll direction="x">
-        <img style="width: 34%;height: 34%" ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
-             ng-click="clickPhoto($index)" class="image-list-thumb" />
+        <img style="    width: 35px;" ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
+             ng-click="clickPhoto($index)" class="image-list-thumb" style="height: 84px;width: 70px;border: solid #c6c6c6 1px; margin: 5px 10px;" />
       </ion-scroll>
     </div>
-<<<<<<< HEAD
-=======
-    <a class="button" ng-click="onSubmit()">确定提交</a>
->>>>>>> b0cb63814b31b19c785f70a196c47484e7710c60
 
     <div class="padding">
-      <button class="button button-full button-pink " style="border-radius: 10px" ng-click="">确定提交</button>
-    </div>
+    <button class="button button-full button-pink " style="border-radius: 10px"  ng-click="onSubmit()">确定提交</button>
+</div>
+    <!--<div class="padding">-->
+      <!--<button class="button button-full button-pink " style="border-radius: 10px" ng-click="">确定提交</button>-->
+    <!--</div>-->
   </ion-content>
 
 </ion-view>

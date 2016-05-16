@@ -12,7 +12,7 @@ angular.module('starter')
       })
   })
 
-  .controller('dynamicDetailsCtrl',function($scope,$stateParams){
+  .controller('dynamicDetailsCtrl',function($scope,$rootScope){
       var dynamics =  [
       {
         id:0,
@@ -38,7 +38,7 @@ angular.module('starter')
         }
       }
     }
-    $scope.dynamic = getDaynmic($stateParams.dynamicId);
+    $scope.dynamic = $rootScope.dynamicDetail;
 
 
   })
