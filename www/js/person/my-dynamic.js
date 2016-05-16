@@ -32,6 +32,9 @@ angular.module('starter')
           var data = result.data;
           data.forEach(function(item){
             var data2 = []
+            if ( item.pic_url_list == null ) {
+              item.pic_url_list = item.pic_id_list;
+            }
             item.pic_url_list.forEach(function(img){
               data2.push(rootPicUrl + img)
             })
