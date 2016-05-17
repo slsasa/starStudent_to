@@ -10,11 +10,12 @@ angular.module('starter')
         controller:'outcomeCtrl'
       });
   })
-  .controller('outcomeCtrl',function($rootScope,$scope, $http,$state){
-
+  .controller('outcomeCtrl',function($rootScope,$scope, $http,$state,$ionicLoading){
+    $ionicLoading.show();
     var update = function(){
 
       var url = rootUrl + "/school_achievement/get_list";
+
 
       $http.get(url)
         .success(function(result){
@@ -29,9 +30,11 @@ angular.module('starter')
 
 
           refresh = true;
+          $ionicLoading.hide();
         })
         .error(function(err){
-          console.log(err);
+          $ionicLoading.hide();
+          console.log(JSON.stringify(err));
         })
     }
 

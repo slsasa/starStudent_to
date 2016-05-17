@@ -10,11 +10,11 @@ angular.module('starter')
           controller:'techerComCtrl'
       });
   })
-  .controller('techerComCtrl',function($scope, $http, userInfo){
+  .controller('techerComCtrl',function($scope, $http, userInfo,$ionicLoading){
 
     var updata = function(){
       var url = rootUrl + "/student_teacher_com/get_info?student_id=" + userInfo._id;
-
+      $ionicLoading.show();
       $http.get(url)
         .success(function(result){
           console.log(JSON.stringify(result));
@@ -23,9 +23,15 @@ angular.module('starter')
             item.teacher_avatar_id.pic_url = rootPicUrl + item.teacher_avatar_id.pic_url;
           })
           $scope.comments = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
-          console.log("获取教师评语失败");
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:'获取数据失败'
+          })
+          console.log(JSON.stringify(err));
         })
     }
 

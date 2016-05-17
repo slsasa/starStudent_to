@@ -17,7 +17,7 @@
 
     <div class="item item-stacked-label" style="padding: 10px 0 10px 10px;">
       <ion-scroll direction="x">
-        <img style="    width: 35px;" ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
+        <img ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
              ng-click="clickPhoto($index)" class="image-list-thumb" style="height: 84px;width: 70px;border: solid #c6c6c6 1px; margin: 5px 10px;" />
       </ion-scroll>
     </div>

@@ -1,11 +1,14 @@
-<ion-view view-title="明星学员">
+<ion-view>
+  <ion-nav-title>
+    <span class="title">明星学员</span>
+  </ion-nav-title>
   <ion-content style="background-color: #f1f1f1">
     <div class="headbk" ng-repeat="headbk in headbks">
       <img src="{{headbk.img}}" style="width: 100%;height: 110%;">
 
       <img src="{{headbk.headimg}}" class="head" >
 
-     <div style="background: black;opacity:0.5;height: 35px;width: 68%;  margin: -80px 29%;">
+     <div style="background: rgba(0, 0, 0, 0.6);opacity:0.5;height: 35px;width: 68%;  margin: -80px 29%;">
        <p class="myneme light" >{{headbk.myname}}<i class="ion-edit  "ng-click="editor();" ></i></p>
      </div>
 
@@ -13,9 +16,9 @@
 
     <div class="stud">
       <div class="button-bar a_image1"style="width: 70%;    margin: -35px 24% 0;">
-        <a class="head2" ng-click="learnSit()" ><img style="display: block;" src="img/stuperson/study.png"/>学校成果</a>
-        <a class="head2" ng-click="studentHon()"><img style="display: block;" src="img/stuperson/huonr.png"/>学员荣耀</a>
-        <a class="head2" ng-click="techerCom()"><img style="display: block;" src="img/stuperson/teachcom.png"/>教师评语</a>
+        <a class="head2" ng-click="learnSits()" ><img style="display: block;" src="img/stuperson/study.png"/>学习情况</a>
+        <a class="head2" ng-click="studentHons()"><img style="display: block;" src="img/stuperson/huonr.png"/>学员荣耀</a>
+        <a class="head2" ng-click="techerCom()"><img  style="display: block;" src="img/stuperson/teachcom.png"/>教师评语</a>
       </div>
     </div>
     <div>

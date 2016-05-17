@@ -11,7 +11,7 @@ angular.module('starter')
 
       })
   })
-  .controller('schoolDynamicCtrl',function($rootScope,$scope, $state, $http, $ionicSlideBoxDelegate) {
+  .controller('schoolDynamicCtrl',function($rootScope,$scope, $state, $http, $ionicSlideBoxDelegate, $ionicLoading) {
     $scope.schoolDynamic = [
       {
         id: 0,
@@ -38,7 +38,7 @@ angular.module('starter')
       var url = rootUrl + "/school_dynamic/get_list";
 
 
-
+      $ionicLoading.show();
       $http.get(url)
         .success(function(result){
           console.log(JSON.stringify(result));
@@ -50,6 +50,7 @@ angular.module('starter')
               img = rootPicUrl + img;
               pic_arr.push(img);
             })
+            $ionicLoading.hide();
           });
           $scope.schoolDynamics = data;
           $scope.pic_arr = pic_arr;
@@ -58,7 +59,8 @@ angular.module('starter')
           $ionicSlideBoxDelegate.loop(true);
         })
         .error(function(err){
-          console.log("获取数据失败");
+          $ionicLoading.hide();
+          console.log(JSON.stringify(err));
         })
     }
 

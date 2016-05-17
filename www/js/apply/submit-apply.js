@@ -10,8 +10,10 @@ angular.module('starter')
           controller: 'applySubmitCtrl'
       });
   })
-  .controller('applySubmitCtrl',function($rootScope,$scope,$stateParams, userInfo, $http, $ionicPopup, $ionicHistory){
+  .controller('applySubmitCtrl',function($rootScope,$scope,$stateParams, userInfo, $http, $ionicPopup, $ionicHistory,$ionicLoading){
     //$scope.apply = userInfo.apply;
+
+
     $scope.apply = $rootScope.apply;
 
     $scope.user = {
@@ -22,6 +24,7 @@ angular.module('starter')
     }
 
     $scope.onSubmit = function(){
+      $ionicLoading.show();
       var data = {
         student_id: $scope.user.user_id,
         sign_project_id: $scope.user.apply_id,
@@ -36,12 +39,14 @@ angular.module('starter')
       $http.post(url, data)
         .success(function(result){
           console.log(JSON.stringify(result));
+          $ionicLoading.hide();
           if(result.ret_code == 0){
             $ionicPopup.alert({
               title: '消息',
               template: '报名成功'
             })
             $ionicHistory.goBack(-1);
+
           }else{
             $ionicPopup.alert({
               title: '提醒',
@@ -50,7 +55,7 @@ angular.module('starter')
           }
         })
         .error(function(err){
-
+          $ionicLoading.hide();
         })
 
     }

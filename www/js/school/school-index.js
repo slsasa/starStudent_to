@@ -20,7 +20,7 @@ angular.module('starter')
 
       $http.get(url)
         .success(function(result){
-          console.log(JSON.stringify(result));
+
           var data = result.data.splice(0,5);
           data.forEach(function(item){
             item.bannerImg = rootPicUrl + item.bannerImg;

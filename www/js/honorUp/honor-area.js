@@ -10,8 +10,9 @@ angular.module('starter')
         controller: 'honorAreaCtrl'
       })
   })
-  .controller('honorAreaCtrl',function($scope, $http){
+  .controller('honorAreaCtrl',function($scope, $http,$ionicLoading){
 
+    $ionicLoading.show();
     var getStarData = function(){
       var url = rootUrl + "/student_honor/get_all_list";
 
@@ -23,8 +24,14 @@ angular.module('starter')
             item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
           })
           $scope.starList = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:'数据加载失败'
+          })
           console.log("获取明星榜信息失败");
         })
     }
@@ -34,14 +41,17 @@ angular.module('starter')
 
       $http.get(url)
         .success(function(result){
+
           console.log(JSON.stringify(result));
           var data = result.data;
           data.forEach(function(item){
             item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
           })
           $scope.honorWall = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
+          $ionicLoading.hide();
           console.log("获取荣誉榜信息失败");
         })
     }

@@ -12,7 +12,8 @@ angular.module('starter')
   })
 
 
-  .controller('loginCtrl',function($scope, $state, $ionicPopup, userInfo, $http){
+  .controller('loginCtrl',function($rootScope,$scope, $state, $ionicPopup, userInfo, $http,$ionicLoading){
+
 
 
     $scope.loginbks = [
@@ -20,31 +21,18 @@ angular.module('starter')
         "img":"img/logobk.jpg"
       }
     ]
-    $scope.user = {
+
+    $rootScope.user = {
       num:'',
       pwd:'',
       type:''
-      //numverify :''
     }
 
 
-
-
-
-
-    //提交表单 **登录**
-    $scope.login = function(){
-      var t;
-
-      var data = {
-        user_pwd: $scope.user.pwd,
-        user_tel: $scope.user.num
-      }
-
-      var url = rootUrl + "/user/login";
-
+    var update = function(url,data){
       $http.post(url, data)
         .success(function(result){
+
           console.log(JSON.stringify(result));
           userInfo._id = result.data._id;
           console.log(userInfo.id);
@@ -72,11 +60,33 @@ angular.module('starter')
               template: '登录异常'
             });
           }
+          $ionicLoading.hide();
 
         })
         .error(function(err){
-
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:JSON.stringify(err)
+          })
+          console.log("err>>>"+JSON.stringify(err));
         })
+    }
+
+
+
+    //提交表单 **登录**
+    $scope.login = function(){
+      var t;
+      $ionicLoading.show();
+      var data = {
+        user_pwd: $rootScope.user.pwd,
+        user_tel: $rootScope.user.num
+      }
+
+      var url = rootUrl + "/user/login";
+      update(url,data);
+
     }
 
 

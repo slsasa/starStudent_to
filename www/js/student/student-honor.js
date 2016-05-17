@@ -1,16 +1,16 @@
 /**
- * Created by apple-ty on 16-5-6.
+ * Created by sls on 16/5/17.
  */
 angular.module('starter')
-  .config(function ($stateProvider) {
+  .config(function($stateProvider){
     $stateProvider
-      .state('students-honor',{
-        url:'/students-honor',
-          templateUrl: 'templates/stuPerson/students-honor/students-honor.html',
-          controller:'studentHonorCtrl'
-      });
+      .state('student-honor',{
+        url:'/student-honor',
+        templateUrl:'templates/student/student-honor.html',
+        controller:'stuHonorCtrl'
+      })
   })
-  .controller('studentHonorCtrl',function($scope){
+  .controller('stuHonorCtrl',function($scope){
     $scope.learns = [
       {
         id:0,

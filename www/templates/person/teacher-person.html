@@ -1,3 +1,15 @@
+<style>
+  .item-avatar >img{
+    position: absolute;
+    top: 30px;
+    left: 16px;
+    max-width: 70px;
+    max-height: 70px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+</style>
 <ion-view>
   <ion-nav-title>
     <span class="title">教师个人中心</span>
@@ -7,46 +19,37 @@
 
 
       <div class="headbk" >
-      <img ng-src="{{teacherPerson.backImg}}"  style="width: 100%;height: 110%;">
-        <!--<div style="background: black;opacity:0.5;height: 35px;width: 68%;margin: -14% 0 30px 30%;"></div>-->
-        <img ng-src="{{teacherPerson.headImg}}" class="head">
-        <!--<p class='myneme'> {{teacherPerson.signature}}  {{teacherPerson.username}}-->
-          <!--<i class="ion-edit" ng-click="edit()"></i>-->
-        <!--</p>-->
 
-        <div style="background: black;opacity:0.5;height: 35px;width: 68%;  margin: -80px 29%;">
-          <p class="myneme light" >{{teacherPerson.username}}<i class="ion-edit  "ng-click="edit()" ></i></p>
+
+        <img ng-src="{{teacherPerson.backImg}}"  style="width: 100%  ;  height: 165px;">
+          <div class="item-avatar">
+          <img ng-src="{{teacherPerson.headImg}}" style="margin: 102px 0 0 5px;max-height: 70px;max-width: 70px;"></div>
+
+
+        <div  ng-click="edit()" style="background: rgba(0, 0, 0, 0.6);opacity:0.5;height: 35px;width: 68%;     margin: -118px 29% 0 30%;">
+          <p class="myneme light">{{teacherPerson.username}}
+            <i  class="ion-edit"  style="margin: auto"></i></p>
 
         </div>
 
       </div>
 
     <div class="stud">
-      <div style="    margin: -14px 0 0 23%;">
+      <div style="    margin: -10px 0 0 23%;">
         <a  ng-click="addPraise()" style="margin: 0px 15px 1px 0px;"><img style=" margin: 0 0 -16px 0px;" src="img/teachper/z1.png"/>点赞：{{teacherPerson.praise}}</a>
         <a  ng-click="addFlower()"><img style="margin: 0 0 -16px 0px;" src="img/teachper/h1.png"/>送花：{{teacherPerson.flower}}</a>
 
       </div>
     </div>
-    <ion-list>
 
-
-
-    <!--<ion-item  class="item-divider item-icon-right" style=" padding: 9px 20px 15px;" >-->
-      <!--<a ng-click="goMyStyle()"><h2 class="persontext">个人风采</h2></a>-->
-      <!--<i class="icon ion-chevron-right icon-accessory" ></i>-->
-    <!--</ion-item>-->
-
+      <div class="list">
       <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;" ng-click="goMyStyle()">
         <img src="img/teachper/grfc.png"   style="    width: 28px;">
           <h2 style="margin: -28px 33px 0px;"> 个人风采</h2></img>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
-    <!--<ion-item  class="item-divider  item-icon-right"  >-->
-      <!--<a ng-click="goMyDynamic('teacher')"><h2 class="persontext" >我的动态</h2></a>-->
-      <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
-    <!--</ion-item>-->
+
 
       <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;" ng-click="goMyDynamic('teacher')">
         <img src="img/teachper/mydy.png"   style="    width: 28px;">
@@ -60,14 +63,7 @@
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
-    <!--<ion-item  class="item-divider item-icon-right "  >-->
-      <!--<a ng-click="goWorksLog()"><h2 class="persontext">作品中心</h2></a>-->
-      <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
-    <!--</ion-item>-->
-
-
-
-  </ion-list>
+      </div>
     <div style="padding-top:10%">
 
       <ion-item class=" item-icon-right" style=" padding: 9px 20px 15px;" ng-click="goTerSetting('teacher')">

@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('stuPersonCtrl',function($scope,$state){
+  .controller('stuPersonCtrl',function($rootScope,$scope,$state){
     $scope.headbks = [
       {
         "img":"img/stuperson/stubk.png",
@@ -23,19 +23,20 @@ angular.module('starter')
 
     //资料编辑
     $scope.editor = function () {
-      $state.go('date-editor')
+      $state.go('personage-msg');
     }
     //学习情况
-    $scope.learnSit = function(){
-      $state.go('learn-situation')
+    $scope.learnSits = function(){
+      $state.go('student-state');
+      //$state.go('learn-situation');
     }
     //学员荣耀
-    $scope.studentHon = function(){
-      $state.go('students-honor')
+    $scope.studentHons = function(){
+      $state.go('student-honor');
     }
     //教师评语
     $scope.techerCom = function(){
-      $state.go('techer-comment')
+      $state.go('techer-comment');
     }
 
     $scope.goStuSetting = function(stu){
@@ -47,6 +48,7 @@ angular.module('starter')
     }
 
     $scope.outlogin = function(){
+      $rootScope.user = {};
       $state.go('login');
     }
 

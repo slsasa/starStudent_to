@@ -13,7 +13,7 @@ angular.module('starter')
   })
   .controller('worksCtrl', function ($rootScope, $scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
 
-
+    $ionicLoading.show();
     var getLogInfo = function(){
       var url = rootUrl + "/teacher_article/get_all_list?article_type=log";
 
@@ -22,8 +22,10 @@ angular.module('starter')
           console.log(JSON.stringify(result));
           var data = result.data;
           $scope.teacher = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
+          $ionicLoading.hide();
           console.log("获取作品失败");
         })
     }

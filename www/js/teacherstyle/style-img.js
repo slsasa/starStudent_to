@@ -11,17 +11,18 @@ angular.module('starter')
       });
   })
 
-  .controller('styleImgCtrl',function($scope, $stateParams, userInfo, $http){
+  .controller('styleImgCtrl',function($scope, $stateParams, userInfo, $http,$ionicLoading){
 
     $scope.teacher = userInfo.teacherInfo;
     userInfo.teacherInfo = '';
 
-
+    $ionicLoading.show();
     var getSelfInfo = function(){
-      var data_arr = [];
+         var data_arr = [];
 
-      $scope.teacher.style_item.forEach(function(item){
+        $scope.teacher.style_item.forEach(function(item){
         var url = rootUrl + "/teacher_style/get_style_item?style_item_id=" + item;
+
         $http.get(url)
           .success(function(result){
             var data = result.data;
@@ -31,8 +32,12 @@ angular.module('starter')
             })
             data.pic_url_list = pic_arr;
             data_arr.push(data);
+
+            $ionicLoading.hide();
           })
           .error(function(err){
+            alert('获取数据失败')
+            $ionicLoading.hide();
             console.log("获取照片数据失败");
           })
       })

@@ -12,7 +12,7 @@ angular.module('starter')
   })
 
 
-  .controller('forgotpwCtrl', function ($scope, $http, $ionicPopup, $ionicHistory) {
+  .controller('forgotpwCtrl', function ($scope, $http, $ionicPopup, $ionicHistory, $ionicLoading) {
     $scope.loginbks = [
       {
         "img": "img/logobk.jpg"
@@ -39,10 +39,11 @@ angular.module('starter')
         console.log(data);
 
         var url = rootUrl + "/user/reset_pwd";
-
+        $ionicLoading.show();
         $http.post(url, data)
           .success(function (result) {
             console.log(JSON.stringify(result));
+            $ionicLoading.hide();
             if (result.ret_code == 0) {
               console.log("haha");
               $ionicPopup.alert({
@@ -58,7 +59,10 @@ angular.module('starter')
             }
           })
           .error(function (err) {
-
+            $ionicLoading.hide();
+            $ionicPopup.alert({
+              title:JSON.stringify(err)
+            })
           })
       } else {
         $ionicPopup.alert({

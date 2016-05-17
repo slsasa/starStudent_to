@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('terPersonCtrl',function($scope,$state){
+  .controller('terPersonCtrl',function($rootScope,$scope,$state){
 
     $scope.teacherPerson = {
       name:'李伟峰',
@@ -51,7 +51,8 @@ angular.module('starter')
 
     };
     $scope.edit = function(){
-      $state.go('personage-msg');
+
+      $state.go('date-editor');
     };
 
     $scope.addPraise = function(){
@@ -79,6 +80,7 @@ angular.module('starter')
     }
 
     $scope.outLogin = function(){
+      $rootScope.user = {};
       $state.go('login');
     }
 

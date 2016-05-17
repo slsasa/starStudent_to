@@ -15,7 +15,7 @@ angular.module('starter')
   })
 
 
-  .controller('registerCtrl',function($scope, $http, $ionicPopup, $ionicHistory){
+  .controller('registerCtrl',function($scope, $http, $ionicPopup, $ionicHistory, $ionicLoading){
     $scope.user = {
       num:'',
       pwd:'',
@@ -40,10 +40,11 @@ angular.module('starter')
         }
 
         var url = rootUrl + "/user/register";
-
+        $ionicLoading.show();
         $http.post(url, data)
           .success(function (result) {
             console.log(JSON.stringify(result));
+            $ionicLoading.hide();
             if (result.ret_code == 0) {
               $ionicPopup.alert({
                 title: '提醒',
@@ -64,7 +65,11 @@ angular.module('starter')
             }
           })
           .error(function (err) {
-
+            $ionicLoading.hide();
+            $ionicPopup.alert({
+              title:'err',
+              template:JSON.stringify(err)
+            })
           })
       }else{
         $ionicPopup.alert({

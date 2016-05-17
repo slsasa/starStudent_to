@@ -11,10 +11,10 @@ angular.module('starter')
 
       });
   })
-  .controller('myDynamicCtrl',function($scope,$stateParams,$state, $http, userInfo){
+  .controller('myDynamicCtrl',function($scope,$stateParams,$state, $http, userInfo, $ionicLoading){
 
     var update = function(){
-
+      $ionicLoading.show();
       if(userInfo.personType == "_stu"){
         var url = rootUrl + "/student_dynamic/get_self_list";
       }else if(userInfo.personType == '_teacher'){
@@ -28,6 +28,7 @@ angular.module('starter')
 
       $http.get(url, {params:query})
         .success(function(result){
+          $ionicLoading.hide();
           console.log(JSON.stringify(result));
           var data = result.data;
           data.forEach(function(item){
@@ -44,6 +45,8 @@ angular.module('starter')
           console.log($scope.terDynamics);
         })
         .error(function(err){
+          $ionicLoading.hide();
+          alert(JSON.stringify(err));
           console.log("获取数据错误")
         })
 

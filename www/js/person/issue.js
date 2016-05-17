@@ -66,7 +66,7 @@ angular.module('starter')
 //          })
 //      }
 //=======
-  .controller('issueCtrl',function($scope, userInfo, $http, $ionicHistory, $ionicPopup,$cordovaImagePicker,$cordovaFileTransfer){
+  .controller('issueCtrl',function($scope, userInfo, $http, $ionicHistory, $ionicPopup,$cordovaImagePicker,$cordovaFileTransfer,$ionicLoading){
 
     $scope.photos =['img/personal/FB.png']
     $scope.clickPhoto = function (index) {
@@ -119,6 +119,8 @@ angular.module('starter')
             });
 
           }, function (error) {
+            alert('上传失败');
+            $ionicLoading.hide();
           })
       }
     }
@@ -129,7 +131,7 @@ angular.module('starter')
     }
 
     $scope.onSubmit = function(){
-
+      $ionicLoading.show();
       var data = {
         issuer_id: userInfo._id,
         content: $scope.msg.content
@@ -142,10 +144,12 @@ angular.module('starter')
         var url = rootUrl + "/teacher_dynamic/add";
       }
 
+
       $http.post(url, data)
         .success(function(result){
-          console.log(JSON.stringify(result));
 
+          console.log(JSON.stringify(result));
+          $ionicLoading.hide();
           if(result.ret_code == 0){
             console.log(JSON.stringify(result));
             $ionicPopup.alert({
@@ -156,7 +160,13 @@ angular.module('starter')
           }
         })
         .error(function(err){
-          console.log("提交表单错误");
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:'发布失败'
+          })
+          console.log(JSON.stringify(err)
+          );
         })
 
 

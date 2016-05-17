@@ -10,10 +10,21 @@ angular.module('starter')
           controller:'introduceCtrl'
       });
   })
-  .controller('introduceCtrl',function($rootScope,$scope,$state, $http){
+  .controller('introduceCtrl',function($rootScope,$scope,$state, $http, $ionicLoading){
+    $scope.imgs =[
+      'img/course/wd.png',
+      'img/course/sh.png',
+      'img/course/gq.png',
+      'img/course/by.png',
+      'img/course/yy.png'
+    ];
+
+    $ionicLoading.show();
+
     var update = function(){
 
       var url = rootUrl + "/school_professional/get_list";
+
 
       $http.get(url)
         .success(function(result){
@@ -30,9 +41,11 @@ angular.module('starter')
 
           console.log(data);
           $scope.courses = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
-          console.log("获取数据失败");
+          $ionicLoading.hide();
+          console.log(JSON.stringify(err));
         })
     }
 

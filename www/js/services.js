@@ -6,7 +6,7 @@ angular.module('starter.services', [])
 　　
     //
     //
-    //$rootScope.imageUrl = 'http://115.159.115.145:3000/upload/';
+    $rootScope.imageUrl = 'http://115.159.115.145:3000/upload/';
     ////var user = {
     ////  type:'学生',
     ////  userName:'',

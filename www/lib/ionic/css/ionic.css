@@ -4979,8 +4979,8 @@ ion-tabs.tabs-color-active-pink .tab-item {
     color: #f96a9f; }
 
 ion-tabs.tabs-striped.tabs-color-active-pink .tab-item.tab-item-active, ion-tabs.tabs-striped.tabs-color-active-pink .tab-item.active, ion-tabs.tabs-striped.tabs-color-active-pink .tab-item.activated {
-  border-color: #387ef5;
-  color: #387ef5; }
+  border-color: rgba(56, 126, 245, 0);
+  color: #ed679a; }
 
 ion-tabs.tabs-color-active-calm .tab-item {
   color: #444; }

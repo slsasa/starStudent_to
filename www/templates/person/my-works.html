@@ -2,7 +2,7 @@
   <ion-nav-title>
     <span class="title">作品中心</span>
   </ion-nav-title>
-  <ion-nav-buttons side="left">
+  <ion-nav-buttons>
     <button class=" button-icon  ion-ios-arrow-back" ui-sref="tabs.person_teacher"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
@@ -11,8 +11,8 @@
 
   <ion-content style="background-color: #f1f1f1">
     <div class="bar-subheader" style="margin: 6px;text-align: center">
-      <a class="button" ng-click="showLog()" id="logClick">教学日志({{teacher.tearchingLog.length}})</a>
-      <a class="button" ng-click="showPaper()" id="paperClick">学术论文({{teacher.thesis.length}})</a>
+      <a class="button" ng-click="showLog()" id="logClick">教学日志({{teacher.length}})</a>
+      <a class="button" ng-click="showPaper()" id="paperClick">学术论文({{teacher.length}})</a>
     </div>
 
     <div id="log" class="list">

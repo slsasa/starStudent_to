@@ -10,7 +10,7 @@ angular.module('starter')
           controller: 'dateEditorCtrl'
       });
   })
-  .controller('dateEditorCtrl',function($scope, userInfo, $http){
+  .controller('dateEditorCtrl',function($scope){
 
     //var update = function(){
     //  var url = rootUrl + "/student_info/get_info?student_id=" + userInfo._id;

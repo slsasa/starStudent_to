@@ -1,34 +1,52 @@
+<style>
+  .editor{
+    margin: -28px 0px 0px 23%;
+    /* background: red; */
+    width: 72%;
+    float: right;
+    /* right: 50px; */
+    text-align: right;
+    padding: 0px 10px 0 0px;
+  }
+</style>
 <ion-view>
   <ion-nav-title>
     <span class="title">个人资料</span>
   </ion-nav-title>
-  <ion-nav-buttons side="left">
-    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_teacher"></button>
+  <ion-nav-buttons>
+    <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_stu"></button>
   </ion-nav-buttons>
 <ion-content style="background-color: #f1f1f1">
 
   <ion-list>
-  <ion-item class="item-divider" style="padding: 10px 10px;">
-       姓名<b style="float: right">{{teacherPerson.name}}</b>
-  </ion-item>
-  <ion-item class="item-divider" style="padding: 10px 10px;">
-    性别<b style="float: right">{{teacherPerson.sex}}</b>
-  </ion-item>
-  <ion-item class="item-divider" style="padding: 10px 10px;">
-    民族<b style="float: right">{{teacherPerson.nation}}</b>
-  </ion-item>
-  <ion-item class="item-divider" style="padding: 10px 10px;">
-    入职时间<b style="float: right">{{teacherPerson.entryTime |date:'yyyy-MM-dd'}}</b>
-  </ion-item>
-  <ion-item class="item-divider" style="padding: 10px 10px;">
-   负责专业<b style="float: right">{{teacherPerson.principalMajor}}</b>
-  </ion-item>
-  </ion-list>
+    <ion-item class="item-divider">
+      <div  >
+        <h2 style="margin: 10px 0 0 10px;">姓名</h2>
+        <input type="text" ng-model="teacherPerson.name" class="editor">
+      </div>
+    </ion-item>
+
+    <ion-item class="item-divider">
+      <div  >
+        <h2 style="margin: 10px 0 0 10px;">性别</h2>
+        <input type="text" ng-model="teacherPerson.sex" class="editor">
+      </div>
+    </ion-item>
+    <ion-item class="item-divider" >
+      <div  >
+        <h2 style="    margin: 10px 0 0 10px;">民族</h2>
+        <input type="text" ng-model="teacherPerson.nation" class="editor">
+      </div>
+    </ion-item>
+
     <div class="message">
-      <div>教师信息</div>
-      <hr>
-      <p>{{teacherPerson.teacherMeg}}</p>
-    </div>
+    <div>个人信息</div>
+    <hr>
+    <p>{{teacherPerson.teacherMeg}}</p>
+      </div>
+  </ion-list>
+
+
 
 
 </ion-content>

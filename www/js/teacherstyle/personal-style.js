@@ -5,19 +5,20 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('personal-style',{
-        url:'/teacher-mine/personal-style:teacherId',
+        url:'/teacher-mine/personal-style',
         templateUrl:'templates/teacherstyle/personal-style.html',
         controller:'personalCtrl'
 
       });
   })
-  .controller('personalCtrl',function($scope, $stateParams, $state, $http, userInfo){
+  .controller('personalCtrl',function($scope, $stateParams, $state, $http, userInfo,$ionicLoading){
     $scope.like = 0;
 
     $scope.teacher = userInfo.teacherInfo;
     userInfo.teacherInfo = '';
     console.log($scope.teacher);
 
+    $ionicLoading.show();
     var getSelfInfo = function(){
       var url = rootUrl + "/teacher_style/get_style_item?style_item_id=" + $scope.teacher.style_item[0];
       $http.get(url)
@@ -30,9 +31,15 @@ angular.module('starter')
           });
           data.pic_url_list = pic_arr;
           $scope.teacher.info = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
-          console.log("获取教师数据失败");
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:'获取数据失败'
+          })
+          console.log(JSON.stringify(err));
         })
     }
 
@@ -66,9 +73,11 @@ angular.module('starter')
 
    $scope.showImgLen = 0;
 
-   $scope.goPaper = function(teacherId){
-     $state.go('works-centre',{teacherId:teacherId})
+    $scope.indexR = 1;
+     $scope.goPaper = function(){
+     $state.go('works-centre',{index:$scope.indexR})
    }
+
 
 
   })

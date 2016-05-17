@@ -13,13 +13,18 @@ angular.module('starter')
       });
   })
 
-  .controller('dynamicCtrl',function($scope, $ionicPopup, $http){
+  .controller('dynamicCtrl',function($scope, $ionicPopup, $http,$ionicLoading){
+
+
+
+    $ionicLoading.show();
 
     var getSchoolData = function(){
       var url = rootUrl + "/school_dynamic/get_list";
 
       $http.get(url)
         .success(function(result){
+          $ionicLoading.hide();
           console.log(JSON.stringify(result));
           var data = result.data;
           data.forEach(function(item){
@@ -29,9 +34,15 @@ angular.module('starter')
             })
           });
           $scope.schoolDynamics = data;
+
         })
         .error(function(err){
-          console.log("获取数据失败");
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:'数据加载失败'
+          })
+          console.log(err);
         })
     }
 
@@ -40,14 +51,17 @@ angular.module('starter')
 
       $http.get(url)
         .success(function(result){
+
           console.log(JSON.stringify(result));
           var data = result.data;
           data.forEach(function(item){
             item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
           })
           $scope.stuDynamics = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
+          $ionicLoading.hide();
           console.log("获取数据失败");
         })
     }
@@ -63,8 +77,10 @@ angular.module('starter')
             item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
           })
           $scope.terDynamics = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
+          $ionicLoading.hide();
           console.log("获取数据失败");
         })
     }
