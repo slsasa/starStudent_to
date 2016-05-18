@@ -10,7 +10,7 @@ angular.module('starter')
         controller:'outcomeCtrl'
       });
   })
-  .controller('outcomeCtrl',function($rootScope,$scope, $http,$state,$ionicLoading){
+  .controller('outcomeCtrl',function($scope, $http,$state,$ionicLoading,userInfo){
     $ionicLoading.show();
     var update = function(){
 
@@ -49,7 +49,7 @@ angular.module('starter')
     }
 
     $scope.goDetailOutcome = function(outcome){
-      $rootScope.outComeDetail  = outcome;
+      userInfo.outComeDetail  = outcome;
       $state.go('outcome-detail')
     }
   })

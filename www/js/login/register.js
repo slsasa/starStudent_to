@@ -36,7 +36,7 @@ angular.module('starter')
         var data = {
           user_tel: $scope.user.num,
           user_pwd: $scope.user.pwd,
-          user_type: '教师'
+          user_type: $scope.user.type
         }
 
         var url = rootUrl + "/user/register";

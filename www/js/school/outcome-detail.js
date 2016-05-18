@@ -12,8 +12,8 @@ angular.module('starter')
 
       });
   })
-  .controller('outcomeDetailCtrl',function($rootScope,$scope){
+  .controller('outcomeDetailCtrl',function($rootScope,$scope,userInfo){
 
-    $scope.outcomeDetail = $rootScope.outComeDetail ;
+    $scope.outcomeDetail = userInfo.outComeDetail;
 
   })

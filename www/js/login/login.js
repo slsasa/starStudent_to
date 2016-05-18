@@ -67,7 +67,7 @@ angular.module('starter')
           $ionicLoading.hide();
           $ionicPopup.alert({
             title:'err',
-            template:JSON.stringify(err)
+            template:'请等会登录'
           })
           console.log("err>>>"+JSON.stringify(err));
         })

@@ -6,13 +6,13 @@
   <ion-content style="background: #eeeeee">
     <ion-slide-box does-continue="true" auto-play="true" show-pager="true" style="margin-bottom: -5px">
       <ion-slide ng-repeat="banner in banners">
-        <img ng-src="{{banner.bannerImg}}" height="150px" width="100%">
+        <img ng-src="{{banner.bannerImg}}" height="40%" width="100%">
 
         <p class="dark " style="margin:-50px 10px 10px 10px ;font-size: 14px;">{{banner.context}}</p>
       </ion-slide>
     </ion-slide-box>
 
-    <div class="button-bar a_image shadow" style="height: 100px;margin-bottom:15px;">
+    <div class="button-bar a_image shadow" style="margin-bottom:15px;">
       <a class="button button-light" ng-click="intoSchOutcome()"><img src="img/logo/go1.png"/>学校成果</a>
       <a class="button button-light" ng-click="intoCourseIntr()"><img src="img/logo/go2.png"/>课程介绍</a>
       <a class="button button-light" ng-click="intoTeacherApti()"><img src="img/logo/go3.png"/>师资力量</a>
@@ -35,7 +35,7 @@
     </div>
 
       <div style="    background: white;">
-        <img src="img/indexSch.png" style="height: 110px"/>
+        <img src="img/indexSch.png" style="height: 135px"/>
       </div>
     <a  ng-click="goIntro()" class="more button-clear " style="line-height: 35px;font-size: 14px">更多
       <i class="iocn ion-chevron-right"></i></a>
