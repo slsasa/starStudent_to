@@ -7,15 +7,14 @@ angular.module('starter')
       .state('works-detail',{
         url:'/works-detail',
         templateUrl:'templates/production/works-detail.html',
-        controller:'logsDetailCtrl'
+        controller:'logDetailCtrl'
       });
   })
 
-  .controller('logsDetailCtrl', function ($scope,$stateParams,userInfo) {
+  .controller('logDetailCtrl', function ($scope,$stateParams,userInfo) {
 
-
-
-    $scope.tearchingLog = userInfo['Log'];
-    console.log('logdetail',JSON.stringify($scope.teacherLog));
+    $scope.teacher  = userInfo.teacherInfo;
+    $scope.tearchingLog = userInfo.log;
+    userInfo['teacherInfo'] = {};
 
   })

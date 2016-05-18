@@ -4,66 +4,52 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('works-centre',{
-        url:'/works-centre',
-        templateUrl:'templates/production/works-centre.html',
-        controller:'worksCentreCtrl'
+      .state('works-centre', {
+        url: '/works-centre',
+        templateUrl: 'templates/production/works-centre.html',
+        controller: 'worksCentreCtrl'
 
       });
   })
-  .controller('worksCentreCtrl',function($scope,$state,$stateParams,$http,$ionicPopup,userInfo){
+  .controller('worksCentreCtrl', function ($scope, $state, $stateParams, userInfo, $http) {
 
-    $scope['teacher'] = userInfo.teacherInfo;
+    var url = rootUrl + '/teacher_article/get_all_list';
+    var query_log = {
+      ArticleType: 'log'
+    };
+    var query_paper = {
+      ArticleType: 'paper'
+    };
 
+    var update = function () {
+      $http.get(url, {params: query_log})
+        .success(function (result) {
+          var data = result['data'];
 
-
-    var getLog = function(){
-      var url_log = rootUrl +'/teacher_article/get_all_list?ArticleType=log';
-
-      $http.get(url_log)
-        .success(function(result){
-          var data = result.data;
-
-          $scope['teacherLog'] = data;
+          $scope.TeacherLogList = data;
         })
-        .error(function(err){
-          $ionicPopup.alert({
-            title:'err',
-            template:'读取数据失败'
-          });
-          //console.log(JSON.stringify(err));
+        .error(function (err) {
+          console.log(err);
+        });
+
+      $http.get(url, {params: query_paper})
+        .success(function (result) {
+          var data = result['data'];
+          $scope.TeacherPaperList = data;
         })
+    };
 
-    }
+    update();
 
-    var getPaper = function(){
-      var url_paper = rootUrl + '/teacher_article/get_all_list?ArticleType=paper';
-
-      $http.get(url_paper)
-        .success(function(result){
-          var data = result.data;
-          $scope['teacherPaper'] = data;
-
-        })
-        .error(function(err){
-          $ionicPopup.alert({
-            title:'err',
-            template:'读取数据失败'
-          });
-        })
-    }
-
-
-    $scope.$on('$ionicView.beforeEnter',function(){
-      getLog();
-      getPaper();
-    });
-
-    $scope['goLogDetails'] = function(log){
-      userInfo['log'] = log;
+    $scope['goLogDetail'] = function(log){
+      userInfo.log = log;
       $state.go('works-detail');
     }
 
+    $scope['goPaperDetails'] = function(paper){
+      userInfo.paper = paper;
+      $state.go('paper-detail');
+    }
 
 
     $scope.objCentreLog = document.getElementById('logCentre');
@@ -73,41 +59,36 @@ angular.module('starter')
 
     $scope.objCentreLogClick.style.backgroundColor = '#F96A9F';
     $scope.objCentreLogClick.style.color = "#fff";
-    $scope.showCentreLog= function(){
+    $scope.showCentreLog = function () {
 
-         $scope.objCentrePaper.style.display = "none"
-         $scope.objCentreLog.style.display = "";
+      $scope.objCentrePaper.style.display = "none";
+      $scope.objCentreLog.style.display = "";
 
-      if($scope.objCentreLog.style.display == ""){
-        changeClickLogBgColor("#f96a9f","");
-        changeClickFontColor("#fff","black");
+      if ($scope.objCentreLog.style.display == "") {
+        changeClickLogBgColor("#f96a9f", "");
+        changeClickFontColor("#fff", "black");
       }
 
-    }
-    $scope.showCentrePaper = function(){
-
+    };
+    $scope.showCentrePaper = function () {
 
       $scope.objCentreLog.style.display = "none";
-      $scope.objCentrePaper.style.display = ""
-      if($scope.objCentrePaper.style.display == ""){
-        changeClickLogBgColor("","#f96a9f");
-        changeClickFontColor("black","#fff");
+      $scope.objCentrePaper.style.display = "";
+      if ($scope.objCentrePaper.style.display == "") {
+        changeClickLogBgColor("", "#f96a9f");
+        changeClickFontColor("black", "#fff");
       }
-
-    }
-
+    };
 
 
-
-    var changeClickLogBgColor = function(log,paper){
+    var changeClickLogBgColor = function (log, paper) {
       $scope.objCentreLogClick.style.backgroundColor = log;
       $scope.objCentrePaperClick.style.backgroundColor = paper;
-    }
+    };
 
-    var changeClickFontColor = function(log,paper){
-      $scope.objCentreLogClick.style.color= log;
+    var changeClickFontColor = function (log, paper) {
+      $scope.objCentreLogClick.style.color = log;
       $scope.objCentrePaperClick.style.color = paper;
-    }
+    };
 
-
-  })
+  });

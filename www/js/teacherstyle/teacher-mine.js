@@ -75,9 +75,9 @@ angular.module('starter')
       userInfo.teacherInfo = teacher;
       $state.go('personal-style');
     }
-    $scope.goWorks = function(index){
-      //userInfo.teacherInfo = teacher;
-      $state.go('works-centre',{index:index});
+    $scope.goWorks = function(teacher){
+      userInfo.teacherInfo = teacher;
+      $state.go('works-centre');
     }
 
     $scope.showChat();

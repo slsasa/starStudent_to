@@ -4,47 +4,41 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('my-dynamic',{
-        url:'/my-dynamic_:type',
+      .state('my-dynamic', {
+        url: '/my-dynamic_:type',
         templateUrl: 'templates/person/my-dynamic.html',
         controller: 'myDynamicCtrl'
 
       });
   })
-  .controller('myDynamicCtrl',function($scope,$stateParams,$state, $http, userInfo, $ionicLoading){
+  .controller('myDynamicCtrl', function ($scope, $stateParams, $state, $http, userInfo, $ionicLoading) {
 
-    var update = function(){
+    var update = function () {
       $ionicLoading.show();
-      if(userInfo.personType == "_stu"){
-        var url = rootUrl + "/student_dynamic/get_self_list";
-      }else if(userInfo.personType == '_teacher'){
-        var url = rootUrl + "/teacher_dynamic/get_self_list";
-      }
 
+      var url = rootUrl + '/dynamic/get_self_list';
+      var query = {UserId: userInfo._id};
 
-      var query = {
-        issuer_id: userInfo._id
-      }
-
-      $http.get(url, {params:query})
-        .success(function(result){
+      $http.get(url, {params: query})
+        .success(function (result) {
           $ionicLoading.hide();
-          console.log(JSON.stringify(result));
+          console.log('dynamic >>>>', JSON.stringify(result));
           var data = result.data;
-          data.forEach(function(item){
-            var data2 = []
-            if ( item.pic_url_list == null ) {
-              item.pic_url_list = item.pic_id_list;
-            }
-            item.pic_url_list.forEach(function(img){
+          data.forEach(function (item) {
+
+            var data2 = [];
+            item['PicListRef'].forEach(function (img) {
               data2.push(rootPicUrl + img)
-            })
-            item.pic_url_list = data2
-          })
+            });
+
+            item['PicListRef'] = data2;
+            console.log('PicListRef >>>', item['PicListRef'])
+
+          });
+
           $scope.terDynamics = data;
-          console.log($scope.terDynamics);
         })
-        .error(function(err){
+        .error(function (err) {
           $ionicLoading.hide();
           alert(JSON.stringify(err));
           console.log("获取数据错误")
@@ -52,20 +46,20 @@ angular.module('starter')
 
     }
 
-    $scope.$on('$ionicView.beforeEnter',function(){
+    $scope.$on('$ionicView.beforeEnter', function () {
       update();
     })
 
-    $scope.showClickTeacher = function(teacherId){
+    $scope.showClickTeacher = function (teacherId) {
       var objClick = document.getElementById(teacherId + 'teacher');
-      if(objClick.style.display == "none"){
+      if (objClick.style.display == "none") {
         objClick.style.display = "";
-      }else{
+      } else {
         objClick.style.display = "none";
       }
     }
 
-    $scope.showContentTer = function(teacherId) {
+    $scope.showContentTer = function (teacherId) {
       var objMoreContent = document.getElementById(teacherId + "moreContentTer");
       var objContentSchool = document.getElementById(teacherId + "contentTer");
       if (objMoreContent.style.display == "none") {
@@ -82,7 +76,7 @@ angular.module('starter')
 
     $scope.type = $stateParams.type;
 
-    $scope.goIssue = function(){
+    $scope.goIssue = function () {
       $state.go('issue')
     }
 

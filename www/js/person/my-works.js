@@ -7,11 +7,11 @@ angular.module('starter')
       .state('my-works', {
         url: '/works',
         templateUrl: 'templates/person/my-works.html',
-        controller: 'worksCtrl'
+        controller: 'myWorksCtrl'
 
       });
   })
-  .controller('worksCtrl', function ($rootScope, $scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
+  .controller('myWorksCtrl', function ($rootScope, $scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
 
     $ionicLoading.show();
     var getLogInfo = function(){

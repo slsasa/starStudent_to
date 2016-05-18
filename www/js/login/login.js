@@ -22,7 +22,7 @@ angular.module('starter')
     ];
 
     $rootScope.user = {
-      num: '123',
+      num: '321',
       pwd: '000',
       type: 'student'
     };
@@ -65,8 +65,8 @@ angular.module('starter')
         .error(function (err) {
           $ionicLoading.hide();
           $ionicPopup.alert({
-            title:'err',
-            template:'请等会登录'
+            title: 'err',
+            template: '请等会登录'
 
           })
           console.log("err>>>" + JSON.stringify(err));
@@ -97,4 +97,4 @@ angular.module('starter')
     $scope.Forgotpw = function () {
       $state.go('forgotpw');
     }
-  })
+  });

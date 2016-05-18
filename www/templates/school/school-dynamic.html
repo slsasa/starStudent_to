@@ -5,25 +5,25 @@
   <ion-nav-title>
     <span class="title">学校动态</span>
   </ion-nav-title>
-  <ion-nav-buttons >
+  <ion-nav-buttons>
     <button class="button button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
   </ion-nav-buttons>
 
   <ion-content style="background: rgba(209, 211, 214, 0.29)">
     <ion-content class="list">
       <ion-slide-box does-continue="true" auto-play="true" show-pager="true">
-        <ion-slide ng-repeat="pic in pic_arr track  by $index">
+        <ion-slide ng-repeat="pic in banner_list track by $index">
           <img ng-src="{{pic}}" height="160px" width="100%">
         </ion-slide>
       </ion-slide-box>
-      <ion-item style="padding-left: 10px;padding-top: 10px" ng-repeat="dynamic in schoolDynamics"
+      <ion-item style="padding-left: 10px;padding-top: 10px"
+                ng-repeat="dynamic in schoolDynamics"
                 ng-click="goDetail(dynamic)">
 
-        <h4 style="font-size: 16px;">{{dynamic.title}}</h4>
+        <h4 style="font-size: 16px;">{{dynamic['Title']}}</h4>
 
-        <p style="color: rgba(16, 16, 16, 0.93)">{{dynamic.content}}</p>
-        <h6 style="float: right;color: #737373;padding-right: 10px;padding-bottom: 4px">{{dynamic.time
-          |date:'yyyy-MM-dd'}}</h6>
+        <p style="color: rgba(16, 16, 16, 0.93)">{{dynamic['Content']}}</p>
+        <h6 style="float: right;color: #737373;padding-right: 10px;padding-bottom: 4px">{{dynamic['Time'] | date:'yyyy-MM-dd'}}</h6>
 
       </ion-item>
 
