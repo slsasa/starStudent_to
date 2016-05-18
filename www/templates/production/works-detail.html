@@ -3,24 +3,34 @@
     <span class="title">日志详情</span>
   </ion-nav-title>
 
-  <ion-content class="list">
-  <h5 style="text-align: center">{{tearchingLog['Title']}}</h5>
+  <ion-content >
+
+    <h5 style="text-align: center">{{tearchingLog['Title']}}</h5>
     <span>
-      <p style="padding-left: 10px"> 类型:教学日志</p>
-      <div class="row">
-       <a class="col col-25">送花：{{tearchingLog.flower}}</a>
-       <a class="col col-25">点赞：{{tearchingLog['LinkCount']}}</a>
-       <a class="col col-25">分享：{{tearchingLog['ShareCount']}}</a>
-      </div>
+     <div>
+       <p style="    float: left; margin:0px 5% 0px 10px;"> 类型:教学日志</p>
+       <p style="    float: left; margin:0px 5% 0px 10px;">作者:{{teacher['TeacherName']}}</p>
+       <p>{{tearchingLog['Time'] |date:'yyyy-MM-dd'}}</p>
+     </div>
+
+      <!--<div class="row">-->
+        <!--<a class="col col-25">送花：{{tearchingLog.flower}}</a>-->
+        <!--<a class="col col-25">点赞：{{tearchingLog['LinkCount']}}</a>-->
+        <!--<a class="col col-25">分享：{{tearchingLog['ShareCount']}}</a>-->
+      <!--</div>-->
+
+       <div>
+         <a style="margin: 0 7% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #5D97F9;" class="ion-android-contacts"></i>{{tearchingLog.flower}}</a>
+         <a style="margin: 0 12% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #44c6fb;" class="ion-thumbsup" ></i>{{tearchingLog['LinkCount']}}</a>
+         <a ><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #f48b46;" class="ion-android-share-alt"></i>{{tearchingLog['ShareCount']}}</a>
+       </div>
+
+
     </span>
-    <div>
-      <p style="    margin: 0px 10px 10px;">作者:{{teacher['TeacherName']}}</p>
-      <p style="padding-left: 10px">{{tearchingLog['Time'] |date:'yyyy-MM-dd'}}</p>
-    </div>
-    <div style="padding: 0 10px">
+
+    <div style="margin:10px 10px 0px 10px;text-align: justify;">
       {{tearchingLog['Content']}}
     </div>
-
   </ion-content>
   <div class="bar bar-footer row">
     <a style="border-radius: 20px;line-height: 29px;height: 29px;min-width: 130px;" class="button button-pink wordD" >点赞</a>
