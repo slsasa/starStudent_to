@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('terPersonCtrl',function($rootScope,$scope,$state){
+  .controller('terPersonCtrl',function($rootScope,$scope,$state,$ionicPopup){
 
     $scope.teacherPerson = {
       name:'李伟峰',
@@ -80,8 +80,23 @@ angular.module('starter')
     }
 
     $scope.outLogin = function(){
-      $rootScope.user = {};
-      $state.go('login');
+      $ionicPopup.confirm({
+        title: "退出当前账号",
+        template: "退出账号将收不到任何信息，是否继续？",
+        buttons:[
+          {
+            text:"是",
+            onTap:function(e){
+              $rootScope.user = {};
+              $state.go('login');
+            }
+          },
+          {text:"否"}
+        ]
+      })
+
+      //$rootScope.user = {};
+      //$state.go('login');
     }
 
   })
