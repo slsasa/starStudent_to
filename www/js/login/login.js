@@ -32,9 +32,8 @@ angular.module('starter')
       $http.post(url, data)
         .success(function (result) {
 
-          console.log('userData:',JSON.stringify(result));
+          //console.log('userData:',JSON.stringify(result));
           userInfo._id = result.data._id;
-          console.log(userInfo.id);
 
           if (result.ret_code == 0) {
             var user = result.data;

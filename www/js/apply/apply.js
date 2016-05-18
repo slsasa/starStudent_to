@@ -14,7 +14,7 @@ angular.module('starter')
       });
   })
 
-  .controller('ApplyCtrl',function($scope, $state, $http, $rootScope){
+  .controller('ApplyCtrl',function($scope, $state, $http, userInfo){
     var update = function(){
       var url = rootUrl + "/sign_up_intro/get_list";
       $http.get(url)
@@ -43,8 +43,8 @@ angular.module('starter')
     });
 
     $scope.goApplyDetail = function(apply){
-      //userInfo.apply = apply;
-      $rootScope.apply = apply;
+      userInfo.apply = apply;
+
       $state.go('applyDetail');
     }
   });

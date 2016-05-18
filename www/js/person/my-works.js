@@ -11,17 +11,22 @@ angular.module('starter')
 
       });
   })
-  .controller('myWorksCtrl', function ($rootScope, $scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
+  .controller('myWorksCtrl', function ( $scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
 
-    $ionicLoading.show();
+
+    //$ionicLoading.show();
     var getLogInfo = function(){
-      var url = rootUrl + "/teacher_article/get_all_list?article_type=log";
 
-      $http.get(url)
+
+      $scope.userId =userInfo._id;
+      var url = rootUrl + "/teacher_article/get_self_list?ArticleType=log";
+
+      $http.get(url,{params:{TeacherId:$scope.userId,ArticleType:'log'}})
         .success(function(result){
-          console.log(JSON.stringify(result));
+          console.log(JSON.stringify('myworks id',userInfo._id));
           var data = result.data;
-          $scope.teacher = data;
+          $scope.logs = data;
+
           $ionicLoading.hide();
         })
         .error(function(err){
@@ -31,14 +36,17 @@ angular.module('starter')
     }
 
 
-    var getPaperInfo = function(){
-      var url = rootUrl + "/teacher_article/get_all_list?article_type=paper";
 
-      $http.get(url)
+    var getPaperInfo = function(){
+
+      $scope.userId =userInfo._id;
+      var url = rootUrl + "/teacher_article/get_self_list?ArticleType=paper";
+
+      $http.get(url,{params:{TeacherId:$scope.userId ,ArticleType:'paper'}})
         .success(function(result){
-          console.log(JSON.stringify(result));
+          console.log('<<<<<<<<<<<<<<<<<result:',JSON.stringify(result));
           var data = result.data;
-          $scope.teacher = data;
+          $scope.logs = data;
         })
         .error(function(err){
           console.log("获取作品失败");
