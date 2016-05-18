@@ -14,15 +14,15 @@ angular.module('starter')
 
     $ionicLoading.show();
     var getStarData = function(){
-      var url = rootUrl + "/student_honor/get_all_list";
+      var url = rootUrl + "/honor/get_all_list";
 
-      $http.get(url)
+      $http.get(url, {params: {HonorType: 'student'}})
         .success(function(result){
           console.log(JSON.stringify(result));
           var data = result.data;
           data.forEach(function(item){
-            item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
-          })
+            item['UserAvatarRef']['Url'] = rootPicUrl + item['UserAvatarRef']['Url'];
+          });
           $scope.starList = data;
           $ionicLoading.hide();
         })
@@ -31,30 +31,30 @@ angular.module('starter')
           $ionicPopup.alert({
             title:'err',
             template:'数据加载失败'
-          })
+          });
           console.log("获取明星榜信息失败");
         })
-    }
+    };
 
     var getHonorData = function(){
-      var url = rootUrl + "/teacher_honor/get_all_list";
+      var url = rootUrl + "/honor/get_all_list";
 
-      $http.get(url)
+      $http.get(url, {params: {HonorType: 'teacher'}})
         .success(function(result){
 
           console.log(JSON.stringify(result));
           var data = result.data;
           data.forEach(function(item){
-            item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
-          })
+            item['UserAvatarRef']['Url'] = rootPicUrl +item['UserAvatarRef']['Url'];
+          });
           $scope.honorWall = data;
           $ionicLoading.hide();
         })
         .error(function(err){
           $ionicLoading.hide();
-          console.log("获取荣誉榜信息失败");
+          console.log("获取荣誉榜信息失败", err);
         })
-    }
+    };
 
 
     $scope.objStarClick = document.getElementById('starClick');

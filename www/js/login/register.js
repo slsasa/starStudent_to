@@ -10,34 +10,35 @@ angular.module('starter')
       .state('register', {
         url: '/register',
         templateUrl: 'templates/login/register.html',
-        controller:'registerCtrl'
+        controller: 'registerCtrl'
       })
   })
 
 
-  .controller('registerCtrl',function($scope, $http, $ionicPopup, $ionicHistory, $ionicLoading){
+  .controller('registerCtrl', function ($scope, $http, $ionicPopup, $ionicHistory, $ionicLoading) {
     $scope.user = {
-      num:'',
-      pwd:'',
+      num: '',
+      pwd: '',
       pwdsure: '',
-      type:'学员',
+      type: '学员'
       //numverify :''
-    }
+    };
     $scope.loginbks = [
       {
-        "img":"img/logobk.jpg"
+        "img": "img/logobk.jpg"
       }
-    ]
+    ];
 
     //提交表单 **注册**
-    $scope.onSubmit = function(){
-      if($scope.user.pwdsure == $scope.user.pwd) {
+    $scope.onSubmit = function () {
+      if ($scope.user.pwdsure == $scope.user.pwd) {
 
         var data = {
-          user_tel: $scope.user.num,
-          user_pwd: $scope.user.pwd,
-          user_type: $scope.user.type
-        }
+
+          Account: $scope.user.num,
+          Password: $scope.user.pwd,
+          UserType: 'teacher'
+        };
 
         var url = rootUrl + "/user/register";
         $ionicLoading.show();
@@ -45,7 +46,7 @@ angular.module('starter')
           .success(function (result) {
             console.log(JSON.stringify(result));
             $ionicLoading.hide();
-            if (result.ret_code == 0) {
+            if (result['ret_code'] == 0) {
               $ionicPopup.alert({
                 title: '提醒',
                 template: '注册成功'
@@ -67,11 +68,11 @@ angular.module('starter')
           .error(function (err) {
             $ionicLoading.hide();
             $ionicPopup.alert({
-              title:'err',
-              template:JSON.stringify(err)
+              title: 'err',
+              template: JSON.stringify(err)
             })
           })
-      }else{
+      } else {
         $ionicPopup.alert({
           title: '提醒',
           template: '两次密码不一致'
@@ -80,4 +81,4 @@ angular.module('starter')
 
     }
 
-  })
+  });

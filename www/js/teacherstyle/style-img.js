@@ -13,39 +13,14 @@ angular.module('starter')
 
   .controller('styleImgCtrl',function($scope, $stateParams, userInfo, $http,$ionicLoading){
 
+    console.log('log teacher info >>>', userInfo.teacherInfo);
     $scope.teacher = userInfo.teacherInfo;
     userInfo.teacherInfo = '';
 
-    $ionicLoading.show();
     var getSelfInfo = function(){
-         var data_arr = [];
-
-        $scope.teacher.style_item.forEach(function(item){
-        var url = rootUrl + "/teacher_style/get_style_item?style_item_id=" + item;
-
-        $http.get(url)
-          .success(function(result){
-            var data = result.data;
-            var pic_arr = [];
-            data.pic_url_list.forEach(function(item){
-              pic_arr.push(rootPicUrl + item);
-            })
-            data.pic_url_list = pic_arr;
-            data_arr.push(data);
-
-            $ionicLoading.hide();
-          })
-          .error(function(err){
-            alert('获取数据失败')
-            $ionicLoading.hide();
-            console.log("获取照片数据失败");
-          })
-      })
-
-      $scope.Imgs = data_arr;
-      console.log($scope.Imgs);
-
-    }
+      $scope.Imgs = $scope.teacher['StyleItem'];
+      console.log('Imgs >>>>', $scope.Imgs);
+    };
 
     $scope.$on('$ionicView.beforeEnter',function(){
       getSelfInfo();

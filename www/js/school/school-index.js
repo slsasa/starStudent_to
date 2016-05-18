@@ -23,7 +23,7 @@ angular.module('starter')
 
           var data = result.data.splice(0,5);
           data.forEach(function(item){
-            item.bannerImg = rootPicUrl + item.bannerImg;
+            item.bannerImg = rootPicUrl + item['Url'];
           });
           console.log(data);
           $scope.banners = data;

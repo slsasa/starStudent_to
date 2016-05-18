@@ -25,19 +25,19 @@
           <div class="row" style="padding: 0">
 
             <div class="col col-10" style="    margin: 0px 5px 0px 0px;" >
-              <a class="button-course "><img src="{{imgs[2]}}" style="height: 40px;margin: 0 -36px 15px 0px;"/>{{course.profession_name}}</a>
+              <a class="button-course "><img src="{{course.Url}}" style="height: 40px;margin: 0 -36px 15px 0px;"/>{{course.ProfName}}</a>
 
             </div>
 
             <div class="col" style="    margin: 0 0 0 30px;">
             <div class="row" style="margin: 0px 0px 6px 19px;padding: 0;">
-              <div ng-repeat="detail in course.course" ng-if="detail.detail_id <= 2">
-                <a class="button-courselist" ng-click="goCourse(detail)" >{{detail.course_name}}</a>
+              <div ng-repeat="detail in course.Course" ng-if="detail.detail_id <= 2">
+                <a class="button-courselist" ng-click="goCourse(detail)" >{{detail.Name}}</a>
               </div>
             </div>
             <div class="row" style="    margin: -5px 0px 0 14px;">
-              <div ng-repeat="detail in course.course" ng-if="detail.detail_id> 2">
-                <a class="button-courselist" ng-click="goCourse(detail)">{{detail.course_name}}</a>
+              <div ng-repeat="detail in course.Course" ng-if="detail.detail_id> 2">
+                <a class="button-courselist" ng-click="goCourse(detail)">{{detail.Name}}</a>
               </div>
             </div>
             </div>

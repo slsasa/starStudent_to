@@ -10,9 +10,9 @@ angular.module('starter')
           controller:'courseDetailCtrl'
       });
   })
-  .controller('courseDetailCtrl',function($rootScope,$scope){
+  .controller('courseDetailCtrl',function(userInfo,$scope){
 
-    $scope.course = $rootScope.courseDetail;
+    $scope.course = userInfo.courseDetail
 
 
 

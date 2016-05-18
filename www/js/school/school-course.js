@@ -10,7 +10,7 @@ angular.module('starter')
           controller:'introduceCtrl'
       });
   })
-  .controller('introduceCtrl',function($rootScope,$scope,$state, $http, $ionicLoading){
+  .controller('introduceCtrl',function($scope,$state, $http, $ionicLoading,userInfo){
     $scope.imgs =[
       'img/course/wd.png',
       'img/course/sh.png',
@@ -33,7 +33,7 @@ angular.module('starter')
 
           data.forEach(function (item) {
             var i = 0;
-            item['course'].forEach(function(item){
+            item['Course'].forEach(function(item){
               item['detail_id'] = i;
               i++;
             })
@@ -55,7 +55,7 @@ angular.module('starter')
 
     $scope.goCourse = function(course){
       //alert(JSON.stringify(course));
-      $rootScope.courseDetail = course;
+      userInfo.courseDetail = course;
       $state.go('course-detail');
     }
 

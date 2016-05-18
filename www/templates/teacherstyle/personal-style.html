@@ -3,43 +3,46 @@
     <span class="title">教师风采</span>
   </ion-nav-title>
   <ion-content class="list has-header">
-    <div>
 
-      <img ng-src="{{teacher.pic_avatar_url}}" class="styleh">
-      <p style="margin: 5px 0 0 15px;">{{teacher.teacher_name}}</p>
-      <p class="stylec">{{teacher.content}}</p>
+    <div>
+      <img ng-src="{{teacher['TeacherAvatarRef']['Url']}}" class="styleh">
+      <p style="margin: 5px 0 0 15px;">{{teacher['TeacherName']}}</p>
+      <p class="stylec">{{teacher['Content']}}</p>
     </div>
 
     <ion-item>
+      <div style="    padding: 5px 0 5px 0;text-align: center;" ng-if="Style['PicListRef'].length>3">
+        <img ng-src="{{Style['PicListRef'][0]}}" style="height: 125px;width: 100px">
+        <img ng-src="{{Style['PicListRef'][1]}}" style="height: 125px;width: 100px">
+        <img ng-src="{{Style['PicListRef'][2]}}" style="height: 125px;width: 100px">
+      </div>
 
-         <div style="    padding: 5px 0 5px 0;text-align: center;">
-           <img ng-src="{{teacher.info.pic_url_list[0]}}" style="height: 125px;width: 100px">
-           <img ng-src="{{teacher.info.pic_url_list[1]}}" style="height: 125px;width: 100px">
-           <img ng-src="{{teacher.info.pic_url_list[2]}}" style="height: 125px;width: 100px">
-         </div>
+      <div style="padding: 5px 0 5px 0;text-align: center;" ng-if="Style['PicListRef'].length<=3" ng-repeat="img in Style['PicListRef'] tarck by $index">
+        <img ng-src="{{img}}" style="height: 125px;width: 100px">
+      </div>
+
+      <div style="    padding: 5px 0 5px 0;text-align: center;" ng-if="Style['PicListRef'].length<1">
+        <img src="img/logo.go3.png" style="height: 125px;width: 100px">
+      </div>
+
+
 
       <span>
-        <img src="img/teachper/z1.png" ng-click="clickLike()" class="stylez1">点赞</img>
-        <p style="float: left">{{like}}</p>
+        <img src="img/teachper/z1.png" ng-click="clickLike()" class="stylez1" >点赞</img>
+        <p style="float: left" ng-model="teacher['LikeCount']">{{like}}</p>
       </span>
         <a class="button rightbtom" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;" ng-click="goImgs()">更多>></a>
 
     </ion-item>
 
     <ion-item ng-repeat="reward in teacher.honor" class="styleHistor">
-      <p>{{reward.title}}</p>
-      <p>{{reward.description}}</p>
-      <p style="    float: right;margin: 5px 10px 0 0;">{{reward.time | date: 'yyyy-MM-dd'}}</p>
+      <p>{{reward['Title']}}</p>
+      <p>{{reward['Description']}}</p>
+      <p style="    float: right;margin: 5px 10px 0 0;">{{reward['Time'] | date: 'yyyy-MM-dd'}}</p>
     </ion-item>
 
   </ion-content>
-  <!--<div class="bar bar-footer row" style="height: 70px">-->
-    <!--<a ng-click="goPaper(teacher.id)" class="col col-25 "><img src="img/personal/jxrz.png"/>教学日志</a>-->
-    <!--<a  ng-click="goPaper(teacher.id)" class="col col-25 button">学术论文</a>-->
-    <!--<a ng-click="" class="col col-25 button">点赞</a>-->
-    <!--<a ng-click="" class="col col-25 button" style="right: 2px">送花</a>-->
 
-  <!--</div>-->
 
   <div class="bar bar-footer button-bar a_image1"style="height: 75px;text-align: center ;    padding: 0;">
 
