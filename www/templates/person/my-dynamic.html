@@ -6,7 +6,7 @@
     <button class="button light button-icon icon ion-ios-arrow-back" ui-sref="tabs.person_{{type}}"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <button class="button light button-icon icon ion-plus" ng-click="goIssue()" ></button>
+    <button class="button light button-icon icon ion-plus" ng-click="goIssue()"></button>
   </ion-nav-buttons>
   <ion-nav-title>
     <span class="title">
@@ -15,35 +15,36 @@
   </ion-nav-title>
 
   <ion-content style="background-color: #f1f1f1">
-    <div  class="list" style="padding: 15px 0px;" >
+    <div class="list" style="padding: 15px 0px;">
       <ion-item class="item card" ng-repeat="terDynamic in  terDynamics">
-        <p style="    margin: 5px 0px 0px 10px;">{{terDynamic.issue_time | date : 'yyyy-MM-dd'}}</p>
+        <p style="margin: 5px 0px 0px 10px;">{{terDynamic['IssueTime'] | date : 'yyyy-MM-dd'}}</p>
+
         <div class="item-avatar mydy">
 
-          <div ng-if="terDynamic.content.length >=36">
-            <div id="{{$index+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>
-            <div id="{{$index+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>
+          <div ng-if="terDynamic['Content'].length >=36">
+            <div id="{{$index+'contentTer'}}"> {{terDynamic['Content'] |ifMore}}</div>
+            <div id="{{$index+'moreContentTer'}}" style="display: none">
+              {{terDynamic['Content']}}
+            </div>
 
             <div>
-              <a ng-click="showContentTer($index)" >更多</a>
+              <a ng-click="showContentTer($index)">更多</a>
             </div>
           </div>
 
-          <div ng-if="terDynamic.content.length <36">
-            <p> {{terDynamic.content}}</p>
+          <div ng-if="terDynamic['Content'].length <36">
+            <p> {{terDynamic['Content']}}</p>
           </div>
         </div>
         <div class="comments">
-          <span id="{{$index+'teacher'}}" style="display: none; padding: 0px 10px 0px;" >
+          <span id="{{$index+'teacher'}}" style="display: none; padding: 0px 10px 0px;">
           <a class=" button buttonDy" ng-click="">点赞</a>
           <a class=" button buttonDy" ng-click="">分享</a>
         </span>
-          <i  ng-click="showClickTeacher($index)" class="ion-chatbox-working" ></i>
+          <i ng-click="showClickTeacher($index)" class="ion-chatbox-working"></i>
         </div>
       </ion-item>
     </div>
-
-
 
 
   </ion-content>

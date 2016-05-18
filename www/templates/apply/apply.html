@@ -7,9 +7,9 @@
       <div class="list">
         <a class="item" ng-repeat="apply in applys" ng-click="goApplyDetail(apply)">
           <div class="item-thumbnail-left">
-          <img ng-src={{apply.pic_url}}>
-          <h2 class="padding">{{apply.title}}</h2>
-          <p class="padding">报名费:{{apply.sign_up_cost}}</p>
+          <img ng-src={{apply['PicRef']['Url']}}>
+          <h2 class="padding">{{apply['Title']}}</h2>
+          <p class="padding">报名费:{{apply['SignUpCost']}}</p>
           </div>
         </a>
       </div>

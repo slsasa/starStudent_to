@@ -3,7 +3,7 @@
     <span class="title">明星学员</span>
   </ion-nav-title>
 
-  <ion-content  style="background-color: #f1f1f1">
+  <ion-content style="background-color: #f1f1f1">
     <div class="bar-subheader text-center" style="padding: 6px">
       <a class="button" ng-click="showSchoolDynamic()" id="showSchoolClick">校园动态</a>
       <a class="button" ng-click="showStudentDynamic()" id="showStuClick">学员动态</a>
@@ -12,67 +12,68 @@
 
     <div id="school" class="list" style="display: none;padding: 15px 0px;">
 
-      <ion-item class="item-avatar card"  ng-repeat="schoolDynamic in schoolDynamics">
+      <ion-item class="item-avatar card" ng-repeat="schoolDynamic in schoolDynamics">
 
         <div class="item-avatar">
 
-        <img ng-src="{{schoolDynamic.school_head_url}}">
-           <h4 style="    margin: 15px 0px 5px 0px;">{{schoolDynamic.schoolName}}</h4>
-          <p >{{schoolDynamic.time | date : 'yyyy-MM-dd'}}</p>
-        <div ng-if="schoolDynamic.content.length >=36">
+          <img ng-src="{{schoolDynamic['IssuerAvatarRef']['Url']}}">
+          <h4 style="    margin: 15px 0px 5px 0px;">{{schoolDynamic['IssuerName']}}</h4>
 
-          <div id="{{$index+'contentSchool'}}"> {{schoolDynamic.content |ifMore}}</div>
-          <div id="{{$index+'moreContentSchool'}}" style="display: none"> {{schoolDynamic.content}}</div>
+          <p>{{schoolDynamic['Time'] | date : 'yyyy-MM-dd'}}</p>
 
-          <div>
-          <a ng-click="showContentSchool($index)" >更多</a>
+          <div ng-if="schoolDynamic['Content'].length >=36">
+
+            <div id="{{$index+'contentSchool'}}"> {{schoolDynamic['Content'] |ifMore}}</div>
+            <div id="{{$index+'moreContentSchool'}}" style="display: none"> {{schoolDynamic['Content']}}</div>
+
+            <div>
+              <a ng-click="showContentSchool($index)">更多</a>
+            </div>
+
+          </div>
+
+          <div ng-if="schoolDynamic['Content'].length <36">
+            <p> {{schoolDynamic['Content']}}</p>
           </div>
 
         </div>
 
-        <div ng-if="schoolDynamic.content.length <36">
-          <p> {{schoolDynamic.content}}</p>
-        </div>
 
-        </div>
-
-
-        <div class="comments" >
+        <div class="comments">
            <span id="{{$index+'school'}}" style="display: none;    padding: 0px 10px 0px;">
                <a class="button buttonDy" ng-click="">点赞</a>
                <a class="button buttonDy" ng-click="">分享</a>
            </span>
-               <i class="ion-chatbox-working" ng-click="showClickSchool($index)"></i>
+          <i class="ion-chatbox-working" ng-click="showClickSchool($index)"></i>
         </div>
 
       </ion-item>
 
     </div>
 
-
-
     <div id="student" class="list" style="padding: 15px 0px;">
       <ion-item class="item-avatar card" ng-repeat="stuDynamic in  stuDynamics">
         <div class="item-avatar">
-          <img src="{{stuDynamic.pic_avatar_url}}" style="border-radius: 40px">
-          <h4 style="    margin: 15px 0px 5px 0px;">{{stuDynamic.issuer_name}}</h4>
-          <p>{{stuDynamic.time | date : 'yyyy-MM-dd'}}</p>
+          <img src="{{stuDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 40px">
+          <h4 style="    margin: 15px 0px 5px 0px;">{{stuDynamic['IssuerName']}}</h4>
 
-          <div ng-if="stuDynamic.content.length >=36">
-            <div id="{{$index+'contentStu'}}"> {{stuDynamic.content |ifMore}}</div>
-            <div id="{{$index+'moreContentStu'}}" style="display: none"> {{stuDynamic.content}}</div>
+          <p>{{stuDynamic['Time'] | date : 'yyyy-MM-dd'}}</p>
+
+          <div ng-if="stuDynamic['Content'].length >=36">
+            <div id="{{$index+'contentStu'}}"> {{stuDynamic['Content'] |ifMore}}</div>
+            <div id="{{$index+'moreContentStu'}}" style="display: none"> {{stuDynamic['Content']}}</div>
 
             <div>
               <a ng-click="showContentStu($index)">更多</a>
             </div>
           </div>
 
-          <div ng-if="stuDynamic.content.length <36">
-            <p> {{stuDynamic.content}}</p>
+          <div ng-if="stuDynamic['Content'].length <36">
+            <p> {{stuDynamic['Content']}}</p>
           </div>
 
         </div>
-        <div class="comments" >
+        <div class="comments">
            <span id="{{$index+'stu'}}" style="display: none;    padding: 0px 10px 0px;">
           <a class=" button buttonDy" ng-click="">点赞</a>
           <a class=" button buttonDy" ng-click="">分享</a>
@@ -85,25 +86,26 @@
     <div id="teacher" class="list" style="padding: 15px 0px;display: none;">
       <ion-item class="item-avatar card" ng-repeat="terDynamic in  terDynamics">
         <div class="item-avatar">
-          <img src="{{terDynamic.pic_avatar_url}}" style="border-radius: 100px">
-          <h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic.issuer_name}}</h4>
-          <p>{{terDynamic.time | date : 'yyyy-MM-dd'}}</p>
+          <img src="{{terDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 100px">
+          <h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic['IssuerName']}}</h4>
 
-          <div ng-if="terDynamic.content.length >=36">
-            <div id="{{$index+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>
-            <div id="{{$index+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>
+          <p>{{terDynamic['Time'] | date : 'yyyy-MM-dd'}}</p>
+
+          <div ng-if="terDynamic['Content'].length >=36">
+            <div id="{{$index+'contentTer'}}"> {{terDynamic['Content'] |ifMore}}</div>
+            <div id="{{$index+'moreContentTer'}}" style="display: none"> {{terDynamic['Content']}}</div>
 
             <div>
               <a ng-click="showContentTer($index)">更多</a>
             </div>
           </div>
 
-          <div ng-if="terDynamic.content.length <36">
-            <p> {{terDynamic.content}}</p>
+          <div ng-if="terDynamic['Content'].length <36">
+            <p> {{terDynamic['Content']}}</p>
           </div>
 
         </div>
-        <div class="comments" >
+        <div class="comments">
            <span id="{{$index+'teacher'}}" style="display: none;    padding: 0px 10px 0px;">
           <a class=" button buttonDy" ng-click="">点赞</a>
           <a class=" button buttonDy" ng-click="">分享</a>
@@ -114,38 +116,34 @@
     </div>
 
     <!--<div id="teacher" class="list" style="display: none;padding: 15px 0px;">-->
-      <!--<ion-item class="item-avatar card " ng-repeat="terDynamic in  terDynamics">-->
-        <!--<div class="item-avatar">-->
-          <!--<img src="{{terDynamic.img}}">-->
-          <!--<h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic.name}}</h4>-->
-          <!--<p >{{terDynamic.time | date : 'yyyy-MM-dd'}}</p>-->
-          <!--<div ng-if="terDynamic.content.length >=36">-->
-            <!--<div id="{{terDynamic.id+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>-->
-            <!--<div id="{{terDynamic.id+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>-->
-            <!--<div>-->
-              <!--<a ng-click="showContentTer(terDynamic.id)" >更多</a>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div ng-if="terDynamic.content.length <36">-->
-            <!--<p> {{terDynamic.content}}</p>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="comments">-->
-          <!--<div id="{{terDynamic.id+'teacher'}}" style="display: none;    padding: 0px 10px 0px;" >-->
-          <!--<a class=" button buttonDy" ng-click="">点赞</a>-->
-          <!--<a class=" button buttonDy" ng-click="">分享</a>-->
-          <!--</div>-->
-          <!--<i class="ion-chatbox-working" ng-click="showClickTeacher(terDynamic.id)"  ></i>-->
-        <!--</div>-->
-        <!--</ion-item>-->
+    <!--<ion-item class="item-avatar card " ng-repeat="terDynamic in  terDynamics">-->
+    <!--<div class="item-avatar">-->
+    <!--<img src="{{terDynamic.img}}">-->
+    <!--<h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic.name}}</h4>-->
+    <!--<p >{{terDynamic.time | date : 'yyyy-MM-dd'}}</p>-->
+    <!--<div ng-if="terDynamic.content.length >=36">-->
+    <!--<div id="{{terDynamic.id+'contentTer'}}"> {{terDynamic.content |ifMore}}</div>-->
+    <!--<div id="{{terDynamic.id+'moreContentTer'}}" style="display: none"> {{terDynamic.content}}</div>-->
+    <!--<div>-->
+    <!--<a ng-click="showContentTer(terDynamic.id)" >更多</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div ng-if="terDynamic.content.length <36">-->
+    <!--<p> {{terDynamic.content}}</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="comments">-->
+    <!--<div id="{{terDynamic.id+'teacher'}}" style="display: none;    padding: 0px 10px 0px;" >-->
+    <!--<a class=" button buttonDy" ng-click="">点赞</a>-->
+    <!--<a class=" button buttonDy" ng-click="">分享</a>-->
+    <!--</div>-->
+    <!--<i class="ion-chatbox-working" ng-click="showClickTeacher(terDynamic.id)"  ></i>-->
+    <!--</div>-->
+    <!--</ion-item>-->
     <!--</div>-->
 
 
-
   </ion-content>
-
-
-
 
 
 </ion-view>

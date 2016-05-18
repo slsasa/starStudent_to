@@ -12,8 +12,6 @@ angular.module('starter')
       });
   })
   .controller('personalCtrl',function($scope, $stateParams, $state, $http, userInfo,$ionicLoading){
-
-
     userInfo['teacherInfo']['StyleItem'].forEach(function (item) {
       var ls = [];
       item['PicListRef'].forEach(function (item) {
