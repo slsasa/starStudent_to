@@ -32,13 +32,13 @@ angular.module('starter')
       $http.post(url, data)
         .success(function (result) {
 
-          console.log(JSON.stringify(result));
+          console.log('userData:',JSON.stringify(result));
           userInfo._id = result.data._id;
           console.log(userInfo.id);
 
           if (result.ret_code == 0) {
             var user = result.data;
-            if (user.type == '学员') {
+            if (user['UserType'] == 'student') {
               t = '_stu';
               userInfo.personType = '_stu';
               $state.go('tabs.home', {type: t});

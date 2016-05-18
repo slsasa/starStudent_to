@@ -5,13 +5,66 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('works-centre',{
-        url:'/works-centre:index',
+        url:'/works-centre',
         templateUrl:'templates/production/works-centre.html',
         controller:'worksCentreCtrl'
 
       });
   })
-  .controller('worksCentreCtrl',function($scope,$state,$stateParams,UserInfo){
+  .controller('worksCentreCtrl',function($scope,$state,$stateParams,$http,$ionicPopup,userInfo){
+
+    $scope['teacher'] = userInfo.teacherInfo;
+
+
+
+    var getLog = function(){
+      var url_log = rootUrl +'/teacher_article/get_all_list?ArticleType=log';
+
+      $http.get(url_log)
+        .success(function(result){
+          var data = result.data;
+
+          $scope['teacherLog'] = data;
+        })
+        .error(function(err){
+          $ionicPopup.alert({
+            title:'err',
+            template:'读取数据失败'
+          });
+          //console.log(JSON.stringify(err));
+        })
+
+    }
+
+    var getPaper = function(){
+      var url_paper = rootUrl + '/teacher_article/get_all_list?ArticleType=paper';
+
+      $http.get(url_paper)
+        .success(function(result){
+          var data = result.data;
+          $scope['teacherPaper'] = data;
+
+        })
+        .error(function(err){
+          $ionicPopup.alert({
+            title:'err',
+            template:'读取数据失败'
+          });
+        })
+    }
+
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+      getLog();
+      getPaper();
+    });
+
+    $scope['goLogDetails'] = function(log){
+      userInfo['log'] = log;
+      $state.go('works-detail');
+    }
+
+
 
     $scope.objCentreLog = document.getElementById('logCentre');
     $scope.objCentrePaper = document.getElementById('paperCentre');
@@ -56,12 +109,5 @@ angular.module('starter')
       $scope.objCentrePaperClick.style.color = paper;
     }
 
-    $scope.teacher = getTeacher($stateParams.index);
 
-    $scope.goCentreLogsDetail = function(index){
-      $state.go('paper-detail',{teacherId:$stateParams.teacherId,index:index})
-    }
-    $scope.goPaperDetail = function(index){
-      $state.go('paper-detail',{teacherId:$stateParams.teacherId,index:index});
-    }
   })

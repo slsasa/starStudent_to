@@ -7,10 +7,10 @@ angular.module('starter')
       .state('myLogs-detail',{
         url:'/works-log/log-detail:index',
         templateUrl:'templates/person/logs-detail.html',
-        controller:'logsDetailCtrl'
+        controller:'myLogsDetailCtrl'
       });
   })
-  .controller('logsDetailCtrl', function ($scope,$stateParams) {
+  .controller('myLogsDetailCtrl', function ($scope,$stateParams) {
     $scope.teacher = {
       id: 0,
       name: '李老师',

@@ -16,32 +16,32 @@
 
   <ion-content >
     <div class="bar-subheader" style="margin: 6px;text-align: center">
-      <button class="button" ng-click="showCentreLog()" id="centreLogClick">1教学日志({{teacher.tearchingLog.length}})</button>
-      <a class="button" ng-click="showCentrePaper()" id="centrePaperClick">1学术论文({{teacher.thesis.length}})</a>
+      <button class="button" ng-click="showCentreLog()" id="centreLogClick">1教学日志({{teacherLog.length}})</button>
+      <a class="button" ng-click="showCentrePaper()" id="centrePaperClick">1学术论文({{teacherPaper.length}})</a>
     </div>
 
     <div id="logCentre" class="list">
-      <ion-item ng-repeat="tearLog in teacher.tearchingLog">
+      <ion-item ng-repeat="tearLog in teacherLog">
         <p style="margin: 10px 0 0 10px;">
-          {{tearLog.title}}
+          {{tearLog['Title']}}
         </p>
-        <p style=" padding: 0 10px; text-align: justify;">{{tearLog.content}}</p>
+        <p style=" padding: 0 10px; text-align: justify;">{{tearLog['Content']}}</p>
         <br>
-      <p style="float: left ;margin: 0 0 0 10px;color: #b2b2b2;">{{tearLog.time | date:'yyyy-MM-dd'}}</p>
-      <a class="button rightbtom" ng-click="goCentreLogsDetail($index)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
+      <p style="float: left ;margin: 0 0 0 10px;color: #b2b2b2;">{{tearLog['Time'] | date:'yyyy-MM-dd'}}</p>
+      <a class="button rightbtom" ng-click="goLogDetails(tearLog)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
       </ion-item>
     </div>
 
     <div id="paperCentre" class="list" style="display: none">
-      <ion-item ng-repeat="tearingPage in teacher.thesis">
+      <ion-item ng-repeat="tearingPage in teacherPaper">
         <p style="margin: 10px 0 0 10px;">
-          {{tearingPage.title}}
+          {{tearingPage['Title']}}
         </p>
-        <p style=" padding: 0 10px 15px 10px; text-align: justify;">{{tearingPage.content}}</p>
+        <p style=" padding: 0 10px 15px 10px; text-align: justify;">{{tearingPage['Content']}}</p>
 
       <span>
-      <p style="float: left ;margin: 0 0 0 10px;color: #b2b2b2;">{{tearingPage.time | date:'yyyy-MM-dd'}}</p>
-      <a class="button rightbtom" ng-click="goPaperDetail($index)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
+      <p style="float: left ;margin: 0 0 0 10px;color: #b2b2b2;">{{tearingPage['Time'] | date:'yyyy-MM-dd'}}</p>
+      <a class="button rightbtom" ng-click="goPaperDetail(tearingPage)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
       </span>
       </ion-item>
     </div>
