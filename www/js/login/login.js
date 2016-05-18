@@ -87,6 +87,11 @@ angular.module('starter')
 
     };
 
+    //记住密码框
+    $scope.remembers =  [
+      {label: "记住密码" ,selected: true}
+    ]
+
 
     //进入注册页面
     $scope.register = function () {

@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('stuPersonCtrl',function($rootScope,$scope,$state){
+  .controller('stuPersonCtrl',function($rootScope,$scope,$state,$ionicPopup){
     $scope.headbks = [
       {
         "img":"img/stuperson/stubk.png",
@@ -48,8 +48,21 @@ angular.module('starter')
     }
 
     $scope.outlogin = function(){
-      $rootScope.user = {};
-      $state.go('login');
+      $ionicPopup.confirm({
+        title: "退出当前账号",
+        template: "退出账号将收不到任何信息，是否继续？",
+        buttons:[
+          {
+            text:"是",
+            onTap:function(e){
+              $rootScope.user = {};
+              $state.go('login');
+            }
+          },
+          {text:"否"}
+        ]
+      })
+
     }
 
   })
