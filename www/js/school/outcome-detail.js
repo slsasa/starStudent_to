@@ -15,5 +15,5 @@ angular.module('starter')
   .controller('outcomeDetailCtrl',function($rootScope,$scope,userInfo){
 
     $scope.outcomeDetail = userInfo.outComeDetail;
-
+    userInfo.outComeDetail = {};
   })

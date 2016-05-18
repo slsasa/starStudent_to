@@ -24,7 +24,8 @@ angular.module('starter')
     $scope['Style'] = userInfo['teacherInfo']['StyleItem'][0];
 
     $scope.teacher = userInfo.teacherInfo;
-    userInfo.teacherInfo = '';
+
+    //userInfo.teacherInfo = '';
 
     var getHonorInfo = function(){
       var url = rootUrl + "/honor/get_self_list";
@@ -34,7 +35,7 @@ angular.module('starter')
           $scope.teacher.honor = data;
         })
         .error(function(err){
-          console.log("获取教师数据失败");
+
         })
     };
 

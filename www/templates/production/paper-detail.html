@@ -2,19 +2,19 @@
   <ion-nav-title>
     <span class="title">论文详情</span>
   </ion-nav-title>
-  <ion-content>
+  <ion-content >
     <h5 style="text-align: center">{{thesis.title}}</h5>
     <span>
       <div>
-        <p style="    float: left; margin:0px 5% 0px 10px;"> 类型:{{thesis.type}}</p>
+        <p style="    float: left; margin:0px 5% 0px 10px;"> 类型:学术论文</p>
         <p style="    float: left; margin:0px 5% 0px 10px;">作者:{{teacher.name}}</p>
-        <p>{{thesis.time |date:'yyyy-MM-dd'}}</p>
+        <p>{{paper['Time'] |date:'yyyy-MM-dd'}}</p>
       </div>
 
     <div style=" ">
-      <a style="margin: 0 7% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #5D97F9;" class="ion-android-contacts"></i>{{thesis.flower}}</a>
-      <a style="margin: 0 12% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #44c6fb;" class="ion-thumbsup" ></i>{{thesis.praise}}</a>
-      <a ><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #f48b46;" class="ion-android-share-alt"></i>{{thesis.share}}</a>
+      <a style="margin: 0 7% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #5D97F9;" class="ion-android-contacts"></i>{{paper['']}}</a>
+      <a style="margin: 0 12% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #44c6fb;" class="ion-thumbsup" ></i>{{paper['LinkCount']}}</a>
+      <a ><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #f48b46;" class="ion-android-share-alt"></i>{{paper['ShareCount']}}</a>
     </div>
 
 
@@ -25,7 +25,7 @@
 
     </span>
     <div style="margin:10px 10px 0px 10px;text-align: justify;">
-      {{thesis.content}}
+      {{paper['Content']}}
     </div>
 
   </ion-content>

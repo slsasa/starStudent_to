@@ -41,6 +41,17 @@ angular.module('starter')
 
     update();
 
+    $scope['goLogDetail'] = function(log){
+      userInfo.log = log;
+      $state.go('works-detail');
+    }
+
+    $scope['goPaperDetails'] = function(paper){
+      userInfo.paper = paper;
+      $state.go('paper-detail');
+    }
+
+
     $scope.objCentreLog = document.getElementById('logCentre');
     $scope.objCentrePaper = document.getElementById('paperCentre');
     $scope.objCentreLogClick = document.getElementById('centreLogClick');
@@ -80,10 +91,4 @@ angular.module('starter')
       $scope.objCentrePaperClick.style.color = paper;
     };
 
-    $scope.goCentreLogsDetail = function (index) {
-      $state.go('paper-detail', {teacherId: $stateParams.teacherId, index: index})
-    };
-    $scope.goPaperDetail = function (index) {
-      $state.go('paper-detail', {teacherId: $stateParams.teacherId, index: index});
-    }
   });

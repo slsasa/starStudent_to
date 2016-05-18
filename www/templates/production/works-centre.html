@@ -16,11 +16,12 @@
 
   <ion-content >
     <div class="bar-subheader" style="margin: 6px;text-align: center">
-      <button class="button" ng-click="showCentreLog()" id="centreLogClick">1教学日志({{teacher.tearchingLog.length}})</button>
-      <a class="button" ng-click="showCentrePaper()" id="centrePaperClick">1学术论文({{teacher.thesis.length}})</a>
+      <button class="button" ng-click="showCentreLog()" id="centreLogClick">1教学日志({{TeacherLogList.length}})</button>
+      <a class="button" ng-click="showCentrePaper()" id="centrePaperClick">1学术论文({{TeacherPaperList.length}})</a>
     </div>
 
     <div id="logCentre" class="list">
+
       <ion-item ng-repeat="TeacherLog in TeacherLogList">
         <p style="margin: 10px 0 0 10px;">
           {{TeacherLog['Title']}}
@@ -28,11 +29,12 @@
         <p style=" padding: 0 10px; text-align: justify;">{{TeacherLog['Content']}}</p>
         <br>
       <p style="float: left ;margin: 0 0 0 10px;color: #b2b2b2;">{{TeacherLog['Time'] | date:'yyyy-MM-dd'}}</p>
-      <a class="button rightbtom" ng-click="goCentreLogsDetail($index)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
+      <a class="button rightbtom" ng-click="goLogDetail(TeacherLog)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
       </ion-item>
     </div>
 
     <div id="paperCentre" class="list" style="display: none">
+
       <ion-item ng-repeat="TeacherPaper in TeacherPaperList">
         <p style="margin: 10px 0 0 10px;">
           {{TeacherPaper['Title']}}
@@ -41,7 +43,7 @@
 
       <span>
       <p style="float: left ;margin: 0 0 0 10px;color: #b2b2b2;">{{TeacherPaper['Time'] | date:'yyyy-MM-dd'}}</p>
-      <a class="button rightbtom" ng-click="goPaperDetail($index)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
+      <a class="button rightbtom" ng-click="goPaperDetails(TeacherPaper)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
       </span>
       </ion-item>
     </div>

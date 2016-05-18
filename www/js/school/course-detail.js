@@ -12,7 +12,8 @@ angular.module('starter')
   })
   .controller('courseDetailCtrl',function(userInfo,$scope){
 
-    $scope.course = userInfo.courseDetail
+    $scope.course = userInfo.courseDetail;
+    userInfo.courseDetail = {};
 
 
 

@@ -10,15 +10,18 @@
       <p class="stylec">{{teacher['Content']}}</p>
     </div>
 
+
     <ion-item style="padding: 10px 0px 0;">
       <div style="    padding: 5px 0 5px 0;text-align: center;" ng-if="Style['PicListRef'].length>3">
+
         <img ng-src="{{Style['PicListRef'][0]}}" style="height: 125px;width: 100px">
         <img ng-src="{{Style['PicListRef'][1]}}" style="height: 125px;width: 100px">
         <img ng-src="{{Style['PicListRef'][2]}}" style="height: 125px;width: 100px">
       </div>
 
-      <div style="padding: 5px 0 5px 0;text-align: center;" ng-if="Style['PicListRef'].length<=3" ng-repeat="img in Style['PicListRef'] tarck by $index">
-        <img ng-src="{{img}}" style="height: 125px;width: 100px">
+
+      <div class="row" style="padding: 5px 0 5px 0;text-align: center;" ng-if="Style['PicListRef'].length<=3" >
+      <div class="col col-3" ng-repeat="img in Style['PicListRef'] track  by $index"> <img  ng-src="{{img}}" style="height: 125px;width: 100px"></div>
       </div>
 
       <div style="    padding: 5px 0 5px 0;text-align: center;" ng-if="Style['PicListRef'].length<1">

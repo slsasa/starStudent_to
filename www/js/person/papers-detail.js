@@ -7,10 +7,10 @@ angular.module('starter')
       .state('myPapers-detail',{
         url:'/my_papers/paper-detail:index',
         templateUrl:'templates/person/papers-detail.html',
-        controller:'paperDetailCtrl'
+        controller:'myPaperDetailCtrl'
       });
   })
-  .controller('paperDetailCtrl', function ($scope,$stateParams) {
+  .controller('myPaperDetailCtrl', function ($scope,$stateParams) {
     $scope.teacher = {
       id: 0,
       name: '李老师',
