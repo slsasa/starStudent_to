@@ -12,7 +12,7 @@ angular.module('starter')
 
       });
   })
-  .controller('applyDetailCtrl', function ($rootScope, $scope, $state, $ionicActionSheet, $timeout) {
+  .controller('applyDetailCtrl', function (userInfo, $scope, $state, $ionicActionSheet, $timeout) {
     //$scope.apply = userInfo.apply;
     //userInfo.apply = '';
 
@@ -44,10 +44,10 @@ angular.module('starter')
     };
 
 
-    $scope.apply = $rootScope.apply;
+    $scope.apply =  userInfo.apply;
 
     $scope.goSubmitApply = function () {
-      // userInfo.apply = $scope.apply;
+
       $state.go('applySubmit');
     }
   });
