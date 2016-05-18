@@ -31,9 +31,8 @@ angular.module('starter')
       if ($scope.user.pwdsure == $scope.user.pwd) {
 
         var data = {
-          user_tel: $scope.user.num,
-          new_pwd: $scope.user.pwd,
-          user_type: '教师'
+          Account: $scope.user.num,
+          NewPassword: $scope.user.pwd
         };
 
         console.log(data);
@@ -61,7 +60,7 @@ angular.module('starter')
           .error(function (err) {
             $ionicLoading.hide();
             $ionicPopup.alert({
-              title:JSON.stringify(err)
+              title: JSON.stringify(err)
             })
           })
       } else {
@@ -73,4 +72,4 @@ angular.module('starter')
 
     }
 
-  })
+  });

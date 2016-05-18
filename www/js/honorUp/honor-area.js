@@ -14,7 +14,7 @@ angular.module('starter')
 
     $ionicLoading.show();
     var getStarData = function(){
-      var url = rootUrl + "/student_honor/get_all_list";
+      var url = rootUrl + "/honor/get_all_list";
 
       $http.get(url)
         .success(function(result){
@@ -22,7 +22,7 @@ angular.module('starter')
           var data = result.data;
           data.forEach(function(item){
             item.pic_avatar_url = rootPicUrl + item.pic_avatar_url;
-          })
+          });
           $scope.starList = data;
           $ionicLoading.hide();
         })
@@ -31,10 +31,10 @@ angular.module('starter')
           $ionicPopup.alert({
             title:'err',
             template:'数据加载失败'
-          })
+          });
           console.log("获取明星榜信息失败");
         })
-    }
+    };
 
     var getHonorData = function(){
       var url = rootUrl + "/teacher_honor/get_all_list";

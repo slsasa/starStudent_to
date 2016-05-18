@@ -41,10 +41,10 @@ angular.module('starter')
           $ionicPopup.alert({
             title:'err',
             template:'数据加载失败'
-          })
+          });
           console.log(err);
         })
-    }
+    };
 
     var getStundetData = function(){
       var url = rootUrl + "/student_dynamic/get_all_list";
