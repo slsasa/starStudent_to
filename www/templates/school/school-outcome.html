@@ -16,8 +16,13 @@
         <a class="item item-thumbnail-left" ng-repeat="outcome in schOutcomes" ng-click="goDetailOutcome(outcome)">
           <div class="item-thumbnail-left">
           <img ng-src="{{outcome.img}}">
+<<<<<<< HEAD
           <p style="margin: 10px 0 0 0px;">{{outcome['Title']}}</p>
            <p style="float: right;margin: 18px 5% 0 0px;">{{outcome['Content'] |ifMore}}</p>
+=======
+          <p style="margin: 10px 5px 0 0px;">{{outcome['Title']}}</p>
+           <p style="float: right;margin: 18px 5px 0 0px;text-align: justify;">{{outcome['Content'] | date : 'yyyy-MM-dd'}}</p>
+>>>>>>> ce29611253b1f80d0284d19f51c4184e5a80393a
 
           </div>
         </a>
