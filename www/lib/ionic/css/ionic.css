@@ -3337,7 +3337,7 @@ body,
   font-size: 14px;
   font-family: -apple-system;
   font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
-  line-height: 20px;
+  line-height: 25px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
   -webkit-user-drag: none;
@@ -8564,7 +8564,7 @@ progress {
   background-color: #f74d84; }
 .button {
   border-color: transparent;
-  background-color: rgba(237, 237, 239, 0.96);
+  background-color: #fafafa;
   color: #000000;
   position: relative;
   display: inline-block;

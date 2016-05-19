@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view hide-back-button="true">
   <ion-nav-title>
     <span class="title">
       个人风采
@@ -9,12 +9,13 @@
   </ion-nav-buttons>
   <ion-content>
     <ion-list>
-      <ion-item>
+      <ion-item style="    border: none;">
        <span ng-repeat="imgDetail in StyleItemList">
-         <p>{{imgDetail['Time'] |date:'yyyy-MM-dd'}}</p>
+         <p style="    margin: 5px 10px;">{{imgDetail['Time'] |date:'yyyy-MM-dd'}}</p>
          <span ng-repeat="img in imgDetail['PicListRef']">
-           <img ng-src="{{img['Url']}}" style="height: 30%;width: 30%">
+           <img  ng-src="{{img['Url']}}" style="height: 30%;width: 30%;    margin: 0px 0px 0px 5px;">
          </span>
+         <hr style="border: 1px solid; color: #ddd;">
       </span>
 
     </ion-list>
