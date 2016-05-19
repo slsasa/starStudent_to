@@ -24,7 +24,7 @@ angular.module('starter')
 
       $http.get(url, {params: {DyType: 'school'}})
         .success(function (result) {
-          $ionicLoading.hide();
+
           var data = result['data'];
 
           data.forEach(function (item) {
@@ -33,6 +33,7 @@ angular.module('starter')
           });
 
           $scope.schoolDynamics = result['data'];
+          $ionicLoading.hide();
         })
         .error(function (err) {
           $ionicLoading.hide();

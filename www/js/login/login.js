@@ -32,7 +32,7 @@ angular.module('starter')
       $http.post(url, data)
         .success(function (result) {
 
-          //console.log('userData:',JSON.stringify(result));
+
           userInfo._id = result.data._id;
 
           if (result.ret_code == 0) {
@@ -58,6 +58,8 @@ angular.module('starter')
               template: '登录异常'
             });
           }
+
+          //console.log('userData >>>>>:',JSON.stringify(result.data ));
           $ionicLoading.hide();
 
         })

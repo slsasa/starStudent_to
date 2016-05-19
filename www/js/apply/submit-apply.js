@@ -52,6 +52,8 @@ angular.module('starter')
               template: '提交表单失败'
             })
           }
+
+          $ionicLoading.hide();
         })
         .error(function (err) {
           $ionicLoading.hide();
