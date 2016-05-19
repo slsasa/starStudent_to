@@ -10,17 +10,14 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <ion-refresher
-      pulling-text="下拉刷新"
-      on-refresh="doRefresh()">
-    </ion-refresher>
+
     <div class="ionic-pseudo">
       <div class="list">
         <a class="item item-thumbnail-left" ng-repeat="outcome in schOutcomes" ng-click="goDetailOutcome(outcome)">
           <div class="item-thumbnail-left">
           <img ng-src="{{outcome.img}}">
-          <p style="margin: 10px 0 0 0px;">{{outcome.Title}}</p>
-           <p style="float: right;margin: 18px 5% 0 0px;">{{outcome.Time | date : 'yyyy-MM-dd'}}</p>
+          <p style="margin: 10px 0 0 0px;">{{outcome['Title']}}</p>
+           <p style="float: right;margin: 18px 5% 0 0px;">{{outcome['Content'] | date : 'yyyy-MM-dd'}}</p>
 
           </div>
         </a>

@@ -14,9 +14,10 @@ angular.module('starter')
   .controller('outcomeCtrl',function($scope, $http,$state,$ionicLoading,userInfo){
 
     $ionicLoading.show();
+
     var update = function () {
 
-      var url = rootUrl + "/school_achievement/get_list";
+      var url = rootUrl + "/school_achieve/get_list";
 
       $http.get(url)
         .success(function (result) {
@@ -29,7 +30,7 @@ angular.module('starter')
 
           $scope.schOutcomes = data;
 
-          refresh = true;
+
           $ionicLoading.hide();
         })
         .error(function (err) {
@@ -42,11 +43,11 @@ angular.module('starter')
       update();
     });
 
-    $scope.doRefresh = function () {
-      update();
-      $scope.$broadcast('scroll.infiniteScrollComplete');
-      $scope.$broadcast('scroll.refreshComplete');
-    };
+    //$scope.doRefresh = function () {
+    //  update();
+    //  $scope.$broadcast('scroll.infiniteScrollComplete');
+    //  $scope.$broadcast('scroll.refreshComplete');
+    //};
 
 
     $scope.goDetailOutcome = function(outcome) {
