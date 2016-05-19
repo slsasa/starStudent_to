@@ -25,7 +25,7 @@ angular.module('starter')
     $scope['Style'] = userInfo['teacherInfo']['StyleItem'][0];
 
     $scope.teacher = userInfo.teacherInfo;
-
+    console.log('>>>>>>>>>>>>>teacher',JSON.stringify($scope.teacher));
     //userInfo.teacherInfo = '';
 
     var getHonorInfo = function(){

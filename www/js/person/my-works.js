@@ -39,10 +39,12 @@ angular.module('starter')
 
     var getPaperInfo = function(){
 
+      $scope.teacher = userInfo.teacherInfo;
+      console.log(">>>>>>>>>>>>>teahcer",JSON.stringify($scope.teacher));
 
       var url = rootUrl + "/teacher_article/get_self_list";
 
-      $http.get(url,{params:{TeacherId:userInfo._id ,ArticleType:'paper'}})
+      $http.get(url,{params:{TeacherId:$scope.teacher['TeacherRef'] ,ArticleType:'paper'}})
         .success(function(result){
 
           var data = result.data;
