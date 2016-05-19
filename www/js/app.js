@@ -70,8 +70,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .filter('ifMore', function () {
     return function (input) {
       input = input || [];
-      if (input.length > 80) {
-        return input.slice(0, 80);
+      if (input.length > 33) {
+        return input.slice(0, 33);
       } else {
         return input;
       }
