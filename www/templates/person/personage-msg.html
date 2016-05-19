@@ -22,27 +22,27 @@
     <ion-item class="item-divider">
       <div  >
         <h2 style="margin: 10px 0 0 10px;">姓名</h2>
-        <input type="text" ng-model="teacherPerson.name" class="editor">
+        <input type="text" ng-model="studentInfo.Name" class="editor">
       </div>
     </ion-item>
 
     <ion-item class="item-divider">
       <div  >
         <h2 style="margin: 10px 0 0 10px;">性别</h2>
-        <input type="text" ng-model="teacherPerson.sex" class="editor">
+        <input type="text" ng-model="studentInfo.Gender" class="editor">
       </div>
     </ion-item>
     <ion-item class="item-divider" >
       <div  >
         <h2 style="    margin: 10px 0 0 10px;">民族</h2>
-        <input type="text" ng-model="teacherPerson.nation" class="editor">
+        <input type="text" ng-model="studentInfo.National" class="editor">
       </div>
     </ion-item>
 
     <div class="message">
     <div>个人信息</div>
     <hr>
-    <p>{{teacherPerson.teacherMeg}}</p>
+    <textarea ng-model="studentInfo.EntranceDesc"></textarea>
       </div>
   </ion-list>
 

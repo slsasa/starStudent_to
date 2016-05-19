@@ -15,11 +15,11 @@ angular.module('starter')
 
   .controller('stuStateCtrl',function($scope, $state, $http,$ionicLoading,userInfo){
     var update = function(){
-      var url = rootUrl + "/student_situation/get_self_list?student_id=" + userInfo._id;
+      var url = rootUrl + "/student_situation/get_self_list?StudentId=" + userInfo._id;
       $ionicLoading.show();
       $http.get(url)
         .success(function(result){
-
+          console.log(JSON.stringify(result));
           var data = result.data;
           $scope.learns = data;
           $ionicLoading.hide();

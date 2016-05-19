@@ -22,7 +22,7 @@ angular.module('starter')
     ];
 
     $rootScope.user = {
-      num: '321',
+      num: '123',
       pwd: '000',
       type: 'student'
     };

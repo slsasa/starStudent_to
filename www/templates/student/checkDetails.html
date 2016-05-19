@@ -9,21 +9,18 @@
       <img src="img/stuperson/tit1.png" class="tit1">
       <div class="checkDet ">
 
-        <p>科目名称：{{learn.course_name}}</p>
-        <p>综合成绩：{{learn.grade}}</p>
+        <p>科目名称：{{learn.CourseName}}</p>
+        <p>综合成绩：{{learn.Grade}}</p>
       </div>
       <div style="margin: 0 40px 0;">
-        <p>{{learn.grade_details[0].lesson}}：<p class="checkscose">{{learn.grade_details[0].level}}</p></p>
-        <p>{{learn.grade_details[1].lesson}}：<p class="checkscose">{{learn.grade_details[1].level}}</p></p>
-        <p>{{learn.grade_details[2].lesson}}：<p class="checkscose">{{learn.grade_details[2].level}}</p></p>
-        <p>{{learn.grade_details[3].lesson}}：<p class="checkscose">{{learn.grade_details[3].level}}</p></p>
-        <p>{{learn.grade_details[4].lesson}}：<p class="checkscose">{{learn.grade_details[4].level}}</p></p>
-        <p>{{learn.grade_details[5].lesson}}：<p class="checkscose">{{learn.grade_details[5].level}}</p></p>
+        <div ng-repeat="detail in learn.GradeDetails track by $index">
+          {{detail.Lesson}}：<p class="checkscose">{{detail.Level}}</p>
+        </div>
       </div>
       <hr style="border: solid 1px gainsboro;opacity: 0.3">
       <div>
         <img src="img/stuperson/tit1.png" class="tit1">
-        <p class="cheComments">评语：{{learn.assessment_comment}}</p>
+        <p class="cheComments">评语：{{learn.AssessmentComment}}</p>
       </div>
     </div>
   </ion-content>

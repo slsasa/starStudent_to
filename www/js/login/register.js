@@ -20,7 +20,7 @@ angular.module('starter')
       num: '',
       pwd: '',
       pwdsure: '',
-      type: '学员'
+      type: ''
       //numverify :''
     };
     $scope.loginbks = [
@@ -33,11 +33,17 @@ angular.module('starter')
     $scope.onSubmit = function () {
       if ($scope.user.pwdsure == $scope.user.pwd) {
 
-        var data = {
+        var select = document.getElementById("select");
+        for(var i=0 ; i<select.options.length ; i++){
+          if(select.options[i].selected){
+            $scope.user.type = select.options[i].value;
+          }
+        }
 
+        var data = {
           Account: $scope.user.num,
           Password: $scope.user.pwd,
-          UserType: 'teacher'
+          UserType: $scope.user.type
         };
 
         var url = rootUrl + "/user/register";
