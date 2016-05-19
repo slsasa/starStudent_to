@@ -13,7 +13,8 @@ angular.module('starter')
   })
   .controller('worksCentreCtrl', function ($scope, $state, $stateParams, userInfo, $http) {
 
-    var url = rootUrl + '/teacher_article/get_all_list';
+
+    var url = rootUrl + '/teacher_article/get_self_list';
     var query_log = {
       ArticleType: 'log'
     };
@@ -21,8 +22,10 @@ angular.module('starter')
       ArticleType: 'paper'
     };
 
+    $scope.teacher = userInfo.teacherInfo;
+    //userInfo['TeacherRef']
     var update = function () {
-      $http.get(url, {params: query_log})
+      $http.get(url, {params: {TeacherId: $scope.teacher['_id'], ArticleType: 'log'}})
         .success(function (result) {
           var data = result['data'];
 
@@ -32,7 +35,7 @@ angular.module('starter')
           console.log(err);
         });
 
-      $http.get(url, {params: query_paper})
+      $http.get(url, {params: {TeacherId: $scope.teacher['_id'], ArticleType: 'paper'}})
         .success(function (result) {
           var data = result['data'];
           $scope.TeacherPaperList = data;
@@ -41,12 +44,12 @@ angular.module('starter')
 
     update();
 
-    $scope['goLogDetail'] = function(log){
+    $scope['goLogDetail'] = function (log) {
       userInfo.log = log;
       $state.go('works-detail');
     }
 
-    $scope['goPaperDetails'] = function(paper){
+    $scope['goPaperDetails'] = function (paper) {
       userInfo.paper = paper;
       $state.go('paper-detail');
     }

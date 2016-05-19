@@ -14,8 +14,9 @@ angular.module('starter')
       });
   })
 
-  .controller('ApplyCtrl',function($scope, $state, $http, userInfo){
+  .controller('ApplyCtrl',function($scope, $state, $http,$ionicLoading,userInfo){
     var update = function(){
+      $ionicLoading.show();
       var url = rootUrl + "/sign_up_intro/get_list";
       $http.get(url)
         .success(function(result){
@@ -29,6 +30,7 @@ angular.module('starter')
             item['end_time'] = end_date;
             item['PicRef']['Url'] = rootPicUrl + item['PicRef']['Url'];
 
+            $ionicLoading.hide();
           });
 
           $scope.applys = data;

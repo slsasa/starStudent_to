@@ -12,8 +12,9 @@ angular.module('starter')
   })
   .controller('honorAreaCtrl',function($scope, $http,$ionicLoading){
 
-    $ionicLoading.show();
+
     var getStarData = function(){
+      $ionicLoading.show();
       var url = rootUrl + "/honor/get_all_list";
 
       $http.get(url, {params: {HonorType: 'student'}})
@@ -37,6 +38,7 @@ angular.module('starter')
     };
 
     var getHonorData = function(){
+      $ionicLoading.show();
       var url = rootUrl + "/honor/get_all_list";
 
       $http.get(url, {params: {HonorType: 'teacher'}})

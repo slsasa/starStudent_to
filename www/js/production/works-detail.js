@@ -11,10 +11,22 @@ angular.module('starter')
       });
   })
 
-  .controller('logDetailCtrl', function ($scope,$stateParams,userInfo) {
+  .controller('logDetailCtrl', function ($scope,$stateParams,userInfo,$http) {
 
     $scope.teacher  = userInfo.teacherInfo;
     $scope.tearchingLog = userInfo.log;
-    userInfo['teacherInfo'] = {};
+
+
+    $scope['linkClick'] = function () {
+      var url = rootUrl + '/teacher_article/add_like';
+      $http.post(url, {UserId: userInfo['_id'], ArticleId: $scope['tearchingLog']['_id']})
+        .success(function (result) {
+
+        })
+        .error(function (err) {
+          console.log(JSON.stringify(err))
+        });
+    }
+
 
   })

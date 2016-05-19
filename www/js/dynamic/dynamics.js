@@ -24,8 +24,9 @@ angular.module('starter')
 
       $http.get(url, {params: {DyType: 'school'}})
         .success(function (result) {
-          $ionicLoading.hide();
+
           var data = result['data'];
+          console.log('school data---------------->>>>>>>>>>',data);
 
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
@@ -33,6 +34,7 @@ angular.module('starter')
           });
 
           $scope.schoolDynamics = result['data'];
+          $ionicLoading.hide();
         })
         .error(function (err) {
           $ionicLoading.hide();
@@ -50,7 +52,7 @@ angular.module('starter')
       $http.get(url, {params: {DyType: 'student'}})
         .success(function (result) {
           var data = result.data;
-
+          console.log('student data---------------->>>>>>>>>>',data);
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
           });
@@ -66,16 +68,27 @@ angular.module('starter')
 
     var getTeacherData = function () {
       var url = rootUrl + "/dynamic/get_all_list";
+      var diffTime = [];
 
       $http.get(url, {params: {DyType: 'teacher'}})
         .success(function (result) {
-          console.log(JSON.stringify(result));
+          console.log('teacher-------------->>>>>>>>>>>',JSON.stringify(result));
           var data = result.data;
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
+            //
+            //console.log ( new Date().getTime()  );
+            //console.log(new Date(item['IssueTime']).getTime())
+
+            var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
+            tmp = tmp / (1000*60*60);
+
+            diffTime.push(new Date().getTime() - new Date(item['IssueTime']).getTime());
+
           });
 
           $scope.terDynamics = data;
+          console.log('diffTime---------->>>>>>>>>>',diffTime);
           $ionicLoading.hide();
         })
         .error(function (err) {
