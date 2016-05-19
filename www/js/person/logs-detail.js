@@ -12,4 +12,5 @@ angular.module('starter')
   })
   .controller('myLogsDetailCtrl', function ($scope,userInfo) {
     $scope.log  = userInfo.mgLog;
+    console.log(JSON.stringify($scope.log))
   })

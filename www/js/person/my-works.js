@@ -23,7 +23,7 @@ angular.module('starter')
 
       $http.get(url,{params:{TeacherId:userInfo._id,ArticleType:'log'}})
         .success(function(result){
-          console.log(JSON.stringify('myworks id',userInfo._id));
+
           var data = result.data;
           $scope.logs = data;
 
@@ -44,7 +44,7 @@ angular.module('starter')
 
       $http.get(url,{params:{TeacherId:userInfo._id ,ArticleType:'paper'}})
         .success(function(result){
-          console.log('<<<<<<<<<<<<<<<<<result:',JSON.stringify(result));
+
           var data = result.data;
           $scope.papers = data;
         })

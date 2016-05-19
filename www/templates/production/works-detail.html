@@ -13,14 +13,8 @@
        <p>{{tearchingLog['Time'] |date:'yyyy-MM-dd'}}</p>
      </div>
 
-      <!--<div class="row">-->
-        <!--<a class="col col-25">送花：{{tearchingLog.flower}}</a>-->
-        <!--<a class="col col-25">点赞：{{tearchingLog['LinkCount']}}</a>-->
-        <!--<a class="col col-25">分享：{{tearchingLog['ShareCount']}}</a>-->
-      <!--</div>-->
-
        <div>
-         <a style="margin: 0 7% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #5D97F9;" class="ion-android-contacts"></i>{{tearchingLog.flower}}</a>
+         <a style="margin: 0 7% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #5D97F9;" class="ion-android-contacts"></i>{{tearchingLog['ReplyList'].length}}</a>
          <a style="margin: 0 12% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #44c6fb;" class="ion-thumbsup" ></i>{{tearchingLog['LinkCount']}}</a>
          <a ><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #f48b46;" class="ion-android-share-alt"></i>{{tearchingLog['ShareCount']}}</a>
        </div>
@@ -34,7 +28,7 @@
   </ion-content>
   <div class="bar bar-footer row">
     <a style="border-radius: 20px;line-height: 29px;height: 29px;min-width: 130px;" class="button button-pink wordD" >点赞</a>
-    <a style="border-radius: 20px;line-height: 29px;height: 29px;min-width: 130px;" class="button button-pink wordD" >送花</a>
+    <a style="border-radius: 20px;line-height: 29px;height: 29px;min-width: 130px;" class="button button-pink wordD" >分享</a>
 
   </div>
 </ion-view>
