@@ -19,9 +19,9 @@ angular.module('starter')
 
 
       $scope.userId =userInfo._id;
-      var url = rootUrl + "/teacher_article/get_self_list?ArticleType=log";
+      var url = rootUrl + "/teacher_article/get_self_list";
 
-      $http.get(url,{params:{TeacherId:$scope.userId,ArticleType:'log'}})
+      $http.get(url,{params:{TeacherId:userInfo._id,ArticleType:'log'}})
         .success(function(result){
           console.log(JSON.stringify('myworks id',userInfo._id));
           var data = result.data;
@@ -39,14 +39,14 @@ angular.module('starter')
 
     var getPaperInfo = function(){
 
-      $scope.userId =userInfo._id;
-      var url = rootUrl + "/teacher_article/get_self_list?ArticleType=paper";
 
-      $http.get(url,{params:{TeacherId:$scope.userId ,ArticleType:'paper'}})
+      var url = rootUrl + "/teacher_article/get_self_list";
+
+      $http.get(url,{params:{TeacherId:userInfo._id ,ArticleType:'paper'}})
         .success(function(result){
           console.log('<<<<<<<<<<<<<<<<<result:',JSON.stringify(result));
           var data = result.data;
-          $scope.logs = data;
+          $scope.papers = data;
         })
         .error(function(err){
           console.log("获取作品失败");
@@ -54,8 +54,14 @@ angular.module('starter')
     }
 
 
-    $scope.goLogsDetail = function (index) {
-      $state.go('myLogs-detail', {index: index});
+    $scope.goLogsDetail = function (log) {
+      userInfo.mgLog = log
+      $state.go('myLogs-detail');
+    };
+
+    $scope.goPaperDetail = function (paper) {
+      userInfo.myPaper = paper;
+      $state.go('myPapers-detail');
     };
 
 
@@ -83,9 +89,7 @@ angular.module('starter')
 
 
 
-    $scope.goPaperDetail = function (index) {
-      $state.go('myPapers-detail', {index: index})
-    };
+
 
     //按钮状态
     var changeClickLogBgColor = function (log, paper) {
