@@ -85,7 +85,9 @@ angular.module('starter')
     //放大图片
     $scope.goMagnifyImg = function(banner){
       userInfo.banner = banner;
-      $state.go('magnify-img');
+      console.log('->>>>>>>>>>>>banner',userInfo.banner);
+      userInfo.img = userInfo.banner.bannerImg;
+        $state.go('magnify-img');
     }
 
   })

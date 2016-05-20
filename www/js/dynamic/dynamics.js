@@ -17,6 +17,46 @@ angular.module('starter')
 
   .controller('dynamicCtrl', function ($scope, $ionicPopup, $http, $ionicLoading, userInfo) {
 
+    var calcTime = function( timeString ) {
+      var tmp = new Date().getTime() - new Date(timeString).getTime();
+      tmp = tmp / (1000);
+      var level = 1;
+
+      while ( tmp > 60 ) {
+        tmp /= 60;
+        level += 1;
+        if ( level >= 3 ) break;
+      }
+      if ( tmp > 24 ) {
+        level += 1;
+        tmp /= 24;
+      }
+      var difTimeRes = parseInt(tmp);
+      if ( difTimeRes > 30 ) {
+        difTimeRes = new Date(timeString).toLocaleDateString()
+        level += 1 ;
+      }
+      switch ( level ) {
+        case 1:
+          difTimeRes += ' 秒前'
+          break;
+        case 2:
+          difTimeRes += ' 分钟前'
+          break;
+        case 3:
+          difTimeRes += ' 小时前'
+          break;
+        case 4:
+          difTimeRes += ' 天前'
+          break;
+        default:
+          // bu 处理
+          break;
+      }
+      return difTimeRes;
+    }
+
+
     $ionicLoading.show();
 
     //判断是在校园动态，还是学员动态还是教师动态
@@ -29,11 +69,11 @@ angular.module('starter')
         .success(function (result) {
 
           var data = result['data'];
-          console.log('school data---------------->>>>>>>>>>', data);
 
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
-            console.log(item)
+            item['Time'] = calcTime(item["IssueTime"])
+
           });
 
           $scope.schoolDynamics = result['data'];
@@ -55,9 +95,9 @@ angular.module('starter')
       $http.get(url, {params: {DyType: 'student'}})
         .success(function (result) {
           var data = result.data;
-          console.log('student data---------------->>>>>>>>>>', data);
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
+            item.Time = calcTime(item["IssueTime"]);
           });
 
           $scope.stuDynamics = data;
@@ -65,13 +105,12 @@ angular.module('starter')
         })
         .error(function (err) {
           $ionicLoading.hide();
-          console.log(err);
+          //console.log(err);
         })
     };
 
     var getTeacherData = function () {
       var url = rootUrl + "/dynamic/get_all_list";
-      var diffTime = [];
 
       $http.get(url, {params: {DyType: 'teacher'}})
         .success(function (result) {
@@ -86,12 +125,12 @@ angular.module('starter')
             var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
             tmp = tmp / (1000 * 60 * 60);
 
-            diffTime.push(new Date().getTime() - new Date(item['IssueTime']).getTime());
+            item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
+            item.Time = calcTime(item['IssueTime']);
 
           });
 
           $scope.terDynamics = data;
-          console.log('diffTime---------->>>>>>>>>>', diffTime);
           $ionicLoading.hide();
         })
         .error(function (err) {
