@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('stuPersonCtrl',function($rootScope, $scope, $state, $ionicPopup, userInfo, $http){
+  .controller('stuPersonCtrl',function($rootScope, $scope, $state, $ionicPopup, userInfo, $http, $ionicHistory){
 
     var update = function(){
       var url = rootUrl + "/student_info/get_info?StudentId=" + userInfo._id;
@@ -35,13 +35,13 @@ angular.module('starter')
       update();
     })
 
-    $scope.headbks = [
-      {
-        "img":"http://123.206.199.94:3000/images/defaulter_avatar.jpeg",
-        "myname":"名字",
-        "headimg":"img/stuperson/stuh.png"
-      }
-    ]
+    //$scope.headbks = [
+    //  {
+    //    "img":"http://123.206.199.94:3000/images/defaulter_avatar.jpeg",
+    //    "myname":"名字",
+    //    "headimg":"img/stuperson/stuh.png"
+    //  }
+    //]
 
     //资料编辑
     $scope.editor = function () {
@@ -78,6 +78,7 @@ angular.module('starter')
             text:"是",
             onTap:function(e){
               $rootScope.user = {};
+              $ionicHistory.clearHistory();
               $state.go('login');
             }
           },

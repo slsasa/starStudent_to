@@ -15,9 +15,12 @@ angular.module('starter')
       });
   })
 
-  .controller('dynamicCtrl', function ($scope, $ionicPopup, $http, $ionicLoading) {
+  .controller('dynamicCtrl', function ($scope, $ionicPopup, $http, $ionicLoading, userInfo) {
 
     $ionicLoading.show();
+
+    //判断是在校园动态，还是学员动态还是教师动态
+    $scope.flag = "";
 
     var getSchoolData = function () {
       var url = rootUrl + "/dynamic/get_all_list";
@@ -26,7 +29,7 @@ angular.module('starter')
         .success(function (result) {
 
           var data = result['data'];
-          console.log('school data---------------->>>>>>>>>>',data);
+          console.log('school data---------------->>>>>>>>>>', data);
 
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
@@ -52,7 +55,7 @@ angular.module('starter')
       $http.get(url, {params: {DyType: 'student'}})
         .success(function (result) {
           var data = result.data;
-          console.log('student data---------------->>>>>>>>>>',data);
+          console.log('student data---------------->>>>>>>>>>', data);
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
           });
@@ -72,7 +75,7 @@ angular.module('starter')
 
       $http.get(url, {params: {DyType: 'teacher'}})
         .success(function (result) {
-          console.log('teacher-------------->>>>>>>>>>>',JSON.stringify(result));
+          console.log('teacher-------------->>>>>>>>>>>', JSON.stringify(result));
           var data = result.data;
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
@@ -81,14 +84,14 @@ angular.module('starter')
             //console.log(new Date(item['IssueTime']).getTime())
 
             var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
-            tmp = tmp / (1000*60*60);
+            tmp = tmp / (1000 * 60 * 60);
 
             diffTime.push(new Date().getTime() - new Date(item['IssueTime']).getTime());
 
           });
 
           $scope.terDynamics = data;
-          console.log('diffTime---------->>>>>>>>>>',diffTime);
+          console.log('diffTime---------->>>>>>>>>>', diffTime);
           $ionicLoading.hide();
         })
         .error(function (err) {
@@ -121,6 +124,7 @@ angular.module('starter')
         changeColorFont("black", "#fff", "black");
 
       }
+      $scope.flag = "_school";
       getSchoolData();
     };
 
@@ -134,6 +138,7 @@ angular.module('starter')
         changeColorFont("#fff", "black", "black");
 
       }
+      $scope.flag = "_student";
       getStudentData();
     };
 
@@ -147,6 +152,7 @@ angular.module('starter')
         changeColorBg("", "", "#F96A9F");
         changeColorFont("black", "black", "#fff");
       }
+      $scope.flag = "_teacher";
       getTeacherData();
     };
 
@@ -226,5 +232,42 @@ angular.module('starter')
         objMoreContent.style.display = "none";
         objContentSchool.style.display = "";
       }
+    }
+
+
+    //点赞
+    $scope.addLike = function ($index) {
+
+      switch ($scope.flag) {
+        case '_school':
+          var dynamicId = $scope.schoolDynamics[$index]._id;
+          break;
+        case '_student':
+          var dynamicId = $scope.stuDynamics[$index]._id;
+          break;
+        case '_teacher':
+          var dynamicId = $scope.terDynamics[$index]._id;
+          break;
+        default :
+          console.log("这是不会发生的哈哈哈哈");
+          break;
+      }
+      console.log($scope.flag);
+      console.log(dynamicId);
+
+      var data = {
+        UserId: userInfo._id,
+        DynamicId: dynamicId
+      }
+
+      var url = rootUrl + "/dynamic/add_like";
+
+      $http.post(url, data)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+        })
+        .error(function(err){
+          console.log("点赞失败",err);
+        })
     }
   });

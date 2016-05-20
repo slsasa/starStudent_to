@@ -6,6 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('login', {
         url: '/login',
+        cache: false,
         templateUrl: 'templates/login/login.html',
         controller: 'loginCtrl'
       })
@@ -22,9 +23,8 @@ angular.module('starter')
     ];
 
     $rootScope.user = {
-      num: '123',
+      num: '321',
       pwd: '000',
-      type: 'student'
     };
 
 
@@ -32,19 +32,22 @@ angular.module('starter')
       $http.post(url, data)
         .success(function (result) {
 
-
+          console.log(JSON.stringify(result));
           userInfo._id = result.data._id;
+          console.log(userInfo._id);
 
           if (result.ret_code == 0) {
             var user = result.data;
-            if (user['UserType'] == 'student') {
-              t = '_stu';
+            if (user.UserType == 'student') {
+
               userInfo.personType = '_stu';
-              $state.go('tabs.home', {type: t});
+              console.log(userInfo.personType);
+              $state.go('tabs.home', {type: userInfo.personType});
             } else {
-              t = '_teacher';
+
               userInfo.personType = '_teacher';
-              $state.go('tabs.home', {type: t})
+              console.log(userInfo.personType);
+              $state.go('tabs.home', {type: userInfo.personType})
             }
           } else if (result.ret_code == 101) {
             $ionicPopup.alert({
@@ -77,12 +80,12 @@ angular.module('starter')
 
     //提交表单 **登录**
     $scope.login = function () {
-      var t;
       $ionicLoading.show();
       var data = {
         Password: $rootScope.user.pwd,
         Account: $rootScope.user.num
       };
+      console.log(data);
 
       var url = rootUrl + "/user/login";
       update(url, data);

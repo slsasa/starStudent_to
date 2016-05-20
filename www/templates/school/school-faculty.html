@@ -7,12 +7,12 @@
   </ion-nav-title>
   <ion-content>
     <ion-lise>
-      <p style="padding: 18px 10px;text-indent: 2em;line-height: 1.5em;text-align: justify">{{tearcherApti.content}}</p>
-      <ion-item ng-repeat="teacher in tearcherApti.tearcher">
-        <img style="padding:10px 10px; ;height: 85px;width: 85px" src="{{teacher.img}}" />
+      <p style="padding: 18px 10px;text-indent: 2em;line-height: 1.5em;text-align: justify">{{tearcherApti.FacultyIntro}}</p>
+      <ion-item ng-repeat="teacher in tearcherApti.FacultyListRef">
+        <img style="padding:10px 10px; ;height: 85px;width: 85px" src="{{rootPicUrl}}{{teacher.TeacherAvatarRef.Url}}" />
         <ion-content style="padding: 20px 85px;">
-          <p >{{teacher.name}}</p>
-          <p style="font-size: 14px">{{teacher.referral}}</p>
+          <p >{{teacher.TeacherName}}</p>
+          <p style="font-size: 14px">{{teacher.TeacherIntro}}</p>
         </ion-content>
       </ion-item>
 
