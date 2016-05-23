@@ -11,7 +11,37 @@ angular.module('starter')
 
       });
   })
-  .controller('postGardenCtrl',function($scope,$cordovaImagePicker,$cordovaFileTransfer){
+  .controller('postGardenCtrl',function($scope, $cordovaImagePicker, $cordovaFileTransfer, $http, userInfo){
+
+    $scope.post_info = {
+      content: '',
+      photos: '',
+      link: ''
+    }
+
+    var postData = function(){
+      var url = rootUrl + "/learn_garden/add";
+
+      var data = {
+        IssuerId: userInfo._id,
+        Content: $scope.post_info.content,
+        LinkUrl: $scope.post_info.link
+      }
+
+      $http.post(url, data)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+        })
+        .error(function(err){
+          console.log("提交失败");
+        })
+
+    }
+
+    $scope.onSubmit = function(){
+      postData();
+    }
+
 
     $scope.photos = ['img/personal/FB.png']
     $scope.clickImg = function (index) {

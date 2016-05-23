@@ -36,7 +36,7 @@ angular.module('starter')
     }
 
 
-
+    //
     var getPaperInfo = function(){
 
       $scope.teacher = userInfo.teacherInfo;
