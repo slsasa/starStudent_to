@@ -288,11 +288,9 @@ angular.module('starter')
           var dynamicId = $scope.terDynamics[$index]._id;
           break;
         default :
-          console.log("这是不会发生的哈哈哈哈");
           break;
       }
-      console.log($scope.flag);
-      console.log(dynamicId);
+
 
       var data = {
         UserId: userInfo._id,
@@ -303,10 +301,17 @@ angular.module('starter')
 
       $http.post(url, data)
         .success(function(result){
-          console.log(JSON.stringify(result));
+          $ionicPopup.alert({
+            title:'success',
+            template:'点赞成功'
+          })
+
+
+
+          //console.log(JSON.stringify(result));
         })
         .error(function(err){
-          console.log("点赞失败",err);
+          //console.log("点赞失败",err);
         })
     }
   });
