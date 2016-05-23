@@ -4,15 +4,9 @@
 //var rootPicUrl = "http://localhost:3000/";
 
 
-var rootUrl = "http://123.206.199.94:3000";
-var rootPicUrl = "http://123.206.199.94:3000/";
-//var rootUrl = "http://115.159.115.145:3000";
-//var rootUrl = "http://112.124.118.133:3000";
-//var rootPicUrl = "http://115.159.115.145:3000/";
+var rootUrl = "http://112.124.118.133:3000";
+var rootPicUrl = "http://112.124.118.133:3000/";
 
-//var rootUrl = "http://115.159.115.145:3000";
-////var rootUrl = "http://112.124.118.133:3000";
-//var rootPicUrl = "http://115.159.115.145:3000/";
 
 
 
