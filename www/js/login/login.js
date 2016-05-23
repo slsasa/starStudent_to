@@ -23,8 +23,8 @@ angular.module('starter')
     ];
 
     $rootScope.user = {
-      num: '321',
-      pwd: '000',
+      num: 'zero',
+      pwd: '123',
     };
 
 

@@ -12,6 +12,6 @@ angular.module('starter')
         controller:'tabsCtrl'
       })
   })
-  .controller('tabsCtrl',function($scope,$stateParams){
-    $scope.type = $stateParams.type;
+  .controller('tabsCtrl',function($scope,$stateParams, userInfo){
+    $scope.type = userInfo.personType;
   })

@@ -117,7 +117,6 @@ angular.module('starter')
           console.log('teacher-------------->>>>>>>>>>>', JSON.stringify(result));
           var data = result.data;
           data.forEach(function (item) {
-            item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
             //
             //console.log ( new Date().getTime()  );
             //console.log(new Date(item['IssueTime']).getTime())
@@ -131,6 +130,7 @@ angular.module('starter')
           });
 
           $scope.terDynamics = data;
+
           $ionicLoading.hide();
         })
         .error(function (err) {

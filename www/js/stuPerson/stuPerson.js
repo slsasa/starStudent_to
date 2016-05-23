@@ -6,6 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('tabs.person_stu',{
         url:'/person_stu',
+        cache: false,
         views:{'person':{
           templateUrl: 'templates/stuPerson/stuPerson.html',
           controller: 'stuPersonCtrl'
@@ -31,7 +32,8 @@ angular.module('starter')
         })
     }
 
-    $scope.$on('$ionicView.beforeEnter',function(){
+    $scope.$on('$ionicView.beforeEnter' ,function(){
+      //setTimeout(update,500);
       update();
     })
 
