@@ -7,9 +7,14 @@
 
 
     <p style="margin: 7px 10px;">{{course['ProfName']}}</p>
-    <p style="text-align: center">{{courseDetail['Name']}}</p>
-    <img ng-src="img/course/coursebk.png" style="width: 100%;height: 145px"/>
 
+    <div>
+      <img ng-src="img/course/coursebk.png" style="width: 100%;height: 145px"/>
+
+      <div style="position:absolute;z-indent:2;left: 12px;color: white;top: 43px;font-size: 16px;">
+        {{courseDetail['Name']}}
+      </div>
+    </div>
     <p style="  text-indent:2em;   margin: 5px 10px;text-align: justify;">{{courseDetail['Content']}}</p>
 
   </ion-content>
