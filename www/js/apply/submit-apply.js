@@ -25,10 +25,10 @@ angular.module('starter')
     $scope.onSubmit = function () {
       $ionicLoading.show();
       var data = {
-        student_id: $scope.user.user_id,
-        sign_project_id: $scope.user.apply_id,
-        name: $scope.user.name,
-        tel: $scope.user.tel
+        StudentId: $scope.user.user_id,
+        SignProjectId: $scope.user.apply_id,
+        Name: $scope.user.name,
+        Tel: $scope.user.tel
       };
       console.log(data);
 

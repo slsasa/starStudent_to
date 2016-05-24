@@ -133,16 +133,18 @@ angular.module('starter')
     $scope.onSubmit = function(){
       $ionicLoading.show();
       var data = {
-        issuer_id: userInfo._id,
-        content: $scope.msg.content
+        IssuerId: userInfo._id,
+        Content: $scope.msg.content
       }
       console.log(data);
 
-      if(userInfo.personType == "_stu"){
-        var url = rootUrl + "/student_dynamic/add";
-      }else if(userInfo.personType == "_teacher"){
-        var url = rootUrl + "/teacher_dynamic/add";
-      }
+      var url = rootUrl + "/dynamic/add";
+
+      //if(userInfo.personType == "_stu"){
+      //
+      //}else if(userInfo.personType == "_teacher"){
+      //
+      //}
 
 
       $http.post(url, data)
@@ -157,6 +159,11 @@ angular.module('starter')
               template: '发布成功'
             })
             $ionicHistory.goBack(-1);
+          }else{
+            $ionicPopup.alert({
+              title: '提醒',
+              template: '发布内容有问题'
+            })
           }
         })
         .error(function(err){

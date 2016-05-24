@@ -7,6 +7,7 @@ angular.module('starter')
       .state('tabs', {
         url: '/tabs:type',
         abstract: true,
+        cache: false,
         templateUrl: 'templates/tabs.html',
         controller:'tabsCtrl'
       })

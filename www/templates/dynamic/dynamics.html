@@ -41,7 +41,7 @@
 
         <div class="comments">
            <span id="{{$index+'school'}}" style="display: none;    padding: 0px 10px 0px;">
-               <a class="button buttonDy" ng-click="">点赞</a>
+               <a class="button buttonDy" ng-click="addLike($index)">点赞</a>
                <a class="button buttonDy" ng-click="">分享</a>
            </span>
           <i class="ion-chatbox-working" ng-click="showClickSchool($index)"></i>
@@ -75,7 +75,7 @@
         </div>
         <div class="comments">
            <span id="{{$index+'stu'}}" style="display: none;    padding: 0px 10px 0px;">
-          <a class=" button buttonDy" ng-click="">点赞</a>
+          <a class=" button buttonDy" ng-click="addLike($index)">点赞</a>
           <a class=" button buttonDy" ng-click="">分享</a>
         </span>
           <i class="ion-chatbox-working" ng-click="showClickStudent($index)"></i>
@@ -107,7 +107,7 @@
         </div>
         <div class="comments">
            <span id="{{$index+'teacher'}}" style="display: none;    padding: 0px 10px 0px;">
-          <a class=" button buttonDy" ng-click="">点赞</a>
+          <a class=" button buttonDy" ng-click="addLike($index)">点赞</a>
           <a class=" button buttonDy" ng-click="">分享</a>
         </span>
           <i class="ion-chatbox-working" ng-click="showClickTeacher($index)"></i>

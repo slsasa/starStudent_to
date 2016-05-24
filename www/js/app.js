@@ -2,10 +2,18 @@
 //var rootUrl = "http://localhost:3000";
 //var rootUrl = "http://112.124.118.133:3000";
 //var rootPicUrl = "http://localhost:3000/";
-
-
 var rootUrl = "http://123.206.199.94:3000";
 var rootPicUrl = "http://123.206.199.94:3000/";
+//var rootUrl = "http://115.159.115.145:3000";
+//var rootUrl = "http://112.124.118.133:3000";
+//var rootPicUrl = "http://115.159.115.145:3000/";
+
+//var rootUrl = "http://115.159.115.145:3000";
+////var rootUrl = "http://112.124.118.133:3000";
+//var rootPicUrl = "http://115.159.115.145:3000/";
+//>>>>>>> 5e941ddb1b16442beb7e1a4a789356da61b820a4
+
+
 
 
 // Ionic Starter App
@@ -67,8 +75,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .filter('ifMore', function () {
     return function (input) {
       input = input || [];
-      if (input.length > 80) {
-        return input.slice(0, 80);
+      if (input.length > 33) {
+        return input.slice(0, 33);
       } else {
         return input;
       }

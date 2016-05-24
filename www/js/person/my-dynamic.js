@@ -19,10 +19,11 @@ angular.module('starter')
       var url = rootUrl + '/dynamic/get_self_list';
       var query = {UserId: userInfo._id};
 
+
       $http.get(url, {params: query})
         .success(function (result) {
           $ionicLoading.hide();
-          console.log('dynamic >>>>', JSON.stringify(result));
+
           var data = result.data;
           data.forEach(function (item) {
 

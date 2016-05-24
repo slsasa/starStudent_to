@@ -34,12 +34,12 @@ angular.module('starter')
           data.forEach(function (item) {
             var i = 0;
             item['Course'].forEach(function(item){
-              item['detail_id'] = i;
+              item['_id'] = i;
               i++;
+              item.PicRef.Url = rootPicUrl + item.PicRef.Url;
             })
+            item.PicRef.Url = rootPicUrl + item.PicRef.Url;
           })
-
-          console.log(data);
           $scope.courses = data;
           $ionicLoading.hide();
         })
@@ -53,9 +53,7 @@ angular.module('starter')
       update();
     })
 
-    $scope.goCourse = function(course,detail){
-
-      userInfo.course = course;
+    $scope.goCourse = function(detail){
       userInfo.courseDetail = detail;
       $state.go('course-detail');
     }

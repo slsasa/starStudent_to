@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('teacherMineCtrl',function($scope, $state, $http, userInfo){
+  .controller('teacherMineCtrl',function($scope, $state, $http, userInfo, $ionicPopup){
     var update = function(){
       var url = rootUrl + "/teacher_style/get_all_list";
 

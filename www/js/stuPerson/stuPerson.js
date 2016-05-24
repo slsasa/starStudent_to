@@ -12,14 +12,36 @@ angular.module('starter')
         }}
       });
   })
-  .controller('stuPersonCtrl',function($rootScope,$scope,$state,$ionicPopup){
-    $scope.headbks = [
-      {
-        "img":"img/stuperson/stubk.png",
-        "myname":"名字",
-        "headimg":"img/stuperson/stuh.png"
-      }
-    ]
+  .controller('stuPersonCtrl',function($rootScope, $scope, $state, $ionicPopup, userInfo, $http, $ionicHistory){
+
+    var update = function(){
+      var url = rootUrl + "/student_info/get_info?StudentId=" + userInfo._id;
+
+      $http.get(url)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+          var data = result.data;
+          data.PicAvatarRef.Url = rootPicUrl + data.PicAvatarRef.Url;
+          data.PicBgRef.Url = rootPicUrl + data.PicBgRef.Url;
+          $scope.studentInfo = data;
+          console.log($scope.studentInfo);
+        })
+        .error(function(err){
+          console.log("获取个人信息失败");
+        })
+    }
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+      update();
+    })
+
+    //$scope.headbks = [
+    //  {
+    //    "img":"http://123.206.199.94:3000/images/defaulter_avatar.jpeg",
+    //    "myname":"名字",
+    //    "headimg":"img/stuperson/stuh.png"
+    //  }
+    //]
 
     //资料编辑
     $scope.editor = function () {
@@ -56,6 +78,7 @@ angular.module('starter')
             text:"是",
             onTap:function(e){
               $rootScope.user = {};
+              $ionicHistory.clearHistory();
               $state.go('login');
             }
           },

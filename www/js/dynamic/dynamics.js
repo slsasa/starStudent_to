@@ -15,9 +15,52 @@ angular.module('starter')
       });
   })
 
-  .controller('dynamicCtrl', function ($scope, $ionicPopup, $http, $ionicLoading) {
+  .controller('dynamicCtrl', function ($scope, $ionicPopup, $http, $ionicLoading, userInfo) {
+
+    var calcTime = function( timeString ) {
+      var tmp = new Date().getTime() - new Date(timeString).getTime();
+      tmp = tmp / (1000);
+      var level = 1;
+
+      while ( tmp > 60 ) {
+        tmp /= 60;
+        level += 1;
+        if ( level >= 3 ) break;
+      }
+      if ( tmp > 24 ) {
+        level += 1;
+        tmp /= 24;
+      }
+      var difTimeRes = parseInt(tmp);
+      if ( difTimeRes > 30 ) {
+        difTimeRes = new Date(timeString).toLocaleDateString()
+        level += 1 ;
+      }
+      switch ( level ) {
+        case 1:
+          difTimeRes += ' 秒前'
+          break;
+        case 2:
+          difTimeRes += ' 分钟前'
+          break;
+        case 3:
+          difTimeRes += ' 小时前'
+          break;
+        case 4:
+          difTimeRes += ' 天前'
+          break;
+        default:
+          // bu 处理
+          break;
+      }
+      return difTimeRes;
+    }
+
 
     $ionicLoading.show();
+
+    //判断是在校园动态，还是学员动态还是教师动态
+    $scope.flag = "";
 
     var getSchoolData = function () {
       var url = rootUrl + "/dynamic/get_all_list";
@@ -29,7 +72,8 @@ angular.module('starter')
 
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
-            console.log(item)
+            item['Time'] = calcTime(item["IssueTime"])
+
           });
 
           $scope.schoolDynamics = result['data'];
@@ -51,9 +95,9 @@ angular.module('starter')
       $http.get(url, {params: {DyType: 'student'}})
         .success(function (result) {
           var data = result.data;
-
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
+            item.Time = calcTime(item["IssueTime"]);
           });
 
           $scope.stuDynamics = data;
@@ -61,7 +105,7 @@ angular.module('starter')
         })
         .error(function (err) {
           $ionicLoading.hide();
-          console.log(err);
+          //console.log(err);
         })
     };
 
@@ -70,10 +114,20 @@ angular.module('starter')
 
       $http.get(url, {params: {DyType: 'teacher'}})
         .success(function (result) {
-          console.log(JSON.stringify(result));
+          console.log('teacher-------------->>>>>>>>>>>', JSON.stringify(result));
           var data = result.data;
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
+            //
+            //console.log ( new Date().getTime()  );
+            //console.log(new Date(item['IssueTime']).getTime())
+
+            var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
+            tmp = tmp / (1000 * 60 * 60);
+
+            item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
+            item.Time = calcTime(item['IssueTime']);
+
           });
 
           $scope.terDynamics = data;
@@ -109,6 +163,7 @@ angular.module('starter')
         changeColorFont("black", "#fff", "black");
 
       }
+      $scope.flag = "_school";
       getSchoolData();
     };
 
@@ -122,6 +177,7 @@ angular.module('starter')
         changeColorFont("#fff", "black", "black");
 
       }
+      $scope.flag = "_student";
       getStudentData();
     };
 
@@ -135,6 +191,7 @@ angular.module('starter')
         changeColorBg("", "", "#F96A9F");
         changeColorFont("black", "black", "#fff");
       }
+      $scope.flag = "_teacher";
       getTeacherData();
     };
 
@@ -214,5 +271,42 @@ angular.module('starter')
         objMoreContent.style.display = "none";
         objContentSchool.style.display = "";
       }
+    }
+
+
+    //点赞
+    $scope.addLike = function ($index) {
+
+      switch ($scope.flag) {
+        case '_school':
+          var dynamicId = $scope.schoolDynamics[$index]._id;
+          break;
+        case '_student':
+          var dynamicId = $scope.stuDynamics[$index]._id;
+          break;
+        case '_teacher':
+          var dynamicId = $scope.terDynamics[$index]._id;
+          break;
+        default :
+          console.log("这是不会发生的哈哈哈哈");
+          break;
+      }
+      console.log($scope.flag);
+      console.log(dynamicId);
+
+      var data = {
+        UserId: userInfo._id,
+        DynamicId: dynamicId
+      }
+
+      var url = rootUrl + "/dynamic/add_like";
+
+      $http.post(url, data)
+        .success(function(result){
+          console.log(JSON.stringify(result));
+        })
+        .error(function(err){
+          console.log("点赞失败",err);
+        })
     }
   });
