@@ -17,11 +17,11 @@
     <div id="student" class="list" style="padding: 15px 0px;">
       <ion-item class="item-avatar card" ng-repeat="leagarden in  leagardens">
         <div class="item-avatar">
-          <img src="{{leagarden.issuer_avatar_id.pic_url}}" style="border-radius: 40px">
-          <h4 style="    margin: 15px 0px 5px 0px;">{{leagarden.issuer_name}}</h4>
-          <p>{{leagarden.time | date : 'yyyy-MM-dd'}}</p>
+          <img src="{{rootPicUrl}}{{leagarden.IssuerAvatarRef.Url}}" style="border-radius: 40px">
+          <h4 style="    margin: 15px 0px 5px 0px;">{{leagarden.IssuerName}}</h4>
+          <p>{{leagarden.Time | date : 'yyyy-MM-dd'}}</p>
 
-          <div ng-if="leagarden.content.length >=36">
+          <div ng-if="leagarden.Content.length >=36">
             <div id="{{leagarden._id+'contentLea'}}"> {{leagarden.content |ifMore}}</div>
             <div id="{{leagarden._id+'moreContentLea'}}" style="display: none"> {{leagarden.content}}</div>
 
@@ -30,13 +30,13 @@
             </div>
           </div>
 
-          <div ng-if="leagarden.content.length <36">
-            <p> {{leagarden.content}}</p>
+          <div ng-if="leagarden.Content.length <36">
+            <p> {{leagarden.Content}}</p>
           </div>
 
-          <div ng-if="leagarden.issuer_avatar_id.pic_url != ''">
-            <a href="{{leagarden.link_url}}">
-              <img width="150px" height="150px" ng-src="{{leagarden.issuer_avatar_id.pic_url}}"/>
+          <div ng-if="leagarden.IssuerAvatarRef.Url != ''">
+            <a href="{{leagarden.LinkUrl}}">
+              <img width="150px" height="150px" ng-src="{{rootPicUrl}}{{leagarden.IssuerAvatarRef.Url}}"/>
             </a>
           </div>
 

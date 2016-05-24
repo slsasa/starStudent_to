@@ -11,9 +11,9 @@
     <div class="list">
       <a class="item" ng-repeat="apply in applys" ng-click="myApplyDeatil(apply.id)">
         <div class="item-thumbnail-left">
-          <img ng-src={{apply.img}}>
-          <h2>{{apply.title}}</h2>
-          <p>报名费:{{apply.cost}}</p>
+          <img ng-src={{rootPicUrl}}{{apply.SignPicRef.Url}}>
+          <h2>{{apply.Profession}}</h2>
+          <p>报名费:{{apply.SignUpCost}}</p>
         </div>
       </a>
     </div>

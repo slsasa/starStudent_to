@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('personageMsgCtrl',function($scope, $http, userInfo){
+  .controller('personageMsgCtrl',function($scope, $http, userInfo, $ionicLoading){
 
     var update = function(){
       var url = rootUrl + "/student_info/get_info?StudentId=" + userInfo._id;
@@ -46,6 +46,7 @@ angular.module('starter')
         .success(function(result){
           console.log(JSON.stringify(result));
           console.log("修改信息成功");
+          $ionicLoading.hide();
         })
         .error(function(err){
           console.log("提交数据失败");
@@ -53,6 +54,7 @@ angular.module('starter')
     }
 
     $scope.$on('$ionicView.beforeLeave',function(){
+      $ionicLoading.show();
       postData();
     })
 

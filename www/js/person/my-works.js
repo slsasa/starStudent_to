@@ -36,15 +36,15 @@ angular.module('starter')
     }
 
 
-
+    //
     var getPaperInfo = function(){
 
       $scope.teacher = userInfo.teacherInfo;
-      console.log(">>>>>>>>>>>>>teahcer",JSON.stringify($scope.teacher));
+
 
       var url = rootUrl + "/teacher_article/get_self_list";
 
-      $http.get(url,{params:{TeacherId:$scope.teacher['TeacherRef'] ,ArticleType:'paper'}})
+      $http.get(url,{params:{TeacherId:userInfo._id ,ArticleType:'paper'}})
         .success(function(result){
 
           var data = result.data;
@@ -57,7 +57,7 @@ angular.module('starter')
 
 
     $scope.goLogsDetail = function (log) {
-      userInfo.mgLog = log
+      userInfo.mgLog = log;
       $state.go('myLogs-detail');
     };
 
@@ -134,26 +134,29 @@ angular.module('starter')
     $scope.showLog();
 
 
-    $scope.onSubmit = function (article, articleContent) {
+    $scope.onSubmitWorks = function (article, articleContent) {
+
+
+      //$ionicLoading.show();
       $scope.articleType = article;
       $scope.$scope.articleContent = articleContent;
-      if (article) {
-        $ionicLoading.show();
 
-        $http.post('http://115.159.115.145:3000/upload/', data)
-          .success(function () {
-            $ionicLoading.hide();
-            $ionicPopup.alert({
-              title: '提示',
-              template: '提交申请成功'
-            }).then(function () {
-              $ionicHistory.goBack();
-            });
-          }).error(function () {
+      $scope.photos.forEach(function (item) {
+        var image = item;
+        //$http.post('http://123.206.199.94:3000/upload/', {photo: image})
+        //  .success(function (result) {
+        //    $ionicLoading.hide();
+        //    $ionicPopup.alert({
+        //      title: '提示',
+        //      template: '提交申请成功'
+        //    });
+        //
+        //  }).error(function(err){
+        //    alert(JSON.stringify(err));
+        //  })
+      });
+    }
 
-          });
-      }
-    };
 
 
     $scope.photos = ['img/personal/FB.png'];
@@ -187,6 +190,7 @@ angular.module('starter')
               if (item != undefined) {
                 //$scope.imgSrc_after = item;
                 $scope.photos.push(item);
+                $scope['postImages'].push(item);
                 var fileName = item.split('/').pop();
                 var fileURL = item;
 
@@ -196,14 +200,14 @@ angular.module('starter')
                   mimeType: "image/jpeg"
                 };
 
-                $cordovaFileTransfer.upload(encodeURI('http://115.159.115.145:3000/upload/'), fileURL, options)
-                  .then(function (result) {
-                    //
-                    alert(JSON.stringify(result));
-                    console.log(result);
-                    $ionicLoading.hide();
-                    //$scope.img_id
-                  });
+                //$cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload'), fileURL, options)
+                //  .then(function (result) {
+                //    //
+                //    alert(JSON.stringify(result));
+                //    console.log(result);
+                //    $ionicLoading.hide();
+                //    //$scope.img_id
+                //  });
               }
             });
 

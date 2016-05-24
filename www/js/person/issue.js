@@ -107,7 +107,7 @@ angular.module('starter')
                   mimeType: "image/jpeg"
                 };
 
-                $cordovaFileTransfer.upload(encodeURI('http://115.159.115.145:3000/upload/'), fileURL, options)
+                $cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload/'), fileURL, options)
                   .then(function (result) {
                     //
                     alert(JSON.stringify(result));
