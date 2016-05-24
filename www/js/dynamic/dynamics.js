@@ -114,12 +114,9 @@ angular.module('starter')
 
       $http.get(url, {params: {DyType: 'teacher'}})
         .success(function (result) {
-          console.log('teacher-------------->>>>>>>>>>>', JSON.stringify(result));
           var data = result.data;
           data.forEach(function (item) {
-            //
-            //console.log ( new Date().getTime()  );
-            //console.log(new Date(item['IssueTime']).getTime())
+
 
             var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
             tmp = tmp / (1000 * 60 * 60);
@@ -135,7 +132,6 @@ angular.module('starter')
         })
         .error(function (err) {
           $ionicLoading.hide();
-          console.log("获取数据失败");
         })
     };
 
@@ -154,6 +150,8 @@ angular.module('starter')
 
     //学校动态按钮
     $scope.showSchoolDynamic = function () {
+      getSchoolData();
+      $scope.flag = "_school";
       $scope.objStudent.style.display = "none";
       $scope.objTeacher.style.display = "none";
       $scope.objSchool.style.display = "";
@@ -163,12 +161,14 @@ angular.module('starter')
         changeColorFont("black", "#fff", "black");
 
       }
-      $scope.flag = "_school";
-      getSchoolData();
+
+
     };
 
     //学员动态按钮
     $scope.showStudentDynamic = function () {
+      getStudentData();
+      $scope.flag = "_student";
       $scope.objTeacher.style.display = "none";
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "";
@@ -177,13 +177,14 @@ angular.module('starter')
         changeColorFont("#fff", "black", "black");
 
       }
-      $scope.flag = "_student";
-      getStudentData();
+
+
     };
 
     //教师动态按钮
     $scope.showTeacherDynamic = function () {
-
+      getTeacherData();
+      $scope.flag = "_teacher";
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "none";
       $scope.objTeacher.style.display = "";
@@ -191,8 +192,8 @@ angular.module('starter')
         changeColorBg("", "", "#F96A9F");
         changeColorFont("black", "black", "#fff");
       }
-      $scope.flag = "_teacher";
-      getTeacherData();
+
+
     };
 
     var changeColorBg = function (stu, school, teacher) {
@@ -291,7 +292,6 @@ angular.module('starter')
           break;
       }
 
-
       var data = {
         UserId: userInfo._id,
         DynamicId: dynamicId
@@ -306,12 +306,9 @@ angular.module('starter')
             template:'点赞成功'
           })
 
-
-
-          //console.log(JSON.stringify(result));
         })
         .error(function(err){
-          //console.log("点赞失败",err);
+
         })
     }
   });

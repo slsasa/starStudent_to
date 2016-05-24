@@ -4,8 +4,8 @@
 //var rootPicUrl = "http://localhost:3000/";
 
 
-var rootUrl = "http://112.124.118.133:3000";
-var rootPicUrl = "http://112.124.118.133:3000/";
+var rootUrl = "http://123.206.199.94:3000";
+var rootPicUrl = "http://123.206.199.94:3000/";
 
 
 
@@ -20,7 +20,38 @@ var rootPicUrl = "http://112.124.118.133:3000/";
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-  .run(function ($ionicPlatform, $ionicHistory, $ionicPopup, $http, $state) {
+  .run(function ($ionicPlatform, $ionicHistory, $ionicPopup, $location, $http, $state) {
+
+    //返回键处理
+    //主页面显示退出提示框
+    $ionicPlatform.registerBackButtonAction(function (e) {
+      e.preventDefault();
+      function showConfirm() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: '<strong>退出应用?</strong>',
+          template: '你确定要退出应用吗?',
+          okText: '退出',
+          cancelText: '取消'
+        });
+        confirmPopup.then(function (res) {
+          if (res) {
+            ionic.Platform.exitApp();
+          } else {
+
+          }
+        });
+      }
+
+      if ($location.path() == '/home/homeInfo') {
+        showConfirm();
+      } else if ($ionicHistory.backView()) {
+        $ionicHistory.goBack();
+      } else {
+        showConfirm();
+      }
+      return false;
+    }, 101);
+
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -35,6 +66,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         //StatusBar.styleDefault();
         StatusBar.styleLightContent();
       }
+
+
+
+
     });
   })
 

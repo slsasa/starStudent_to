@@ -10,119 +10,45 @@ angular.module('starter')
         controller:'issueCtrl'
       });
   })
-//<<<<<<< HEAD
-//  .controller('issueCtrl',function($scope,$cordovaImagePicker,$cordovaFileTransfer){
-//    $scope.contents;
-//
-//    $scope.photos = ['img/img2.png'];
-//    $scope.img_id = [];
-//    $scope.clickPhoto = function (index) {
-//
-//      var item = $scope.photos[index];
-//      if (item != 'img/img2.png') {
-//        $ionicLoading.show();
-//
-//
-//      } else {
-//        //
-//        var options = {
-//          maximumImagesCount: 9,
-//          width: 500,
-//          height: 500,
-//          quality: 80
-//        };
-//
-//        $cordovaImagePicker.getPictures(options)
-//          //以下为选好图片后的方法
-//          // @type: results [1, 2, 3]
-//          .then(function (results) {
-//
-//
-//            results.forEach(function (item) {
-//              if (item != undefined) {
-//                //$scope.imgSrc_after = item;
-//                $scope.photos.push(item);
-//                var fileName = item.split('/').pop();
-//                var fileURL = item;
-//
-//                var options = {
-//                  fileKey: "image",
-//                  fileName: fileName,
-//                  mimeType: "image/jpeg"
-//                };
-//
-//                $cordovaFileTransfer.upload(encodeURI('http://115.159.115.145:3000/upload/'), fileURL, options)
-//                  .then(function (result) {
-//                    //
-//                    alert(JSON.stringify(result));
-//                    console.log(result);
-//                    $ionicLoading.hide();
-//                    $scope.img_id = result._id
-//                  });
-//              }
-//            });
-//
-//          }, function (error) {
-//          })
-//      }
-//=======
+
   .controller('issueCtrl',function($scope, userInfo, $http, $ionicHistory, $ionicPopup,$cordovaImagePicker,$cordovaFileTransfer,$ionicLoading){
 
-    $scope.photos =['img/personal/FB.png']
-    $scope.clickPhoto = function (index) {
+    $scope.photos = [];
+    $scope.clickPhoto = function () {
+      var options = {
+        maximumImagesCount: 9,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+          results.forEach(function (item) {
+            $scope.photos.push(item);
+          });
+        }, function (error) {
 
-      var item = $scope.photos[index];
-      if (item != 'img/personal/FB.png') {
-        $ionicLoading.show();
-        //$http.post('http://115.159.115.145:3000/upload/', {file: item}).success(function () {
-        //  $ionicLoading.hide();
-        //  $scope.photos.splice(index, 1);
-        //});
+        });
+    }
 
-      } else {
-        //
-        var options = {
-          maximumImagesCount: 9,
-          width: 500,
-          height: 500,
-          quality: 80
-        };
+    $scope.replaceImage = function (index) {
 
-        $cordovaImagePicker.getPictures(options)
-          //以下为选好图片后的方法
-          // @type: results [1, 2, 3]
-          .then(function (results) {
+      var options = {
+        maximumImagesCount: 1,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+          $scope.photos[index] = results[0];
+        }, function (error) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '选择出错:' + error
+          });
 
-
-            results.forEach(function (item) {
-              if (item != undefined) {
-                //$scope.imgSrc_after = item;
-                $scope.photos.push(item);
-                var fileName = item.split('/').pop();
-                var fileURL = item;
-
-                var options = {
-                  fileKey: "image",
-                  fileName: fileName,
-                  mimeType: "image/jpeg"
-                };
-
-                $cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload/'), fileURL, options)
-                  .then(function (result) {
-                    //
-                    alert(JSON.stringify(result));
-                    console.log(result);
-                    $ionicLoading.hide();
-                    //$scope.img_id
-                  });
-              }
-            });
-
-          }, function (error) {
-            alert('上传失败');
-            $ionicLoading.hide();
-          })
-      }
+        });
     }
 
     $scope.msg = {
@@ -136,15 +62,9 @@ angular.module('starter')
         IssuerId: userInfo._id,
         Content: $scope.msg.content
       }
-      console.log(data);
+      //console.log(data);
 
       var url = rootUrl + "/dynamic/add";
-
-      //if(userInfo.personType == "_stu"){
-      //
-      //}else if(userInfo.personType == "_teacher"){
-      //
-      //}
 
 
       $http.post(url, data)
@@ -176,7 +96,32 @@ angular.module('starter')
           );
         })
 
+      //post图片
+      var async_map = function(photo_list,callback){
+        var photo_id_list = [];
+        var async_count = 0;
+        photo_list.forEach(function(item){
+          var fileName = item.split('/').pop();
+          var options = {
+            fileKey: "image",
+            fileName: fileName,
+            mimeType: "image/jpeg"
+          };
 
+          $cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload'), item, options)
+            .then(function (result) {
+              var id = result['response']['data']['_id'];
+              async_count++;
+              photo_id_list.push(id);
+              if(async_count == photo_id_list.length){
+                callback(photo_id_list)
+              }
+            });
+        })
+      };
+      async_map($scope.photos, function (id_list) {
+        alert('Id List >>> ' + JSON.stringify(id_list))
+      });
     }
 
   })

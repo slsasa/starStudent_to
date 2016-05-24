@@ -12,7 +12,37 @@ angular.module('starter')
         }}
       });
   })
-  .controller('homeCtrl',function($scope, $state, $http, userInfo, $ionicSlideBoxDelegate,$ionicLoading){
+  .controller('homeCtrl',function($rootScope,$scope, $state, $http,$ionicPopup, $ionicSlideBoxDelegate,$ionicLoading ,userInfo){
+
+    //学校动态
+    var schoolUpdate = function(){
+      var url = rootUrl + "/dynamic/get_all_list?DyType=school";
+
+      $http.get(url)
+        .success(function(result){
+          var banner_list = [];
+          var data = result.data;
+
+          data[0]['PicListRef'].forEach(function (item) {
+            banner_list.push(rootPicUrl + item['Url'])
+          });
+
+          $scope.dynamics = data;
+          userInfo.schoolDynamics = data;
+          userInfo.banner_list = banner_list;
+
+          $ionicSlideBoxDelegate.update();
+          $ionicSlideBoxDelegate.loop(true);
+
+        })
+        .error(function(err){
+          $ionicPopup.alert({
+            title:'提醒',
+            template:'获取数据出错:'+err
+          });
+        })
+
+    }
 
     var update = function(){
 
@@ -35,12 +65,13 @@ angular.module('starter')
         })
         .error(function(err){
           $ionicLoading.hide();
-          //console.log(err);
+
         })
     }
 
     $scope.$on('$ionicView.beforeEnter',function(){
       update();
+      schoolUpdate();
     })
 
 
@@ -85,9 +116,9 @@ angular.module('starter')
     //放大图片
     $scope.goMagnifyImg = function(banner){
       userInfo.banner = banner;
-      console.log('->>>>>>>>>>>>banner',userInfo.banner);
+
       userInfo.img = userInfo.banner.bannerImg;
         $state.go('magnify-img');
-    }
+    };
 
   })
