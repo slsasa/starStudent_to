@@ -7939,8 +7939,8 @@ input[type="checkbox"][readonly] {
 .checkbox input,
 .checkbox-icon {
   position: relative;
-  width: 28px;
-  height: 28px;
+  width: 23px;
+  height: 23px;
   display: block;
   border: 0;
   background: transparent;
@@ -8030,9 +8030,9 @@ input:checked + .checkbox-icon:after {
   position: absolute;
   top: 50%;
   right: 8px;
-  left: 8px;
+  left: 12px;
   z-index: 3;
-  margin-top: -21px; }
+  margin-top: -19px; }
 
 .item-checkbox.item-checkbox-right {
   padding-right: 60px;
