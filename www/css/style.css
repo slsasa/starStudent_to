@@ -21,7 +21,7 @@ td {
 .logininput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
 .loginaccount{background-color: rgba(255, 255, 255, 0);border-radius: 10px;width: 190px;    margin: -34px 40px;
 }
-.mebk{width:100px;height:100px;border-radius:100px;margin: 8% 8%;}
+.mebk{width:250px;height:250px;margin: -76px 0 0 -68px}
 .loginbk{height: auto;}
 .loginforget{color: #ffffff;font-weight:bold;  margin: -30px 4% 0px 0;font-size: 16px;
 }
