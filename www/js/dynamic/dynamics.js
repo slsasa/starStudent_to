@@ -8,15 +8,15 @@ angular.module('starter')
         url: '/dynamics',
         views: {
           'dynamic': {
-            cache: false,
+            cache:true,
             templateUrl: 'templates/dynamic/dynamics.html',
-            controller: 'dynamicCtrl'
+            controller: 'dynCtrl'
           }
         }
       });
   })
 
-  .controller('dynamicCtrl', function ($scope, $ionicPopup, $http, $ionicLoading, userInfo) {
+  .controller('dynCtrl', function ($scope, $ionicPopup, $http, $ionicLoading, userInfo) {
 
     var calcTime = function( timeString ) {
       var tmp = new Date().getTime() - new Date(timeString).getTime();
@@ -58,78 +58,34 @@ angular.module('starter')
     }
 
 
-
-
-    //判断是在校园动态，还是学员动态还是教师动态
-    $scope.flag = "";
-
-    var getSchoolData = function () {
+    var update = function(type){
+      $ionicLoading.show();
       var url = rootUrl + "/dynamic/get_all_list";
 
-      $http.get(url, {params: {DyType: 'school'}})
-        .success(function (result) {
-
+      $http.get(url,{params:{DyType:type}})
+        .success(function(result){
           var data = result['data'];
-
-          data.forEach(function (item) {
+          data.forEach(function(item){
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
             item['Time'] = calcTime(item["IssueTime"]);
-
           });
-
-          $scope.schoolDynamics = result['data'];
+          $scope[type+'Dynamics'] = result['data'];
           $ionicLoading.hide();
         })
-        .error(function (err) {
+        .error(function(err){
           $ionicLoading.hide();
           $ionicPopup.alert({
-            title: 'err',
-            template: '数据加载失败'
+            title:'提醒',
+            template:'校园动态获取数据失败:'+err
           });
-          console.log(err);
-        })
-    };
+        });
+    }
 
-    var getStudentData = function () {
-      var url = rootUrl + "/dynamic/get_all_list";
-
-      $http.get(url, {params: {DyType: 'student'}})
-        .success(function (result) {
-          var data = result.data;
-          data.forEach(function (item) {
-            item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
-            item.Time = calcTime(item["IssueTime"]);
-          });
-          $scope.stuDynamics = data;
-          $ionicLoading.hide();
-        })
-        .error(function (err) {
-          $ionicLoading.hide();
-          //console.log(err);
-        })
-    };
-
-    var getTeacherData = function () {
-      var url = rootUrl + "/dynamic/get_all_list";
-
-      $http.get(url, {params: {DyType: 'teacher'}})
-        .success(function (result) {
-          var data = result.data;
-          data.forEach(function (item) {
-            //var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
-            //tmp = tmp / (1000 * 60 * 60);
-
-            item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
-            item.Time = calcTime(item['IssueTime']);
-
-          });
-          $scope.terDynamics = data;
-          $ionicLoading.hide();
-        })
-        .error(function (err) {
-          $ionicLoading.hide();
-        })
-    };
+    $scope.$on('$ionicView.beforeEnter',function(){
+      update('student');
+      update('school');
+      update('teacher');
+    })
 
 
     $scope.objSchool = document.getElementById('school');
@@ -146,8 +102,8 @@ angular.module('starter')
 
     //学校动态按钮
     $scope.showSchoolDynamic = function () {
-      getSchoolData();
-      $scope.flag = "_school";
+
+      $scope.flag = "school";
       $scope.objStudent.style.display = "none";
       $scope.objTeacher.style.display = "none";
       $scope.objSchool.style.display = "";
@@ -158,13 +114,12 @@ angular.module('starter')
 
       }
 
-
     };
 
     //学员动态按钮
     $scope.showStudentDynamic = function () {
-      getStudentData();
-      $scope.flag = "_student";
+
+      $scope.flag = "student";
       $scope.objTeacher.style.display = "none";
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "";
@@ -179,8 +134,8 @@ angular.module('starter')
 
     //教师动态按钮
     $scope.showTeacherDynamic = function () {
-      getTeacherData();
-      $scope.flag = "_teacher";
+
+      $scope.flag = "teacher";
       $scope.objSchool.style.display = "none";
       $scope.objStudent.style.display = "none";
       $scope.objTeacher.style.display = "";
@@ -204,7 +159,6 @@ angular.module('starter')
       $scope.objTeacherClick.style.color = teacher;
     };
 
-    $scope.showStudentDynamic();
 
     $scope.showClickSchool = function (index) {
       var objClick = document.getElementById(index + 'school');
@@ -271,18 +225,21 @@ angular.module('starter')
     }
 
 
+
     //点赞
+    //判断是在校园动态，还是学员动态还是教师动态
+    $scope.flag = "";
     $scope.addLike = function ($index) {
 
       switch ($scope.flag) {
-        case '_school':
-          var dynamicId = $scope.schoolDynamics[$index]._id;
+        case 'school':
+          var dynamicId = $scope['schoolDynamics'][$index]._id;
           break;
-        case '_student':
-          var dynamicId = $scope.stuDynamics[$index]._id;
+        case 'student':
+          var dynamicId = $scope['studentDynamics'][$index]._id;
           break;
-        case '_teacher':
-          var dynamicId = $scope.terDynamics[$index]._id;
+        case 'teacher':
+          var dynamicId = $scope['teacherDynamics'][$index]._id;
           break;
         default :
           break;

@@ -6,6 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('paper-detail', {
         url: '/paper-detail',
+        cache: false,
         templateUrl: 'templates/production/paper-detail.html',
         controller: 'paperDetailCtrl'
       });

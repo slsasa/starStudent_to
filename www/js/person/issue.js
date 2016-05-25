@@ -6,6 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('issue',{
         url:'/issue',
+
         templateUrl:'templates/person/issue.html',
         controller:'issueCtrl'
       });

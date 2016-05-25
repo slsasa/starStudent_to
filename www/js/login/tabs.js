@@ -5,13 +5,13 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('tabs', {
-        url: '/tabs:type',
+        url: '/tabs',
         abstract: true,
         cache: false,
         templateUrl: 'templates/tabs.html',
         controller:'tabsCtrl'
       })
   })
-  .controller('tabsCtrl',function($scope,$stateParams, userInfo){
+  .controller('tabsCtrl',function($scope, userInfo){
     $scope.type = userInfo.personType;
   })
