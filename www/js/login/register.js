@@ -25,7 +25,7 @@ angular.module('starter')
     };
     $scope.loginbks = [
       {
-        "img": "img/logo/logo.png"
+        "img": "img/logo/loginLogo.png"
       }
     ];
 
