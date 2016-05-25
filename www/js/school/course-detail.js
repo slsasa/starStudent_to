@@ -12,6 +12,7 @@ angular.module('starter')
   })
   .controller('courseDetailCtrl',function(userInfo,$scope){
     $scope.courseDetail = userInfo.courseDetail;
+    $scope.course = userInfo.course;
     userInfo.courseDetail = {};
 
 

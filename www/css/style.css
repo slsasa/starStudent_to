@@ -23,7 +23,7 @@ td {
 }
 .mebk{width:100px;height:100px;border-radius:100px;margin: 8% 8%;}
 .loginbk{height: auto;}
-.loginforget{color: #ffffff;font-weight:bold;  margin: -28px 4% 0px 0;font-size: 16px;
+.loginforget{color: #ffffff;font-weight:bold;  margin: -30px 4% 0px 0;font-size: 16px;
 }
 .login{width: 80%;margin: 5% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 .register{width: 80%;margin: 0% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
@@ -34,7 +34,7 @@ td {
 .login4{text-align: center;padding-top: 50px;}
 .pink-bg{background-color: #f96a9f;}
 .pink-sure{background-color: #f96a9f;}
-.tt{border-radius: 10px;font-size: 14px; float: right;  margin: -55px 10%; width: 30%;min-height: 39px;box-shadow:#f96a9f 0px 23px 20px -20px ;}
+.tt{border-radius: 10px;font-size: 14px; float: right;  margin: -52px 9%; width: 30%;min-height: 39px;box-shadow:#f96a9f 0px 23px 20px -20px ;}
 /*首页*/
 .schooldyn{
   border: dashed black 1px;height: 35px;width: auto;line-height:30px
@@ -145,7 +145,7 @@ td {
 .mine{box-shadow:#f96a9f 0px 23px 20px -20px ;   }
 .kk{padding: 10px 5px 10px 0px;}
 .styleh{    height: 65px;width: 65px;border-radius: 45px;margin: 15px 0px 0px 5px}
-.stylec{    padding: 20px 10px 5px 80px; text-align: justify;}
+.stylec{       margin: -85px 0px 68px 82px;text-align: justify;}
 .stylez1{    height: 27px;margin: -2px 5px 0 20px;float: left}
 .styleHistor{    padding: 10px 0px 10px 10px;}
 .perhead2{   display: block;    margin: 0 3%;          width: 34%;}
