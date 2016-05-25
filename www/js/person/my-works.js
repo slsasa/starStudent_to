@@ -134,8 +134,8 @@ angular.module('starter')
 
           $cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload'), item, options)
             .then(function (result) {
-              //result = JSON.parse(result);
-              //result.response = JSON.parse(result.response);
+              result = JSON.parse(result);
+              result.response = JSON.parse(result.response);
               var id = result['response']['data']['_id'];
               async_count++;
               photo_id_list.push(id);
