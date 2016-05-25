@@ -15,7 +15,7 @@ angular.module('starter')
   .controller('forgotpwCtrl', function ($scope, $http, $ionicPopup, $ionicHistory, $ionicLoading) {
     $scope.loginbks = [
       {
-        "img": "img/logobk.jpg"
+        "img": "img/logo/loginLogo.png"
       }
     ];
 

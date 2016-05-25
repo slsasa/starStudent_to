@@ -21,13 +21,13 @@ td {
 .logininput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
 .loginaccount{background-color: rgba(255, 255, 255, 0);border-radius: 10px;width: 190px;    margin: -34px 40px;
 }
-.mebk{width:100px;height:100px;border-radius:100px;margin: 8% 8%;}
+.mebk{width:100px;height:100px;margin: 8px 0 0 9px}
 .loginbk{height: auto;}
 .loginforget{color: #ffffff;font-weight:bold;  margin: -30px 4% 0px 0;font-size: 16px;
 }
 .login{width: 80%;margin: 5% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 .register{width: 80%;margin: 0% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
-
+.rem{background: rgba(255, 255, 255, 0);border: none;height: 35px;line-height: 35px; color: white  ;   font-weight: bold;}
 /*注册界面*/
 .reginput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
 .verify{width: 50%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
@@ -149,3 +149,10 @@ td {
 .stylez1{    height: 27px;margin: -2px 5px 0 20px;float: left}
 .styleHistor{    padding: 10px 0px 10px 10px;}
 .perhead2{   display: block;    margin: 0 3%;          width: 34%;}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #ffffff;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #ffffff;
+}

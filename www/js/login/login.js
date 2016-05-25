@@ -18,13 +18,14 @@ angular.module('starter')
 
     $scope.loginbks = [
       {
-        "img": "img/logobk.jpg"
+        "img": "img/logo/loginLogo.png"
       }
     ];
 
     $rootScope.user = {
+
       num: '',
-      pwd: '',
+      pwd: ''
     };
 
 
