@@ -8,6 +8,7 @@ angular.module('starter')
         url: '/dynamics',
         views: {
           'dynamic': {
+            cache: false,
             templateUrl: 'templates/dynamic/dynamics.html',
             controller: 'dynamicCtrl'
           }
@@ -57,7 +58,7 @@ angular.module('starter')
     }
 
 
-    $ionicLoading.show();
+
 
     //判断是在校园动态，还是学员动态还是教师动态
     $scope.flag = "";
@@ -72,7 +73,7 @@ angular.module('starter')
 
           data.forEach(function (item) {
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
-            item['Time'] = calcTime(item["IssueTime"])
+            item['Time'] = calcTime(item["IssueTime"]);
 
           });
 
@@ -99,7 +100,6 @@ angular.module('starter')
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
             item.Time = calcTime(item["IssueTime"]);
           });
-
           $scope.stuDynamics = data;
           $ionicLoading.hide();
         })
@@ -116,18 +116,14 @@ angular.module('starter')
         .success(function (result) {
           var data = result.data;
           data.forEach(function (item) {
-
-
-            var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
-            tmp = tmp / (1000 * 60 * 60);
+            //var tmp = new Date().getTime() - new Date(item['IssueTime']).getTime();
+            //tmp = tmp / (1000 * 60 * 60);
 
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
             item.Time = calcTime(item['IssueTime']);
 
           });
-
           $scope.terDynamics = data;
-
           $ionicLoading.hide();
         })
         .error(function (err) {

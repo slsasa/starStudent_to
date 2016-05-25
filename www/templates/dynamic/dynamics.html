@@ -12,14 +12,14 @@
 
     <div id="school" class="list" style="display: none;padding: 15px 0px;">
 
-      <ion-item class="item-avatar card" ng-repeat="schoolDynamic in schoolDynamics">
+      <ion-item class="item-avatar card" ng-repeat="schoolDynamic in schoolDynamics | orderBy:'-IssueTime'">
 
         <div class="item-avatar">
 
           <img ng-src="{{schoolDynamic['IssuerAvatarRef']['Url']}}">
           <h4 style="    margin: 15px 0px 5px 0px;">{{schoolDynamic['IssuerName']}}</h4>
 
-          <p>{{schoolDynamic['Time'] | date : 'yyyy-MM-dd'}}</p>
+          <p>{{schoolDynamic['Time']}}</p>
 
           <div ng-if="schoolDynamic['Content'].length >=36">
 
@@ -52,12 +52,12 @@
     </div>
 
     <div id="student" class="list" style="padding: 15px 0px;">
-      <ion-item class="item-avatar card" ng-repeat="stuDynamic in  stuDynamics">
+      <ion-item class="item-avatar card" ng-repeat="stuDynamic in  stuDynamics | orderBy:'-IssueTime'">
         <div class="item-avatar">
           <img src="{{stuDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 40px">
           <h4 style="    margin: 15px 0px 5px 0px;">{{stuDynamic['IssuerName']}}</h4>
 
-          <p>{{stuDynamic['Time'] | date : 'yyyy-MM-dd'}}</p>
+          <p>{{stuDynamic['Time']}}</p>
 
           <div ng-if="stuDynamic['Content'].length >=36">
             <div id="{{$index+'contentStu'}}"> {{stuDynamic['Content'] |ifMore}}</div>
@@ -84,12 +84,12 @@
     </div>
 
     <div id="teacher" class="list" style="padding: 15px 0px;display: none;">
-      <ion-item class="item-avatar card" ng-repeat="terDynamic in  terDynamics">
+      <ion-item class="item-avatar card" ng-repeat="terDynamic in  terDynamics | orderBy:'-IssueTime'">
         <div class="item-avatar">
           <img src="{{terDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 100px">
           <h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic['IssuerName']}}</h4>
 
-          <p>{{terDynamic['Time'] | date : 'yyyy-MM-dd'}}</p>
+          <p>{{terDynamic['Time']}}</p>
 
           <div ng-if="terDynamic['Content'].length >=36">
             <div id="{{$index+'contentTer'}}"> {{terDynamic['Content'] |ifMore}}</div>

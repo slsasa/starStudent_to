@@ -114,13 +114,15 @@ angular.module('starter')
     };
 
     $scope.showLog();
+
+    $scope.photos = [];
     $scope.onSubmitWorks = function (article, articleContent) {
       //$ionicLoading.show();
       $scope.articleType = article;
       $scope.articleContent = articleContent;
-      //$scope.photos.splice(0, 1);
 
-      //alert('photo_list' + JSON.stringify($scope.photos));
+
+      alert('photo_list' + JSON.stringify($scope.photos));
       var async_map = function (photo_list, callback) {
         var photo_id_list = [];
         var async_count = 0;
@@ -152,7 +154,7 @@ angular.module('starter')
       });
     };
 
-    $scope.photos = [];
+
     $scope.clickPhoto = function () {
       var options = {
         maximumImagesCount: 9,

@@ -11,7 +11,7 @@ angular.module('starter')
       });
   })
   .controller('paperDetailCtrl', function ($scope,$http,userInfo) {
-    console.log('teacher------------>',JSON.stringify(userInfo.teacherInfo));
+
      $scope['teacher'] = userInfo['teacherInfo'];
      $scope['paper'] = userInfo.paper;
      userInfo['teacherInfo'] = {};

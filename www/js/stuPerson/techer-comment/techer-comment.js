@@ -13,24 +13,21 @@ angular.module('starter')
   .controller('techerComCtrl',function($scope, $http, userInfo,$ionicLoading){
 
     var updata = function(){
-      var url = rootUrl + "/student_teacher_com/get_info?student_id=" + userInfo._id;
+      //var url = rootUrl + "/student_teacher_com/get_info?student_id=" + userInfo._id;
+      var url = rootUrl + '/teacher_remark/get_self_list';
       $ionicLoading.show();
-      $http.get(url)
+      $http.get(url,{params:{StudentId:userInfo._id}})
         .success(function(result){
           console.log(JSON.stringify(result));
           var data = result.data;
           data.forEach(function(item){
-            item.teacher_avatar_id.pic_url = rootPicUrl + item.teacher_avatar_id.pic_url;
+            item['TeacherAvatarRef']['Url'] = rootPicUrl +  item['TeacherAvatarRef']['Url'];
           })
           $scope.comments = data;
           $ionicLoading.hide();
         })
         .error(function(err){
           $ionicLoading.hide();
-          $ionicPopup.alert({
-            title:'err',
-            template:'获取数据失败'
-          })
           console.log(JSON.stringify(err));
         })
     }
