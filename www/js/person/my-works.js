@@ -11,50 +11,38 @@ angular.module('starter')
 
       });
   })
-  .controller('myWorksCtrl', function ( $scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
+  .controller('myWorksCtrl', function ($scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
 
 
     //$ionicLoading.show();
-    var getLogInfo = function(){
-
-
-      $scope.userId =userInfo._id;
+    var getLogInfo = function () {
+      $scope.userId = userInfo._id;
       var url = rootUrl + "/teacher_article/get_self_list";
 
-      $http.get(url,{params:{TeacherId:userInfo._id,ArticleType:'log'}})
-        .success(function(result){
-
+      $http.get(url, {params: {TeacherId: userInfo._id, ArticleType: 'log'}})
+        .success(function (result) {
           var data = result.data;
           $scope.logs = data;
-
           $ionicLoading.hide();
         })
-        .error(function(err){
+        .error(function (err) {
           $ionicLoading.hide();
           console.log("获取作品失败");
         })
-    }
-
-
+    };
     //
-    var getPaperInfo = function(){
-
+    var getPaperInfo = function () {
       $scope.teacher = userInfo.teacherInfo;
-
-
       var url = rootUrl + "/teacher_article/get_self_list";
-
-      $http.get(url,{params:{TeacherId:userInfo._id ,ArticleType:'paper'}})
-        .success(function(result){
-
+      $http.get(url, {params: {TeacherId: userInfo._id, ArticleType: 'paper'}})
+        .success(function (result) {
           var data = result.data;
           $scope.papers = data;
         })
-        .error(function(err){
+        .error(function (err) {
           console.log("获取作品失败");
         })
-    }
-
+    };
 
     $scope.goLogsDetail = function (log) {
       userInfo.mgLog = log;
@@ -65,7 +53,6 @@ angular.module('starter')
       userInfo.myPaper = paper;
       $state.go('myPapers-detail');
     };
-
 
     //提交文章选择器
     $ionicModal.fromTemplateUrl('templates/person/submit-log.html',
@@ -87,11 +74,6 @@ angular.module('starter')
     };
 
     $scope.articleType = '教学日志';
-
-
-
-
-
 
     //按钮状态
     var changeClickLogBgColor = function (log, paper) {
@@ -132,88 +114,81 @@ angular.module('starter')
     };
 
     $scope.showLog();
-
-
     $scope.onSubmitWorks = function (article, articleContent) {
-
-
       //$ionicLoading.show();
       $scope.articleType = article;
-      $scope.$scope.articleContent = articleContent;
+      $scope.articleContent = articleContent;
+      //$scope.photos.splice(0, 1);
 
-      $scope.photos.forEach(function (item) {
-        var image = item;
-        //$http.post('http://123.206.199.94:3000/upload/', {photo: image})
-        //  .success(function (result) {
-        //    $ionicLoading.hide();
-        //    $ionicPopup.alert({
-        //      title: '提示',
-        //      template: '提交申请成功'
-        //    });
-        //
-        //  }).error(function(err){
-        //    alert(JSON.stringify(err));
-        //  })
-      });
-    }
+      //alert('photo_list' + JSON.stringify($scope.photos));
+      var async_map = function (photo_list, callback) {
+        var photo_id_list = [];
+        var async_count = 0;
+        photo_list.forEach(function (item) {
+          var fileName = item.split('/').pop();
+          var options = {
+            fileKey: "image",
+            fileName: fileName,
+            mimeType: "image/jpeg"
+          };
 
+          $cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload'), item, options)
+            .then(function (result) {
+              result = JSON.parse(result);
+              result.response = JSON.parse(result.response);
+              var id = result['response']['data']['_id'];
+              async_count++;
+              photo_id_list.push(id);
 
-
-    $scope.photos = ['img/personal/FB.png'];
-    $scope.img_id = [];
-    $scope.clickPhoto = function (index) {
-
-      var item = $scope.photos[index];
-      if (item != 'img/personal/FB.png') {
-        $ionicLoading.show();
-        //$http.post('http://115.159.115.145:3000/upload/', {file: item}).success(function () {
-        //  $ionicLoading.hide();
-        //  $scope.photos.splice(index, 1);
-        //});
-
-      } else {
-        //
-        var options = {
-          maximumImagesCount: 9,
-          width: 500,
-          height: 500,
-          quality: 80
-        };
-
-        $cordovaImagePicker.getPictures(options)
-          //以下为选好图片后的方法
-          // @type: results [1, 2, 3]
-          .then(function (results) {
-
-
-            results.forEach(function (item) {
-              if (item != undefined) {
-                //$scope.imgSrc_after = item;
-                $scope.photos.push(item);
-                $scope['postImages'].push(item);
-                var fileName = item.split('/').pop();
-                var fileURL = item;
-
-                var options = {
-                  fileKey: "image",
-                  fileName: fileName,
-                  mimeType: "image/jpeg"
-                };
-
-                //$cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload'), fileURL, options)
-                //  .then(function (result) {
-                //    //
-                //    alert(JSON.stringify(result));
-                //    console.log(result);
-                //    $ionicLoading.hide();
-                //    //$scope.img_id
-                //  });
+              if (async_count == photo_list.length) {
+                callback(photo_id_list)
               }
+              $ionicLoading.hide();
             });
+        });
+      };
+      async_map($scope.photos, function (id_list) {
+        alert('Id List >>> ' + JSON.stringify(id_list))
+      });
+    };
 
-          }, function (error) {
-          })
-      }
+    $scope.photos = [];
+    $scope.clickPhoto = function () {
+      var options = {
+        maximumImagesCount: 9,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+          results.forEach(function (item) {
+            $scope.photos.push(item);
+          });
+        }, function (error) {
+
+        });
+    };
+
+
+    $scope.replaceImage = function (index) {
+
+      var options = {
+        maximumImagesCount: 1,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+          $scope.photos[index] = results[0];
+        }, function (error) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '选择出错:' + error
+          });
+
+        });
     }
-  })
 
+  });

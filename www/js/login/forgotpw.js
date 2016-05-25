@@ -4,7 +4,7 @@
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('forgotpw', {
+      .state('findPwd', {
         url: '/forgotpw',
         templateUrl: 'templates/login/forgotpw.html',
         controller: 'forgotpwCtrl'

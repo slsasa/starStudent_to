@@ -23,8 +23,10 @@
     <div class="item item-stacked-label" style="    background: white;">
       <p style="margin: 10px 10px">上传图片:</p>
       <ion-scroll direction="x">
-        <img ng-repeat="image in photos" ng-src="{{$root.imageUrl+image}}"
-             ng-click="clickPhoto($index)" class="image-list-thumb" style="height: 84px;width: 70px;border: solid #c6c6c6 1px; margin: 5px 10px;"/>
+        <div>
+          <img src="img/personal/FB.png" ng-click="clickPhoto()" class="image-list-thumb" style="height: 84px;width: 70px;border: solid #c6c6c6 1px; margin: 5px 10px;">
+          <img ng-repeat="image in photos"  ng-click="replaceImage($index)" ng-src="{{$root.imageUrl+image}}" class="image-list-thumb" style="height: 84px;width: 70px;border: solid #c6c6c6 1px; margin: 5px 10px;">
+        </div>
 
       </ion-scroll>
     </div>

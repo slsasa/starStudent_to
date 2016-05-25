@@ -24,10 +24,8 @@
     <div class="light-bg shadow" style="height: 30px;margin: 10px 0px">
       <marquee onmouseover="stop()" onmouseout="start()" width="80%" scrollamount="5">
       <span ng-repeat="dynamic in dynamics" style="line-height: 30px;">
-        <a style="text-decoration: none"
-           ng-if="dynamic.id==0">学校动态:{{dynamic.title}}</a>
-        <a style="text-decoration: none"
-           ng-if="dynamic.id!=0">{{dynamic.title}}</a>
+        <a style="text-decoration: none" ng-if="dynamic === dynamics[0]">学校动态:{{dynamic['Title']}}&nbsp&nbsp</a>
+        <a style="text-decoration: none" ng-if="dynamic != dynamics[0]">{{dynamic['Title']}}&nbsp&nbsp</a>
       </span>
       </marquee>
       <button ng-click="intoSchoolDynamic()" class="more button-clear " style="line-height: 35px; margin: -5px 0px 0;font-size: 14px">更多<i

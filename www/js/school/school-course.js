@@ -53,7 +53,9 @@ angular.module('starter')
       update();
     })
 
-    $scope.goCourse = function(detail){
+    $scope.goCourse = function(course,detail){
+
+      userInfo.course = course;
       userInfo.courseDetail = detail;
       $state.go('course-detail');
     }

@@ -6,7 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('login', {
         url: '/login',
-        cache: false,
+        cache: true,
         templateUrl: 'templates/login/login.html',
         controller: 'loginCtrl'
       })
@@ -23,8 +23,9 @@ angular.module('starter')
     ];
 
     $rootScope.user = {
-      num: 'zero',
-      pwd: '123'
+
+      num: '',
+      pwd: ''
     };
 
 
@@ -32,12 +33,9 @@ angular.module('starter')
       $http.post(url, data)
         .success(function (result) {
 
-          console.log(JSON.stringify(result));
-          userInfo._id = result.data._id;
-          console.log(userInfo._id);
-
           if (result.ret_code == 0) {
             var user = result.data;
+            userInfo._id = user._id;
             if (user.UserType == 'student') {
 
               userInfo.personType = '_stu';
@@ -50,21 +48,18 @@ angular.module('starter')
               $state.go('tabs.home', {type: userInfo.personType})
             }
           } else if (result.ret_code == 101) {
+            console.log(result.msg);
             $ionicPopup.alert({
               title: '提醒',
               template: '账号或密码错误'
             });
-            console.log(result.msg);
           } else {
             $ionicPopup.alert({
               title: '提醒',
               template: '登录异常'
             });
           }
-
-          //console.log('userData >>>>>:',JSON.stringify(result.data ));
           $ionicLoading.hide();
-
         })
         .error(function (err) {
           $ionicLoading.hide();
@@ -73,7 +68,7 @@ angular.module('starter')
             template: '请等会登录'
 
           })
-          console.log("err>>>" + JSON.stringify(err));
+
         })
     }
 
@@ -104,6 +99,6 @@ angular.module('starter')
     };
     //进入找回密码
     $scope.Forgotpw = function () {
-      $state.go('forgotpw');
+      $state.go('findPwd');
     }
   });
