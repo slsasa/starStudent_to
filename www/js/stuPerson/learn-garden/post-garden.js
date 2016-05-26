@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('postGardenCtrl',function($scope, $cordovaImagePicker, $cordovaFileTransfer, $http, userInfo){
+  .controller('postGardenCtrl',function($scope, $cordovaImagePicker, $cordovaFileTransfer, $http,$ionicLoading, userInfo){
 
     $scope.post_info = {
       content: '',
@@ -19,79 +19,117 @@ angular.module('starter')
       link: ''
     }
 
-    var postData = function(){
-      var url = rootUrl + "/learn_garden/add";
+    $scope.photos = [];
+    $scope.clickPhoto = function () {
+      var options = {
+        maximumImagesCount: 9,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+          results.forEach(function (item) {
+            $scope.photos.push(item);
+          });
+        }, function (error) {
 
-      var data = {
-        IssuerId: userInfo._id,
-        Content: $scope.post_info.content,
-        LinkUrl: $scope.post_info.link
-      }
+        });
+    };
 
-      $http.post(url, data)
-        .success(function(result){
-          console.log(JSON.stringify(result));
-        })
-        .error(function(err){
-          console.log("提交失败");
-        })
 
-    }
+    $scope.replaceImage = function (index) {
+
+      var options = {
+        maximumImagesCount: 1,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+          $scope.photos[index] = results[0];
+        }, function (error) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '选择出错:' + error
+          });
+
+        });
+    };
+
+    //var postData = function(){
+    //  $ionicLoading.show();
+    //  var url = rootUrl + "/learn_garden/add";
+    //
+    //  var data = {
+    //    IssuerId: userInfo._id,
+    //    Content: $scope.post_info.content,
+    //    LinkUrl: $scope.post_info.link
+    //  }
+    //
+    //  $http.post(url, data)
+    //    .success(function(result){
+    //      $ionicLoading.hide();
+    //      alert("提交成功");
+    //      //console.log(JSON.stringify(result));
+    //    })
+    //    .error(function(err){
+    //      $ionicLoading.hide();
+    //      alert("提交失败");
+    //    })
+    //
+    //}
 
     $scope.onSubmit = function(){
-      postData();
-    }
+      //postData();
+      var async_map = function (photo_list, callback) {
+        var photo_id_list = [];
+        var async_count = 0;
+        photo_list.forEach(function (item) {
+          var fileName = item.split('/').pop();
+          var options = {
+            fileKey: "image",
+            fileName: fileName,
+            mimeType: "image/jpeg"
+          };
 
+          $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), item, options)
+            .then(function (result) {
 
-    $scope.photos = ['img/personal/FB.png']
-    $scope.clickImg = function (index) {
+              result.response = JSON.parse(result.response);
+              var id = result['response']['data']['_id'];
+              async_count++;
+              photo_id_list.push(id);
 
-      var item = $scope.photos[index];
-      if (item != 'img/personal/FB.png') {
-        $ionicLoading.show();
+              if (async_count == photo_list.length) {
+                callback(photo_id_list)
 
-
-      } else {
-        //
-        var options = {
-          maximumImagesCount: 9,
-          width: 500,
-          height: 500,
-          quality: 80
-        };
-
-        $cordovaImagePicker.getPictures(options)
-          //以下为选好图片后的方法
-          // @type: results [1, 2, 3]
-          .then(function (results) {
-
-
-            results.forEach(function (item) {
-              if (item != undefined) {
-                //$scope.imgSrc_after = item;
-                $scope.photos.push(item);
-                var fileName = item.split('/').pop();
-                var fileURL = item;
-
-                var options = {
-                  fileKey: "image",
-                  fileName: fileName,
-                  mimeType: "image/jpeg"
-                };
-
-                $cordovaFileTransfer.upload(encodeURI('http://115.159.115.145:3000/upload/'), fileURL, options)
-                  .then(function (result) {
-                    //
-                    alert(JSON.stringify(result));
-                    console.log(result);
-                    $ionicLoading.hide();
-                    $scope.img_id = result._id
-                  });
               }
-            });
 
-          }, function (error) {
+            });
+        });
+      };
+      async_map($scope.photos, function (id_list) {
+
+        var url = rootUrl + "/learn_garden/add";
+
+        var data = {
+          IssuerId: userInfo._id,
+          Content: $scope.post_info.content,
+          LinkUrl: $scope.post_info.link,
+          PicListRef:id_list
+        }
+
+        $http.post(url,data)
+          .success(function(result){
+            $ionicLoading.hide();
+            console.log('上传成功'+JSON.stringify(result));
           })
-      }
+          .error(function(err){
+            $ionicLoading.hide();
+            alert('上传失败:'+err);
+          })
+      });
     }
   })

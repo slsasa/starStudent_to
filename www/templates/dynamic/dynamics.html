@@ -12,7 +12,7 @@
 
     <div id="school" class="list" style="display: none;padding: 15px 0px;">
 
-      <ion-item class="item-avatar card" ng-repeat="schoolDynamic in schoolDynamics | orderBy:'Time'">
+      <ion-item class="item-avatar card" ng-repeat="schoolDynamic in schoolDynamics | orderBy:'-IssueTime'">
 
         <div class="item-avatar">
 
@@ -52,7 +52,7 @@
     </div>
 
     <div id="student" class="list" style="padding: 15px 0px;">
-      <ion-item class="item-avatar card" ng-repeat="stuDynamic in  studentDynamics | orderBy:'Time'">
+      <ion-item class="item-avatar card" ng-repeat="stuDynamic in  studentDynamics | orderBy:'-IssueTime'">
         <div class="item-avatar">
           <img src="{{stuDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 40px">
           <h4 style="    margin: 15px 0px 5px 0px;">{{stuDynamic['IssuerName']}}</h4>
@@ -84,7 +84,7 @@
     </div>
 
     <div id="teacher" class="list" style="padding: 15px 0px;display: none;">
-      <ion-item class="item-avatar card" ng-repeat="terDynamic in  teacherDynamics | orderBy:'Time'">
+      <ion-item class="item-avatar card" ng-repeat="terDynamic in  teacherDynamics | orderBy:'-IssueTime'">
         <div class="item-avatar">
           <img src="{{terDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 100px">
           <h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic['IssuerName']}}</h4>

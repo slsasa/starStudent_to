@@ -11,20 +11,31 @@ angular.module('starter')
 
       });
   })
-  .controller('teacherMineCtrl',function($scope, $state, $http, userInfo, $ionicPopup){
+  .controller('teacherMineCtrl',function($scope, $state, $http, $ionicLoading,userInfo, $ionicPopup){
     var update = function(){
+      $ionicLoading.show();
       var url = rootUrl + "/teacher_style/get_all_list";
 
       $http.get(url)
         .success(function(result){
           var data = result.data;
+
           data.forEach(function(item){
+
+            item['__v'] = item['FlowerListRef'].length*0.6 + item['LikeListRef'].length*0.4;
+            console.log('v---------->',item['__v']);
             item['TeacherAvatarRef']['Url'] = rootPicUrl + item['TeacherAvatarRef']['Url'];
           });
           $scope.teachers = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
-          console.log("获取教师信息失败"+err);
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'提醒',
+            template:'获取数据出错'+err
+          });
+
         })
     };
 

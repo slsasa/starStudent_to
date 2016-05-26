@@ -15,10 +15,10 @@
     </div>
 
     <div id="student" class="list" style="padding: 15px 0px;">
-      <ion-item class="item-avatar card" ng-repeat="leagarden in  leagardens">
+      <ion-item class="item-avatar card" ng-repeat="leagarden in  leagardens |orderBy :'-Time'">
         <div class="item-avatar">
           <img src="{{rootPicUrl}}{{leagarden.IssuerAvatarRef.Url}}" style="border-radius: 40px">
-          <h4 style="    margin: 15px 0px 5px 0px;">{{leagarden.IssuerName}}</h4>
+          <h4 style="    margin: 15px 0px 5px 0px;">{{leagarden['IssuerName']}}</h4>
           <p>{{leagarden.Time | date : 'yyyy-MM-dd'}}</p>
 
           <div ng-if="leagarden.Content.length >=36">
@@ -34,10 +34,11 @@
             <p> {{leagarden.Content}}</p>
           </div>
 
-          <div ng-if="leagarden.IssuerAvatarRef.Url != ''">
-            <a href="{{leagarden.LinkUrl}}">
-              <img width="150px" height="150px" ng-src="{{rootPicUrl}}{{leagarden.IssuerAvatarRef.Url}}"/>
+          <div ng-if="leagarden['IssuerAvatarRef']['Url'] != ''">
+            <a ng-repeat="img in leagarden['PicListRef']">
+              <img width="150px" height="150px" ng-src="{{rootPicUrl+img['Url']}}"/>
             </a>
+            <a href="{{leagarden.LinkUrl}}" ng-if="leagarden.LinkUrl.length>11">个人分享链接{{leagarden['LinkUrl']}}</a>
           </div>
 
         </div>

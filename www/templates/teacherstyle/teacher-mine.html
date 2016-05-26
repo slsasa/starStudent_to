@@ -38,7 +38,7 @@
     <!--魅力教师榜-->
     <div id="charm" class="list" style="display: none">
 
-      <div class="item item-avatar" ng-repeat="teacher in teachers">
+      <div class="item item-avatar" ng-repeat="teacher in teachers | orderBy:'__v'">
         <div class="item-avatar">
 
           <img ng-src="{{teacher['TeacherAvatarRef']['Url']}}">
