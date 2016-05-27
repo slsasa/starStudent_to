@@ -3,9 +3,8 @@
 //var rootUrl = "http://112.124.118.133:3000";
 //var rootPicUrl = "http://localhost:3000/";
 
-var rootUrl = "http://123.206.199.94:3000";
-var rootPicUrl = "http://123.206.199.94:3000/";
-//var rootUrl = "http://115.159.115.145:3000";
+var rootUrl = "http://112.124.118.133:3000";
+var rootPicUrl = "http://112.124.118.133:3000/";
 
 
 
@@ -18,8 +17,55 @@ var rootPicUrl = "http://123.206.199.94:3000/";
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-  .run(function ($ionicPlatform, $ionicHistory, $ionicPopup, $location, $http, $state) {
+  .run(function ($rootScope,$ionicPlatform, $ionicHistory, $ionicPopup, $location, $cordovaToast,$cordovaKeyboard) {
 
+
+    //$ionicPlatform.registerBackButtonAction(function (e) {
+    //  //判断处于哪个页面时双击退出
+    //  if ($location.path() == '/login' || $location.path() == '/school-index') {
+    //    if ($rootScope.backButtonPressedOnceToExit) {
+    //      ionic.Platform.exitApp();
+    //    } else {
+    //      $rootScope.backButtonPressedOnceToExit = true;
+    //      $cordovaToast.showShortBottom('再按一次退出系统');
+    //      setTimeout(function () {
+    //        $rootScope.backButtonPressedOnceToExit = false;
+    //      }, 2000);
+    //    }
+    //  }else if ($ionicHistory.backView()) {
+    //    if ($cordovaKeyboard.isVisible()) {
+    //      $cordovaKeyboard.close();
+    //    } else {
+    //      $ionicHistory.goBack();
+    //    }
+    //  }
+    //  else {
+    //    $rootScope.backButtonPressedOnceToExit = true;
+    //    $cordovaToast.showShortBottom('再按一次退出系统');
+    //    setTimeout(function () {
+    //      $rootScope.backButtonPressedOnceToExit = false;
+    //    }, 2000);
+    //  }
+    //  e.preventDefault();
+    //  return false;
+    //}, 101);
+
+
+    $ionicPlatform.ready(function () {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
+
+
+      }
+      if (window.StatusBar) {
+        // org.apache.cordova.statusbar required
+        //StatusBar.styleDefault();
+        StatusBar.styleLightContent();
+      }
+    })
     //返回键处理
     //主页面显示退出提示框
     $ionicPlatform.registerBackButtonAction(function (e) {
@@ -50,25 +96,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       return false;
     }, 101);
 
-    $ionicPlatform.ready(function () {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        cordova.plugins.Keyboard.disableScroll(true);
-
-
-      }
-      if (window.StatusBar) {
-        // org.apache.cordova.statusbar required
-        //StatusBar.styleDefault();
-        StatusBar.styleLightContent();
-      }
-
-
-
-
-    });
   })
 
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {

@@ -6,6 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('applyDetail', {
         url: '/apply/applyDetail',
+        cache: false,
         templateUrl: 'templates/apply/apply-details.html',
         controller: 'applyDetailCtrl'
 

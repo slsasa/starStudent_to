@@ -6,12 +6,13 @@ angular.module('starter')
     $stateProvider
       .state('paper-detail', {
         url: '/paper-detail',
+        cache: false,
         templateUrl: 'templates/production/paper-detail.html',
         controller: 'paperDetailCtrl'
       });
   })
   .controller('paperDetailCtrl', function ($scope,$http,userInfo) {
-    console.log('teacher------------>',JSON.stringify(userInfo.teacherInfo));
+
      $scope['teacher'] = userInfo['teacherInfo'];
      $scope['paper'] = userInfo.paper;
      userInfo['teacherInfo'] = {};

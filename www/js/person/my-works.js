@@ -114,11 +114,19 @@ angular.module('starter')
     };
 
     $scope.showLog();
-    $scope.onSubmitWorks = function (article, articleContent) {
-      //$ionicLoading.show();
-      $scope.articleType = article;
-      $scope.articleContent = articleContent;
-      //$scope.photos.splice(0, 1);
+
+    $scope.photos = [];
+    $scope['articleContent'] = '';
+    $scope['articleType'] ='教学日志';
+    $scope['articleTitle'] = '标题';
+
+    $scope.onSubmitWorks = function (articleType,articleTitle,articleContent) {
+      $ionicLoading.show();
+      if(articleType =='教学日志'){
+        articleType = 'log';
+      }else{
+        articleType = 'paper';
+      }
 
       //alert('photo_list' + JSON.stringify($scope.photos));
       var async_map = function (photo_list, callback) {
@@ -132,9 +140,10 @@ angular.module('starter')
             mimeType: "image/jpeg"
           };
 
-          $cordovaFileTransfer.upload(encodeURI('http://123.206.199.94:3000/upload'), item, options)
+          $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), item, options)
             .then(function (result) {
-              result = JSON.parse(result);
+              //alert(JSON.stringify(result));
+              //result = JSON.parse(result);
               result.response = JSON.parse(result.response);
               var id = result['response']['data']['_id'];
               async_count++;
@@ -142,17 +151,37 @@ angular.module('starter')
 
               if (async_count == photo_list.length) {
                 callback(photo_id_list)
+
               }
-              $ionicLoading.hide();
+
             });
         });
       };
       async_map($scope.photos, function (id_list) {
-        alert('Id List >>> ' + JSON.stringify(id_list))
+
+        var url = rootUrl + '/teacher_article/add';
+        var data = {
+          Content: articleContent,
+          Title: articleTitle,
+          TeacherId: userInfo._id,
+          ArticleType: articleType,
+          PicListRef:id_list
+        }
+
+        $http.post(url,data)
+          .success(function(result){
+            $ionicLoading.hide();
+            console.log('works----------<',result)
+            alert('上传成功'+JSON.stringify(result));
+          })
+          .error(function(err){
+            $ionicLoading.hide();
+            alert('上传失败:'+err);
+          })
       });
     };
 
-    $scope.photos = [];
+
     $scope.clickPhoto = function () {
       var options = {
         maximumImagesCount: 9,

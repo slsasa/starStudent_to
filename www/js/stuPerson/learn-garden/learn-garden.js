@@ -19,8 +19,12 @@ angular.module('starter')
 
       $http.get(url)
         .success(function(result){
-          console.log(JSON.stringify(result));
+
           var data = result.data;
+          //data.forEach(function(item){
+          console.log("data------->",data);
+          //})
+
           $scope.leagardens = data;
         })
         .error(function(err){

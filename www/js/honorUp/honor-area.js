@@ -6,6 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('honor-area', {
         url: '/honor-area',
+        cache: false,
         templateUrl: 'templates/honorUp/honor-area.html',
         controller: 'honorAreaCtrl'
       })

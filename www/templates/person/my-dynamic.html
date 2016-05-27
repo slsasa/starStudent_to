@@ -16,7 +16,7 @@
 
   <ion-content style="background-color: #f1f1f1">
     <div class="list" style="padding: 15px 0px;">
-      <ion-item class="item card" ng-repeat="terDynamic in  terDynamics">
+      <ion-item class="item card" ng-repeat="terDynamic in  terDynamics | orderBy:'-Time'">
         <p style="margin: 5px 0px 0px 10px;">{{terDynamic['IssueTime'] | date : 'yyyy-MM-dd'}}</p>
 
         <div class="item-avatar mydy">

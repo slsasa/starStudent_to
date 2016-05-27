@@ -8,6 +8,7 @@ angular.module('starter')
       .state('tabs.apply',{
         url:'/apply',
         views:{'apply':{
+          cache: false,
           templateUrl: 'templates/apply/apply.html',
           controller: 'ApplyCtrl'
         }}
