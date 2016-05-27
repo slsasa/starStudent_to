@@ -26,7 +26,7 @@ angular.module('starter')
         $cordovaImagePicker.getPictures(options)
           .then(function (results) {
             results.forEach(function (item) {
-              if($scope.photos.length <9) {
+              if($scope.photos.length < 9) {
                 $scope.photos.push(item);
               }
             });
