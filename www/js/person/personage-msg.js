@@ -19,14 +19,15 @@ angular.module('starter')
 
       $http.get(url)
         .success(function(result){
-          console.log(JSON.stringify(result));
+          //console.log(JSON.stringify(result));
           var data = result.data;
           $scope.studentInfo = data;
           $ionicLoading.hide();
         })
         .error(function(err){
           $ionicLoading.hide();
-          console.log("获取个人信息失败");
+          alert(JSON.stringify(err));
+          //console.log("获取个人信息失败");
         })
     }
 

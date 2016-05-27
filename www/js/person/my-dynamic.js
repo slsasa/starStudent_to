@@ -13,6 +13,7 @@ angular.module('starter')
   })
   .controller('myDynamicCtrl', function ($scope, $stateParams, $state, $http, userInfo, $ionicLoading) {
 
+    $scope.rootPicUrl =  rootPicUrl;
     var update = function () {
       $ionicLoading.show();
 
@@ -25,18 +26,7 @@ angular.module('starter')
           $ionicLoading.hide();
 
           var data = result.data;
-          data.forEach(function (item) {
-
-            var data2 = [];
-            item['PicListRef'].forEach(function (img) {
-              data2.push(rootPicUrl + img)
-            });
-
-            item['PicListRef'] = data2;
-            console.log('PicListRef >>>', item['PicListRef'])
-
-          });
-
+          console.log('mydynamic data ',JSON.stringify(data));
           $scope.terDynamics = data;
         })
         .error(function (err) {

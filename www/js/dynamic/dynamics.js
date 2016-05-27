@@ -18,6 +18,8 @@ angular.module('starter')
 
   .controller('dynCtrl', function ($scope, $ionicPopup, $http, $ionicLoading, userInfo) {
 
+    $scope.rootPicUrl = rootPicUrl;
+
     var calcTime = function( timeString ) {
       var tmp = new Date().getTime() - new Date(timeString).getTime();
       tmp = tmp / (1000);

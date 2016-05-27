@@ -11,7 +11,11 @@ angular.module('starter')
 
       });
   })
-  .controller('myStyleCtrl', function ($scope, userInfo, $http) {
+  .controller('myStyleCtrl', function ($scope, $state,userInfo, $http) {
+
+    $scope.goAddImg = function(){
+      $state.go('add-img')
+    }
 
     var url = rootUrl + '/teacher_style/get_self_style';
     var query = {
@@ -27,6 +31,7 @@ angular.module('starter')
           StyleItemList.forEach(function (item1) {
             item1['PicListRef'].forEach(function (item2) {
               item2['Url'] = rootPicUrl + item2['Url'];
+              console.log('item2 url '+ item2['Url'])
             })
           });
 
