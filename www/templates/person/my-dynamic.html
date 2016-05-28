@@ -16,14 +16,18 @@
 
   <ion-content style="background-color: #f1f1f1">
     <div class="list" style="padding: 15px 0px;">
-      <ion-item class="item card" ng-repeat="terDynamic in  terDynamics | orderBy:'-Time'">
-        <p style="margin: 5px 0px 0px 10px;">{{terDynamic['IssueTime'] | date : 'yyyy-MM-dd'}}</p>
+      <ion-item class="item card" ng-repeat="terDynamic in  terDynamics | orderBy:'-IssueTime'">
+        <p style="margin: 5px 0px 0px 10px;">{{terDynamic['Time'] | date : 'yyyy-MM-dd'}}</p>
 
         <div class="item-avatar mydy">
 
           <div ng-if="terDynamic['Content'].length >=36">
+            <a ng-repeat="img in terDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 80px;height: 80px">
+            </a>
             <div id="{{$index+'contentTer'}}"> {{terDynamic['Content'] |ifMore}}</div>
             <div id="{{$index+'moreContentTer'}}" style="display: none">
+              {{terDynamic['']}}
               {{terDynamic['Content']}}
             </div>
 
@@ -33,6 +37,9 @@
           </div>
 
           <div ng-if="terDynamic['Content'].length <36">
+            <a ng-repeat="img in terDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}"  style="width: 80px;height:80px">
+            </a>
             <p> {{terDynamic['Content']}}</p>
           </div>
         </div>

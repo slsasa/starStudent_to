@@ -128,7 +128,6 @@ angular.module('starter')
         articleType = 'paper';
       }
 
-      //alert('photo_list' + JSON.stringify($scope.photos));
       var async_map = function (photo_list, callback) {
         var photo_id_list = [];
         var async_count = 0;
@@ -142,8 +141,7 @@ angular.module('starter')
 
           $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), item, options)
             .then(function (result) {
-              //alert(JSON.stringify(result));
-              //result = JSON.parse(result);
+
               result.response = JSON.parse(result.response);
               var id = result['response']['data']['_id'];
               async_count++;
@@ -171,7 +169,6 @@ angular.module('starter')
         $http.post(url,data)
           .success(function(result){
             $ionicLoading.hide();
-            console.log('works----------<',result)
             alert('上传成功'+JSON.stringify(result));
           })
           .error(function(err){
@@ -192,7 +189,9 @@ angular.module('starter')
       $cordovaImagePicker.getPictures(options)
         .then(function (results) {
           results.forEach(function (item) {
-            $scope.photos.push(item);
+            if($scope.photos.length < 9) {
+              $scope.photos.push(item);
+            }
           });
         }, function (error) {
 

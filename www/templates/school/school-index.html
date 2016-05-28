@@ -35,12 +35,12 @@
       <div style="    background: white;">
         <img src="img/indexSch.png" style="height: 135px"/>
       </div>
-    <a  ng-click="goIntro()" class="more button-clear " style="line-height: 35px;font-size: 14px">更多
-      <i class="iocn ion-chevron-right"></i></a>
+    <a  ng-click="goIntro()" class="more button-clear " style="line-height: 35px;font-size: 14px">更多</a>
+      <!--<i class="iocn ion-chevron-right"></i></a>-->
 
 
     <div class="light-bg shadow" style="margin: 30px 0px 0;padding: 5px 0 5px 0;">
-      <marquee onmouseover="this.stop()" onmouseout="this.start()">
+      <marquee onmouseover="stop()" onmouseout="start()" scrollamount="5">
         <span ng-repeat="banner in banners">
          <img ng-click="goMagnifyImg(banner)"  ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%;border: solid 1px gainsboro;margin: 0 5px">
 

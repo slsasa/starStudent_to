@@ -11,7 +11,7 @@ angular.module('starter')
       });
   })
 
-  .controller('styleImgCtrl',function($scope, $stateParams, userInfo, $http,$ionicLoading){
+  .controller('styleImgCtrl',function($scope, $stateParams, userInfo,$state){
 
     console.log('log teacher info >>>', userInfo.teacherInfo);
     $scope.teacher = userInfo.teacherInfo;
@@ -24,11 +24,6 @@ angular.module('starter')
 
     $scope.$on('$ionicView.beforeEnter',function(){
       getSelfInfo();
-    })
-
-
-
-
-
+    });
 
   })

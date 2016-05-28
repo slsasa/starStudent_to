@@ -60,6 +60,9 @@
           <p>{{stuDynamic['Time']}}</p>
 
           <div ng-if="stuDynamic['Content'].length >=36">
+            <a ng-repeat="img in stuDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 80px;height: 80px">
+            </a>
             <div id="{{$index+'contentStu'}}"> {{stuDynamic['Content'] |ifMore}}</div>
             <div id="{{$index+'moreContentStu'}}" style="display: none"> {{stuDynamic['Content']}}</div>
 
@@ -69,6 +72,9 @@
           </div>
 
           <div ng-if="stuDynamic['Content'].length <36">
+            <a ng-repeat="img in stuDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 80px;height: 80px">
+            </a>
             <p> {{stuDynamic['Content']}}</p>
           </div>
 
@@ -92,6 +98,9 @@
           <p>{{terDynamic['Time']}}</p>
 
           <div ng-if="terDynamic['Content'].length >=36">
+            <a ng-repeat="img in terDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 80px;height: 80px">
+            </a>
             <div id="{{$index+'contentTer'}}"> {{terDynamic['Content'] |ifMore}}</div>
             <div id="{{$index+'moreContentTer'}}" style="display: none"> {{terDynamic['Content']}}</div>
 
@@ -101,6 +110,9 @@
           </div>
 
           <div ng-if="terDynamic['Content'].length <36">
+            <a ng-repeat="img in terDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 80px;height: 80px">
+            </a>
             <p> {{terDynamic['Content']}}</p>
           </div>
 
