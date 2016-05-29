@@ -67,7 +67,7 @@ td {
   margin-left: 8%;
 }
 
-.a_image img{width: 60px;height:60px;display: block;margin: 10px auto -10px;}
+.a_image img{width: 50px;height:50px;display: block;margin: 10px auto -10px;}
 .a_image a{font-size: 14px}
 .word_green{width: 85%;margin-left: 50px;text-indent: 1.4em}
 .shadow{box-shadow: 0 1px 3px 1px gainsboro }
@@ -157,3 +157,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 input:-moz-placeholder, textarea:-moz-placeholder {
   color: #ffffff;
 }
+/*课程介绍*/
+.course{    height: 39px;
+  width: 33%;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+  line-height: 39px;
+  background: #f8f8f8;}
+/*师资力量*/
+.faculty{padding: 15px 10px 5px 10px;;text-indent: 2em;line-height: 1.5em;text-align: justify}
