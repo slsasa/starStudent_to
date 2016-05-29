@@ -31,28 +31,28 @@ angular.module('starter')
         })
     };
     //
-    var getPaperInfo = function () {
-      $scope.teacher = userInfo.teacherInfo;
-      var url = rootUrl + "/teacher_article/get_self_list";
-      $http.get(url, {params: {TeacherId: userInfo._id, ArticleType: 'paper'}})
-        .success(function (result) {
-          var data = result.data;
-          $scope.papers = data;
-        })
-        .error(function (err) {
-          console.log("获取作品失败");
-        })
-    };
+    //var getPaperInfo = function () {
+    //  $scope.teacher = userInfo.teacherInfo;
+    //  var url = rootUrl + "/teacher_article/get_self_list";
+    //  $http.get(url, {params: {TeacherId: userInfo._id, ArticleType: 'paper'}})
+    //    .success(function (result) {
+    //      var data = result.data;
+    //      $scope.papers = data;
+    //    })
+    //    .error(function (err) {
+    //      console.log("获取作品失败");
+    //    })
+    //};
 
     $scope.goLogsDetail = function (log) {
       userInfo.mgLog = log;
       $state.go('myLogs-detail');
     };
 
-    $scope.goPaperDetail = function (paper) {
-      userInfo.myPaper = paper;
-      $state.go('myPapers-detail');
-    };
+    //$scope.goPaperDetail = function (paper) {
+    //  userInfo.myPaper = paper;
+    //  $state.go('myPapers-detail');
+    //};
 
     //提交文章选择器
     $ionicModal.fromTemplateUrl('templates/person/submit-log.html',
@@ -75,45 +75,45 @@ angular.module('starter')
 
     $scope.articleType = '教学日志';
 
-    //按钮状态
-    var changeClickLogBgColor = function (log, paper) {
-      $scope.objLogClick.style.backgroundColor = log;
-      $scope.objPaperClick.style.backgroundColor = paper;
-    };
+    ////按钮状态
+    //var changeClickLogBgColor = function (log, paper) {
+    //  $scope.objLogClick.style.backgroundColor = log;
+    //  $scope.objPaperClick.style.backgroundColor = paper;
+    //};
+    //
+    //var changeClickFontColor = function (log, paper) {
+    //  $scope.objLogClick.style.color = log;
+    //  $scope.objPaperClick.style.color = paper;
+    //};
 
-    var changeClickFontColor = function (log, paper) {
-      $scope.objLogClick.style.color = log;
-      $scope.objPaperClick.style.color = paper;
-    };
-
-    $scope.objLog = document.getElementById('log');
-    $scope.objPaper = document.getElementById('paper');
-    $scope.objLogClick = document.getElementById('logClick');
-    $scope.objPaperClick = document.getElementById('paperClick');
-
-    $scope.objLogClick.style.backgroundColor = "#f96a9f";
-    $scope.objLogClick.style.color = '#fff';
-    $scope.showLog = function () {
-      $scope.objPaper.style.display = "none";
-      $scope.objLog.style.display = "";
+    //$scope.objLog = document.getElementById('log');
+    //$scope.objPaper = document.getElementById('paper');
+    //$scope.objLogClick = document.getElementById('logClick');
+    //$scope.objPaperClick = document.getElementById('paperClick');
+    //
+    //$scope.objLogClick.style.backgroundColor = "#f96a9f";
+    //$scope.objLogClick.style.color = '#fff';
+    //$scope.showLog = function () {
+    //  $scope.objPaper.style.display = "none";
+    //  $scope.objLog.style.display = "";
       getLogInfo();
-      if ($scope.objLog.style.display == "") {
-        changeClickLogBgColor("#f96a9f", "");
-        changeClickFontColor("#fff", "black");
-      }
-    };
+    //  if ($scope.objLog.style.display == "") {
+    //    changeClickLogBgColor("#f96a9f", "");
+    //    changeClickFontColor("#fff", "black");
+    //  }
+    //};
 
-    $scope.showPaper = function () {
-      $scope.objLog.style.display = "none";
-      $scope.objPaper.style.display = "";
-      getPaperInfo();
-      if ($scope.objPaper.style.display == "") {
-        changeClickLogBgColor("", "#f96a9f");
-        changeClickFontColor("black", "#fff");
-      }
-    };
+    //$scope.showPaper = function () {
+    //  $scope.objLog.style.display = "none";
+    //  $scope.objPaper.style.display = "";
+    //  getPaperInfo();
+    //  if ($scope.objPaper.style.display == "") {
+    //    changeClickLogBgColor("", "#f96a9f");
+    //    changeClickFontColor("black", "#fff");
+    //  }
+    //};
 
-    $scope.showLog();
+    //$scope.showLog();
 
     $scope.photos = [];
     $scope['articleContent'] = '';
@@ -128,54 +128,71 @@ angular.module('starter')
         articleType = 'paper';
       }
 
-      var async_map = function (photo_list, callback) {
-        var photo_id_list = [];
-        var async_count = 0;
-        photo_list.forEach(function (item) {
-          var fileName = item.split('/').pop();
-          var options = {
-            fileKey: "image",
-            fileName: fileName,
-            mimeType: "image/jpeg"
-          };
+      if($scope.photos.length!=0 ||  $scope['articleContent'] ||  $scope['articleTitle'] != '标题') {
+        var async_map = function (photo_list, callback) {
+          var photo_id_list = [];
+          var async_count = 0;
+          photo_list.forEach(function (item) {
+            var fileName = item.split('/').pop();
+            var options = {
+              fileKey: "image",
+              fileName: fileName,
+              mimeType: "image/jpeg"
+            };
 
-          $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), item, options)
-            .then(function (result) {
+            $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), item, options)
+              .then(function (result) {
+                //alert(JSON.stringify(result));
+                //result = JSON.parse(result);
+                result.response = JSON.parse(result.response);
+                var id = result['response']['data']['_id'];
+                async_count++;
+                photo_id_list.push(id);
 
-              result.response = JSON.parse(result.response);
-              var id = result['response']['data']['_id'];
-              async_count++;
-              photo_id_list.push(id);
+                if (async_count == photo_list.length) {
+                  callback(photo_id_list)
 
-              if (async_count == photo_list.length) {
-                callback(photo_id_list)
+                }
 
-              }
+              });
+          });
+        };
+        async_map($scope.photos, function (id_list) {
 
-            });
+          var url = rootUrl + '/teacher_article/add';
+          var data = {
+            Content: articleContent,
+            Title: articleTitle,
+            TeacherId: userInfo._id,
+            ArticleType: articleType,
+            PicListRef: id_list
+          }
+
+          $http.post(url, data)
+            .success(function (result) {
+              $ionicLoading.hide();
+              $ionicPopup.alert({
+                title: '成功',
+                template: '上传成功'
+              });
+              $scope.photos = [];
+              $scope['articleContent'] = '';
+            })
+            .error(function (err) {
+              $ionicLoading.hide();
+              $ionicPopup.alert({
+                title: '失败',
+                template: '上传失败' + err
+              })
+            })
         });
-      };
-      async_map($scope.photos, function (id_list) {
-
-        var url = rootUrl + '/teacher_article/add';
-        var data = {
-          Content: articleContent,
-          Title: articleTitle,
-          TeacherId: userInfo._id,
-          ArticleType: articleType,
-          PicListRef:id_list
-        }
-
-        $http.post(url,data)
-          .success(function(result){
-            $ionicLoading.hide();
-            alert('上传成功'+JSON.stringify(result));
-          })
-          .error(function(err){
-            $ionicLoading.hide();
-            alert('上传失败:'+err);
-          })
-      });
+      } else{
+        $ionicLoading.hide();
+        $ionicPopup.alert({
+          title:'提醒',
+          template:'无内容可发送'
+        })
+      }
     };
 
 

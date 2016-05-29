@@ -10,10 +10,10 @@
   </ion-nav-buttons>
 
   <ion-content style="background-color: #f1f1f1">
-    <div class="bar-subheader" style="margin: 6px;text-align: center">
-      <a class="button" ng-click="showLog()" id="logClick">教学日志({{logs.length}})</a>
-      <a class="button" ng-click="showPaper()" id="paperClick">学术论文({{papers.length}})</a>
-    </div>
+    <!--<div class="bar-subheader" style="margin: 6px;text-align: center">-->
+      <!--<a class="button" ng-click="showLog()" id="logClick">教学日志({{logs.length}})</a>-->
+      <!--<a class="button" ng-click="showPaper()" id="paperClick">学术论文({{papers.length}})</a>-->
+    <!--</div>-->
 
     <div id="log" class="list">
       <ion-item ng-repeat="tearLog in logs">
@@ -31,19 +31,19 @@
 
     </div>
 
-    <div id="paper" class="list" style="display: none">
-      <ion-item ng-repeat="tearingPage in papers">
-        <p style="margin: 10px 0 0 10px;">
-          {{tearingPage['Title']}}
-        </p>
-        <p style=" padding: 0 10px; text-align: justify;">{{tearingPage['Content']}}</p>
+    <!--<div id="paper" class="list" style="display: none">-->
+      <!--<ion-item ng-repeat="tearingPage in papers">-->
+        <!--<p style="margin: 10px 0 0 10px;">-->
+          <!--{{tearingPage['Title']}}-->
+        <!--</p>-->
+        <!--<p style=" padding: 0 10px; text-align: justify;">{{tearingPage['Content']}}</p>-->
 
-      <span>
-      <p style="float: left;margin: 0 0 0 10px;color: #b2b2b2;">{{tearingPage['Time'] | date:'yyyy-MM-dd'}}</p>
-      <a class="button rightbtom" ng-click="goPaperDetail(tearingPage)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
-      </span>
-      </ion-item>
-    </div>
+      <!--<span>-->
+      <!--<p style="float: left;margin: 0 0 0 10px;color: #b2b2b2;">{{tearingPage['Time'] | date:'yyyy-MM-dd'}}</p>-->
+      <!--<a class="button rightbtom" ng-click="goPaperDetail(tearingPage)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>-->
+      <!--</span>-->
+      <!--</ion-item>-->
+    <!--</div>-->
 
 
   </ion-content>

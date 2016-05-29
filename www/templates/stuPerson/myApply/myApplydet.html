@@ -7,13 +7,13 @@
     <button class="button light button-icon icon ion-android-share-alt" ></button>
   </ion-nav-buttons>
   <ion-content>
-    <h4 style="text-align: center">{{myapply.title}}</h4>
-    <img style="width: 100%;height: 300px" ng-src="{{myapply.img}}"/>
+    <h4 style="text-align: center">{{myApply['Profession']}}</h4>
+    <img style="width: 100%;height: 300px" ng-src="{{rootPicUrl + myApply['SignPicRef']['Url']}}"/>
     <div style="    margin: 30px 0 0 25px;">
       <p>报名规则</p>
-      <p>报名费:{{myapply.cost}}元</p>
-      <p>奖励积分:{{myapply.awardIntegral}}</p>
-      <p>截止时间:{{myapply.stopTime | date:'yyyy-MM-dd'}}</p>
+      <p>报名费:{{myApply['SignUpCost']}}元</p>
+      <p>奖励积分:{{myApply['Tel']}}</p>
+      <p>截止时间:{{myApply['Time'] | date:'yyyy-MM-dd'}}</p>
     </div>
     <br>
     <p>{{myapply.content}}</p>

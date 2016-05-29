@@ -61,62 +61,80 @@ angular.module('starter')
     }
 
     $scope.onSubmit = function(){
-      $ionicLoading.show();
 
-    //post图片
-      var async_map = function(photo_list,callback){
-        var photo_id_list = [];
-        var async_count = 0;
-        photo_list.forEach(function(item){
-          var fileName = item.split('/').pop();
-          var options = {
-            fileKey: "image",
-            fileName: fileName,
-            mimeType: "image/jpeg"
-          };
+      //$ionicLoading.show();
+      //console.log('--------------shangchuan:',$scope.photos + ':'+$scope.msg.content);
+      //if($scope.photos === undefined){
+      //  $ionicLoading.hide();
+      //  $ionicPopup.alert({
+      //    title:'提醒',
+      //    template:'无内容可提交'
+      //  })
+      //}
 
-          $cordovaFileTransfer.upload(encodeURI(rootUrl+'/upload'), item, options)
-            .then(function (result) {
+     if($scope.photos.length != 0 || $scope.msg.content) {
 
-              result.response = JSON.parse(result.response);
-              var id = result['response']['data']['_id'];
-              async_count++;
-              photo_id_list.push(id);
-              if(async_count == photo_list.length){
-                callback(photo_id_list)
-              }
-            });
-        })
-      };
-      async_map($scope.photos, function (id_list) {
-        var url = rootUrl + "/dynamic/add";
-        var data = {
-          IssuerId: userInfo._id,
-          Content: $scope.msg.content,
-          PicListRef:id_list
-        }
+       //post图片
+       var async_map = function (photo_list, callback) {
+         var photo_id_list = [];
+         var async_count = 0;
+         photo_list.forEach(function (item) {
+           var fileName = item.split('/').pop();
+           var options = {
+             fileKey: "image",
+             fileName: fileName,
+             mimeType: "image/jpeg"
+           };
 
-        $http.post(url, data)
-          .success(function(result){
+           $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), item, options)
+             .then(function (result) {
 
-            $ionicLoading.hide();
-              console.log(JSON.stringify(result));
-              $ionicPopup.alert({
-                title: '提醒',
-                template: '发布成功'
-              })
-          })
-          .error(function(err){
-            $ionicLoading.hide();
-            $ionicPopup.alert({
-              title:'err',
-              template:'发布失败'
-            })
-            console.log(JSON.stringify(err)
-            );
-          })
+               result.response = JSON.parse(result.response);
+               var id = result['response']['data']['_id'];
+               async_count++;
+               photo_id_list.push(id);
+               if (async_count == photo_list.length) {
+                 callback(photo_id_list)
+               }
+             });
+         })
+       };
+       async_map($scope.photos, function (id_list) {
+         var url = rootUrl + "/dynamic/add";
+         var data = {
+           IssuerId: userInfo._id,
+           Content: $scope.msg.content,
+           PicListRef: id_list
+         }
 
-      });
+         $http.post(url, data)
+           .success(function (result) {
+
+             $ionicLoading.hide();
+             $ionicPopup.alert({
+               title: '提醒',
+               template: '发布成功'
+             });
+             $scope.msg.content = '';
+             $scope.photos = [];
+           })
+           .error(function (err) {
+             $ionicLoading.hide();
+             $ionicPopup.alert({
+               title: 'err',
+               template: '发布失败'
+             })
+             console.log(JSON.stringify(err)
+             );
+           })
+
+       });
+     }else{
+       $ionicPopup.alert({
+             title:'提醒',
+             template:'无内容可提交'
+           });
+     }
     }
 
   })

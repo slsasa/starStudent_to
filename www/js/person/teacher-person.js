@@ -12,7 +12,7 @@ angular.module('starter')
         }}
       });
   })
-  .controller('terPersonCtrl',function($rootScope, $scope, $state, $ionicPopup, userInfo, $http){
+  .controller('terPersonCtrl',function($rootScope, $scope, $state, $ionicPopup, userInfo, $http,$cordovaImagePicker,$cordovaFileTransfer){
 
     var update = function(){
       var url = rootUrl + "/teacher_info/get_info?TeacherId=" + userInfo._id;
@@ -30,6 +30,70 @@ angular.module('starter')
           console.log("获取个人信息失败");
         })
     }
+
+    $scope.replaceImage = function(){
+
+      var options = {
+        maximumImagesCount: 1,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+          var photo_id = $scope.teacherInfo['PicAvatarRef']['_id'];
+
+          $scope.teacherInfo['PicAvatarRef']['Url'] = results[0];
+          var fileName = $scope.teacherInfo['PicAvatarRef']['Url'].split('/').pop();
+          var fileURL = $scope.teacherInfo['PicAvatarRef']['Url'];
+          var options = {
+            fileKey: "image",
+            fileName: fileName,
+            mimeType: "image/jpeg"
+          };
+
+          $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), fileURL, options)
+            .then(function (result) {
+
+              result.response = JSON.parse(result.response);
+              var id = result['response']['data']['_id'];
+
+
+              if(photo_id != id) {
+                postAvatar(id);
+              }
+
+            });
+
+
+          var postAvatar = function(photo_id){
+            var data = {
+              TeacherId: userInfo._id,
+              PicAvatarRef:photo_id
+
+            }
+
+            var url = rootUrl + "/teacher_info/edit";
+
+            $http.post(url, data)
+              .success(function(){
+                alert('修改成功');
+
+              })
+              .error(function(err){
+                alert('修改失败:'+err);
+              })
+          }
+
+        }, function (error) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '选择出错:' + error
+          });
+
+        });
+    }
+
 
     $scope.$on('$ionicView.beforeEnter',function(){
       update();
