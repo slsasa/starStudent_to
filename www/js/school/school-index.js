@@ -149,4 +149,34 @@ angular.module('starter')
         $state.go('magnify-img');
     };
 
+    //滚动图片
+    //var speed=20;
+    //var demo = $("#demo");
+    //var demo1 = $("#demo1");
+    //var demo2 = $("#demo2");
+    //demo2.html(demo1.html());   //把demo1的内容插入demo2
+    //function Marquee(){
+    //  if( //如果demo1的宽度[demo1.width()]小于滚动条到外部框左侧的距离[demo.scrollLeft()]，重置demo的位置实现显示效果的循环
+    //    demo.scrollLeft()>=demo1.width())
+    //    demo.scrollLeft(0);
+    //  else{  //如果demo1的宽度大于外部边框宽度，则进行滚动
+    //    demo.scrollLeft(demo.scrollLeft()+1);
+    //  }
+    //}
+    //var MyMar=setInterval(Marquee,speed)
+    //demo.mouseover(function() {
+    //  clearInterval(MyMar);
+    //} )
+    //demo.mouseout(function() {
+    //  MyMar=setInterval(Marquee,speed);
+    //} )
+
+    function scroll(){
+      $(".content ul").animate({"margin-left":"-110px"},function(){
+        $(".content ul li:eq(0)").appendTo($(".content ul"))
+        $(".content ul").css({"margin-left":0})
+      })
+    }
+    setInterval(scroll,2000)
+
   })
