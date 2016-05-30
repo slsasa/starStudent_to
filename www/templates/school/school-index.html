@@ -1,3 +1,14 @@
+<style type="text/css">
+  img{
+    border: none;
+
+  }
+  *{ margin: 0px; padding: 0px;}
+  li{ list-style: none;}
+  .content{ width: 1020px; height:110px; overflow: hidden;margin:10px auto 0 0; }
+  .content ul{ width: 1020px; height:100px;}
+
+</style>
 <ion-view>
   <ion-nav-title>
     <span class="title">明星学员</span>
@@ -40,13 +51,34 @@
 
 
     <div class="light-bg shadow" style="margin: 30px 0px 0;padding: 5px 0 5px 0;">
-      <marquee onmouseover="stop()" onmouseout="start()" scrollamount="5">
-        <span ng-repeat="banner in banners">
-         <img ng-click="goMagnifyImg(banner)"  ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%;border: solid 1px gainsboro;margin: 0 5px">
+      <!--<marquee onmouseover="stop()" onmouseout="start()" scrollamount="5">-->
+        <!--<span ng-repeat="banner in banners">-->
+         <!--<img ng-click="goMagnifyImg(banner)"  ng-src="{{banner.bannerImg}}" style="width: 30%;height: 30%;border: solid 1px gainsboro;margin: 0 5px">-->
 
-        </span>
-      </marquee>
+        <!--</span>-->
+      <!--</marquee>-->
+      <!--<div id="demo" style="overflow:hidden;width:auto;">-->
+        <!--<table border=0 align=center cellpadding=1 cellspacing=1 cellspace=0 >-->
+          <!--<tr>-->
+            <!--<td id="demo1" valign="top" bgcolor="ffffff">-->
+              <!--&lt;!&ndash; 特别注意，下面的图片总宽度必须大于上面定义的demo的宽度，如上面demo的宽度为500px,则下面图片总宽度必须大于500,否则会出现些问题！ &ndash;&gt;-->
+              <!--<table border="0" cellspacing="0" cellpadding="0">-->
+                <!--<tr align="center" >-->
+                  <!--<td ng-repeat="banner in banners">-->
+                    <!--<a><img ng-click="goMagnifyImg(banner)"  ng-src="{{banner.bannerImg}}" style="width: 150px;height: 100px;border: solid 1px gainsboro;"></a></td>-->
+                <!--</tr>-->
+              <!--</table>-->
+            <!--</td>-->
+            <!--<td id="demo2" valign="top"></td>-->
+          <!--</tr>-->
+        <!--</table>-->
+      <!--</div>-->
+
+      <div class="content">
+        <ul >
+          <li ng-repeat="banner in banners" style="float: left"><img ng-click="goMagnifyImg(banner)"  ng-src="{{banner.bannerImg}}" style="width: 150px;height: 100px;border: solid 1px gainsboro;"></li>
+        </ul>
+      </div>
     </div>
-
   </ion-content>
 </ion-view>

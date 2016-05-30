@@ -36,16 +36,16 @@
 
           <div class="col" >
 
-            <div class="row" style="margin: 0px 0px 0px 1px;padding: 0;">
+            <div class="row" style="margin: 0px 0px 0px 1px;padding: 0;" ng-click="goCourse(course,detail)">
 
               <div class="course" ng-repeat="detail in course['Course']" ng-if="$index <= 2">
-                <a  ng-click="goCourse(course,detail)">{{detail.Name}}</a>
+                <a  >{{detail.Name}}</a>
               </div>
             </div>
 
-            <div class="row" style="margin: 0 0 0 1px;" >
+            <div class="row" style="margin: 0 0 0 1px;"  ng-click="goCourse(course,detail)">
               <div class="course" ng-repeat="detail in course['Course']" ng-if="$index > 2">
-                <a ng-click="goCourse(course,detail)">{{detail.Name}}</a>
+                <a >{{detail.Name}}</a>
               </div>
             </div>
           </div>

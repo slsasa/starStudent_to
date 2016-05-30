@@ -59,7 +59,7 @@ td {
 .up{margin: 10px 10px 0 75px;height: auto;padding-top: 5px}
 .time{    margin: 0px 0 5px;}
 .mypost{margin: 0 0 0px;text-align: justify;}
-.comments{text-align: right;font-size: 20px;    margin: 20px 3% 7px;}
+.comments{text-align: right;font-size: 20px;    margin: 0px 3% 7px 0;}
 .apply{
   width: 85%;height: 150px;    margin: 5% 8% 0px;
 }
@@ -90,7 +90,6 @@ td {
 
 /*个人动态*/
 
-.mydy{    margin: 15px 0px 0px 5%;}
 
 /*学员》》我要发布*/
 .perpost{background-color: white;border-radius: 4px;width: 93% ;}
