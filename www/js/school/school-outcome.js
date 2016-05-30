@@ -30,7 +30,6 @@ angular.module('starter')
 
           $scope.schOutcomes = data;
 
-
           $ionicLoading.hide();
         })
         .error(function (err) {

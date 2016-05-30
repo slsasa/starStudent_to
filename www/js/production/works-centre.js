@@ -35,11 +35,11 @@ angular.module('starter')
           console.log(err);
         });
 
-      $http.get(url, {params: {TeacherId: $scope.teacher['_id'], ArticleType: 'paper'}})
-        .success(function (result) {
-          var data = result['data'];
-          $scope.TeacherPaperList = data;
-        })
+      //$http.get(url, {params: {TeacherId: $scope.teacher['_id'], ArticleType: 'paper'}})
+      //  .success(function (result) {
+      //    var data = result['data'];
+      //    $scope.TeacherPaperList = data;
+      //  })
     };
 
     update();
@@ -48,50 +48,50 @@ angular.module('starter')
       userInfo.log = log;
       $state.go('works-detail');
     }
-
-    $scope['goPaperDetails'] = function (paper) {
-      userInfo.paper = paper;
-      $state.go('paper-detail');
-    }
-
-
-    $scope.objCentreLog = document.getElementById('logCentre');
-    $scope.objCentrePaper = document.getElementById('paperCentre');
-    $scope.objCentreLogClick = document.getElementById('centreLogClick');
-    $scope.objCentrePaperClick = document.getElementById('centrePaperClick');
-
-    $scope.objCentreLogClick.style.backgroundColor = '#F96A9F';
-    $scope.objCentreLogClick.style.color = "#fff";
-    $scope.showCentreLog = function () {
-
-      $scope.objCentrePaper.style.display = "none";
-      $scope.objCentreLog.style.display = "";
-
-      if ($scope.objCentreLog.style.display == "") {
-        changeClickLogBgColor("#f96a9f", "");
-        changeClickFontColor("#fff", "black");
-      }
-
-    };
-    $scope.showCentrePaper = function () {
-
-      $scope.objCentreLog.style.display = "none";
-      $scope.objCentrePaper.style.display = "";
-      if ($scope.objCentrePaper.style.display == "") {
-        changeClickLogBgColor("", "#f96a9f");
-        changeClickFontColor("black", "#fff");
-      }
-    };
+    //
+    //$scope['goPaperDetails'] = function (paper) {
+    //  userInfo.paper = paper;
+    //  $state.go('paper-detail');
+   // }
 
 
-    var changeClickLogBgColor = function (log, paper) {
-      $scope.objCentreLogClick.style.backgroundColor = log;
-      $scope.objCentrePaperClick.style.backgroundColor = paper;
-    };
-
-    var changeClickFontColor = function (log, paper) {
-      $scope.objCentreLogClick.style.color = log;
-      $scope.objCentrePaperClick.style.color = paper;
-    };
+    //$scope.objCentreLog = document.getElementById('logCentre');
+    //$scope.objCentrePaper = document.getElementById('paperCentre');
+    //$scope.objCentreLogClick = document.getElementById('centreLogClick');
+    //$scope.objCentrePaperClick = document.getElementById('centrePaperClick');
+    //
+    //$scope.objCentreLogClick.style.backgroundColor = '#F96A9F';
+    //$scope.objCentreLogClick.style.color = "#fff";
+    //$scope.showCentreLog = function () {
+    //
+    //  $scope.objCentrePaper.style.display = "none";
+    //  $scope.objCentreLog.style.display = "";
+    //
+    //  if ($scope.objCentreLog.style.display == "") {
+    //    changeClickLogBgColor("#f96a9f", "");
+    //    changeClickFontColor("#fff", "black");
+    //  }
+    //
+    //};
+    //$scope.showCentrePaper = function () {
+    //
+    //  $scope.objCentreLog.style.display = "none";
+    //  $scope.objCentrePaper.style.display = "";
+    //  if ($scope.objCentrePaper.style.display == "") {
+    //    changeClickLogBgColor("", "#f96a9f");
+    //    changeClickFontColor("black", "#fff");
+    //  }
+    //};
+    //
+    //
+    //var changeClickLogBgColor = function (log, paper) {
+    //  $scope.objCentreLogClick.style.backgroundColor = log;
+    //  $scope.objCentrePaperClick.style.backgroundColor = paper;
+    //};
+    //
+    //var changeClickFontColor = function (log, paper) {
+    //  $scope.objCentreLogClick.style.color = log;
+    //  $scope.objCentrePaperClick.style.color = paper;
+    //};
 
   });

@@ -124,7 +124,10 @@ angular.module('starter')
         $http.post(url,data)
           .success(function(result){
             $ionicLoading.hide();
-            alert('上传成功：'+ JSON.stringify(result));
+            alert('上传成功');
+            $scope.photos = [];
+            $scope.post_info.content = '';
+            $scope.post_info.link = '';
             //console.log('上传成功'+JSON.stringify(result));
           })
           .error(function(err){

@@ -23,7 +23,7 @@
 
         <img ng-src="{{teacherInfo.PicBgRef.Url}}"  style="width: 100%  ;  height: 165px;">
           <div class="item-avatar">
-          <img ng-src="{{teacherInfo.PicAvatarRef.Url}}" style="margin: 102px 0 0 5px;max-height: 70px;max-width: 70px;"></div>
+          <img ng-src="{{teacherInfo.PicAvatarRef.Url}}" ng-click="replaceImage()" style="margin: 102px 0 0 5px;max-height: 70px;max-width: 70px;"></div>
 
 
         <div  ng-click="edit()" style="background: rgba(0, 0, 0, 0.6);opacity:0.5;height: 35px;width: 68%;     margin: -118px 29% 0 30%;">

@@ -32,7 +32,8 @@ angular.module('starter')
       update();
     })
 
-    $scope.myApplyDeatil = function(myApplydetId){
-      $state.go('myApplydet',{myApplydetId:myApplydetId});
+    $scope.myApplyDeatil = function(apply){
+      userInfo.apply = apply;
+      $state.go('myApplydet');
     }
   })

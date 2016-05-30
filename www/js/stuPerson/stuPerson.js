@@ -13,8 +13,9 @@ angular.module('starter')
         }}
       });
   })
-  .controller('stuPersonCtrl',function($rootScope, $scope, $state, $ionicPopup, userInfo, $http, $ionicHistory){
+  .controller('stuPersonCtrl',function($rootScope, $scope, $state, $ionicPopup, userInfo, $http, $ionicHistory,$cordovaFileTransfer,$cordovaImagePicker){
 
+    $scope.rootPicUrl = rootPicUrl;
     var update = function(){
       var url = rootUrl + "/student_info/get_info?StudentId=" + userInfo._id;
 
@@ -22,28 +23,24 @@ angular.module('starter')
         .success(function(result){
           console.log(JSON.stringify(result));
           var data = result.data;
-          data.PicAvatarRef.Url = rootPicUrl + data.PicAvatarRef.Url;
+          data['PicAvatarRef']['Url'] = rootPicUrl +  data['PicAvatarRef']['Url'];
           data.PicBgRef.Url = rootPicUrl + data.PicBgRef.Url;
           $scope.studentInfo = data;
           console.log($scope.studentInfo);
         })
         .error(function(err){
-          console.log("获取个人信息失败");
+
+          $ionicPopup.alert({
+            title:'提醒',
+            template:'数据获取失败'+err
+          });
         })
     }
 
     $scope.$on('$ionicView.beforeEnter' ,function(){
       //setTimeout(update,500);
       update();
-    })
-
-    //$scope.headbks = [
-    //  {
-    //    "img":"http://123.206.199.94:3000/images/defaulter_avatar.jpeg",
-    //    "myname":"名字",
-    //    "headimg":"img/stuperson/stuh.png"
-    //  }
-    //]
+    });
 
     //资料编辑
     $scope.editor = function () {
@@ -84,10 +81,82 @@ angular.module('starter')
               $state.go('login');
             }
           },
-          {text:"否"}
-        ]
-      })
+          {text:"否"}]
+      });
 
     }
+
+    $scope.replaceImage = function(){
+
+
+      var options = {
+        maximumImagesCount: 1,
+        width: 500,
+        height: 500,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function (results) {
+           var photo_id = $scope.studentInfo['PicAvatarRef']['_id'];
+
+           $scope.studentInfo['PicAvatarRef']['Url'] = results[0];
+            var fileName = $scope.studentInfo['PicAvatarRef']['Url'].split('/').pop();
+            var fileURL = $scope.studentInfo['PicAvatarRef']['Url'];
+            var options = {
+              fileKey: "image",
+              fileName: fileName,
+              mimeType: "image/jpeg"
+            };
+
+            $cordovaFileTransfer.upload(encodeURI(rootUrl + '/upload'), fileURL, options)
+              .then(function (result) {
+
+                result.response = JSON.parse(result.response);
+                var id = result['response']['data']['_id'];
+
+
+                if(photo_id != id) {
+                  postAvatar(id);
+                }
+
+              });
+
+
+             var postAvatar = function(photo_id){
+              var data = {
+                StudentId: userInfo._id,
+                PicAvatarRef:photo_id
+
+              }
+
+              var url = rootUrl + "/student_info/edit";
+
+              $http.post(url, data)
+                .success(function(){
+                  $ionicPopup.alert({
+                    title:'成功',
+                    template:'头像修改成功'
+                  });
+
+                })
+                .error(function(err){
+                  $ionicPopup.alert({
+                    title:'失败',
+                    template:'头像修改失败'+err
+                  })
+                })
+            }
+
+        }, function (error) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '选择出错:' + error
+          });
+
+        });
+
+
+    }
+
 
   })

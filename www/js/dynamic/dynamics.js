@@ -41,7 +41,7 @@ angular.module('starter')
       }
       switch ( level ) {
         case 1:
-          difTimeRes += ' 秒前'
+          difTimeRes = ''
           break;
         case 2:
           difTimeRes += ' 分钟前'
@@ -67,6 +67,7 @@ angular.module('starter')
       $http.get(url,{params:{DyType:type}})
         .success(function(result){
           var data = result['data'];
+
           data.forEach(function(item){
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
             item['Time'] = calcTime(item["IssueTime"]);
