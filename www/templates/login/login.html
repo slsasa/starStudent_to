@@ -1,3 +1,6 @@
+<style>
+  #logLogo1{border: solid white 2px;width:120px;height:120px;border-radius:120px;margin: 30px 0px 0px 31%;}
+</style>
 <ion-view>
   <ion-nav-title>
     <span class="title">登录</span>
@@ -7,31 +10,35 @@
 
 
     <div class="loginbk" ng-repeat="loginbk in loginbks">
-      <div style="border: solid white 2px;width:120px;height:120px;border-radius:120px;margin: 10% 32%">
+      <div id="logLogo1">
         <img src="{{loginbk.img}}" class="mebk">
       </div>
     </div>
 
-    <div class="logininput">
-      <i class="ion-ios-person-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
-      <input type="text" class="loginaccount " placeholder="请输入账号" ng-model="user.num " >
+    <div style="margin: 4% 0 0 0;position:absolute;width: 97%;">
+      <div class="logininput">
+        <i class="ion-ios-person-outline" style="font-size: 30px;color:white;padding: 0px 13px 0;"></i>
+        <input type="text" class="loginaccount " placeholder="请输入账号" name="username" ng-model="user.num " >
+      </div>
+      <div class="logininput">
+        <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
+        <input type="password" class="loginaccount " placeholder="请输入密码" name="password" ng-model="user.pwd " >
+      </div>
     </div>
-    <div class="logininput">
-      <i class="ion-ios-locked-outline" style="font-size: 30px;color:white;    padding: 0px 13px 0;"></i>
-      <input type="password" class="loginaccount " placeholder="请输入密码" ng-model="user.pwd " >
-    </div>
 
 
-
-      <div >
+      <span >
         <a class="button button-pink login"  ng-click="login()">登录</a>
         <a class="button  button-pink register"  ng-click="register()">注册</a>
-      </div>
+      </span>
 
-    <ion-checkbox ng-repeat="remember in remembers" class="rem" style="margin: 35px 0 0 5%; width: 120px; ">
-      <span style="margin: 0 0 0 40%">{{remember.label}}</span>
-    </ion-checkbox>
-      <a  style="float: right"  ng-click="Forgotpw()" class="loginforget" >忘记密码</a>
+
+    <div style="margin: -195px 0 0 0;position:absolute;">
+      <ion-checkbox ng-repeat="remember in remembers" class="rem" style="margin: 0px 0 0 15%; width: 120px; ">
+        <span style="margin: 0 0 0 40%;position:absolute">{{remember.label}}</span>
+      </ion-checkbox>
+    </div>
+    <p style="margin: -190px 9% 0 0;float: right"  ng-click="Forgotpw()" class="loginforget" >忘记密码</p>
 
 
   </ion-content>
