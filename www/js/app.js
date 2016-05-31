@@ -3,8 +3,8 @@
 //var rootUrl = "http://112.124.118.133:3000";
 //var rootPicUrl = "http://localhost:3000/";
 
-var rootUrl = "http://172.16.41.169:3000";
-var rootPicUrl = "http://172.16.41.169:3000/";
+var rootUrl = "http://112.124.118.133:3000";
+var rootPicUrl = "http://112.124.118.133:3000/";
 
 
 
@@ -17,41 +17,16 @@ var rootPicUrl = "http://172.16.41.169:3000/";
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-  .run(function ($rootScope,$ionicPlatform, $ionicHistory, $ionicPopup, $location, $cordovaToast,$cordovaKeyboard) {
-
-
-    //$ionicPlatform.registerBackButtonAction(function (e) {
-    //  //判断处于哪个页面时双击退出
-    //  if ($location.path() == '/login' || $location.path() == '/school-index') {
-    //    if ($rootScope.backButtonPressedOnceToExit) {
-    //      ionic.Platform.exitApp();
-    //    } else {
-    //      $rootScope.backButtonPressedOnceToExit = true;
-    //      $cordovaToast.showShortBottom('再按一次退出系统');
-    //      setTimeout(function () {
-    //        $rootScope.backButtonPressedOnceToExit = false;
-    //      }, 2000);
-    //    }
-    //  }else if ($ionicHistory.backView()) {
-    //    if ($cordovaKeyboard.isVisible()) {
-    //      $cordovaKeyboard.close();
-    //    } else {
-    //      $ionicHistory.goBack();
-    //    }
-    //  }
-    //  else {
-    //    $rootScope.backButtonPressedOnceToExit = true;
-    //    $cordovaToast.showShortBottom('再按一次退出系统');
-    //    setTimeout(function () {
-    //      $rootScope.backButtonPressedOnceToExit = false;
-    //    }, 2000);
-    //  }
-    //  e.preventDefault();
-    //  return false;
-    //}, 101);
+  .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo) {
 
 
     $ionicPlatform.ready(function () {
+
+        userInfo.userNum = locals.get("Account","");
+      if(locals.getState("checked",'')){
+        userInfo.userPwd  = locals.get("Password","");
+
+      }
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -65,6 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         //StatusBar.styleDefault();
         StatusBar.styleLightContent();
       }
+
     })
     //返回键处理
     //主页面显示退出提示框
@@ -130,8 +106,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .filter('ifMore', function () {
     return function (input) {
       input = input || [];
-      if (input.length > 18) {
-        return input.slice(0, 18);
+      if (input.length > 20) {
+        return input.slice(0, 20);
       } else {
         return input;
       }

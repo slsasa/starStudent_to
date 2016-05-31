@@ -13,8 +13,7 @@ angular.module('starter')
   })
 
 
-  .controller('loginCtrl', function ($rootScope, $scope, $state, $ionicPopup, userInfo, $http, $ionicLoading) {
-
+  .controller('loginCtrl', function ($rootScope, $ionicPlatform,$scope,locals, $state, $ionicPopup, userInfo, $http, $ionicLoading) {
 
     $scope.loginbks = [
       {
@@ -24,8 +23,8 @@ angular.module('starter')
 
     $rootScope.user = {
 
-      num: '',
-      pwd: ''
+      num: userInfo.userNum ,
+      pwd: userInfo.userPwd
     };
 
 
@@ -35,6 +34,7 @@ angular.module('starter')
 
           if (result.ret_code == 0) {
             var user = result.data;
+
             userInfo._id = user._id;
             if (user.UserType == 'student') {
 
@@ -47,6 +47,10 @@ angular.module('starter')
               console.log(userInfo.personType);
               $state.go('tabs.home', {type: userInfo.personType})
             }
+
+
+
+
           } else if (result.ret_code == 101) {
             console.log(result.msg);
             $ionicPopup.alert({
@@ -59,6 +63,7 @@ angular.module('starter')
               template: '登录异常'
             });
           }
+
           $ionicLoading.hide();
         })
         .error(function (err) {
@@ -80,17 +85,37 @@ angular.module('starter')
         Password: $rootScope.user.pwd,
         Account: $rootScope.user.num
       };
-      console.log(data);
 
+      locals.set("Account",$rootScope.user.num);
+      locals.set("Password",$rootScope.user.pwd);
       var url = rootUrl + "/user/login";
+
       update(url, data);
 
     };
 
     //记住密码框
-    $scope.remembers =  [
-      {label: "记住密码" ,selected: true}
-    ]
+    $scope.remembers = {text: "记住密码" ,checked: true};
+
+    var remember = function(){
+      if($scope.remembers.checked == true){
+        userInfo.checked = true;
+        locals.setState("checked",true);
+        userInfo.userNum = locals.get("Account","");
+        userInfo.userPwd  = locals.get("Password","");
+
+      }
+    }
+
+    remember();
+
+    $scope.clickRemember = function(checked){
+      if(checked == false){
+        userInfo.checked = false;
+        locals.setState("checked",'');
+      }
+    }
+
 
 
 
