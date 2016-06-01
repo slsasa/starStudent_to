@@ -11,7 +11,7 @@ angular.module('starter')
       });
   })
 
-  .controller('logDetailCtrl', function ($scope,$stateParams,userInfo,$http) {
+  .controller('logDetailCtrl', function ($scope,$stateParams,userInfo,$http,$ionicPopup) {
 
     $scope.teacher  = userInfo.teacherInfo;
     $scope.tearchingLog = userInfo.log;
@@ -21,10 +21,17 @@ angular.module('starter')
       var url = rootUrl + '/teacher_article/add_like';
       $http.post(url, {UserId: userInfo['_id'], ArticleId: $scope['tearchingLog']['_id']})
         .success(function (result) {
-
+          $ionicPopup.alert({
+            title:'success',
+            template:'点赞成功'
+          })
         })
         .error(function (err) {
-          console.log(JSON.stringify(err))
+          //console.log(JSON.stringify(err));
+          $ionicPopup.alert({
+            title:'err',
+            template:'点赞失败'+err
+          })
         });
     }
 

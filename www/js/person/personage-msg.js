@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('personageMsgCtrl',function($scope, $http, userInfo, $ionicLoading){
+  .controller('personageMsgCtrl',function($scope, $http, userInfo, $ionicLoading,$ionicPopup){
 
     var update = function(){
       $ionicLoading.show();
@@ -26,8 +26,12 @@ angular.module('starter')
         })
         .error(function(err){
           $ionicLoading.hide();
-          alert(JSON.stringify(err));
-          //console.log("获取个人信息失败");
+          $ionicPopup.alert({
+            title:'err',
+            template:'获取数据出错'+err
+          })
+          //alert(JSON.stringify(err));
+          ////console.log("获取个人信息失败");
         })
     }
 

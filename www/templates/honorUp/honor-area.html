@@ -1,6 +1,6 @@
 <ion-view hide-back-button="true">
   <ion-nav-title>
-    <span class="title">明星学员</span>
+    <span class="title">明星秀</span>
   </ion-nav-title>
   <ion-nav-buttons>
     <button class="button button-icon light ion-ios-arrow-back" ui-sref="tabs.home"></button>
@@ -14,7 +14,7 @@
     <div id="star" class="list">
       <a class="item " ng-repeat="star in starList" style="padding: 10px 0px;">
         <div class="item-avatar">
-          <img ng-src="{{star['UserAvatarRef']['Url']}}">
+          <img ng-src="{{rootPicUrl + star['UserAvatarRef']['Url']}}">
           <p>{{star['UserName']}}</p>
           <p>获奖情况：{{star['Description']}}</p>
         </div>
@@ -24,7 +24,7 @@
     <div id="honor" class="list" style="display: none">
       <a class="item" ng-repeat="honorMan in honorWall"style="padding: 10px 0px;">
         <div class="item-avatar">
-          <img ng-src="{{honorMan['UserAvatarRef']['Url']}}">
+          <img ng-src="{{rootPicUrl + honorMan['UserAvatarRef']['Url']}}">
           <p>{{honorMan['UserName']}}</p>
           <p>{{honorMan['Description']}}</p>
         </div>

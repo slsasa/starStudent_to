@@ -36,8 +36,8 @@
 
           <div ng-if="leagarden['IssuerAvatarRef']['Url'] != ''">
             <a ng-repeat="img in leagarden['PicListRef']">
-              <img width="150px" height="150px" ng-src="{{rootPicUrl+img['Url']}}"/>
-            </a>
+              <img width="80px" height="80px" ng-src="{{rootPicUrl+img['Url']}}"/>
+            </a><br>
             <a href="{{leagarden.LinkUrl}}" ng-if="leagarden.LinkUrl.length>11">个人分享链接{{leagarden['LinkUrl']}}</a>
           </div>
 

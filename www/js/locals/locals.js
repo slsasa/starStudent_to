@@ -1,5 +1,6 @@
 /**
  * Created by sls on 16/5/30.
+ * 页面本地缓存
  */
 angular.module('starter')
   .factory('locals',['$window',function($window){

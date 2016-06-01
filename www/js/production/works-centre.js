@@ -11,16 +11,10 @@ angular.module('starter')
 
       });
   })
-  .controller('worksCentreCtrl', function ($scope, $state, $stateParams, userInfo, $http) {
+  .controller('worksCentreCtrl', function ($scope, $state, $stateParams, userInfo, $http,$ionicPopup) {
 
 
     var url = rootUrl + '/teacher_article/get_self_list';
-    var query_log = {
-      ArticleType: 'log'
-    };
-    var query_paper = {
-      ArticleType: 'paper'
-    };
 
     $scope.teacher = userInfo.teacherInfo;
     //userInfo['TeacherRef']
@@ -32,7 +26,10 @@ angular.module('starter')
           $scope.TeacherLogList = data;
         })
         .error(function (err) {
-          console.log(err);
+          $ionicPopup.alert({
+            title:'err',
+            template:'获取数据失败'+ err
+          });
         });
 
       //$http.get(url, {params: {TeacherId: $scope.teacher['_id'], ArticleType: 'paper'}})

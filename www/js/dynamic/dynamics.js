@@ -91,19 +91,24 @@ angular.module('starter')
     })
 
 
-    $scope.objSchool = document.getElementById('school');
-    $scope.objStudent = document.getElementById('student');
-    $scope.objTeacher = document.getElementById('teacher');
+    //初始化获得页面元素
+    var initDoc = function() {
+      //获取school ,student,teacher三个div
+      $scope.objSchool = document.getElementById('school');
+      $scope.objStudent = document.getElementById('student');
+      $scope.objTeacher = document.getElementById('teacher');
 
-    $scope.objSchoolClick = document.getElementById('showSchoolClick');
-    $scope.objStuClick = document.getElementById('showStuClick');
-    $scope.objTeacherClick = document.getElementById('showTeacherClick');
+      //获取页面上方 school ,student,teacher按钮，并初始化按钮状态
+      $scope.objSchoolClick = document.getElementById('showSchoolClick');
+      $scope.objStuClick = document.getElementById('showStuClick');
+      $scope.objTeacherClick = document.getElementById('showTeacherClick');
 
+      $scope.objStuClick.style.backgroundColor = "#F96A9F";
+      $scope.objStuClick.style.color = "#fff";
+    }
+    initDoc();
 
-    $scope.objStuClick.style.backgroundColor = "#F96A9F";
-    $scope.objStuClick.style.color = "#fff";
-
-    //学校动态按钮
+    //学校动态按钮,显示学校动态内容，并改变学校动态按钮状态
     $scope.showSchoolDynamic = function () {
 
       $scope.flag = "school";
@@ -119,7 +124,7 @@ angular.module('starter')
 
     };
 
-    //学员动态按钮
+    //学员动态按钮,显示学员动态内容，并改变学员动态按钮状态
     $scope.showStudentDynamic = function () {
 
       $scope.flag = "student";
@@ -135,7 +140,7 @@ angular.module('starter')
 
     };
 
-    //教师动态按钮
+    //教师动态按钮,显示教师动态内容，并改变教师动态按钮状态
     $scope.showTeacherDynamic = function () {
 
       $scope.flag = "teacher";
@@ -150,12 +155,13 @@ angular.module('starter')
 
     };
 
+    //改变按钮背景颜色
     var changeColorBg = function (stu, school, teacher) {
       $scope.objStuClick.style.backgroundColor = stu;
       $scope.objSchoolClick.style.backgroundColor = school;
       $scope.objTeacherClick.style.backgroundColor = teacher;
     };
-
+    //改变按钮字体颜色
     var changeColorFont = function (stu, school, teacher) {
       $scope.objStuClick.style.color = stu;
       $scope.objSchoolClick.style.color = school;
@@ -163,13 +169,14 @@ angular.module('starter')
     };
 
 
+    //点赞分享按钮组合显示
     $scope.showClickSchool = function (index) {
-      var objClick = document.getElementById(index + 'school');
+     $scope.schObjClick = document.getElementById(index + 'school');
 
-      if (objClick.style.display == "none") {
-        objClick.style.display = "";
+      if ( $scope.schObjClick.style.display == "none") {
+        $scope.schObjClick.style.display = "";
       } else {
-        objClick.style.display = "none";
+        $scope.schObjClick.style.display = "none";
       }
     };
 
@@ -183,14 +190,16 @@ angular.module('starter')
     };
 
     $scope.showClickTeacher = function (index) {
-      var objClick = document.getElementById(index + 'teacher');
-      if (objClick.style.display == "none") {
-        objClick.style.display = "";
+      $scope.terObjClick = document.getElementById(index + 'teacher');
+      if ($scope.terObjClick.style.display == "none") {
+        $scope.terObjClick.style.display = "";
       } else {
-        objClick.style.display = "none";
+        $scope.terObjClick.style.display = "none";
       }
     };
 
+
+    //动态内容全部显示
     $scope.showContentSchool = function (schoolId) {
       var objMoreContent = document.getElementById(schoolId + "moreContentSchool");
       var objContentSchool = document.getElementById(schoolId + "contentSchool");
@@ -236,14 +245,18 @@ angular.module('starter')
 
       switch ($scope.flag) {
         case 'school':
+          $scope.schObjClick = document.getElementById($index + 'school');
+          $scope.schObjClick.style.display = "none";
           var dynamicId = $scope['schoolDynamics'][$index]._id;
           break;
         case 'student':
-          $scope.stuObjClick  = document.getElementById($index + 'stu');
+          $scope.stuObjClick = document.getElementById($index + 'stu');
           $scope.stuObjClick.style.display = "none";
           var dynamicId = $scope['studentDynamics'][$index]._id;
           break;
         case 'teacher':
+          $scope.terObjClick = document.getElementById($index + 'teacher');
+          $scope.terObjClick.style.display = "none";
           var dynamicId = $scope['teacherDynamics'][$index]._id;
           break;
         default :

@@ -112,7 +112,7 @@ angular.module('starter')
           });
 
         });
-    }
+    };
 
 
     $scope.$on('$ionicView.beforeEnter',function(){
@@ -129,21 +129,23 @@ angular.module('starter')
 
     $scope.exit = function(){
       $state.go('login');
-    }
+    };
+
     $scope.goMyStyle = function(){
       $state.go('my-style');
-    }
+    };
+
     $scope.goMyDynamic = function(type){
       $state.go('my-dynamic',{type:type});
-    }
+    };
 
     $scope.goWorksLog = function(){
       $state.go('my-works');
-    }
+    };
 
     $scope.goTerSetting = function(teacher){
       $state.go('setting',{type:teacher});
-    }
+    };
 
     $scope.outLogin = function(){
       $ionicPopup.confirm({
@@ -160,9 +162,9 @@ angular.module('starter')
           },
           {text:"否"}
         ]
-      })
+      });
+    };
 
-    }
     var remember =function(){
       if(userInfo.checked ==true){
         $rootScope.user.num  =  userInfo.userNum;
@@ -170,8 +172,8 @@ angular.module('starter')
       }else{
         $rootScope.user.pwd = '';
       }
-    }
+    };
 
-  })
+  });
 
 

@@ -19,8 +19,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo) {
 
-
-
     $ionicPlatform.ready(function () {
 
       userInfo.userNum = locals.get("Account","");
