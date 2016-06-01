@@ -13,8 +13,20 @@ angular.module('starter')
   })
 
 
-  .controller('loginCtrl', function ($rootScope, $ionicPlatform,$scope,locals, $state, $ionicPopup, userInfo, $http, $ionicLoading) {
+  .controller('loginCtrl', function ($rootScope, $ionicPlatform,$scope,locals, $state, $ionicPopup, userInfo, $http, $ionicLoading,UserService) {
 
+    var vm = this;
+
+    //Initialize the database
+    $ionicPlatform.ready(function(){
+
+      UserService.initDB();
+
+      UserService.getAllUsers().then(function(users){
+        vm.users = users;
+      });
+      console.log('------------------------>initialize the database');
+    });
     $scope.loginbks = [
       {
         "img": "img/logo/loginLogo.png"
@@ -23,7 +35,7 @@ angular.module('starter')
 
     $rootScope.user = {
 
-      num: userInfo.userNum ,
+      num: userInfo.userNum,
       pwd: userInfo.userPwd
     };
 
@@ -35,6 +47,33 @@ angular.module('starter')
           if (result.ret_code == 0) {
             var user = result.data;
 
+            var cache = {
+              pwd:$rootScope.user.pwd,
+              account:$rootScope.user.num
+            }
+
+
+
+            UserService.addUser(cache);
+            tmp = UserService.getAllUsers();
+            console.log("allUser ---> " + JSON.stringify(tmp));
+
+            tmp = tmp.$$state.value;
+            tmp = tmp[tmp.length-1];
+            console.log("->>>> obj" + JSON.stringify(tmp) );
+
+
+
+            //UserService.deleteUser(tmp);
+            //tmp = UserService.getAllUsers();
+            //console.log('-------------deleted User',tmp)
+
+            //for ( var a in tmp ) {
+            //  UserService.deleteUser(a);
+            //}
+            //UserService.addUser(cache);
+            //console.log('tmp valuse------------->',tmp);
+            locals.set("user",user);
             userInfo._id = user._id;
             if (user.UserType == 'student') {
 
@@ -85,8 +124,6 @@ angular.module('starter')
         Password: $rootScope.user.pwd,
         Account: $rootScope.user.num
       };
-
-      locals.set("Account",$rootScope.user.num);
       locals.set("Password",$rootScope.user.pwd);
       var url = rootUrl + "/user/login";
 
@@ -100,9 +137,27 @@ angular.module('starter')
     var remember = function(){
       if($scope.remembers.checked == true){
         userInfo.checked = true;
-        locals.setState("checked",true);
-        userInfo.userNum = locals.get("Account","");
-        userInfo.userPwd  = locals.get("Password","");
+
+
+
+        //locals.setState("checked",true);
+        //userInfo.userNum = locals.get("user","").num;
+        //userInfo.userPwd  = locals.get("Password","");
+        //UserService.initDB().then(function(){
+        //  console.log("then init DB ->>>>>>>>>>>>>>>>>>>>>>")
+        //  tmp = UserService.getAllUsers();
+        //  console.log("initialize ->>>>> " + JSON.stringify(tmp) );
+        //
+        //  user = UserService.getAllUsers();
+        //  if ( user.$$state.status === '0' ) return;
+        //  user = user.$$state.value;
+        //  if ( user != undefined && user.length > 0 ) {
+        //    user = user[user.length-1];
+        //    userInfo.userNum = user.account;
+        //    userInfo.userPwd = user.pwd;
+        //  }
+        //});
+
 
       }
     }
