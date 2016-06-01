@@ -174,11 +174,11 @@ angular.module('starter')
     };
 
     $scope.showClickStudent = function (index) {
-      var objClick = document.getElementById(index + 'stu');
-      if (objClick.style.display == "none") {
-        objClick.style.display = "";
-      } else if (objClick.style.display == "") {
-        objClick.style.display = "none";
+      $scope.stuObjClick = document.getElementById(index + 'stu');
+      if ($scope.stuObjClick.style.display == "none") {
+        $scope.stuObjClick.style.display = "";
+      } else if ($scope.$scope.stuObjClick.style.display == "") {
+        $scope.stuObjClick.style.display = "none";
       }
     };
 
@@ -239,6 +239,8 @@ angular.module('starter')
           var dynamicId = $scope['schoolDynamics'][$index]._id;
           break;
         case 'student':
+          $scope.stuObjClick  = document.getElementById($index + 'stu');
+          $scope.stuObjClick.style.display = "none";
           var dynamicId = $scope['studentDynamics'][$index]._id;
           break;
         case 'teacher':
@@ -260,7 +262,7 @@ angular.module('starter')
           $ionicPopup.alert({
             title:'success',
             template:'点赞成功'
-          })
+          });
 
         })
         .error(function(err){

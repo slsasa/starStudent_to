@@ -6,6 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('school-outcome', {
         url: '/school-outcome',
+        cache:false,
         templateUrl: 'templates/school/school-outcome.html',
         controller: 'outcomeCtrl'
       });
