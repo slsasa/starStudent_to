@@ -1,21 +1,18 @@
-<style>
-  #logLogo1{border: solid white 2px;width:120px;height:120px;border-radius:120px;margin: 30px 0px 0px 31%;}
-</style>
+
 <ion-view>
   <ion-nav-title>
     <span class="title">登录</span>
   </ion-nav-title>
-  <ion-content class="has-header" style="background-image:url(img/loginbk.jpg);background-attachment:fixed;
+  <ion-content class="has-header " style="background-image:url(img/loginbk.jpg);background-attachment:fixed;
   background-repeat:no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;">
 
 
-    <div class="loginbk" ng-repeat="loginbk in loginbks">
-      <div id="logLogo1">
-        <img src="{{loginbk.img}}" class="mebk">
-      </div>
-    </div>
+        <div class="hb" ng-repeat="loginbk in loginbks">
+          <img src="{{loginbk.img}}" class="mebk">
+        </div>
 
-    <div style="margin: 4% 0 0 0;position:absolute;width: 97%;">
+
+    <div style="margin: 4% 0 0 0;width: 97%;" >
       <div class="logininput">
         <i class="ion-ios-person-outline" style="font-size: 30px;color:white;padding: 0px 13px 0;"></i>
         <input type="text" class="loginaccount " placeholder="请输入账号" name="username" ng-model="user.num " >
@@ -26,11 +23,22 @@
       </div>
     </div>
 
+    <div style="position:absolute;width: 97%;" >
+      <a class="button button-pink login"  ng-click="login()">登录</a>
+      <a class="button  button-pink register"  ng-click="register()">注册</a>
+      <div style="margin: -195px 0 0 0;position:absolute;">
+        <ion-checkbox  class="rem" style="margin: 0px 0 0 15%; width: 120px; " ng-model="remembers.checked"  ng-checked="remembers.checked">
+          <span ng-click="clickRemember(remembers.checked)" style="margin: 0 0 0 40%;position:absolute" >{{remembers.text}}</span>
+        </ion-checkbox>
+      </div>
 
-      <span >
-        <a class="button button-pink login"  ng-click="login()">登录</a>
-        <a class="button  button-pink register"  ng-click="register()">注册</a>
-      </span>
+      <p style="margin: -190px 9% 0 0;float: right"   ng-click="Forgotpw()" class="loginforget" >忘记密码</p>
+    </div>
+
+      <!--<div style="    margin: 30px 0 0px 0;">-->
+        <!--<a class="button button-pink login"  ng-click="login()">登录</a>-->
+        <!--<a class="button  button-pink register"  ng-click="register()">注册</a>-->
+      <!--</div>-->
 
 
 <!--<<<<<<< HEAD-->
@@ -42,13 +50,7 @@
     <!--<p style="margin: -190px 9% 0 0;float: right"  ng-click="Forgotpw()" class="loginforget" >忘记密码</p>-->
 <!--=======-->
 
-  <div style="margin: -195px 0 0 0;position:absolute;">
-    <ion-checkbox  class="rem" style="margin: 0px 0 0 15%; width: 120px; " ng-model="remembers.checked"  ng-checked="remembers.checked">
-      <span ng-click="clickRemember(remembers.checked)" style="margin: 0 0 0 40%;position:absolute" >{{remembers.text}}</span>
-    </ion-checkbox>
-  </div>
 
-      <p  style="margin: -190px 9% 0 0;float: right"   ng-click="Forgotpw()" class="loginforget" >忘记密码</p>
 
 
 
