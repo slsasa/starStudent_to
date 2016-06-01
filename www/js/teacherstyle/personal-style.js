@@ -6,7 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('personal-style', {
         url: '/teacher-mine/personal-style',
-        cache: false,
+        cache: true,
         templateUrl: 'templates/teacherstyle/personal-style.html',
         controller: 'personalCtrl'
 
