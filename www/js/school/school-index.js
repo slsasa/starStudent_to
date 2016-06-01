@@ -177,6 +177,8 @@ angular.module('starter')
         $(".content ul").css({"margin-left":0})
       })
     }
-    setInterval(scroll,2000)
+    setInterval(scroll,2000);
+
+
 
   })

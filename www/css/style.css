@@ -18,16 +18,22 @@ td {
 .box2{
   border: dashed black 1px;height: 60px;width: auto;padding-top: 10px
 }
+.hb{    border: solid 2px white;
+  height: 120px;
+  width: 120px;
+  border-radius: 115px;
+text-align: center;
+margin: 18px 32%;}
 .logininput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;  margin: 15px 11%;}
 .reisterinput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
 .loginaccount{background-color: rgba(255, 255, 255, 0);border-radius: 10px;width: 190px;    margin: -34px 40px;
 }
-.mebk{width:100px;height:100px;margin: 8px 0 0 9px}
-.loginbk{height: auto;}
+.mebk{width:100px;height:100px;margin: 8px 0 0 0px}
+.loginbk{height: auto;    text-align: center;}
 .loginforget{color: #ffffff;font-weight:bold; font-size: 16px;
 }
-.login{width: 80%;margin: 350px 0 6% 10%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
-.register{width: 80%;margin: 0% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
+.login{width: 80%;margin: 223px 0 4% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
+.register{width: 80%;margin: 0 0 0% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 .rem{background: rgba(255, 255, 255, 0);border: none;height: 35px;line-height: 35px; color: white  ;   font-weight: bold;}
 /*注册界面*/
 .reginput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
@@ -145,7 +151,7 @@ td {
 .mine{box-shadow:#f96a9f 0px 23px 20px -20px ;   }
 .kk{padding: 10px 5px 10px 0px;}
 .styleh{    height: 65px;width: 65px;border-radius: 45px;margin: 15px 0px 0px 5px}
-.stylec{       margin: -85px 0px 68px 82px;text-align: justify;}
+.stylec{    margin: -165px 5px 0px 85px;text-indent: 2em;    float: right;text-align: justify;}
 .stylez1{    height: 27px;margin: -2px 5px 0 20px;float: left}
 .styleHistor{    padding: 10px 0px 10px 10px;}
 .perhead2{   display: block;    margin: 0 3%;          width: 34%;}

@@ -186,6 +186,7 @@ angular.module('starter')
 
     $(document).ready(function(){
       $("a").animate({bottom:'215px'});
+      //$("#img").fadeIn(4000);
     });
 
   });
