@@ -7,7 +7,10 @@
   li{ list-style: none;}
   .content{ width: 1020px; height:110px; overflow: hidden;margin:10px auto 0 0; }
   .content ul{ width: 1020px; height:100px;}
-
+  *{ margin:0; padding:0; list-style:none;}
+  #box{ width:840px; border:1px solid #000; height:210px; margin:30px auto; position:relative; overflow:hidden;}
+  #box ul{ position:absolute; left:0; top:0;}
+  #box ul li{ width:200px; height:200px; float:left; padding:5px;}
 </style>
 <ion-view>
   <ion-nav-title>
@@ -80,5 +83,6 @@
         </ul>
       </div>
     </div>
+
   </ion-content>
 </ion-view>

@@ -41,7 +41,7 @@ angular.module('starter')
       }
       switch ( level ) {
         case 1:
-          difTimeRes = ''
+          difTimeRes += '秒前'
           break;
         case 2:
           difTimeRes += ' 分钟前'

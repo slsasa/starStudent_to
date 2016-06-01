@@ -16,6 +16,7 @@ angular.module('starter')
 
     var update = function(){
       var url = rootUrl + "/teacher_info/get_info?TeacherId=" + userInfo._id;
+      var teacherStyleUrl = rootUrl + "/teacher_style/get_self_style";
 
       $http.get(url)
         .success(function(result){
@@ -28,7 +29,26 @@ angular.module('starter')
         })
         .error(function(err){
           console.log("获取个人信息失败");
-        })
+        });
+      $http.get(teacherStyleUrl,{params:{TeacherId:userInfo._id}})
+      .success(function(result){
+         var styleData = result.data;
+
+
+           if(styleData['LikeListRef']){
+             $scope.likeList = styleData['LikeListRef'].length;
+           }else{
+             $scope.likeList = 0;
+           }
+          if(styleData['FlowerListRef']) {
+            $scope.flowerList = styleData['FlowerListRef'].length;
+          }else{
+            $scope.flowerList = 0;
+          }
+      })
+      .error(function(error){
+          alert(error);
+      })
     }
 
     $scope.replaceImage = function(){
@@ -106,12 +126,7 @@ angular.module('starter')
       $state.go('date-editor');
     };
 
-    $scope.addPraise = function(){
-      $scope.teacherPerson.praise +=1;
-    }
-    $scope.addFlower = function(){
-      $scope.teacherPerson.flower +=1;
-    }
+
     $scope.exit = function(){
       $state.go('login');
     }

@@ -12,9 +12,9 @@ angular.module('starter')
       });
   })
   .controller('magnifyImgCtrl',function($scope, userInfo){
-    console.log("=>>" + JSON.stringify(userInfo['banner']))
+
     $scope['img'] = userInfo['banner']['bannerImg'];
 
-    console.log('img banner magnify --->>>>>>>>>',JSON.stringify($scope.img))
+
     userInfo.banner = '';
   });

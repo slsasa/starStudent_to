@@ -11,6 +11,7 @@ angular.module('starter')
       });
   })
   .controller('courseDetailCtrl',function(userInfo,$scope){
+    $scope.rootPicUrl = rootPicUrl;
     $scope.courseDetail = userInfo.courseDetail;
     $scope.course = userInfo.course;
     userInfo.courseDetail = {};

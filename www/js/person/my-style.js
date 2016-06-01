@@ -7,6 +7,7 @@ angular.module('starter')
       .state('my-style', {
         url: '/person-teacher/my-style',
         templateUrl: 'templates/person/my-style.html',
+        cache: true,
         controller: 'myStyleCtrl'
 
       });

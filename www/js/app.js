@@ -1,9 +1,9 @@
 
 //var rootUrl = "http://localhost:3000";
-//var rootUrl = "http://112.124.118.133:3000";
+var rootUrl = "http://112.124.118.133:3000";
 //var rootPicUrl = "http://localhost:3000/";
 
-var rootUrl = "http://112.124.118.133:3000";
+//var rootUrl = "http://172.16.41.169:3000";
 var rootPicUrl = "http://112.124.118.133:3000/";
 
 
@@ -20,9 +20,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo) {
 
 
+
     $ionicPlatform.ready(function () {
 
-        userInfo.userNum = locals.get("Account","");
+      userInfo.userNum = locals.get("Account","");
       if(locals.getState("checked",'')){
         userInfo.userPwd  = locals.get("Password","");
 

@@ -11,13 +11,8 @@ angular.module('starter')
       });
   })
   .controller('introduceCtrl',function($scope,$state, $http, $ionicLoading,userInfo){
-    $scope.imgs =[
-      'img/course/wd.png',
-      'img/course/sh.png',
-      'img/course/gq.png',
-      'img/course/by.png',
-      'img/course/yy.png'
-    ];
+
+    $scope.rootPicUrl = rootPicUrl;
 
     $ionicLoading.show();
 
@@ -36,9 +31,8 @@ angular.module('starter')
             item['Course'].forEach(function(item){
               item['_id'] = i;
               i++;
-              item.PicRef.Url = rootPicUrl + item.PicRef.Url;
-            })
-            item.PicRef.Url = rootPicUrl + item.PicRef.Url;
+            });
+
           })
           $scope.courses = data;
           $ionicLoading.hide();
