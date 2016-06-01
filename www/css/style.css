@@ -18,15 +18,15 @@ td {
 .box2{
   border: dashed black 1px;height: 60px;width: auto;padding-top: 10px
 }
-.logininput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 11%;}
+.logininput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;  margin: 15px 11%;}
 .reisterinput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
 .loginaccount{background-color: rgba(255, 255, 255, 0);border-radius: 10px;width: 190px;    margin: -34px 40px;
 }
 .mebk{width:100px;height:100px;margin: 8px 0 0 9px}
 .loginbk{height: auto;}
-.loginforget{color: #ffffff;font-weight:bold;  margin: -30px 10% 0px 0;font-size: 16px;
+.loginforget{color: #ffffff;font-weight:bold; font-size: 16px;
 }
-.login{width: 80%;margin: 5% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
+.login{width: 80%;margin: 350px 0 6% 10%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 .register{width: 80%;margin: 0% 11%;box-shadow:#f96a9f 0px 23px 20px -20px ;font-size: 14px;}
 .rem{background: rgba(255, 255, 255, 0);border: none;height: 35px;line-height: 35px; color: white  ;   font-weight: bold;}
 /*注册界面*/

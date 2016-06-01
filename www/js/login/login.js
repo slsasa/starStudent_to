@@ -173,6 +173,7 @@ angular.module('starter')
 
 
 
+
     //进入注册页面
     $scope.register = function () {
       $state.go('register');
@@ -181,4 +182,10 @@ angular.module('starter')
     $scope.Forgotpw = function () {
       $state.go('findPwd');
     }
+
+
+    $(document).ready(function(){
+      $("a").animate({bottom:'215px'});
+    });
+
   });
