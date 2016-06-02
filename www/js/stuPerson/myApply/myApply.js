@@ -10,20 +10,26 @@ angular.module('starter')
           controller: 'myApplyCtrl'
       });
   })
-  .controller('myApplyCtrl',function($scope, $state, userInfo, $http){
+  .controller('myApplyCtrl',function($scope, $state, userInfo, $http,$ionicPopup,$ionicLoading){
 
     $scope.rootPicUrl = rootPicUrl;
 
     var update = function(){
+      $ionicLoading.show();
       var url = rootUrl + "/student_sign_up/get_list?StudentId=" + userInfo._id;
       $http.get(url)
         .success(function(result){
-          console.log(JSON.stringify(result));
+          console.log(' my apply------------>',JSON.stringify(result));
           var data = result.data;
           $scope.applys = data;
+          $ionicLoading.hide();
         })
         .error(function(err){
-          console.log("获取我已报名的数据");
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:err
+          })
         })
 
     }

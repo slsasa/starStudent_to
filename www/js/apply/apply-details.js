@@ -12,8 +12,9 @@ angular.module('starter')
 
       });
   })
-  .controller('applyDetailCtrl', function (userInfo, $scope, $state, $ionicActionSheet, $timeout) {
+  .controller('applyDetailCtrl', function (userInfo, $scope, $state) {
 
+    $scope.rootPicUrl = rootPicUrl;
     $scope.apply =  userInfo.apply;
 
     $scope.goSubmitApply = function () {

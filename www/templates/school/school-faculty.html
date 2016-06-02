@@ -8,14 +8,14 @@
   <ion-content style="background: #eeeeee">
 
       <div style="background: white;margin: 0 0 10px 0;">
-        <p class="faculty">{{tearcherApti.FacultyIntro}}</p>
+        <p class="faculty">{{tearcherApti['FacultyIntro']}}</p>
       </div>
-      <div ng-repeat="teacher in tearcherApti.FacultyListRef">
+      <div ng-repeat="teacher in tearcherApti['FacultyListRef']">
         <ion-item>
-          <img style="padding:10px 10px; ;height: 85px;width: 85px;float: left" src="{{rootPicUrl}}{{teacher.TeacherAvatarRef.Url}}" />
+          <img style="padding:10px 10px; ;height: 85px;width: 85px;float: left" src="{{rootPicUrl + teacher['TeacherAvatarRef']['Url']}}" />
           <div style="margin: 15px 0 0px 0px;">
-            <h3 >{{teacher.TeacherName}}</h3>
-            <p style="font-size: 14px">{{teacher.TeacherIntro}}</p>
+            <h3 >{{teacher['TeacherName']}}</h3>
+            <p style="font-size: 14px">{{teacher['TeacherIntro']}}</p>
           </div>
         </ion-item>
       </div>
