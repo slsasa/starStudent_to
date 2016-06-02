@@ -21,9 +21,7 @@ td {
 .hb{    border: solid 2px white;
   height: 120px;
   width: 120px;
-  border-radius: 115px;
-text-align: center;
-margin: 18px 32%;}
+  border-radius: 115px;  }
 .logininput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;  margin: 15px 11%;}
 .reisterinput{width: 80%;height: 35px;border: solid 1px white;border-radius: 10px;    margin: 15px 10%;}
 .loginaccount{background-color: rgba(255, 255, 255, 0);border-radius: 10px;width: 190px;    margin: -34px 40px;

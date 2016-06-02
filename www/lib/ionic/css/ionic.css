@@ -8635,7 +8635,7 @@ progress {
   /*.button.active, .button.activated {*/
     /*background-color: rgba(220, 56, 53, 0.86); }*/
   .button:after {
-    position: absolute;
+    /*position: absolute;*/
     top: -6px;
     right: -6px;
     bottom: -6px;
