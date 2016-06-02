@@ -11,8 +11,9 @@ angular.module('starter')
         controller: 'honorAreaCtrl'
       })
   })
-  .controller('honorAreaCtrl',function($scope, $http,$ionicLoading){
+  .controller('honorAreaCtrl',function($scope, $http,$ionicLoading,$ionicPopup){
 
+    $scope.rootPicUrl = rootPicUrl;
 
     var getStarData = function(){
       $ionicLoading.show();
@@ -22,9 +23,6 @@ angular.module('starter')
         .success(function(result){
           console.log(JSON.stringify(result));
           var data = result.data;
-          data.forEach(function(item){
-            item['UserAvatarRef']['Url'] = rootPicUrl + item['UserAvatarRef']['Url'];
-          });
           $scope.starList = data;
           $ionicLoading.hide();
         })
@@ -32,9 +30,9 @@ angular.module('starter')
           $ionicLoading.hide();
           $ionicPopup.alert({
             title:'err',
-            template:'数据加载失败'
+            template:'数据加载失败'+err
           });
-          console.log("获取明星榜信息失败");
+          //console.log("获取明星榜信息失败");
         })
     };
 
@@ -45,27 +43,34 @@ angular.module('starter')
       $http.get(url, {params: {HonorType: 'teacher'}})
         .success(function(result){
 
-          console.log(JSON.stringify(result));
+          //console.log(JSON.stringify(result));
           var data = result.data;
-          data.forEach(function(item){
-            item['UserAvatarRef']['Url'] = rootPicUrl +item['UserAvatarRef']['Url'];
-          });
+
           $scope.honorWall = data;
           $ionicLoading.hide();
         })
         .error(function(err){
           $ionicLoading.hide();
-          console.log("获取荣誉榜信息失败", err);
+          $ionicPopup.alert({
+            title:'err',
+            template:'荣誉榜数据获取失败'+ err
+          })
+          //console.log("获取荣誉榜信息失败", err);
         })
     };
 
 
-    $scope.objStarClick = document.getElementById('starClick');
-    $scope.objHonorClick = document.getElementById('honorClick');
+    //获得界面star ,honor 的btn元素，并初始化按钮状态
+    var initDoc = function() {
+      $scope.objStarClick = document.getElementById('starClick');
+      $scope.objHonorClick = document.getElementById('honorClick');
 
-    $scope.objStarClick.style.backgroundColor = "#F96A9F";
-    $scope.objStarClick.style.color = "#fff";
+      $scope.objStarClick.style.backgroundColor = "#F96A9F";
+      $scope.objStarClick.style.color = "#fff";
+    };
+    initDoc();
 
+    //显示明星榜内容
     $scope.showStar = function(){
 
       var objStar = document.getElementById('star');
@@ -81,7 +86,7 @@ angular.module('starter')
 
       }
     }
-
+    //显示荣誉墙内容
     $scope.showHonor = function(){
       var objStar = document.getElementById('star');
       var objHonor = document.getElementById('honor');
@@ -96,19 +101,20 @@ angular.module('starter')
       }
     }
 
-
+    //改变明星榜及荣誉墙按钮背景色
     var changeClickBg = function(star,honor){
       $scope.objStarClick.style.backgroundColor = star;
       $scope.objHonorClick.style.backgroundColor = honor;
     }
 
+    //改变按钮字体色
     var changeClickFontColor = function(star,honor){
 
       $scope.objStarClick.style.color = star;
       $scope.objHonorClick.style.color = honor;
     }
 
-    //一进来先显示明星榜
+
     $scope.showStar();
 
   })

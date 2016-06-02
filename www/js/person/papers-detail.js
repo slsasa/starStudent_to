@@ -13,5 +13,5 @@ angular.module('starter')
   .controller('myPaperDetailCtrl', function ($scope ,userInfo) {
 
 
-    $scope.thesis = userInfo.myPaper;
+    $scope.thesis = userInfo['myPaper'];
   })

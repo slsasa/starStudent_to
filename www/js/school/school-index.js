@@ -65,6 +65,10 @@ angular.module('starter')
         })
         .error(function(err){
           $ionicLoading.hide();
+          $ionicPopup.alert({
+            title:'err',
+            template:err
+          })
 
         })
     }

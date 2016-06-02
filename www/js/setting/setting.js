@@ -5,23 +5,18 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('setting',{
-        url:'/setting:type',
+        url:'/setting',
         templateUrl: 'templates/setting/setting.html',
         controller: 'settingCtrl'
       });
   })
-  .controller('settingCtrl',function($scope,$stateParams){
-$scope.settings = [
-
-  {
-    id:0,
-    title:'检验更新'
-  },
-  {
-    id:1,
-    title:'关于我们'
-  },
-]
-        $scope.type = $stateParams.type;
-
-  })
+  .controller('settingCtrl',function($scope,userInfo){
+    $scope.type = userInfo.personType;
+    $scope.settings = [{
+     id:0,
+      title:'检验更新'
+   }, {
+      id:1,
+     title:'关于我们'
+    }];
+   })

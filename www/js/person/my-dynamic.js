@@ -5,15 +5,17 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('my-dynamic', {
-        url: '/my-dynamic_:type',
+        url: '/my-dynamic',
+        cache:false,
         templateUrl: 'templates/person/my-dynamic.html',
         controller: 'myDynamicCtrl'
 
       });
   })
-  .controller('myDynamicCtrl', function ($scope, $stateParams, $state, $http, userInfo, $ionicLoading) {
+  .controller('myDynamicCtrl', function ($scope, $ionicPopup,$state, $http, userInfo, $ionicLoading) {
 
     $scope.rootPicUrl =  rootPicUrl;
+    $scope.type = userInfo.personType;
 
 
     var update = function () {
@@ -29,12 +31,16 @@ angular.module('starter')
 
           var data = result.data;
 
-          console.log('mydynamic data ',JSON.stringify(data));
+          //console.log('mydynamic data ',JSON.stringify(data));
           $scope.terDynamics = data;
         })
         .error(function (err) {
           $ionicLoading.hide();
-          alert(JSON.stringify(err));
+          //alert(JSON.stringify(err));
+          $ionicPopup.alert({
+            title:'提醒',
+            template:'数据获取失败'+err
+          });
 
         })
 
@@ -68,7 +74,6 @@ angular.module('starter')
       }
     }
 
-    $scope.type = $stateParams.type;
 
     $scope.goIssue = function () {
       $state.go('issue')

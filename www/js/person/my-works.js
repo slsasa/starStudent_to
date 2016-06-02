@@ -30,7 +30,7 @@ angular.module('starter')
           console.log("获取作品失败");
         })
     };
-    //
+    //论文
     //var getPaperInfo = function () {
     //  $scope.teacher = userInfo.teacherInfo;
     //  var url = rootUrl + "/teacher_article/get_self_list";

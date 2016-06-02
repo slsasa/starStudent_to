@@ -10,7 +10,7 @@ angular.module('starter')
         controller:'addImgCtrl'
       });
   })
-  .controller('addImgCtrl',function($scope,$http,$cordovaImagePicker,$cordovaFileTransfer,$ionicHistory,$ionicLoading,$ionicPopup,userInfo){
+  .controller('addImgCtrl',function($scope,$http,$ionicPopup,$cordovaImagePicker,$cordovaFileTransfer,$ionicHistory,$ionicLoading,$ionicPopup,userInfo){
     $scope.photos = [];
     $scope.clickPhoto = function () {
       var options = {
@@ -88,11 +88,20 @@ angular.module('starter')
         $http.post(url,data)
           .success(function(result){
             $ionicLoading.hide();
-            alert('上传成功'+JSON.stringify(result));
+            $ionicPopup.alert({
+              title:'提醒',
+              template:'上传成功'
+            });
+            //console.log('上传数据------',result);
+            //alert('上传成功'+JSON.stringify(result));
           })
           .error(function(err){
             $ionicLoading.hide();
-            alert('上传失败:'+err);
+            $ionicPopup.alert({
+              title:'提醒',
+              template:'上传失败'
+            });
+            //alert('上传失败:'+err);
           });
       });
     }

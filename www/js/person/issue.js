@@ -62,15 +62,7 @@ angular.module('starter')
 
     $scope.onSubmit = function(){
 
-      //$ionicLoading.show();
-      //console.log('--------------shangchuan:',$scope.photos + ':'+$scope.msg.content);
-      //if($scope.photos === undefined){
-      //  $ionicLoading.hide();
-      //  $ionicPopup.alert({
-      //    title:'提醒',
-      //    template:'无内容可提交'
-      //  })
-      //}
+
 
      if($scope.photos.length != 0 || $scope.msg.content) {
 

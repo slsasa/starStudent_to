@@ -11,7 +11,7 @@ angular.module('starter')
         controller: 'paperDetailCtrl'
       });
   })
-  .controller('paperDetailCtrl', function ($scope,$http,userInfo) {
+  .controller('paperDetailCtrl', function ($scope,$http,userInfo,$ionicPopup) {
 
      $scope['teacher'] = userInfo['teacherInfo'];
      $scope['paper'] = userInfo.paper;
@@ -25,7 +25,10 @@ angular.module('starter')
 
          })
          .error(function(err){
-
+           $ionicPopup.alert({
+             title:'err',
+             template:'出错'+err
+           })
 
          });
 
