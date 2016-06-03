@@ -56,13 +56,11 @@ angular.module('starter')
       $http.get(url)
         .success(function(result){
 
-          var data = result.data.splice(0,5);
-          data.forEach(function(item){
-            item.bannerImg = rootPicUrl + item['Url'];
-            console.log('item-----------bannerImg',item.bannerImg);
-          });
-
-          $scope.banners = data;
+          if(result.data.length > 4) {
+            $scope.banners = result.data.splice(0,4);
+          }else{
+            $scope.banners = result.data;
+          }
           $ionicSlideBoxDelegate.update();
           $ionicSlideBoxDelegate.loop(true);
 
@@ -78,10 +76,10 @@ angular.module('starter')
         });
 
       //只获取并截取报名信息前六个
+      $ionicLoading.show();
       $http.get(urlApply)
         .success(function(result){
           var data = result.data;
-
           if(data.length >6){
            $scope.applys = data.slice(0,6);
           }else{
@@ -140,7 +138,6 @@ angular.module('starter')
     //放大图片
     $scope.goMagnifyImg = function(banner){
       userInfo.banner = banner;
-      userInfo.img = userInfo.banner.bannerImg;
         $state.go('magnify-img');
     };
 
@@ -151,7 +148,7 @@ angular.module('starter')
         $(".content ul").css({"margin-left":0})
       })
     }
-    setInterval(scroll,2000);
+    setInterval(scroll,10000);
 
 
 

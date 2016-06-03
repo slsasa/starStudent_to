@@ -13,7 +13,7 @@ angular.module('starter')
   })
   .controller('magnifyImgCtrl',function($scope, userInfo){
 
-    $scope['img'] = userInfo['banner']['bannerImg'];
+    $scope['img'] = rootPicUrl + userInfo['banner']['Url'];
 
 
     userInfo.banner = '';

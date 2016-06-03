@@ -25,21 +25,14 @@
 
         <div class="row" style="padding: 0">
 
-            <div class="col col-10" style="width: auto" >
-              <!--<a class="button-course "><img src="{{course.Url}}" style="height: 40px;margin: 0 -18px 15px 0px;"/>{{course['ProfName']}}</a>-->
-
-          <!--<div class="col col-10" style="    margin: 0px 5px 0px 0px;">-->
-
+          <div class="col-20" >
             <a class="button-course "><img src="{{rootPicUrl+course['PicRef']['Url']}}" style="height: 40px;margin: 0 -36px 15px 0px;"/>{{course['ProfName']}}</a>
+           </div>
 
-          </div>
-
-          <div class="col" >
-
-            <div class="row" style="margin: 0px 0px 0px 1px;padding: 0;">
-
+          <div class="col">
+            <div class="row" style="margin: 0 0 0 1px;">
               <div class="course" ng-repeat="detail in course['Course']" ng-if="$index <= 2" ng-click="goCourse(course,detail)">
-                <a   >{{detail.Name}}</a>
+                <a>{{detail.Name}}</a>
               </div>
             </div>
 

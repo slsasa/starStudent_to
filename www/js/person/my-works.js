@@ -14,9 +14,8 @@ angular.module('starter')
   .controller('myWorksCtrl', function ($scope, $state, $ionicModal, $cordovaImagePicker, $cordovaFileTransfer, $ionicLoading, $http, $filter, $ionicPopup, userInfo) {
 
 
-    //$ionicLoading.show();
     var getLogInfo = function () {
-      $scope.userId = userInfo._id;
+      $ionicLoading.show();
       var url = rootUrl + "/teacher_article/get_self_list";
 
       $http.get(url, {params: {TeacherId: userInfo._id, ArticleType: 'log'}})
@@ -27,9 +26,16 @@ angular.module('starter')
         })
         .error(function (err) {
           $ionicLoading.hide();
-          console.log("获取作品失败");
-        })
+          $ionicPopup.alert({
+            title:'err',
+            template:err
+          });
+        });
     };
+
+    $scope.$on('$ionicView.beforeEnter',function(){
+      getLogInfo();
+    });
     //论文
     //var getPaperInfo = function () {
     //  $scope.teacher = userInfo.teacherInfo;
@@ -96,7 +102,7 @@ angular.module('starter')
     //$scope.showLog = function () {
     //  $scope.objPaper.style.display = "none";
     //  $scope.objLog.style.display = "";
-      getLogInfo();
+
     //  if ($scope.objLog.style.display == "") {
     //    changeClickLogBgColor("#f96a9f", "");
     //    changeClickFontColor("#fff", "black");
@@ -118,7 +124,7 @@ angular.module('starter')
     $scope.photos = [];
     $scope['articleContent'] = '';
     $scope['articleType'] ='教学日志';
-    $scope['articleTitle'] = '标题';
+    $scope['articleTitle'] = '';
 
     $scope.onSubmitWorks = function (articleType,articleTitle,articleContent) {
       $ionicLoading.show();
@@ -171,12 +177,14 @@ angular.module('starter')
           $http.post(url, data)
             .success(function (result) {
               $ionicLoading.hide();
+              $scope.photos = [];
+              $scope['articleContent'] = '';
+              $scope['articleTitle'] = '';
               $ionicPopup.alert({
                 title: '成功',
                 template: '上传成功'
               });
-              $scope.photos = [];
-              $scope['articleContent'] = '';
+
             })
             .error(function (err) {
               $ionicLoading.hide();

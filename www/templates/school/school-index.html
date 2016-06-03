@@ -20,9 +20,9 @@
   <ion-content style="background: #eeeeee">
     <ion-slide-box does-continue="true" auto-play="true" show-pager="true" style="margin-bottom: -5px">
       <ion-slide ng-repeat="banner in banners">
-        <img ng-src="{{banner.bannerImg}}" height="40%" width="100%">
+        <img ng-src="{{rootPicUrl + banner['Url']}}" height="40%" width="100%">
 
-        <p class="dark " style="margin:-50px 10px 10px 10px ;font-size: 14px;">{{banner.context}}</p>
+        <p class="dark " style="margin:-50px 10px 10px 10px ;font-size: 14px;">{{banner.Content}}</p>
       </ion-slide>
     </ion-slide-box>
 
@@ -48,10 +48,10 @@
 
     <ion-slide-box does-continue="true" auto-play="true" show-pager="false" >
       <ion-slide ng-repeat="apply in applys">
-        <div style="height:20% ">
-        <img ng-src="{{rootPicUrl + apply['PicRef']['Url']}}" style="width: 100%;height: 140px">
+
         <h5 style="color:#429EDC">{{apply['Title']}}</h5>
-        </div>
+        <img ng-src="{{rootPicUrl + apply['PicRef']['Url']}}" style="width: 100%;height: 140px">
+
       </ion-slide>
     </ion-slide-box>
 
@@ -61,7 +61,7 @@
 
       <div class="content" style="width: 99%">
         <ul >
-          <li ng-repeat="banner in banners" style="float: left"><img ng-click="goMagnifyImg(banner)"  ng-src="{{banner.bannerImg}}" style="width: 150px;height: 100px;border: solid 1px gainsboro;"></li>
+          <li ng-repeat="banner in banners" style="float: left"><img ng-click="goMagnifyImg(banner)"  ng-src="{{rootPicUrl + banner['Url']}}" style="width: 150px;height: 100px;border: solid 1px gainsboro;"></li>
         </ul>
       </div>
     </div>

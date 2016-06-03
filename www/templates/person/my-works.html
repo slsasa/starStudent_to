@@ -16,7 +16,7 @@
     <!--</div>-->
 
     <div id="log" class="list">
-      <ion-item ng-repeat="tearLog in logs">
+      <ion-item ng-repeat="tearLog in logs | orderBy:'-Time'" >
         <p style="margin: 10px 0 0 10px;">
           {{tearLog['Title']}}
         </p>
