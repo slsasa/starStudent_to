@@ -54,13 +54,14 @@ angular.module('starter')
 
 
 
-            UserService.addUser(cache);
-            tmp = UserService.getAllUsers();
-            console.log("allUser ---> " + JSON.stringify(tmp));
-
-            tmp = tmp.$$state.value;
-            tmp = tmp[tmp.length-1];
-            console.log("->>>> obj" + JSON.stringify(tmp) );
+            //本地数据库
+            //UserService.addUser(cache);
+            //tmp = UserService.getAllUsers();
+            //console.log("allUser ---> " + JSON.stringify(tmp));
+            //
+            //tmp = tmp.$$state.value;
+            //tmp = tmp[tmp.length-1];
+            //console.log("->>>> obj" + JSON.stringify(tmp) );
 
 
 
