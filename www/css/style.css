@@ -39,7 +39,7 @@ td {
 .login4{text-align: center;padding-top: 50px;}
 .pink-bg{background-color: #f96a9f;}
 .pink-sure{background-color: #f96a9f;}
-.tt{border-radius: 10px;font-size: 14px; float: right;  margin: -52px 9%; width: 30%;min-height: 39px;box-shadow:#f96a9f 0px 23px 20px -20px ;}
+.tt{border-radius: 10px;font-size: 14px; float: right;  margin: -52px 9%; width: 30%;min-height: 39px;box-shadow: #f96a9f 0px 17px 29px -8px;}
 /*首页*/
 .schooldyn{
   border: dashed black 1px;height: 35px;width: auto;line-height:30px
@@ -79,7 +79,7 @@ td {
 .outcomeImg{ height: 100px;width: 100px;    margin: 15px 0px 0px 15px;}
 /*.apply2{margin: 0 38% 0}*/
 /*学生个人中心*/
-.a_image1 img{width: 35px;height:35px;margin: 10px auto;}
+.a_image1 img{width: 35px;height:35px;margin: 15px 0 0 32%}
 .head2{    margin: 6px 4%;display: block;}
 .headbk{height: 140px}
 .head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
@@ -88,7 +88,7 @@ td {
 .stud{background-color: white;height: 80px;width: auto;    padding: 33px 0 0px 0px;}
 
 /*考核情况*/
-.tit1{height: 12px;width: 12px;    margin: 0px 0px -22px 14px;}
+.tit1{height: 12px;width: 12px;    margin: 0px 0px -26px 14px;}
 .cheComments{      margin: 0 14px 0px 40px;  text-align: justify;}
 .checkDet{     margin: 0 0px 0 38px;}
 
@@ -112,6 +112,10 @@ td {
   padding: 10px 10px;
   text-align: justify;}
 
+/*密码修改*/
+.chainput{width: 80%;height: 35px;border: solid 1px #f96a9f;border-radius: 10px;    margin: 15px 10%;}
+.chaverify{width: 50%;height: 35px;border: solid 1px #f96a9f;border-radius: 10px;    margin: 15px 10%;}
+
 
 /*.buttonPer{width: 32%;line-height: 2.42857;margin: 0 -5px 0}*/
 .item{  padding: 0px 0px;}
@@ -120,7 +124,7 @@ td {
 
 
 .checkscose{margin: -30px 75% 0;}
-.learn{padding: 18px 15px;font-size: 14px}
+.learn{padding:10px 5px 0px 15px;font-size: 14px}
 
 /*提交报名-2*/
 .pink-bg{background-color: #f96a9f}
@@ -133,7 +137,7 @@ td {
 .applyaccount{background-color: rgba(255, 255, 255, 0);border-radius: 10px;width: 190px; margin: 0 0 0 2%;}
 /*提交报名-1*/
 .np p{padding:0;margin: 5px;}
-.opa-div{width: 100%;height: 40px;font-size:12px;background: black;opacity:0.5;margin-top: -45px;}
+.opa-div{width: 100%;height: 40px;font-size:12px;background: black;opacity:0.5;margin-top: -45px;padding: 7px 0 0 0;}
 .content_details{padding: 0 10px;text-indent: 2em;line-height:25px;margin-bottom: 20%}
 
 
@@ -141,7 +145,7 @@ td {
 
 /*动态圈*/
 .ion-chatbox-working{color: #f96a9f}
-.buttonDy{background-color:#f96a9f;color: white;display: inline;    margin: 0 -10px 0px 0px;}
+.buttonDy{background-color:#f96a9f;color: white;display: inline; padding: 1px 5px 3px 10px;     margin: 0 -5px 0px 0px;}
 
 
 /*教师风采*/

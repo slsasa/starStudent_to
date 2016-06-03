@@ -36,7 +36,7 @@
 
 
     <div class="light-bg shadow" style="height: 30px;margin: 10px 0px">
-      <marquee onmouseover="stop()" onmouseout="start()" width="84%" scrollamount="5">
+      <marquee onmouseover="stop()" onmouseout="start()" width="82%" scrollamount="5">
       <span ng-repeat="dynamic in dynamics" style="line-height: 30px;">
         <a style="text-decoration: none" ng-if="dynamic === dynamics[0]">学校动态:{{dynamic['Title']}}&nbsp&nbsp</a>
         <a style="text-decoration: none" ng-if="dynamic != dynamics[0]">{{dynamic['Title']}}&nbsp&nbsp</a>
@@ -49,7 +49,6 @@
       <div style="    background: white;">
         <img src="img/indexSch.png" style="height: 135px"/>
       </div>
-    <a  ng-click="goIntro()" class="more button-clear " style="line-height: 35px;font-size: 14px">更多</a>
       <!--<i class="iocn ion-chevron-right"></i></a>-->
 
 
