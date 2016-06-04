@@ -5,8 +5,8 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('my-style', {
-        url: '/person-teacher/my-style',
-        templateUrl: 'templates/person/my-style.html',
+        url: '/teacher-teacher/my-style',
+        templateUrl: 'templates/teacher/my-style.html',
         cache: true,
         controller: 'myStyleCtrl'
 

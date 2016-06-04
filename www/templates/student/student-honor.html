@@ -11,13 +11,12 @@
 
   <ion-content>
     <div class="list" >
-      <ion-item class=" learn item-icon-right" ng-repeat="learn in learns" ng-click="goApplyDeatil(learn.id)" >
-        <div >
-          {{learn.certificateName}}
-        </div>
-
-        <p style="width: 95%;">{{learn.synopsis}}</p>
-        <div style="float: right">{{learn.asTime |date:'yyyy-MM-dd'}}</div>
+      <ion-item class=" learn item-icon-right" ng-repeat="learn in learns" ng-click="goHonorDetail(learn)" >
+        <div>
+        <h3>{{learn['Title']}}</h3>
+        <h5>{{learn['Description'] | ifMore}}</h5>
+        <p style="padding-left: 50%">发布时间:{{learn['Time'] |date:'yyyy-MM-dd'}}</div>
+        <i class="icon ion-chevron-right icon-accessory" style="color: #BBEDEF"></i></div>
       </ion-item>
     </div>
   </ion-content>

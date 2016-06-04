@@ -10,25 +10,39 @@ angular.module('starter')
         controller:'stuHonorCtrl'
       })
   })
-  .controller('stuHonorCtrl',function($scope){
-    $scope.learns = [
-      {
-        id:0,
-        certificateName:'广东省舞蹈专业考级比赛一等奖',
-        synopsis:'王小峰同学在参加广东省教育局举报的专业级比赛中获得一等奖',
-        asTime:1462765734379
+  .controller('stuHonorCtrl',function($scope,$http,$state,$ionicLoading,userInfo,$ionicPopup){
 
-      },
-      {
-        id:1,
-        certificateName:'广东省舞蹈专业考级比赛一等奖',
-        synopsis:'王小峰同学在参加广东省教育局举报的专业级比赛中获得一等奖',
-        asTime:1462765734379
+    var update = function()
+    {
+      var url = rootUrl +'/honor/get_self_list';
+      var query = {
+        HonorType:'student',
+        UserId: userInfo._id
+      };
+      $ionicLoading.show();
+      $http.get(url,{params:query})
+        .success(function (result) {
+          $scope.learns = result.data;
+          $ionicLoading.hide();
 
-      }, {
-        id:2,
-        certificateName:'广东省舞蹈专业考级比赛一等奖',
-        synopsis:'王小峰同学在参加广东省教育局举报的专业级比赛中获得一等奖',
-        asTime:1462765734379
-      }];
+          console.log('honor--------------',JSON.stringify(result));
+        })
+        .error(function (err) {
+          $ionicPopup.alert({
+            title:'err',
+            template:JSON.stringify(err)
+          })
+          $ionicLoading.hide();
+        });
+    }
+    $scope.$on('$ionicView.beforeEnter',function(){
+      update();
+    });
+
+    $scope.goHonorDetail = function(leran){
+      userInfo.learn = leran;
+      $state.go('stuHonorDetail');
+
+    }
+
   })

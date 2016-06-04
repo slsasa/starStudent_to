@@ -6,13 +6,13 @@
   <ion-content style="background-color: #f1f1f1">
     <div class="bar-subheader text-center" style="padding: 6px">
       <a class="button" ng-click="showSchoolDynamic()" id="showSchoolClick">校园动态</a>
-      <a class="button" ng-click="showStudentDynamic()" id="showStuClick">学员动态</a>
+      <a class="button" ng-click="showStudentDynamic()" id="showStudentClick">学员动态</a>
       <a class="button" ng-click="showTeacherDynamic()" id="showTeacherClick">教师动态</a>
     </div>
 
     <div id="school" class="list" style="display: none;padding: 15px 0px;">
 
-      <ion-item class="item-avatar card" ng-repeat="schoolDynamic in schoolDynamics | orderBy:'-IssueTime'">
+      <ion-item class="item-avatar" ng-repeat="schoolDynamic in schoolDynamics | orderBy:'-IssueTime'">
 
         <div class="item-avatar">
 
@@ -20,7 +20,7 @@
           <h4 style="    margin: 15px 0px 5px 0px;">{{schoolDynamic['IssuerName']}}</h4>
 
           <p>{{schoolDynamic['Time']}}</p>
-          <p> {{schoolDynamic['Content']}}</p>
+
 
           <div ng-if="schoolDynamic['Content'].length >=36">
 
@@ -28,7 +28,7 @@
             <div id="{{$index+'moreContentSchool'}}" style="display: none"> {{schoolDynamic['Content']}}</div>
 
             <div>
-              <a ng-click="showContentSchool($index)">全文</a>
+              <a ng-click="showContentSchool($index)" id="{{$index +'stateSch'}}">全文</a>
             </div>
           </div>
           <div ng-if="schoolDynamic['Content'].length <36">
@@ -40,7 +40,7 @@
                <a class="button buttonDy" ng-click="addLike($index)"><i class="ion-ios-heart-outline" style="    font-size: 26px;"></i>点赞</a>
                <a class="button buttonDy" ng-click=""><i class="ion-ios-redo-outline" style="    font-size: 30px;"></i>分享</a>
            </div>
-          <img src="img/dp.png" ng-click="showClickSchool($index)" style="height: 15px; width: 23px;"/>
+          <img src="img/dp.png" ng-click="showComBtnSchool($index)" style="height: 15px; width: 23px;"/>
         </div>
 
       </ion-item>
@@ -48,29 +48,28 @@
     </div>
 
     <div id="student" class="list" style="padding: 15px 0px;">
-      <ion-item class="item-avatar card" ng-repeat="stuDynamic in  studentDynamics | orderBy:'-IssueTime'">
+      <ion-item class="item-avatar" ng-repeat="stuDynamic in  studentDynamics | orderBy:'-IssueTime'">
         <div class="item-avatar">
           <img src="{{stuDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 40px">
           <h4 style="    margin: 15px 0px 5px 0px;">{{stuDynamic['IssuerName']}}</h4>
 
           <p>{{stuDynamic['Time']}}</p>
-          <p> {{stuDynamic['Content']}}</p>
 
           <div ng-if="stuDynamic['Content'].length >=36">
             <a ng-repeat="img in stuDynamic['PicListRef']">
-              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 25%;height: auto">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
             <div id="{{$index+'contentStu'}}"> {{stuDynamic['Content'] |ifMore}}</div>
             <div id="{{$index+'moreContentStu'}}" style="display: none"> {{stuDynamic['Content']}}</div>
 
             <div>
-              <a ng-click="showContentStu($index)">全文</a>
+              <a ng-click="showContentStu($index)" id="{{$index +'stateStu'}}">全文</a>
             </div>
           </div>
 
           <div ng-if="stuDynamic['Content'].length <36">
             <a ng-repeat="img in stuDynamic['PicListRef']">
-              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 25%;height: auto">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
           </div>
 
@@ -80,35 +79,35 @@
           <a class=" button buttonDy" ng-click="addLike($index)"><i class="ion-ios-heart-outline" style="    font-size: 26px;"></i>点赞</a>
           <a class=" button buttonDy" ng-click=""><i class="ion-ios-redo-outline" style="    font-size: 30px;"></i>分享</a>
         </div>
-          <img src="img/dp.png"  ng-click="showClickStudent($index)" style="height: 15px; width: 23px;"/>
+          <img src="img/dp.png"  ng-click="showComBtnStudent($index)" style="height: 15px; width: 23px;"/>
         </div>
       </ion-item>
     </div>
 
     <div id="teacher" class="list" style="padding: 15px 0px;display: none;">
-      <ion-item class="item-avatar card" ng-repeat="terDynamic in  teacherDynamics | orderBy:'-IssueTime'">
+      <ion-item class="item-avatar" ng-repeat="terDynamic in  teacherDynamics | orderBy:'-IssueTime'">
         <div class="item-avatar">
           <img src="{{terDynamic['IssuerAvatarRef']['Url']}}" style="border-radius: 100px">
           <h4 style="    margin: 15px 0px 5px 0px;">{{terDynamic['IssuerName']}}</h4>
 
           <p>{{terDynamic['Time']}}</p>
-          <p> {{terDynamic['Content']}}</p>
+
 
           <div ng-if="terDynamic['Content'].length >=36">
             <a ng-repeat="img in terDynamic['PicListRef']">
-              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 25%;height: auto">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
             <div id="{{$index+'contentTer'}}"> {{terDynamic['Content'] |ifMore}}</div>
             <div id="{{$index+'moreContentTer'}}" style="display: none"> {{terDynamic['Content']}}</div>
 
             <div>
-              <a ng-click="showContentTer($index)">全文</a>
+              <a ng-click="showContentTer($index)" id="{{$index +'stateTer'}}">全文</a>
             </div>
           </div>
 
           <div ng-if="terDynamic['Content'].length <36">
             <a ng-repeat="img in terDynamic['PicListRef']">
-              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 25%;height: auto">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
           </div>
 
@@ -118,7 +117,7 @@
           <a class=" button buttonDy" ng-click="addLike($index)"><i class="ion-ios-heart-outline" style="    font-size: 26px;"></i>点赞</a>
           <a class=" button buttonDy" ng-click=""><i class="ion-ios-redo-outline" style="    font-size: 30px;"></i>分享</a>
         </div>
-          <img src="img/dp.png" ng-click="showClickTeacher($index)" style="height: 15px; width: 23px;"/>
+          <img src="img/dp.png" ng-click="showComBtnTeacher($index)" style="height: 15px; width: 23px;"/>
         </div>
       </ion-item>
     </div>

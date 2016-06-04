@@ -1,0 +1,59 @@
+<ion-view hide-back-button="true">
+  <ion-nav-title>
+    <span class="title">我的动态</span>
+  </ion-nav-title >
+  <ion-nav-buttons>
+    <button class="button light button-icon icon ion-ios-arrow-back" ui-sref="tabs.person{{type}}"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button light button-icon icon ion-plus" ng-click="goIssue()"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span class="title">
+      个人动态
+    </span>
+  </ion-nav-title>
+
+  <ion-content style="background-color: #f1f1f1">
+    <div class="list" style="padding: 15px 0px;">
+      <ion-item class="item" ng-repeat="myDynamic in  myDynamics | orderBy:'-IssueTime'">
+        <p style="margin: 5px 0px 0px 10px;">{{myDynamic['IssueTime'] | date : 'yyyy-MM-dd'}}</p>
+
+        <div class="item-avatar mydy">
+
+          <div ng-if="myDynamic['Content'].length >36">
+
+            <a ng-repeat="img in myDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 100px;height:100px">
+            </a>
+            <div id="{{$index+'contentMyDynamic'}}"> {{myDynamic['Content'] |ifMore}}</div>
+            <div id="{{$index+'moreContentMyDynamic'}}" style="display: none">
+
+              <p>{{myDynamic['Content']}}</p>
+            </div>
+
+            <div>
+              <a ng-click="showContent($index)" id="{{ $index +'dynamicMyContentState'}}">全文</a>
+            </div>
+          </div>
+
+          <div ng-if="myDynamic['Content'].length <=36">
+            <a ng-repeat="img in myDynamic['PicListRef']">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 100px;height:100px">
+            </a>
+             <p> {{myDynamic['Content']}}</p>
+          </div>
+        </div>
+        <div class="comments">
+          <div id="{{$index+'MyDynamic'}}" style="display: none; margin: 0px 34px -36px 10px;">
+          <a class=" button buttonDy" ng-click="likeAdd($index)"><i class="ion-ios-heart-outline" style="  font-size: 26px;"></i>点赞</a>
+          <a class=" button buttonDy" ng-click=""><i class="ion-ios-redo-outline" style="   font-size: 30px;"></i>分享</a>
+        </div>
+          <img src="img/dp.png" ng-click="showClickDynamic($index)" style="height: 15px; width: 23px;"/>
+        </div>
+      </ion-item>
+    </div>
+
+
+  </ion-content>
+</ion-view>

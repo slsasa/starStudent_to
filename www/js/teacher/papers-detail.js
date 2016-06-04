@@ -6,7 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('myPapers-detail',{
         url:'/my_papers/paper-detail:index',
-        templateUrl:'templates/person/papers-detail.html',
+        templateUrl:'templates/teacher/papers-detail.html',
         controller:'myPaperDetailCtrl'
       });
   })

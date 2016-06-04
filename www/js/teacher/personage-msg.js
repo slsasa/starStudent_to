@@ -5,8 +5,8 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('personage-msg',{
-        url:'/person-teacher/personage-msg',
-        templateUrl: 'templates/person/personage-msg.html',
+        url:'/teacher-teacher/personage-msg',
+        templateUrl: 'templates/teacher/personage-msg.html',
         controller: 'personageMsgCtrl'
 
       });

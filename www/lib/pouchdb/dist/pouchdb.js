@@ -1,5 +1,5 @@
 // PouchDB 5.3.2
-// 
+//
 // (c) 2012-2016 Dale Harvey and the PouchDB team
 // PouchDB may be freely distributed under the Apache license, version 2.0.
 // For all details and documentation:
@@ -396,7 +396,7 @@ function coerce(val) {
 },{"9":9}],4:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -798,7 +798,7 @@ if (typeof Object.create === 'function') {
   } else {
     factory(this);
   }
-}).call(this, function(root) { 
+}).call(this, function(root) {
 
   var slice   = Array.prototype.slice,
       each    = Array.prototype.forEach;
@@ -806,7 +806,7 @@ if (typeof Object.create === 'function') {
   var extend = function(obj) {
     if(typeof obj !== 'object') throw obj + ' is not an object' ;
 
-    var sources = slice.call(arguments, 1); 
+    var sources = slice.call(arguments, 1);
 
     each.call(sources, function(source) {
       if(source) {
@@ -816,7 +816,7 @@ if (typeof Object.create === 'function') {
           } else {
             obj[prop] = source[prop];
           }
-        } 
+        }
       }
     });
 
@@ -1213,7 +1213,7 @@ function plural(ms, n, name) {
 
 var MIN_MAGNITUDE = -324; // verified by -Number.MIN_VALUE
 var MAGNITUDE_DIGITS = 3; // ditto
-var SEP = ''; // set to '_' for easier debugging 
+var SEP = ''; // set to '_' for easier debugging
 
 var utils = _dereq_(11);
 
@@ -3761,7 +3761,7 @@ Dual licensed under the MIT and GPL licenses.
  *   >>> Math.uuid(15)     // 15 character ID (default base=62)
  *   "VcydxgltxrVZSTV"
  *
- *   // Two arguments - returns ID of the specified length, and radix. 
+ *   // Two arguments - returns ID of the specified length, and radix.
  *   // (Radix must be <= 62)
  *   >>> Math.uuid(8, 2)  // 8 character ID (base=2)
  *   "01001010"
@@ -5032,7 +5032,7 @@ function PouchDB(name, opts, callback) {
       delete resp.then;
       fulfill(resp);
     };
-  
+
     opts = clone(opts);
     var originalName = opts.name || name;
     var backend, error;
@@ -5046,7 +5046,7 @@ function PouchDB(name, opts, callback) {
         }
 
         backend = PouchDB.parseAdapter(originalName, opts);
-        
+
         opts.originalName = originalName;
         opts.name = backend.name;
         if (opts.prefix && backend.adapter !== 'http' &&

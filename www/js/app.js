@@ -105,9 +105,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .filter('ifMore', function () {
     return function (input) {
       input = input || [];
-      if (input.length > 20) {
-        return input.slice(0, 20);
+      if (input.length > 23) {
+        return input.slice(0, 23);
       } else {
+        return input;
+      }
+    }
+  })
+  .filter('ifContentMore',function(){
+    return function(input){
+      input = input || [];
+      if(input.length > 64){
+        return input.slice(0,64);
+      }else{
         return input;
       }
     }

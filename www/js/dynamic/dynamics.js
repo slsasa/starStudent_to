@@ -20,6 +20,8 @@ angular.module('starter')
 
     $scope.rootPicUrl = rootPicUrl;
 
+
+
     var calcTime = function( timeString ) {
       var tmp = new Date().getTime() - new Date(timeString).getTime();
       tmp = tmp / (1000);
@@ -68,10 +70,12 @@ angular.module('starter')
         .success(function(result){
           var data = result['data'];
 
+
           data.forEach(function(item){
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
             item['Time'] = calcTime(item["IssueTime"]);
           });
+
           $scope[type+'Dynamics'] = result['data'];
           $ionicLoading.hide();
         })
@@ -88,7 +92,7 @@ angular.module('starter')
       update('student');
       update('school');
       update('teacher');
-    })
+    });
 
 
     //初始化获得页面元素
@@ -100,7 +104,7 @@ angular.module('starter')
 
       //获取页面上方 school ,student,teacher按钮，并初始化按钮状态
       $scope.objSchoolClick = document.getElementById('showSchoolClick');
-      $scope.objStuClick = document.getElementById('showStuClick');
+      $scope.objStuClick = document.getElementById('showStudentClick');
       $scope.objTeacherClick = document.getElementById('showTeacherClick');
 
       $scope.objStuClick.style.backgroundColor = "#F96A9F";
@@ -170,7 +174,7 @@ angular.module('starter')
 
 
     //点赞分享按钮组合显示
-    $scope.showClickSchool = function (index) {
+    $scope.showComBtnSchool = function (index) {
      $scope.schObjClick = document.getElementById(index + 'school');
 
       if ( $scope.schObjClick.style.display == "none") {
@@ -180,7 +184,7 @@ angular.module('starter')
       }
     };
 
-    $scope.showClickStudent = function (index) {
+    $scope.showComBtnStudent = function (index) {
       $scope.stuObjClick = document.getElementById(index + 'stu');
       if ($scope.stuObjClick.style.display == "none") {
         $scope.stuObjClick.style.display = "";
@@ -189,7 +193,7 @@ angular.module('starter')
       }
     };
 
-    $scope.showClickTeacher = function (index) {
+    $scope.showComBtnTeacher = function (index) {
       $scope.terObjClick = document.getElementById(index + 'teacher');
       if ($scope.terObjClick.style.display == "none") {
         $scope.terObjClick.style.display = "";
@@ -200,39 +204,54 @@ angular.module('starter')
 
 
     //动态内容全部显示
+
+
+
     $scope.showContentSchool = function (schoolId) {
+      var objStateContent = document.getElementById(schoolId+'stateSch');
       var objMoreContent = document.getElementById(schoolId + "moreContentSchool");
       var objContentSchool = document.getElementById(schoolId + "contentSchool");
       if (objMoreContent.style.display == "none") {
         objContentSchool.style.display = "none";
         objMoreContent.style.display = "";
+        objStateContent.innerHTML = '收起';
+
       } else {
         objMoreContent.style.display = "none";
         objContentSchool.style.display = "";
+        objStateContent.innerHTML = '全文';
+
       }
     };
 
     $scope.showContentStu = function (stuId) {
       var objMoreContent = document.getElementById(stuId + "moreContentStu");
       var objContentSchool = document.getElementById(stuId + "contentStu");
+      var objStateContent = document.getElementById(stuId+'stateStu');
+
       if (objMoreContent.style.display == "none") {
         objContentSchool.style.display = "none";
         objMoreContent.style.display = "";
+        objStateContent.innerHTML = '收起';
       } else {
         objMoreContent.style.display = "none";
         objContentSchool.style.display = "";
+        objStateContent.innerHTML = '全文';
       }
     };
 
     $scope.showContentTer = function (teacherId) {
       var objMoreContent = document.getElementById(teacherId + "moreContentTer");
       var objContentSchool = document.getElementById(teacherId + "contentTer");
+      var objContentState = document.getElementById(teacherId + 'stateTer');
       if (objMoreContent.style.display == "none") {
         objContentSchool.style.display = "none";
         objMoreContent.style.display = "";
+        objContentState.innerHTML = '收起';
       } else {
         objMoreContent.style.display = "none";
         objContentSchool.style.display = "";
+        objContentState.innerHTML = '全文';
       }
     }
 
@@ -257,6 +276,7 @@ angular.module('starter')
         case 'teacher':
           $scope.terObjClick = document.getElementById($index + 'teacher');
           $scope.terObjClick.style.display = "none";
+
           var dynamicId = $scope['teacherDynamics'][$index]._id;
           break;
         default :
@@ -273,13 +293,16 @@ angular.module('starter')
       $http.post(url, data)
         .success(function(result){
           $ionicPopup.alert({
-            title:'success',
+            title:'成功',
             template:'点赞成功'
           });
 
         })
         .error(function(err){
-
-        })
+          $ionicPopup.alert({
+            title:'失败',
+            template:'点赞失败'+err
+          });
+        });
     }
   });

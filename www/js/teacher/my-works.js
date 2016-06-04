@@ -6,7 +6,7 @@ angular.module('starter')
     $stateProvider
       .state('my-works', {
         url: '/works',
-        templateUrl: 'templates/person/my-works.html',
+        templateUrl: 'templates/teacher/my-works.html',
         controller: 'myWorksCtrl'
 
       });
@@ -61,7 +61,7 @@ angular.module('starter')
     //};
 
     //提交文章选择器
-    $ionicModal.fromTemplateUrl('templates/person/submit-log.html',
+    $ionicModal.fromTemplateUrl('templates/teacher/submit-log.html',
       function (modal) {
         $scope.editmodal_star = modal;
       }, {

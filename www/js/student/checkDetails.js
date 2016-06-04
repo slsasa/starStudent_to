@@ -15,7 +15,7 @@ angular.module('starter')
     $scope.learn = userInfo.learnInfo;
     userInfo.learnInfo = '';
 
-    console.log($scope.learn);
+
 
 
   })

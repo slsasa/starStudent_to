@@ -7,7 +7,7 @@ angular.module('starter')
       .state('issue',{
         url:'/issue',
 
-        templateUrl:'templates/person/issue.html',
+        templateUrl:'templates/dynamic/issue.html',
         controller:'issueCtrl'
       });
   })

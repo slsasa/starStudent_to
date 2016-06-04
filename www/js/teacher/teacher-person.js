@@ -7,7 +7,7 @@ angular.module('starter')
       .state('tabs.person_teacher',{
         url:'/person_teacher',
         views:{'person':{
-          templateUrl: 'templates/person/teacher-person.html',
+          templateUrl: 'templates/teacher/teacher-person.html',
           controller: 'terPersonCtrl'
         }}
       });

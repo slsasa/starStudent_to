@@ -1,6 +1,6 @@
 // PouchDB fruitdown plugin 5.3.2
 // Based on FruitDOWN: https://github.com/nolanlawson/fruitdown
-// 
+//
 // (c) 2012-2016 Dale Harvey and the PouchDB team
 // PouchDB may be freely distributed under the Apache license, version 2.0.
 // For all details and documentation:
@@ -259,7 +259,7 @@ Dual licensed under the MIT and GPL licenses.
  *   >>> Math.uuid(15)     // 15 character ID (default base=62)
  *   "VcydxgltxrVZSTV"
  *
- *   // Two arguments - returns ID of the specified length, and radix. 
+ *   // Two arguments - returns ID of the specified length, and radix.
  *   // (Radix must be <= 62)
  *   >>> Math.uuid(8, 2)  // 8 character ID (base=2)
  *   "01001010"
@@ -5281,7 +5281,7 @@ function blitBuffer (src, dst, offset, length) {
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -5968,17 +5968,17 @@ function extend() {
 },{}],19:[function(_dereq_,module,exports){
 /**
  * Copyright (c) 2013 Petka Antonov
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
+ *
+ * Permission is hereby granted, free of charge, to any teacher obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:</p>
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
@@ -6693,7 +6693,7 @@ module.exports.create = module.exports.custom.createError
 },{}],23:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -7906,7 +7906,7 @@ module.exports = Array.isArray || function (arr) {
   } else {
     factory(this);
   }
-}).call(this, function(root) { 
+}).call(this, function(root) {
 
   var slice   = Array.prototype.slice,
       each    = Array.prototype.forEach;
@@ -7914,7 +7914,7 @@ module.exports = Array.isArray || function (arr) {
   var extend = function(obj) {
     if(typeof obj !== 'object') throw obj + ' is not an object' ;
 
-    var sources = slice.call(arguments, 1); 
+    var sources = slice.call(arguments, 1);
 
     each.call(sources, function(source) {
       if(source) {
@@ -7924,7 +7924,7 @@ module.exports = Array.isArray || function (arr) {
           } else {
             obj[prop] = source[prop];
           }
-        } 
+        }
       }
     });
 
@@ -8023,7 +8023,7 @@ Codec.prototype.createStreamDecoder = function(opts){
   } else if (opts.keys) {
     return function(key) {
       return self.decodeKey(key, opts);
-    }; 
+    };
   } else if (opts.values) {
     return function(_, value){
       return self.decodeValue(value, opts);
@@ -8067,7 +8067,7 @@ exports.binary = {
   encode: function(data){
     return isBinary(data)
       ? data
-      : new Buffer(data);      
+      : new Buffer(data);
   },
   decode: identity,
   buffer: true,
@@ -8213,7 +8213,7 @@ module.exports = Array.isArray || function (arr) {
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -8305,7 +8305,7 @@ function forEach (xs, f) {
 },{"31":31,"42":42,"44":44,"55":55,"9":9}],41:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -8354,7 +8354,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -9308,7 +9308,7 @@ function indexOf (xs, x) {
 },{"23":23,"31":31,"39":39,"40":40,"55":55,"58":58,"69":69,"7":7,"8":8,"9":9}],43:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -9520,7 +9520,7 @@ function done(stream, er) {
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -10424,29 +10424,29 @@ LevelUP.prototype.batch = function (arr_, options, callback) {
   })
 }
 
-LevelUP.prototype.approximateSize = deprecate(function (start_, end_, options, callback) {   
-  var self = this    
-    , start    
-    , end    
-   
-  callback = getCallback(options, callback)    
-   
-  options = getOptions(options)    
-   
-  if (start_ === null || start_ === undefined    
-        || end_ === null || end_ === undefined || 'function' !== typeof callback)    
-    return readError(this, 'approximateSize() requires start, end and callback arguments', callback)   
-   
-  start = this._codec.encodeKey(start_, options)   
-  end   = this._codec.encodeKey(end_, options)   
-   
-  this.db.approximateSize(start, end, function (err, size) {   
-    if (err) {   
-      return dispatchError(self, new OpenError(err), callback)   
-    } else if (callback) {   
-      callback(null, size)   
-    }    
-  })   
+LevelUP.prototype.approximateSize = deprecate(function (start_, end_, options, callback) {
+  var self = this
+    , start
+    , end
+
+  callback = getCallback(options, callback)
+
+  options = getOptions(options)
+
+  if (start_ === null || start_ === undefined
+        || end_ === null || end_ === undefined || 'function' !== typeof callback)
+    return readError(this, 'approximateSize() requires start, end and callback arguments', callback)
+
+  start = this._codec.encodeKey(start_, options)
+  end   = this._codec.encodeKey(end_, options)
+
+  this.db.approximateSize(start, end, function (err, size) {
+    if (err) {
+      return dispatchError(self, new OpenError(err), callback)
+    } else if (callback) {
+      callback(null, size)
+    }
+  })
 }, 'db.approximateSize() is deprecated. Use db.db.approximateSize() instead')
 
 LevelUP.prototype.readStream =
@@ -11921,7 +11921,7 @@ arguments[4][22][0].apply(exports,arguments)
 },{}],58:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -13766,7 +13766,7 @@ module.exports = _dereq_(64)
 },{"64":64}],69:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -14106,7 +14106,7 @@ module.exports = function (db, precodec, codec, compare) {
 
       opts = opts || {}
 
-      if('object' !== typeof opts) throw new Error('opts must be object, was:'+ opts) 
+      if('object' !== typeof opts) throw new Error('opts must be object, was:'+ opts)
 
       if('function' === typeof opts) cb = opts, opts = {}
 
@@ -14622,7 +14622,7 @@ arguments[4][41][0].apply(exports,arguments)
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -15607,7 +15607,7 @@ function indexOf (xs, x) {
 },{"23":23,"31":31,"55":55,"58":58,"69":69,"76":76,"8":8,"9":9}],81:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -15820,7 +15820,7 @@ function done(stream, er) {
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
@@ -16761,7 +16761,7 @@ inherits(DestroyableTransform, Transform)
 DestroyableTransform.prototype.destroy = function(err) {
   if (this._destroyed) return
   this._destroyed = true
-  
+
   var self = this
   process.nextTick(function() {
     if (err)
@@ -16977,7 +16977,7 @@ module.exports = function isBuffer(arg) {
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a
+// Permission is hereby granted, free of charge, to any teacher obtaining a
 // copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
