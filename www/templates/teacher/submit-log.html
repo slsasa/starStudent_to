@@ -7,23 +7,24 @@
 
 
    <div style="background: white;">
-        <div style="padding: 0px 10px;">
+        <div style="padding: 3px 10px;height: 30px;">
       文章类型
-      <select ng-model="articleType">
+      <select ng-model="articleType" style="color: #f96a9f;">
         <option selected>教学日志</option>
         <!--<option>学术论文</option>-->
       </select>
 
       </div>
-     <textarea ng-model="articleTitle"  placeholder="标题" style="font-size: 18px;width: 100%;height: 32px;text-align: center;padding-left: 30%;padding-right: 30%;border: 1px solid lavenderblush" ng-model="articleTitle"></textarea>
+     <textarea ng-model="articleTitle"  placeholder="标题" style="font-size: 18px;width: 100%;height: 32px;text-align: center; line-height: 25px;border: 1px solid lavenderblush" ng-model="articleTitle"></textarea>
 
-     <textarea ng-model="articleContent" placeholder="说点什么……" style="width: 100%;height: 100px;" ></textarea>
+     <textarea ng-model="articleContent" placeholder="说点什么……" style="width: 100%;height: 100px;padding: 5px;font-size: 17px;    color: rgba(0, 0, 0, 0.57);
+" ></textarea>
    </div>
 
 
     <br>
     <div class="item item-stacked-label" style="    background: white;">
-      <p style="margin: 10px 10px">上传图片:</p>
+      <p style=" margin: 0px 0px 0 9px;">上传图片:</p>
       <ion-scroll direction="x">
         <div>
           <img src="img/personal/FB.png" ng-click="clickPhoto()" class="image-list-thumb" style="height: 84px;width: 70px;border: solid #c6c6c6 1px; margin: 5px 10px;">

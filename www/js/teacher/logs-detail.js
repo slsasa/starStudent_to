@@ -5,7 +5,7 @@ angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
       .state('myLogs-detail',{
-        url:'/works/log-detail',
+        url:'/logs/log-detail',
         templateUrl:'templates/teacher/logs-detail.html',
         controller:'myLogsDetailCtrl'
       });
