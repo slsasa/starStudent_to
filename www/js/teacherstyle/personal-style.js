@@ -23,7 +23,7 @@ angular.module('starter')
 
       $http.get(url)
         .success(function(result){
-          console.log(JSON.stringify(result));
+          console.log('teacher---------->>>>',JSON.stringify(result));
           var data = result.data;
           //转换一下头像地址
 
@@ -40,7 +40,7 @@ angular.module('starter')
 
           $scope.Style = data.StyleItem[0];
           $scope.teacher = data;
-          console.log('>>>>>>>>>>>>>teacher', JSON.stringify($scope.teacher));
+
 
           //获取教师荣誉
           var url = rootUrl + "/honor/get_self_list";
@@ -49,10 +49,9 @@ angular.module('starter')
             UserId: $scope.teacher._id,
             HonorType: 'teacher'
           }
-          console.log(params);
+          //console.log(params);
           $http.get(url, {params: params})
             .success(function (result) {
-              console.log(JSON.stringify(result));
               var data = result.data;
               $scope.teacher.honor = data;
             })
@@ -125,25 +124,26 @@ angular.module('starter')
         UserId: userInfo._id,
         TeacherId: $scope.teacher._id
       }
-      console.log(data);
 
       var url = rootUrl + "/teacher_style/add_like";
 
       $http.post(url, data)
         .success(function (result) {
           if (result.ret_code == 0) {
-            console.log(JSON.stringify(result));
             updata();
           }
           else if (result.ret_code == 11) {
             $ionicPopup.alert({
               title: '提示',
               template: '您已经点赞过了 :)'
-            })
+            });
           }
         })
         .error(function (err) {
-          console.log("点赞失败", err);
+          $ionicPopup.alert({
+            title: '提示',
+            template: '点赞失败'+err
+          });
         })
     }
 
@@ -152,25 +152,29 @@ angular.module('starter')
         UserId: userInfo._id,
         TeacherId: $scope.teacher._id
       }
-      console.log(data);
+
 
       var url = rootUrl + "/teacher_style/add_flower";
 
       $http.post(url, data)
         .success(function (result) {
           if (result.ret_code == 0) {
-            console.log(JSON.stringify(result));
+            //console.log(JSON.stringify(result));
             updata();
           }
           else if (result.ret_code == 11) {
             $ionicPopup.alert({
               title: '提示',
-              template: '您已经送过花了 :)'
-            })
+              template: '您已经送过花了 '
+            });
           }
         })
         .error(function (err) {
-          console.log("送花失败", err);
+          $ionicPopup.alert({
+            title: '提示',
+            template: '送花失败'+err
+          });
+
         })
     }
 

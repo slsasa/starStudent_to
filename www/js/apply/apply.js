@@ -15,7 +15,7 @@ angular.module('starter')
       });
   })
 
-  .controller('ApplyCtrl',function($scope, $state, $http,$ionicLoading,userInfo){
+  .controller('ApplyCtrl',function($scope, $state, $http,$ionicPopup,$ionicLoading,userInfo){
     $scope.rootPicUrl = rootPicUrl;
     var update = function(){
       $ionicLoading.show();
@@ -25,22 +25,16 @@ angular.module('starter')
 
           var data = result.data;
 
-          //data.forEach(function(item){
-          //  var begin_date = new Date(item['begin_time']).getTime();
-          //  var end_date = new Date(item['end_time']).getTime();
-          //  item['begin_time'] = begin_date;
-          //  item['end_time'] = end_date;
-          //  item['PicRef']['Url'] = rootPicUrl + item['PicRef']['Url'];
-          //
-          //  $ionicLoading.hide();
-          //});
-
           $scope.applys = data;
           $ionicLoading.hide();
         })
         .error(function(err){
-          console.log("获取数据失败");
-        })
+          $ionicPopup.alert({
+            title:'提醒',
+            template:'获取数据失败'+err
+          });
+
+        });
     };
 
     $scope.$on('$ionicView.beforeEnter',function(){

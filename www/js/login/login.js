@@ -110,7 +110,7 @@ angular.module('starter')
           $ionicLoading.hide();
           $ionicPopup.alert({
             title: 'err',
-            template: '请等会登录'
+            template: '请等会登录'+err
 
           })
 

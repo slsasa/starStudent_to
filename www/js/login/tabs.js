@@ -8,7 +8,7 @@ angular.module('starter')
         url: '/tabs',
         abstract: true,
         cache: false,
-        templateUrl: 'templates/tabs.html',
+        templateUrl: 'templates/login/tabs.html',
         controller:'tabsCtrl'
       })
   })

@@ -21,7 +21,7 @@ angular.module('starter')
 
       $http.get(url, {params: {HonorType: 'student'}})
         .success(function(result){
-          console.log(JSON.stringify(result));
+
           var data = result.data;
           $scope.starList = data;
           $ionicLoading.hide();
@@ -32,7 +32,7 @@ angular.module('starter')
             title:'err',
             template:'数据加载失败'+err
           });
-          //console.log("获取明星榜信息失败");
+
         })
     };
 

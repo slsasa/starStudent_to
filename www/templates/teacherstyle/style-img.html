@@ -3,7 +3,7 @@
   <ion-content style="background-color: #f1f1f1">
     <ion-list>
       <ion-item>
-        <span ng-repeat="imgDetail in Imgs">
+        <span ng-repeat="imgDetail in teacher['StyleItem'] |orderBy:'-Time'" >
          <p>{{imgDetail['Time'] |date:'yyyy-MM-dd'}}</p>
          <span ng-repeat="img in imgDetail['PicListRef'] track by $index">
            <img ng- src="{{img}}" style="height: 30%;width: 30%">
