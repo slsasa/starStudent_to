@@ -23,9 +23,7 @@ angular.module('starter')
       var urlSchool = rootUrl + "/dynamic/get_all_list?DyType=school";
       var url = rootUrl + "/banner/get_list";
       var urlApply = rootUrl + "/sign_up_intro/get_list";
-
       $ionicLoading.show();
-
       //获取校园动态数据
       $http.get(urlSchool)
         .success(function(result){
@@ -42,6 +40,7 @@ angular.module('starter')
 
           $ionicSlideBoxDelegate.update();
           $ionicSlideBoxDelegate.loop(true);
+
 
         })
         .error(function(err){
@@ -85,6 +84,8 @@ angular.module('starter')
           }else{
             $scope.applys = data;
           }
+          $ionicSlideBoxDelegate.update();
+          $ionicSlideBoxDelegate.loop(true);
           $ionicLoading.hide();
         })
         .error(function(err){

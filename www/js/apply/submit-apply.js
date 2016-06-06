@@ -50,13 +50,17 @@ angular.module('starter')
             $ionicPopup.alert({
               title: '提醒',
               template: '提交表单失败'
-            })
+            });
           }
 
           $ionicLoading.hide();
         })
         .error(function (err) {
+          $ionicPopup.alert({
+            title: '提醒',
+            template: '出错'+err
+          });
           $ionicLoading.hide();
-        })
-    }
+        });
+    };
   });

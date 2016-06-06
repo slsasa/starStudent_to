@@ -11,19 +11,11 @@ angular.module('starter')
       });
   })
 
-  .controller('styleImgCtrl',function($scope, $stateParams, userInfo,$state){
+  .controller('styleImgCtrl',function($scope, userInfo){
 
-    console.log('log teacher info >>>', userInfo.teacherInfo);
     $scope.teacher = userInfo.teacherInfo;
-    userInfo.teacherInfo = '';
 
-    var getSelfInfo = function(){
-      $scope.Imgs = $scope.teacher['StyleItem'];
-      console.log('Imgs >>>>', $scope.Imgs);
-    };
+    userInfo.teacherInfo ={};
 
-    $scope.$on('$ionicView.beforeEnter',function(){
-      getSelfInfo();
-    });
 
   })

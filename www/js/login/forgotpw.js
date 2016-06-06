@@ -41,7 +41,7 @@ angular.module('starter')
         $ionicLoading.show();
         $http.post(url, data)
           .success(function (result) {
-            console.log(JSON.stringify(result));
+
             $ionicLoading.hide();
             if (result.ret_code == 0) {
               console.log("haha");
@@ -60,7 +60,8 @@ angular.module('starter')
           .error(function (err) {
             $ionicLoading.hide();
             $ionicPopup.alert({
-              title: JSON.stringify(err)
+              title: '提醒',
+              template:'出错'+err
             })
           })
       } else {
