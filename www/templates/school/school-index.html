@@ -38,7 +38,7 @@
     <div class="light-bg shadow" style="height: 30px;margin: 10px 0px">
       <marquee onmouseover="stop()" onmouseout="start()" width="82%" scrollamount="5">
       <span ng-repeat="dynamic in dynamics" style="line-height: 30px;">
-        <a style="text-decoration: none" ng-if="dynamic === dynamics[0]">学校动态:{{dynamic['Title']}}&nbsp&nbsp</a>
+        <a style="text-decoration: none;color: #f65492" ng-if="dynamic === dynamics[0]">学校动态:{{dynamic['Title']}}&nbsp&nbsp</a>
         <a style="text-decoration: none" ng-if="dynamic != dynamics[0]">{{dynamic['Title']}}&nbsp&nbsp</a>
       </span>
       </marquee>
@@ -57,7 +57,7 @@
 
 
 
-    <div class="light-bg shadow" style="margin: 30px 0px 0;padding: 5px 0 5px 0;">
+    <div class="light-bg shadow" style="margin: 10px 0px 0;padding: 5px 0 5px 0;">
 
       <div class="content" style="width: 99%">
         <ul >

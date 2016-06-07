@@ -103,7 +103,7 @@ td {
 
 /*教师个人中心*/
 .flor{    margin: 13px 55px 0 32%;}
-.card{margin: 0px 0px 10px 0px;padding: 0 5px;  }
+.card{margin: 0px 0px 1px 0px;padding: 0 5px;  }
 .card2{margin: 0px 0px 10px 0px;padding: 0 5px;     background: white;
   padding: 10px 0px 10px 0; }
 
@@ -155,7 +155,7 @@ td {
 .mine{box-shadow:#f96a9f 0px 23px 20px -20px ;   }
 .kk{padding: 10px 5px 10px 0px;}
 .styleh{    height: 65px;width: 65px;border-radius: 45px;margin: 15px 0px 0px 5px}
-.stylec{    margin: -165px 5px 0px 85px;text-indent: 2em;    float: right;text-align: justify;}
+.stylec{ text-indent: 2em;text-align: justify;    margin: 10px 10px 0px 0px;}
 .stylez1{    height: 27px;margin: -2px 5px 0 20px;float: left}
 .styleHistor{    padding: 10px 0px 10px 10px;}
 .perhead2{   display: block;    margin: 0 3%;          width: 34%;}
