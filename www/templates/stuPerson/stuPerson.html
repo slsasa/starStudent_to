@@ -8,8 +8,9 @@
 
       <img src="{{studentInfo['PicAvatarRef']['Url']}}" class="head" ng-click="replaceImage()">
 
-     <div style="background: rgba(0, 0, 0, 0.6);opacity:0.5;height: 35px;width: 68%;  margin: -80px 29%;">
-       <p class="myneme light" >{{studentInfo.Name}}<i class="ion-edit  "ng-click="editor();" ></i></p>
+     <div class="stuNa">
+       <p class="myneme light" >{{studentInfo.Name}}
+         <i class="ion-edit  "ng-click="editor()" ></i></p>
      </div>
 
     </div>
@@ -23,12 +24,12 @@
     </div>
     <div>
           <ion-item class=" item-icon-right" ui-sref="garden-learn"  >
-            <i class="ion-ios-book-outline" style="font-size: 35px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 学习园</h2></i>
+            <i class="ion-ios-book-outline" style="font-size: 33px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 学习园</h2></i>
 
             <i class="icon ion-chevron-right icon-accessory"></i>
           </ion-item>
 
-        <ion-item class=" item-icon-right" style="padding: 10px 0 18px 16px;" ng-click="goStuMyDynamic('stu')">
+        <ion-item class=" item-icon-right" style="padding: 10px 0 18px 15px;" ng-click="goStuMyDynamic('stu')">
             <img src="img/teachper/mydy.png"   style="    width: 28px;">
             <h2 style="margin: -28px 33px 0px;"> 我的动态</h2>
 
@@ -36,7 +37,7 @@
         </ion-item>
 
         <ion-item class=" item-icon-right" ui-sref="myApply" >
-          <i class="ion-ios-paper-outline" style="font-size: 35px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 我的报名</h2></i>
+          <i class="ion-ios-paper-outline" style="font-size: 33px;color: #f65492"><h2 style="margin: -28px 33px 0px;"> 我的报名</h2></i>
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
     </div>
