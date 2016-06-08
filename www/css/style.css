@@ -82,7 +82,8 @@ td {
 .a_image1 img{width: 35px;height:35px;margin: 15px 0 0 32%}
 .head2{    margin: 6px 4%;display: block;}
 .headbk{height: 140px}
-.head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
+.head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;    box-shadow: #111 0px 13px 19px -14px;
+  border: 1px solid #e5e5e5;}
 .myneme{ color: white;font-size: 20px;margin: 5px 0 0 0}
 .ion-edit{font-size: 29px;color: white;    float: right;margin: -2px 5% 0px 0px;}
 .stud{background-color: white;height: 80px;width: auto;    padding: 33px 0 0px 0px;}
