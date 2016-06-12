@@ -2,10 +2,12 @@
   <ion-nav-title>
     <span class="title">学校动态</span>
   </ion-nav-title>
-  <ion-content>
+  <ion-content >
     <div class="card">
       <p style="text-align: center ;margin: 25px 0px 20px 0px;font-size: 18px;">{{dynamic['Title']}}</p>
-      <h5 style="float: right">{{dynamic['IssueTime'] |date:'yyyy-MM-dd'}}</h5><br><br>
+      <p style="float: right">{{dynamic['IssueTime'] |date:'yyyy-MM-dd'}}</p><br><br>
+    </div>
+    <div class="card2">
       <p style="margin: 0 15px;text-align: justify;text-indent: 2em;">{{dynamic['Content']}}</p>
     </div>
   </ion-content>

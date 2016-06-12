@@ -18,18 +18,15 @@
 
     <!--教师圈-->
     <div id="chat" class="list">
-      <div class="item kk" ng-repeat="teacher in teachers" >
+      <div class="item" ng-repeat="teacher in teachers" >
         <div class="item-avatar">
           <img ng-src="{{teacher['TeacherAvatarRef']['Url']}}">
-          <h5>{{teacher['TeacherName']}}</h5>
-          <p style="text-align: justify;text-indent: 2em;">{{teacher['Content']}}</p>
-          <div class="button-bar" style="    margin: 20px 0px 0px 0px;">
+          <h4 style="    margin: 18px 0px 0px 0;">{{teacher['TeacherName']}}</h4>
+          <p style="text-align: justify;text-indent: 2em;margin: 5px 10px 0px 0px;">{{teacher['Content']}}</p>
 
-
-            <a class="button button-pink " style=" border-radius: 20px;line-height: 29px;height: 29px"  ng-click="goPersonalMine(teacher)">个人风采</a>
-            <a class="button button-pink "  style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher)">作品中心</a>
-
-
+          <div style=" margin: 10px 10px;float: right">
+            <a class="teaMine button"  ng-click="goPersonalMine(teacher)">个人风采</a>
+            <a class="teaMine button" ng-click="goWorks(teacher)">作品中心</a>
           </div>
         </div>
       </div>
@@ -42,11 +39,11 @@
         <div class="item-avatar">
 
           <img ng-src="{{teacher['TeacherAvatarRef']['Url']}}">
-          <p>{{teacher['TeacherName']}}</p>
+          <h4 style=" margin: 18px 0px 0px 0;">{{teacher['TeacherName']}}</h4>
           <p style="    text-indent: 2em;text-align: justify;margin: 5px 10px 0px 0px;">{{teacher['Content']}}</p>
-          <div class="button-bar" style="    margin: 10px 0px;">
-            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goPersonalMine(teacher)">个人风采</a>
-            <a class="button button-pink" style=" border-radius: 20px;line-height: 29px;height: 29px" ng-click="goWorks(teacher)">作品中心</a>
+          <div  style=" margin: 10px 10px;float: right">
+            <a class="teaMine button"  ng-click="goPersonalMine(teacher)">个人风采</a>
+            <a class="teaMine button" ng-click="goWorks(teacher)">作品中心</a>
 
           </div>
         </div>

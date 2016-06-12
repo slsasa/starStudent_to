@@ -6,8 +6,6 @@
   <ion-nav-buttons>
     <button class="button button-icon light ion-ios-arrow-back" ui-sref="tabs.home"></button>
   </ion-nav-buttons>
-
-  <ion-content style="background: rgba(209, 211, 214, 0.29)">
     <ion-content class="list">
       <ion-slide-box does-continue="true" auto-play="true" show-pager="true">
         <ion-slide ng-repeat="pic in banner_list track by $index">
@@ -20,7 +18,7 @@
 
         <h4 style="font-size: 16px;">{{dynamic['Title']}}</h4>
 
-        <p style="color: rgba(16, 16, 16, 0.93);text-align: justify;margin: 5px 10px 5px 0px;text-indent: 2em;">{{dynamic['Content']}}</p>
+        <p style="color: rgba(16, 16, 16, 0.93);text-align: justify;margin: 5px 10px 5px 0px;text-indent: 2em;">{{dynamic['Content'] |ifContentMore}}</p>
         <h6 style="float: right;color: #737373;padding-right: 10px;padding-bottom: 4px">{{dynamic['Time'] | date:'yyyy-MM-dd'}}</h6>
 
       </ion-item>

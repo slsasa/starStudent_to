@@ -5,8 +5,10 @@
     </span>
   </ion-nav-title>
   <ion-content>
-   <h5 style="text-align: center">{{learn.Title}}</h5>
-   <p style="float: right">{{learn.Time |date:'yyyy-MM-dd'}}</p><br>
-   <p>{{learn.Description}}</p>
+   <div class="card">
+     <h5 style="text-align: center">{{learn.Title}}</h5>
+     <p style="float: right;margin: 0px 10px 0 0px;">{{learn.Time |date:'yyyy-MM-dd'}}</p><br>
+   </div>
+   <p style="margin: 0px 10px;text-indent: 2em;">{{learn.Description}}</p>
   </ion-content>
 </ion-view>

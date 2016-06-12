@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 .rightbtom{
   background-color: #fff;
-  color: #3cc3aa;
+  color: #f96a9f;
 }
 .box{
   width: 100%;
@@ -82,11 +82,12 @@ td {
 .a_image1 img{width: 35px;height:35px;margin: 15px 0 0 32%}
 .head2{    margin: 6px 4%;display: block;}
 .headbk{height: 140px}
-.head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;}
-.myneme{ color: white;font-size: 17px;padding: -2px 0px 0px 10px;}
-.ion-edit{font-size: 28px;color: white;    float: right;margin: 3px 5% 0px 0px;}
+.head{width: 70px;height: 70px; border-radius:100px  ; margin: -52px 15px 0;    box-shadow: #111 0px 13px 19px -14px;
+  border: 1px solid #e5e5e5;}
+.myneme{ color: white;font-size: 20px;margin: 5px 0 0 0}
+.ion-edit{font-size: 29px;color: white;    float: right;margin: -2px 5% 0px 0px;}
 .stud{background-color: white;height: 80px;width: auto;    padding: 33px 0 0px 0px;}
-
+.stuNa{background: rgba(0, 0, 0, 0.25);position:absolute;height: 35px;width: 68%;  margin: -80px 29%;border-radius: 5px}
 /*考核情况*/
 .tit1{height: 12px;width: 12px;    margin: 0px 0px -26px 14px;}
 .cheComments{      margin: 0 14px 0px 40px;  text-align: justify;}
@@ -103,8 +104,10 @@ td {
 
 /*教师个人中心*/
 .flor{    margin: 13px 55px 0 32%;}
-.card{ padding-bottom: 80px;
-  width: 96%;height: 60%;margin: 0px 0px 10px 7px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0)}
+.card{margin: 0px 0px 1px 0px;padding: 0 5px;  }
+.card2{margin: 0px 0px 10px 0px;padding: 0 5px;     background: white;
+  padding: 10px 0px 10px 0; }
+.teaNa{background: rgba(0, 0, 0, 0.25);position:absolute;height: 35px;width: 68%;  margin: -28px 29%;border-radius: 5px}
 
 /*教师个人资料*/
 .message{background: white;
@@ -145,15 +148,23 @@ td {
 
 /*动态圈*/
 .ion-chatbox-working{color: #f96a9f}
-.buttonDy{background-color:#f96a9f;color: white;display: inline; padding: 1px 5px 3px 10px;     margin: 0 -5px 0px 0px;}
+.buttonDy{background-color:#f96a9f;color: white;display: inline; padding: 1px 5px 3px 10px;     margin: 0px;}
 
 
 /*教师风采*/
+.teaMine{     box-shadow: #f96a9f 0px 13px 18px -13px;
+  border-radius: 20px;
+  line-height: 35px;
+  height: 35px;
+  border: 1px solid;
+  padding: 0px 15px 0 15px;
+  background: #f96a9f;
+  color: white;}
 .buttonMin{ background: #f96a9f ; color: white;   margin: 0px -8px 0 0;  width: 110px;}
 .mine{box-shadow:#f96a9f 0px 23px 20px -20px ;   }
-.kk{padding: 10px 5px 10px 0px;}
+
 .styleh{    height: 65px;width: 65px;border-radius: 45px;margin: 15px 0px 0px 5px}
-.stylec{    margin: -165px 5px 0px 85px;text-indent: 2em;    float: right;text-align: justify;}
+.stylec{ text-indent: 2em;text-align: justify;    margin: 10px 10px 0px 0px;}
 .stylez1{    height: 27px;margin: -2px 5px 0 20px;float: left}
 .styleHistor{    padding: 10px 0px 10px 10px;}
 .perhead2{   display: block;    margin: 0 3%;          width: 34%;}

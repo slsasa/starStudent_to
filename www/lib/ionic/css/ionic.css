@@ -6636,7 +6636,7 @@ button.item.item-button-right {
 .card {
   padding-top: 1px;
   padding-bottom: 1px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.3); }
   .card .item {
     border-left: 0;
     border-right: 0; }
@@ -8568,7 +8568,7 @@ progress {
   background-color: #f74d84; }
 .button {
   border-color: transparent;
-  background-color: #fafafa;
+  background-color: #FFFFFF;
   color: #000000;
   position: relative;
   display: inline-block;
@@ -8578,7 +8578,7 @@ progress {
 
   border-width: 1px;
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 8px;
   vertical-align: top;
   text-align: center;
   text-overflow: ellipsis;

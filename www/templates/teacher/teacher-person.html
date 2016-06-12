@@ -17,14 +17,14 @@
 
   <ion-content style="background-color: #f1f1f1">
       <div class="headbk" >
-        <img ng-src="{{teacherInfo.PicBgRef.Url}}"  style="width: 100%  ;  height: 165px;">
-          <div class="item-avatar">
-          <img ng-src="{{teacherInfo.PicAvatarRef.Url}}" ng-click="replaceImage()" style="margin: 102px 0 0 5px;max-height: 70px;max-width: 70px;"></div>
+        <img ng-src="{{teacherInfo.PicBgRef.Url}}"  style="width: 100%  ;  height: 110%;">
+
+          <img ng-src="{{teacherInfo.PicAvatarRef.Url}}" ng-click="replaceImage()" class="head"></div>
 
 
-        <div  ng-click="edit()" style="background: rgba(0, 0, 0, 0.6);opacity:0.5;height: 35px;width: 68%;     margin: -118px 29% 0 30%;">
+        <div   class="teaNa">
           <p class="myneme light">{{teacherInfo.Name}}
-            <i  class="ion-edit"  style="margin: auto"></i></p>
+            <i  class="ion-edit"  ng-click="edit()"></i></p>
 
         </div>
 
