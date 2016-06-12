@@ -21,6 +21,7 @@ angular.module('starter')
       $ionicLoading.show();
       $http.get(url)
         .success(function(result){
+
            $scope.learns = result['data'];
           $ionicLoading.hide();
         })

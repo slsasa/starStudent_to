@@ -6,6 +6,16 @@ var rootUrl = "http://112.124.118.133:3000";
 //var rootUrl = "http://172.16.41.169:3000";
 var rootPicUrl = "http://112.124.118.133:3000/";
 
+var isInstalleagdWeChat = function(){
+  //share Wechat 检测用户是否安装了微信
+  Wechat.isInstalled(function (installed) {
+    alert("Wechat installed: " + (installed ? "Yes" : "No"));
+  }, function (reason) {
+    alert("Failed: " + reason);
+  });
+
+}
+
 
 
 // Ionic Starter App
@@ -15,17 +25,23 @@ var rootPicUrl = "http://112.124.118.133:3000/";
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
+var db = null;
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
   .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo) {
 
     $ionicPlatform.ready(function () {
 
-      userInfo.userNum = locals.get("Account","");
-      if(locals.getState("checked",'')){
-        userInfo.userPwd  = locals.get("Password","");
 
-      }
+      //userInfo.userNum = locals.get("Account","");
+      //if(locals.getState("checked",'')){
+      //  userInfo.userPwd  = locals.get("Password","");
+      //
+      //}
+
+
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -40,6 +56,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         StatusBar.styleLightContent();
       }
 
+      //db = $cordovaSQLite.openDB( { name: "user_db" });
+      //$cordovaSQLite.execute(db,
+      //  "create table if not exists t_user " +
+      //  "(id integer primary key, " +
+      //  " account text " +
+      //  " pws text " +
+      //  " checked integer)");
     })
     //返回键处理
     //主页面显示退出提示框
@@ -61,7 +84,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         });
       }
 
-      if ($location.path() == '/home/homeInfo') {
+      if ($location.path() == '/index.html#/login') {
         showConfirm();
       } else if ($ionicHistory.backView()) {
         $ionicHistory.goBack();
@@ -72,7 +95,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }, 101);
 
   })
-
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
@@ -82,18 +104,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $stateProvider
 
       // setup an abstract state for the tabs directive
-
-
-      .state('apply/apply-details', {
-        url: '/apply/apply:applyId',
-        templateUrl: 'templates/apply/apply-details.html',
-        controller: 'ApplydetaCtrl'
-      })
-      .state('submit-apply', {
-        url: '/submit-apply',
-        templateUrl: 'templates/apply/submit-apply.html',
-        controller: 'submitApplyCtrl'
-      })
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');

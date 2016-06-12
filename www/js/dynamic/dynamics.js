@@ -19,6 +19,8 @@ angular.module('starter')
   .controller('dynCtrl', function ($scope, $ionicPopup, $http, $ionicLoading, userInfo) {
 
     $scope.rootPicUrl = rootPicUrl;
+    //判断是在校园动态，还是学员动态还是教师动态
+    $scope.flag = "student";
 
 
 
@@ -69,6 +71,8 @@ angular.module('starter')
       $http.get(url,{params:{DyType:type}})
         .success(function(result){
           var data = result['data'];
+          console.log('data----------->>>dynamic',data);
+
 
 
           data.forEach(function(item){
@@ -253,31 +257,28 @@ angular.module('starter')
         objContentSchool.style.display = "";
         objContentState.innerHTML = '全文';
       }
-    }
+    };
 
 
 
     //点赞
-    //判断是在校园动态，还是学员动态还是教师动态
-    $scope.flag = "";
-    $scope.addLike = function ($index) {
+
+    $scope.addLike = function ($index,Id) {
 
       switch ($scope.flag) {
         case 'school':
           $scope.schObjClick = document.getElementById($index + 'school');
           $scope.schObjClick.style.display = "none";
-          var dynamicId = $scope['schoolDynamics'][$index]._id;
           break;
         case 'student':
+
           $scope.stuObjClick = document.getElementById($index + 'stu');
           $scope.stuObjClick.style.display = "none";
-          var dynamicId = $scope['studentDynamics'][$index]._id;
           break;
         case 'teacher':
+
           $scope.terObjClick = document.getElementById($index + 'teacher');
           $scope.terObjClick.style.display = "none";
-
-          var dynamicId = $scope['teacherDynamics'][$index]._id;
           break;
         default :
           break;
@@ -285,7 +286,7 @@ angular.module('starter')
 
       var data = {
         UserId: userInfo._id,
-        DynamicId: dynamicId
+        DynamicId: Id
       }
 
       var url = rootUrl + "/dynamic/add_like";
@@ -304,5 +305,71 @@ angular.module('starter')
             template:'点赞失败'+err
           });
         });
+    };
+
+    var searchIndex = function(arr,Id){
+       for(var i = 0; i < arr.length;i++){
+         if(arr[i]._id == Id){
+           return arr[i];
+         }
+       }
+    }
+
+    $scope.shareWeChat = function(index,Id){
+
+      switch ($scope.flag){
+        case 'school':
+          $scope.schObjClick = document.getElementById(index + 'school');
+          $scope.schObjClick.style.display = "none";
+
+          var schoolDynamic = searchIndex($scope['schoolDynamics'],Id) ;
+
+          isInstalleagdWeChat();
+          Wechat.share({
+            text: schoolDynamic['Content'],
+            scene:  Wechat.Scene.TIMELINE  // share to Timeline
+          }, function () {
+            alert("Success");
+          }, function (reason) {
+            alert("Failed: " + reason);
+          });
+          break;
+        case 'student':
+          $scope.stuObjClick = document.getElementById(index + 'stu');
+          $scope.stuObjClick.style.display = "none";
+
+
+          var studentDynamic = searchIndex($scope['studentDynamics'],Id) ;
+
+          isInstalleagdWeChat();
+          Wechat.share({
+            text:  studentDynamic['Content'],
+            scene: Wechat.Scene.TIMELINE // share to Timeline
+          }, function () {
+            alert("Success");
+          }, function (reason) {
+            alert("Failed: " + reason);
+          });
+          break;
+        case 'teacher':
+          $scope.terObjClick = document.getElementById(index + 'teacher');
+          $scope.terObjClick.style.display = "none";
+          var teacherDynamic = searchIndex($scope['teacherDynamics'],Id) ;
+
+
+          isInstalleagdWeChat();
+          Wechat.share({
+            text: teacherDynamic['Content'],
+            scene:  Wechat.Scene.TIMELINE  // share to Timeline
+          }, function () {
+            alert("Success");
+          }, function (reason) {
+            alert("Failed: " + reason);
+          });
+          break;
+        default :
+          break;
+
+      }
     }
   });

@@ -13,20 +13,40 @@ angular.module('starter')
   })
 
 
-  .controller('loginCtrl', function ($rootScope, $ionicPlatform,$scope,locals, $state, $ionicPopup, userInfo, $http, $ionicLoading,UserService) {
-
-    var vm = this;
-
-    //Initialize the database
-    $ionicPlatform.ready(function(){
-
+  .controller('loginCtrl', function ($rootScope, $ionicPlatform,$scope,locals, $state, $ionicPopup, userInfo, $http,UserService,$ionicLoading) {
+    $ionicPlatform.ready(function () {
       UserService.initDB();
-
-      UserService.getAllUsers().then(function(users){
-        vm.users = users;
-      });
-      console.log('------------------------>initialize the database');
     });
+    //$scope.UserService = {
+    //  initDB: function() {
+    //    db = $cordovaSQLite.openDB({ name: "user_db" });
+    //    $cordovaSQLite.execute(db,
+    //      "create table if not exists t_user " +
+    //      "(id integer primary key, " +
+    //      " account text " +
+    //      " pws text " +
+    //      " checked integer)");
+    //  },
+    //  addUser: function(user){
+    //    var query = "insert into t_user(account, pwd, check) values(?,?,?)";
+    //    $cordovaSQLite.execute(db, query, [user.account, user.pwd, user.checked == undefined ? 0 : user.checked] )
+    //      .then( function (res) {
+    //        console.log ( "success in insert " + JSON.stringify(res));
+    //      }, function(err) {
+    //        console.error(err);
+    //      });
+    //  },
+    //  getAllUsers: function(callback) {
+    //    var query = "select * from t_user";
+    //    $cordovaSQLite.execute(db, query, [])
+    //      .then(function(res) {
+    //        callback(res);
+    //      }, function(err) {
+    //        console.error(err);
+    //      })
+    //  }
+    //}
+
     $scope.loginbks = [
       {
         "img": "img/logo/loginLogo.png"
@@ -35,9 +55,13 @@ angular.module('starter')
 
     $rootScope.user = {
 
-      num: userInfo.userNum,
-      pwd: userInfo.userPwd
+      num: '',
+      pwd: ''
     };
+
+    //$ionicPlatform.ready(function () {
+    //
+    //});
 
 
     var update = function (url, data) {
@@ -46,35 +70,17 @@ angular.module('starter')
 
           if (result.ret_code == 0) {
             var user = result.data;
-
             var cache = {
               pwd:$rootScope.user.pwd,
-              account:$rootScope.user.num
+              account:$rootScope.user.num,
+              checked:$scope.remembers.checked? 1 : 0
             }
 
-
-
             //本地数据库
-            //UserService.addUser(cache);
-            //tmp = UserService.getAllUsers();
-            //console.log("allUser ---> " + JSON.stringify(tmp));
-            //
-            //tmp = tmp.$$state.value;
-            //tmp = tmp[tmp.length-1];
-            //console.log("->>>> obj" + JSON.stringify(tmp) );
 
 
 
-            //UserService.deleteUser(tmp);
-            //tmp = UserService.getAllUsers();
-            //console.log('-------------deleted User',tmp)
-
-            //for ( var a in tmp ) {
-            //  UserService.deleteUser(a);
-            //}
-            //UserService.addUser(cache);
-            //console.log('tmp valuse------------->',tmp);
-            locals.set("user",user);
+            //locals.set("user",user);
             userInfo._id = user._id;
             if (user.UserType == 'student') {
 
@@ -110,12 +116,10 @@ angular.module('starter')
           $ionicLoading.hide();
           $ionicPopup.alert({
             title: 'err',
-            template: '请等会登录'+err
-
-          })
-
-        })
-    }
+            template: '请等会登录'
+          });
+        });
+    };
 
 
     //提交表单 **登录**
@@ -135,45 +139,18 @@ angular.module('starter')
     //记住密码框
     $scope.remembers = {text: "记住密码" ,checked: true};
 
-    var remember = function(){
-      if($scope.remembers.checked == true){
-        userInfo.checked = true;
+    //var remember = function(){
+    //  if($scope.remembers.checked){
+    //    userInfo.checked = true;
+    //    }
+    //
+    //  }
+    //}
 
-
-
-        //locals.setState("checked",true);
-        //userInfo.userNum = locals.get("user","").num;
-        //userInfo.userPwd  = locals.get("Password","");
-        //UserService.initDB().then(function(){
-        //  console.log("then init DB ->>>>>>>>>>>>>>>>>>>>>>")
-        //  tmp = UserService.getAllUsers();
-        //  console.log("initialize ->>>>> " + JSON.stringify(tmp) );
-        //
-        //  user = UserService.getAllUsers();
-        //  if ( user.$$state.status === '0' ) return;
-        //  user = user.$$state.value;
-        //  if ( user != undefined && user.length > 0 ) {
-        //    user = user[user.length-1];
-        //    userInfo.userNum = user.account;
-        //    userInfo.userPwd = user.pwd;
-        //  }
-        //});
-
-
-      }
-    }
-
-    remember();
 
     $scope.clickRemember = function(checked){
-      if(checked == false){
-        userInfo.checked = false;
-        locals.setState("checked",'');
-      }
-    }
-
-
-
+      $scope.remembers.checked = checked;
+    };
 
     //进入注册页面
     $scope.register = function () {
@@ -184,9 +161,12 @@ angular.module('starter')
       $state.go('findPwd');
     }
 
-
     $(document).ready(function(){
       $("a").animate({bottom:'215px'});
     });
+
+    //$scope.$on('$ionicView.afterEnter',function(){
+    //
+    //},true);
 
   });

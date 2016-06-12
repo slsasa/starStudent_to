@@ -24,8 +24,11 @@
           <h3 style="margin: 15px 0px 5px 0px;">{{learn['IssuerName']}}</h3>
 
           <p>{{learn['Time'] |date:'yyyy/MM/dd'}}</p>
-          <div ng-if="learn['Content'].length > 64">
-            <div id="{{$index+'contentLearn'}}"> {{learn['Content'] | ifContentMore}}</div>
+          <div ng-if="learn['Content'].length > 26">
+            <a ng-repeat="image in learn['PicListRef']">
+              <img ng-src="{{rootPicUrl + image['Url']}}" style="width: 100px;height: 100px">
+            </a>
+            <div id="{{$index+'contentLearn'}}"> {{learn['Content'] | ifMore}}</div>
             <div id="{{$index+'moreContentLearn'}}" style="display: none"> {{learn['Content']}}</div>
             <div>
               <a ng-click="showMoreContent($index)" id="{{$index +'state'}}">全文</a>
@@ -33,7 +36,10 @@
             <br>
             <p ng-if="learn['LinkUrl'].length >7">分享链接:http://{{learn['LinkUrl']}}</p>
           </div>
-          <div ng-if="learn['Content'].length <= 64">
+          <div ng-if="learn['Content'].length <= 26">
+            <a ng-repeat="image in learn['PicListRef']">
+              <img ng-src="{{rootPicUrl + image['Url']}}" style="width: 100px;height: 100px">
+            </a>
             <p>{{learn['Content']}}</p>
             <br>
             <p ng-if="learn['LinkUrl'].length >7">分享链接:http://{{learn['LinkUrl']}}</p>
