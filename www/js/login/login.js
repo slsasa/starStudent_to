@@ -15,7 +15,7 @@ angular.module('starter')
 
   .controller('loginCtrl', function ($rootScope, $ionicPlatform,$scope,locals, $state, $ionicPopup, userInfo, $http,UserService,$ionicLoading) {
     $ionicPlatform.ready(function () {
-      UserService.initDB();
+      //UserService.initDB();
     });
     //$scope.UserService = {
     //  initDB: function() {
