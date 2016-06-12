@@ -46,8 +46,8 @@
         </div>
         <div class="comments">
           <div id="{{$index+'MyDynamic'}}" style="display: none; margin: 0px 34px -36px 10px;">
-          <a class=" button buttonDy" ng-click="likeAdd($index)"><i class="ion-ios-heart-outline" style="  font-size: 26px;"></i>点赞</a>
-          <a class=" button buttonDy" ng-click=""><i class="ion-ios-redo-outline" style="   font-size: 30px;"></i>分享</a>
+          <a class=" button buttonDy" ng-click="likeAdd($index,myDynamic._id)"><i class="ion-ios-heart-outline" style="  font-size: 26px;"></i>点赞</a>
+          <a class=" button buttonDy" ng-click="shareWeChat($index,myDynamic._id)"><i class="ion-ios-redo-outline" style="   font-size: 30px;"></i>分享</a>
         </div>
           <img src="img/dp.png" ng-click="showClickDynamic($index)" style="height: 15px; width: 23px;"/>
         </div>

@@ -8,10 +8,17 @@ var rootPicUrl = "http://112.124.118.133:3000/";
 
 var isInstalleagdWeChat = function(){
   //share Wechat 检测用户是否安装了微信
-  Wechat.isInstalled(function (installed) {
-    alert("Wechat installed: " + (installed ? "Yes" : "No"));
+  Wechat.isInstalled(function (installed,$ionicPopup) {
+    $ionicPopup.alert({
+      title:'检测安装微信',
+      template:installed ? "yes" : "No"
+    });
+
   }, function (reason) {
-    alert("Failed: " + reason);
+    $ionicPopup.alert({
+      title:'检测安装微信',
+      template:reason
+    });
   });
 
 }
@@ -26,21 +33,32 @@ var isInstalleagdWeChat = function(){
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-var db = null;
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-  .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo) {
+  .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo,$rootScope) {
+
+    $rootScope.user = {
+
+      num: '',
+      pwd: ''
+    };
 
     $ionicPlatform.ready(function () {
 
+      userInfo.checked = true;
+      var user = locals.getObject("user");
+      $rootScope.user.num = user.account;
+      var checked = user.checked;
+      if(checked ==true){
+        userInfo.checked = checked;
+        $rootScope.user.pwd = user.pwd;
 
-      //userInfo.userNum = locals.get("Account","");
-      //if(locals.getState("checked",'')){
-      //  userInfo.userPwd  = locals.get("Password","");
-      //
-      //}
+      }else if(checked ==false){
+        userInfo.checked = checked;
+        $rootScope.user.pwd = '';
 
+      }
 
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -56,13 +74,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         StatusBar.styleLightContent();
       }
 
-      //db = $cordovaSQLite.openDB( { name: "user_db" });
-      //$cordovaSQLite.execute(db,
-      //  "create table if not exists t_user " +
-      //  "(id integer primary key, " +
-      //  " account text " +
-      //  " pws text " +
-      //  " checked integer)");
+
     })
     //返回键处理
     //主页面显示退出提示框

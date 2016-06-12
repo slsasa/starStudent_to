@@ -329,10 +329,33 @@ angular.module('starter')
             text: schoolDynamic['Content'],
             scene:  Wechat.Scene.TIMELINE  // share to Timeline
           }, function () {
-            alert("Success");
+            $ionicPopup.alert({
+              title:'提示' ,
+              template:'成功'
+            });
           }, function (reason) {
-            alert("Failed: " + reason);
+            $ionicPopup.alert({
+              title:'Failed:' ,
+              template:reason
+            });
+
           });
+          //Wechat.share({
+          //  message: {
+          //    title: "",
+          //    description: schoolDynamic['Content'],
+          //    thumb:rootPicUrl + schoolDynamic['PicListRef'][0]['Url'],
+          //    mediaTagName: "TEST-TAG-001",
+          //    messageExt: "这是第三方带的测试字段",
+          //    messageAction: "<action>dotalist</action>",
+          //    media: "YOUR_MEDIA_OBJECT_HERE"
+          //  },
+          //  scene: Wechat.Scene.TIMELINE   // share to Timeline
+          //}, function () {
+          //  alert("Success");
+          //}, function (reason) {
+          //  alert("Failed: " + reason);
+          //});
           break;
         case 'student':
           $scope.stuObjClick = document.getElementById(index + 'stu');
@@ -346,9 +369,15 @@ angular.module('starter')
             text:  studentDynamic['Content'],
             scene: Wechat.Scene.TIMELINE // share to Timeline
           }, function () {
-            alert("Success");
+            $ionicPopup.alert({
+              title:'提示' ,
+              template:'成功'
+            });
           }, function (reason) {
-            alert("Failed: " + reason);
+            $ionicPopup.alert({
+              title:'Failed:' ,
+              template:reason
+            });
           });
           break;
         case 'teacher':
@@ -362,9 +391,15 @@ angular.module('starter')
             text: teacherDynamic['Content'],
             scene:  Wechat.Scene.TIMELINE  // share to Timeline
           }, function () {
-            alert("Success");
+            $ionicPopup.alert({
+              title:'提示' ,
+              template:'成功'
+            });
           }, function (reason) {
-            alert("Failed: " + reason);
+            $ionicPopup.alert({
+              title:'Failed:' ,
+              template:reason
+            });
           });
           break;
         default :

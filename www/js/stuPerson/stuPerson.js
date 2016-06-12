@@ -76,7 +76,7 @@ angular.module('starter')
           {
             text:"是",
             onTap:function(e){
-              remember();
+              //remember();
               $ionicHistory.clearHistory();
               $state.go('login');
             }
@@ -86,14 +86,14 @@ angular.module('starter')
 
     }
 
-    var remember =function(){
-      if(userInfo.checked ==true){
-        $rootScope.user.num  =  userInfo.userNum;
-        $rootScope.user.pwd  =  userInfo.userPwd;
-      }else{
-        $rootScope.user.pwd = '';
-      }
-    }
+    //var remember =function(){
+    //  if(userInfo.checked ==true){
+    //    $rootScope.user.num  =  userInfo.userNum;
+    //    $rootScope.user.pwd  =  userInfo.userPwd;
+    //  }else{
+    //    $rootScope.user.pwd = '';
+    //  }
+    //}
 
     $scope.replaceImage = function(){
 
