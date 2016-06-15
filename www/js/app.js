@@ -137,8 +137,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .filter('ifContentMore',function(){
     return function(input){
       input = input || [];
-      if(input.length > 64){
-        return input.slice(0,64);
+      if(input.length > 34){
+        return input.slice(0,34);
       }else{
         return input;
       }

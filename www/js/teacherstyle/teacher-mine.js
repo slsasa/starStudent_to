@@ -23,7 +23,7 @@ angular.module('starter')
           data.forEach(function(item){
 
             item['__v'] = item['FlowerListRef'].length*0.6 + item['LikeListRef'].length*0.4;
-            console.log('v---------->',item['__v']);
+
             item['TeacherAvatarRef']['Url'] = rootPicUrl + item['TeacherAvatarRef']['Url'];
           });
           $scope.teachers = data;

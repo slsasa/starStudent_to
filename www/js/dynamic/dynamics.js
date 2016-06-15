@@ -71,9 +71,7 @@ angular.module('starter')
       $http.get(url,{params:{DyType:type}})
         .success(function(result){
           var data = result['data'];
-          console.log('data----------->>>dynamic',data);
-
-
+          console.log('dynamic----------->',JSON.stringify(data));
 
           data.forEach(function(item){
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
@@ -208,9 +206,6 @@ angular.module('starter')
 
 
     //动态内容全部显示
-
-
-
     $scope.showContentSchool = function (schoolId) {
       var objStateContent = document.getElementById(schoolId+'stateSch');
       var objMoreContent = document.getElementById(schoolId + "moreContentSchool");
@@ -262,7 +257,6 @@ angular.module('starter')
 
 
     //点赞
-
     $scope.addLike = function ($index,Id) {
 
       switch ($scope.flag) {
@@ -307,13 +301,34 @@ angular.module('starter')
         });
     };
 
+    //查找对象
     var searchIndex = function(arr,Id){
        for(var i = 0; i < arr.length;i++){
          if(arr[i]._id == Id){
            return arr[i];
          }
        }
-    }
+    };
+
+    //微信分享
+    var wechatShare = function(content){
+      Wechat.share({
+        text: content,
+        scene:  Wechat.Scene.TIMELINE  // share to Timeline
+      }, function () {
+        $ionicPopup.alert({
+          title:'提示' ,
+          template:'成功'
+        });
+      }, function (reason) {
+        $ionicPopup.alert({
+          title:'Failed:' ,
+          template:reason
+        });
+
+      });
+
+    };
 
     $scope.shareWeChat = function(index,Id){
 
@@ -325,37 +340,7 @@ angular.module('starter')
           var schoolDynamic = searchIndex($scope['schoolDynamics'],Id) ;
 
           isInstalleagdWeChat();
-          Wechat.share({
-            text: schoolDynamic['Content'],
-            scene:  Wechat.Scene.TIMELINE  // share to Timeline
-          }, function () {
-            $ionicPopup.alert({
-              title:'提示' ,
-              template:'成功'
-            });
-          }, function (reason) {
-            $ionicPopup.alert({
-              title:'Failed:' ,
-              template:reason
-            });
-
-          });
-          //Wechat.share({
-          //  message: {
-          //    title: "",
-          //    description: schoolDynamic['Content'],
-          //    thumb:rootPicUrl + schoolDynamic['PicListRef'][0]['Url'],
-          //    mediaTagName: "TEST-TAG-001",
-          //    messageExt: "这是第三方带的测试字段",
-          //    messageAction: "<action>dotalist</action>",
-          //    media: "YOUR_MEDIA_OBJECT_HERE"
-          //  },
-          //  scene: Wechat.Scene.TIMELINE   // share to Timeline
-          //}, function () {
-          //  alert("Success");
-          //}, function (reason) {
-          //  alert("Failed: " + reason);
-          //});
+          wechatShare(schoolDynamic['Content']);
           break;
         case 'student':
           $scope.stuObjClick = document.getElementById(index + 'stu');
@@ -365,42 +350,15 @@ angular.module('starter')
           var studentDynamic = searchIndex($scope['studentDynamics'],Id) ;
 
           isInstalleagdWeChat();
-          Wechat.share({
-            text:  studentDynamic['Content'],
-            scene: Wechat.Scene.TIMELINE // share to Timeline
-          }, function () {
-            $ionicPopup.alert({
-              title:'提示' ,
-              template:'成功'
-            });
-          }, function (reason) {
-            $ionicPopup.alert({
-              title:'Failed:' ,
-              template:reason
-            });
-          });
+          wechatShare(studentDynamic['Content']);
           break;
         case 'teacher':
           $scope.terObjClick = document.getElementById(index + 'teacher');
           $scope.terObjClick.style.display = "none";
           var teacherDynamic = searchIndex($scope['teacherDynamics'],Id) ;
 
-
           isInstalleagdWeChat();
-          Wechat.share({
-            text: teacherDynamic['Content'],
-            scene:  Wechat.Scene.TIMELINE  // share to Timeline
-          }, function () {
-            $ionicPopup.alert({
-              title:'提示' ,
-              template:'成功'
-            });
-          }, function (reason) {
-            $ionicPopup.alert({
-              title:'Failed:' ,
-              template:reason
-            });
-          });
+          wechatShare(teacherDynamic['Content']);
           break;
         default :
           break;
