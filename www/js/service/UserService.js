@@ -1,7 +1,7 @@
 /**
  * Created by sls on 16/6/8.
  */
-angular.module('starter')
+angular.module('starter.services', [])
   .factory ( "UserService", function(locals) {
   var users = [];
   return {

@@ -13,7 +13,7 @@ angular.module('starter')
   })
 
 
-  .controller('loginCtrl', function ($rootScope, $ionicPlatform,$scope,locals,UserService, $state, $ionicPopup, userInfo, $http,$ionicLoading) {
+  .controller('loginCtrl', function ($rootScope,$ionicPlatform,$scope,locals,UserService, $state, $ionicPopup, userInfo, $http,$ionicLoading) {
 
 
     $scope.loginbks = [
@@ -22,10 +22,6 @@ angular.module('starter')
       }
     ];
 
-
-    $ionicPlatform.ready(function () {
-
-    });
 
     var update = function (url, data) {
       $http.post(url, data)
@@ -112,9 +108,5 @@ angular.module('starter')
     $scope.Forgotpw = function () {
       $state.go('findPwd');
     };
-
-    $(document).ready(function () {
-      $("a").animate({bottom: '215px'});
-    })
 
   });

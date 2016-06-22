@@ -28,7 +28,10 @@ angular.module('starter')
           console.log($scope.teacherInfo);
         })
         .error(function(err){
-          console.log("获取个人信息失败");
+          $ionicPopup.alert({
+            title:'数据获取失败',
+            template:'失败:'+err
+          });
         });
       $http.get(teacherStyleUrl,{params:{TeacherId:userInfo._id}})
       .success(function(result){
@@ -97,12 +100,17 @@ angular.module('starter')
 
             $http.post(url, data)
               .success(function(){
-                alert('修改成功');
-
+                $ionicPopup.alert({
+                  title:'成功',
+                  template:'头像修改成功'
+                });
               })
               .error(function(err){
-                alert('修改失败:'+err);
-              })
+                $ionicPopup.alert({
+                  title:'失败',
+                  template:'头像修改失败'+err
+                });
+              });
           }
 
         }, function (error) {

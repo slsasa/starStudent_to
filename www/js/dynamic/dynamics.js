@@ -22,8 +22,6 @@ angular.module('starter')
     //判断是在校园动态，还是学员动态还是教师动态
     $scope.flag = "student";
 
-
-
     var calcTime = function( timeString ) {
       var tmp = new Date().getTime() - new Date(timeString).getTime();
       tmp = tmp / (1000);
@@ -63,7 +61,6 @@ angular.module('starter')
       return difTimeRes;
     }
 
-
     var update = function(type){
       $ionicLoading.show();
       var url = rootUrl + "/dynamic/get_all_list";
@@ -71,7 +68,6 @@ angular.module('starter')
       $http.get(url,{params:{DyType:type}})
         .success(function(result){
           var data = result['data'];
-          console.log('dynamic----------->',JSON.stringify(data));
 
           data.forEach(function(item){
             item['IssuerAvatarRef']['Url'] = rootPicUrl + item['IssuerAvatarRef']['Url'];
@@ -79,6 +75,7 @@ angular.module('starter')
           });
 
           $scope[type+'Dynamics'] = result['data'];
+          console.log('------------>dynamic '+type+":",$scope[type+'Dynamics']);
           $ionicLoading.hide();
         })
         .error(function(err){

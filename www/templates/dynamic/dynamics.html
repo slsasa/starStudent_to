@@ -65,6 +65,8 @@
             <div>
               <a ng-click="showContentStu($index)" id="{{$index +'stateStu'}}">全文</a>
             </div>
+            <p ng-repeat="likeName in stuDynamic['LikeName']"> {{likeName}}</p>
+
           </div>
 
           <div ng-if="stuDynamic['Content'].length <36">
@@ -72,6 +74,8 @@
               <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
             <p>{{stuDynamic['Content']}}</p>
+            <p ng-repeat="likeName in stuDynamic['LikeName']"> {{likeName}}</p>
+
           </div>
 
         </div>
@@ -104,6 +108,7 @@
             <div>
               <a ng-click="showContentTer($index)" id="{{$index +'stateTer'}}">全文</a>
             </div>
+            <p ng-repeat="likeName in terDynamic['LikeName']"> {{likeName}}</p>
           </div>
 
           <div ng-if="terDynamic['Content'].length <36">
@@ -111,6 +116,8 @@
               <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
             <p>{{terDynamic['Content']}}</p>
+            <p ng-repeat="likeName in terDynamic['LikeName']"> {{likeName}}</p>
+
           </div>
 
         </div>
