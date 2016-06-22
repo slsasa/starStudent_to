@@ -17,34 +17,6 @@ angular.module('starter')
     $scope.rootPicUrl =  rootPicUrl;
     $scope.type = userInfo.personType;
 
-
-    $scope.likeAdd = function(index){
-      $scope.objClick = document.getElementById(index + 'MyDynamic');
-      var url = rootUrl + "/dynamic/add_like";
-      var dynamicId =  $scope.myDynamics[index]._id;
-      var data = {
-        UserId: userInfo._id,
-        DynamicId:dynamicId
-      };
-      $http.post(url, data)
-        .success(function(result){
-          $ionicPopup.alert({
-            title:'成功',
-            template:'点赞成功'
-          });
-          $scope.objClick.style.display = "none";
-
-        })
-        .error(function(err){
-          $ionicPopup.alert({
-            title:'失败',
-            template:'点赞失败'+err
-          });
-          $scope.objClick.style.display = "none";
-        });
-    }
-
-
     var update = function () {
       $ionicLoading.show();
 
@@ -72,6 +44,66 @@ angular.module('starter')
         });
 
     }
+
+    $scope.likeAdd = function(index,Id){
+      $scope.objClick = document.getElementById(index + 'MyDynamic');
+      var url = rootUrl + "/dynamic/add_like";
+
+      var data = {
+        UserId: userInfo._id,
+        DynamicId:Id
+      };
+      $http.post(url, data)
+        .success(function(result){
+          $ionicPopup.alert({
+            title:'成功',
+            template:'点赞成功'
+          });
+          $scope.objClick.style.display = "none";
+
+        })
+        .error(function(err){
+          $ionicPopup.alert({
+            title:'失败',
+            template:'点赞失败'+err
+          });
+          $scope.objClick.style.display = "none";
+        });
+    }
+
+
+
+    var searchIndex = function(arr,Id){
+      for(var i = 0; i < arr.length;i++){
+        if(arr[i]._id == Id){
+          return arr[i];
+        }
+      }
+    };
+
+    $scope.shareWeChat = function(index,id){
+      $scope.objClick = document.getElementById(index + 'MyDynamic');
+      $scope.objClick.style.display = "none";
+      isInstalleagdWeChat();
+      var myDynamic = searchIndex($scope.myDynamics,id);
+      Wechat.share({
+        text: myDynamic['Content'],
+        scene:  Wechat.Scene.TIMELINE  // share to Timeline
+      }, function () {
+        $ionicPopup.alert({
+          title:'提示' ,
+          template:'成功'
+        });
+      }, function (reason) {
+        $ionicPopup.alert({
+          title:'Failed' ,
+          template:reason
+        });
+      });
+
+
+    }
+
 
     $scope.$on('$ionicView.beforeEnter', function () {
       update();

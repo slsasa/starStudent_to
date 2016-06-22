@@ -1,7 +1,7 @@
 /**
  * Created by sls on 16/5/9.
  */
-angular.module('starter')
+angular.module('starter.controllers',[])
   .config(function ($stateProvider) {
     $stateProvider
       .state('tabs', {

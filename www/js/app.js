@@ -1,10 +1,23 @@
 
-//var rootUrl = "http://localhost:3000";
 var rootUrl = "http://112.124.118.133:3000";
-//var rootPicUrl = "http://localhost:3000/";
-
-//var rootUrl = "http://172.16.41.169:3000";
 var rootPicUrl = "http://112.124.118.133:3000/";
+
+var isInstalleagdWeChat = function(){
+  //share Wechat 检测用户是否安装了微信
+  Wechat.isInstalled(function (installed,$ionicPopup) {
+    $ionicPopup.alert({
+      title:'检测安装微信',
+      template:installed ? "yes" : "No"
+    });
+
+  }, function (reason) {
+    $ionicPopup.alert({
+      title:'检测安装微信',
+      template:reason
+    });
+  });
+
+}
 
 
 
@@ -15,17 +28,33 @@ var rootPicUrl = "http://112.124.118.133:3000/";
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-  .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo) {
+  .run(function ($ionicPlatform, $ionicHistory,$ionicPopup, $location,locals,userInfo,$rootScope) {
+
+    $rootScope.user = {
+      num: '',
+      pwd: ''
+    };
 
     $ionicPlatform.ready(function () {
 
-      userInfo.userNum = locals.get("Account","");
-      if(locals.getState("checked",'')){
-        userInfo.userPwd  = locals.get("Password","");
+      userInfo.checked = true;
+      var user = locals.getObject("user");
+      $rootScope.user.num = user.account;
+      var checked = user.checked;
+      if(checked ==true){
+        userInfo.checked = checked;
+        $rootScope.user.pwd = user.pwd;
+
+      }else if(checked ==false){
+        userInfo.checked = checked;
+        $rootScope.user.pwd = '';
 
       }
+
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -39,6 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         //StatusBar.styleDefault();
         StatusBar.styleLightContent();
       }
+
 
     })
     //返回键处理
@@ -61,7 +91,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         });
       }
 
-      if ($location.path() == '/home/homeInfo') {
+      if ($location.path() == '/index.html#/login') {
         showConfirm();
       } else if ($ionicHistory.backView()) {
         $ionicHistory.goBack();
@@ -72,7 +102,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }, 101);
 
   })
-
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
@@ -82,18 +111,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $stateProvider
 
       // setup an abstract state for the tabs directive
-
-
-      .state('apply/apply-details', {
-        url: '/apply/apply:applyId',
-        templateUrl: 'templates/apply/apply-details.html',
-        controller: 'ApplydetaCtrl'
-      })
-      .state('submit-apply', {
-        url: '/submit-apply',
-        templateUrl: 'templates/apply/submit-apply.html',
-        controller: 'submitApplyCtrl'
-      })
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
@@ -115,17 +132,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .filter('ifContentMore',function(){
     return function(input){
       input = input || [];
-      if(input.length > 64){
-        return input.slice(0,64);
+      if(input.length > 34){
+        return input.slice(0,34);
       }else{
         return input;
       }
     }
   })
-
   .factory('userInfo', function () {
     var service = {
       id: ''
     }
     return service;
   })
+
+
+

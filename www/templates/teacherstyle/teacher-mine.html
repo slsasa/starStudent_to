@@ -22,9 +22,9 @@
         <div class="item-avatar">
           <img ng-src="{{teacher['TeacherAvatarRef']['Url']}}">
           <h4 style="    margin: 18px 0px 0px 0;">{{teacher['TeacherName']}}</h4>
-          <p style="text-align: justify;text-indent: 2em;margin: 5px 10px 0px 0px;">{{teacher['Content']}}</p>
+          <p style="text-align: justify;text-indent: 2em;margin: 5px 10px 0px 0px;">{{teacher['Content'] | ifContentMore}}</p>
 
-          <div style=" margin: 10px 10px;float: right">
+          <div style="float: right">
             <a class="teaMine button"  ng-click="goPersonalMine(teacher)">个人风采</a>
             <a class="teaMine button" ng-click="goWorks(teacher)">作品中心</a>
           </div>
@@ -40,8 +40,8 @@
 
           <img ng-src="{{teacher['TeacherAvatarRef']['Url']}}">
           <h4 style=" margin: 18px 0px 0px 0;">{{teacher['TeacherName']}}</h4>
-          <p style="    text-indent: 2em;text-align: justify;margin: 5px 10px 0px 0px;">{{teacher['Content']}}</p>
-          <div  style=" margin: 10px 10px;float: right">
+          <p style="    text-indent: 2em;text-align: justify;margin: 5px 10px 0px 0px;">{{teacher['Content'] |ifContentMore}}</p>
+          <div style="float: right">
             <a class="teaMine button"  ng-click="goPersonalMine(teacher)">个人风采</a>
             <a class="teaMine button" ng-click="goWorks(teacher)">作品中心</a>
 

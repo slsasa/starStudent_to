@@ -1,68 +1,42 @@
 /**
- * Created by sls on 16/5/30.
+ * Created by sls on 16/6/8.
  */
-angular.module('starter')
-  .factory('UserService',['$q',function($q){
-    var _DBUsers;
-    var _users;
-    var onDatabaseChange = function(change){
-      var index = findIndex(_users,change.id);
-      var user = _users[index];
+angular.module('starter.services', [])
+  .factory ( "UserService", function(locals) {
+  var users = [];
+  return {
+    loadUsers:function(){
+      users =  locals.getObject('users');
+    },
+    addUser:function(user){
+      var users= locals.getObject('users')
+      if(users == null)
+        users =[];
+      if(users.filter(function(e,i,a){
 
-      if(change.deleted){
-        if(user){
-          _users.splice(index,1); //delete
-        }
-      }else{
-        if(user && user._id === change.id){
-          _users[index] = change.doc; //update
-        }else{
-          _users.splice(index,0,change.doc); //insert
-        }
+          if(e._id == user._id)
+            return true;
+        }) == 0)
+      {
+        users.push(user);
       }
-    };
-    var findIndex =function(array,id){
-      var low = 0, high = array.length, mid;
-      while (low < high) {
-        mid = (low + high) >>> 1;
-        array[mid]._id < id ? low = mid + 1 : high = mid
-      }
-      return low;
+      locals.setObject("users",users);
+    },
+    deleteUser:function(user){
+      var users= locals.getObject('users')
+      users= users.filter(function(e,i,a){
+        if(e._id != user._id)
+          return true;
+      });
+      locals.setObject("users",users);
+    },
+    getUsers:function(){
+      var users= locals.getObject('users');
+      return users;
     }
+  }
 
-    return{
-      initDB:function(){
-        _DBUsers = new PouchDB('users_db');
-      },
-      getAllUsers:function(){
-        if(! _users){
-          return $q.when(_DBUsers.allDocs({include_docs: true}))
-            .then(function(docs){
-              _users = docs.rows.map(function(row){
+  });
 
-                return row.doc;
-              });
-              _DBUsers.changes({ live: true, since: 'now', include_docs: true})
-                .on('change', onDatabaseChange);
 
-              return _users;
 
-            });
-        } else {
-          // Return cached data as a promise
-          return $q.when(_users);
-        }
-      },
-      addUser:function(user){
-        return $q.when(_DBUsers.post(user));
-      },
-      updateUser:function(user){
-        return $q.when(_DBUsers.put(user));
-      },
-      deleteUser:function(user){
-        return $q.when(_DBUsers.remove(user));
-
-      }
-
-    }
-  }])
