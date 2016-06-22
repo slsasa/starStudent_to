@@ -27,11 +27,16 @@
             <div id="{{$index+'contentSchool'}}"> {{schoolDynamic['Content'] |ifMore}}</div>
             <div id="{{$index+'moreContentSchool'}}" style="display: none"> {{schoolDynamic['Content']}}</div>
 
+
+
             <div>
               <a ng-click="showContentSchool($index)" id="{{$index +'stateSch'}}">全文</a>
             </div>
+            <p ng-repeat="likeName in schoolDynamic['LikeName']"> {{likeName}}</p>
           </div>
           <div ng-if="schoolDynamic['Content'].length <36">
+            <p>{{schoolDynamic['Content']}}</p>
+            <p ng-repeat="likeName in schoolDynamic['LikeName']"> {{likeName}}</p>
           </div>
 
         </div>
