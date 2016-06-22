@@ -39,7 +39,7 @@ td {
 .login4{text-align: center;padding-top: 50px;}
 .pink-bg{background-color: #f96a9f;}
 .pink-sure{background-color: #f96a9f;}
-.tt{border-radius: 10px;font-size: 14px; float: right;  margin: -52px 9%; width: 30%;min-height: 39px;box-shadow: #f96a9f 0px 17px 29px -8px;}
+.tt{border-radius: 10px;font-size: 14px; float: right;  margin: -52px 9%; width: 30%;min-height: 39px;box-shadow: #f96a9f 0px 15px 20px -10px;}
 /*首页*/
 .schooldyn{
   border: dashed black 1px;height: 35px;width: auto;line-height:30px
