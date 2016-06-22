@@ -35,13 +35,20 @@
             <div>
               <a ng-click="showContent($index)" id="{{ $index +'dynamicMyContentState'}}" style="color: #f96a9f;">全文</a>
             </div>
-          </div>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in   myDynamic['LikeName']">{{likeName}}</p>
+
+            </div>
+           </div>
 
           <div ng-if="myDynamic['Content'].length <=36">
             <a ng-repeat="img in myDynamic['PicListRef']">
               <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 100px;height:100px">
             </a>
              <p> {{myDynamic['Content']}}</p>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in   myDynamic['LikeName']">{{likeName}}</p>
+            </div>
           </div>
         </div>
         <div class="comments">
@@ -49,8 +56,8 @@
           <a class=" button buttonDy" ng-click="likeAdd($index,myDynamic._id)"><i class="ion-ios-heart-outline" style="  font-size: 26px;"></i>点赞</a>
           <a class=" button buttonDy" ng-click="shareWeChat($index,myDynamic._id)"><i class="ion-ios-redo-outline" style="   font-size: 30px;"></i>分享</a>
         </div>
-          <img src="img/dp.png" ng-click="showClickDynamic($index)" style="height: 15px; width: 23px;"/>
         </div>
+        <img src="img/dp.png" ng-click="showClickDynamic($index)" style="height: 15px; width: 23px;margin: 2px 5px 20px 0px;float: right;"/>
       </ion-item>
     </div>
 

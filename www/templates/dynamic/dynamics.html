@@ -32,11 +32,16 @@
             <div>
               <a ng-click="showContentSchool($index)" id="{{$index +'stateSch'}}">全文</a>
             </div>
-            <p ng-repeat="likeName in schoolDynamic['LikeName']"> {{likeName}}</p>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in schoolDynamic['LikeName']"> {{likeName}}、</p>
+            </div>
+
           </div>
           <div ng-if="schoolDynamic['Content'].length <36">
             <p>{{schoolDynamic['Content']}}</p>
-            <p ng-repeat="likeName in schoolDynamic['LikeName']"> {{likeName}}</p>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in schoolDynamic['LikeName']"> {{likeName}}、</p>
+            </div>
           </div>
 
         </div>
@@ -45,8 +50,8 @@
                <a class="button buttonDy" ng-click="addLike($index,schoolDynamic._id)"><i class="ion-ios-heart-outline" style="    font-size: 26px;"></i>点赞</a>
                <a class="button buttonDy" ng-click="shareWeChat($index,schoolDynamic._id)"><i class="ion-ios-redo-outline" style="font-size: 30px;"></i>分享</a>
            </div>
-          <img src="img/dp.png" ng-click="showComBtnSchool($index)" style="height: 15px; width: 23px;"/>
         </div>
+        <img src="img/dp.png" ng-click="showComBtnSchool($index)" style="height: 15px; width: 23px;margin: 2px 5px 20px 0px;float: right;"/>
 
       </ion-item>
 
@@ -70,7 +75,9 @@
             <div>
               <a ng-click="showContentStu($index)" id="{{$index +'stateStu'}}">全文</a>
             </div>
-            <p ng-repeat="likeName in stuDynamic['LikeName']">大峡谷 {{likeName}} 骨头332</p>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in stuDynamic['LikeName']">{{likeName}}、</p>
+            </div>
 
           </div>
 
@@ -79,7 +86,9 @@
               <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
             <p>{{stuDynamic['Content']}}</p>
-            <p ng-repeat="likeName in stuDynamic['LikeName']"> {{likeName}}</p>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in stuDynamic['LikeName']"> {{likeName}}、</p>
+            </div>
 
           </div>
 
@@ -89,8 +98,9 @@
           <a class=" button buttonDy" ng-click="addLike($index,stuDynamic._id)"><i class="ion-ios-heart-outline" style="    font-size: 26px;"></i>点赞</a>
           <a class=" button buttonDy" ng-click="shareWeChat($index,stuDynamic._id)"><i class="ion-ios-redo-outline" style="font-size: 30px;"></i>分享</a>
         </div>
-          <img src="img/dp.png"  ng-click="showComBtnStudent($index)" style="height: 15px; width: 23px;"/>
         </div>
+        <img src="img/dp.png"  ng-click="showComBtnStudent($index)" style="height: 15px; width: 23px;margin: 2px 5px 20px 0px;float: right;"/>
+
       </ion-item>
     </div>
 
@@ -113,7 +123,9 @@
             <div>
               <a ng-click="showContentTer($index)" id="{{$index +'stateTer'}}">全文</a>
             </div>
-            <p ng-repeat="likeName in terDynamic['LikeName']"> {{likeName}}</p>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in terDynamic['LikeName']"> {{likeName}}、</p>
+            </div>
           </div>
 
           <div ng-if="terDynamic['Content'].length <36">
@@ -121,18 +133,21 @@
               <img ng-src="{{rootPicUrl+ img['Url']}}" style="width:90px;height:90px">
             </a>
             <p>{{terDynamic['Content']}}</p>
-            <p ng-repeat="likeName in terDynamic['LikeName']"> {{likeName}}</p>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in terDynamic['LikeName']"> {{likeName}}、</p>
 
+            </div>
           </div>
 
         </div>
         <div class="comments">
            <div id="{{$index+'teacher'}}" style="display: none;margin: 0px 34px -36px 10px;">
-          <a class=" button buttonDy" ng-click="addLike($index,terDynamic._id)"><i class="ion-ios-heart-outline" style="    font-size: 26px;"></i>点赞</a>
-          <a class=" button buttonDy" ng-click="shareWeChat($index,terDynamic._id)"><i class="ion-ios-redo-outline" style="    font-size: 30px;"></i>分享</a>
+            <a class=" button buttonDy" ng-click="addLike($index,terDynamic._id)"><i class="ion-ios-heart-outline" style="    font-size: 26px;"></i>点赞</a>
+            <a class=" button buttonDy" ng-click="shareWeChat($index,terDynamic._id)"><i class="ion-ios-redo-outline" style="    font-size: 30px;"></i>分享</a>
+          </div>
         </div>
-          <img src="img/dp.png" ng-click="showComBtnTeacher($index)" style="height: 15px; width: 23px;"/>
-        </div>
+        <img src="img/dp.png" ng-click="showComBtnTeacher($index)" style="height: 15px; width: 23px;margin: 2px 5px 20px 0px;float: right;"/>
+
       </ion-item>
     </div>
 

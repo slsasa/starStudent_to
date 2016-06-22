@@ -63,7 +63,8 @@ td {
 .up{margin: 10px 10px 0 75px;height: auto;padding-top: 5px}
 .time{    margin: 0px 0 5px;}
 .mypost{margin: 0 0 0px;text-align: justify;}
-.comments{text-align: right;font-size: 20px;    margin: 0px 3% 7px 0;}
+.comments{text-align: right;font-size: 20px;  padding: 0px 5px;margin: -10px 0 0 0;    position: fixed;
+  width: 100%;}
 .apply{
   width: 85%;height: 150px;    margin: 5% 8% 0px;
 }
@@ -149,8 +150,7 @@ td {
 /*动态圈*/
 .ion-chatbox-working{color: #f96a9f}
 .buttonDy{background-color:#f96a9f;color: white;display: inline; padding: 1px 5px 3px 10px;     margin: 0px;}
-
-
+.likeName{float: left;width: 86%;height: auto;background: #f1f1f1;border-radius: 3px;padding: 0 3px;    margin: 0px 0 5px 0;}
 /*教师风采*/
 .teaMine{     box-shadow: #f96a9f 0px 13px 18px -13px;
   border-radius: 20px;

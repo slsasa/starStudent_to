@@ -29,6 +29,7 @@ angular.module('starter')
           $ionicLoading.hide();
 
           var data = result.data;
+          console.log('my-danamic--------->',data);
 
 
           $scope.myDynamics = data;
