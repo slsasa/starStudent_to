@@ -83,17 +83,7 @@ angular.module('starter')
           },
           {text:"否"}]
       });
-
     }
-
-    //var remember =function(){
-    //  if(userInfo.checked ==true){
-    //    $rootScope.user.num  =  userInfo.userNum;
-    //    $rootScope.user.pwd  =  userInfo.userPwd;
-    //  }else{
-    //    $rootScope.user.pwd = '';
-    //  }
-    //}
 
     $scope.replaceImage = function(){
 
