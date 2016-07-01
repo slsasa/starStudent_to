@@ -17,15 +17,15 @@
 
     <div id="log" class="list">
       <ion-item ng-repeat="tearLog in logs | orderBy:'-Time'" >
-        <p style="margin: 10px 0 0 10px;">
+        <h2 style="margin: 10px 0 0 10px;color: #ea4b87">
           {{tearLog['Title']}}
-        </p>
-        <p style=" padding: 0 10px; text-align: justify;text-indent: 2em;">{{tearLog['Content']}}</p>
+        </h2>
+        <p style="margin: 10px 0 0 10px;">{{tearLog['Content'] | ifContentMore}}</p>
 
         <br>
       <span>
       <a style="float: left;margin: 0 0 0 10px;color: #b2b2b2;">{{tearLog['Time'] | date:'yyyy-MM-dd'}}</a>
-      <a class="rightbtom" ng-click="goLogsDetail(tearLog)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">详情>></a>
+      <a class="rightbtom" ng-click="goLogsDetail(tearLog)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;color: #3CC3AA"><strong>详情>></strong></a>
       </span>
       </ion-item>
 

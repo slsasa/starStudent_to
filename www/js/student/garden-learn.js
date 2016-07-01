@@ -12,7 +12,7 @@ angular.module('starter')
 
       });
   })
-  .controller('learnGardenCtrl',function($scope, $ionicPopup,$state, $http, userInfo, $ionicLoading){
+  .controller('learnGardenCtrl',function($scope, $ionicPopup,$state, $http, userInfo, $ionicLoading,$ionicModal){
 
     $scope.rootPicUrl = rootPicUrl;
 
@@ -43,6 +43,49 @@ angular.module('starter')
       $state.go('post-garden');
     };
 
+    //显示大图
+    var showBigImage= function(imageUrl){
+      $scope.imageUrl = imageUrl;
+      $scope.bigImage = true;
+    };
+    $scope.bigImage = false;    //初始默认大图是隐藏的
+    var hideBigImage = function () {
+      $scope.bigImage = false;
+    };
+
+
+    //显示大图选择器
+    $ionicModal.fromTemplateUrl('templates/teacher/showBigImage.html',
+      function(modal){
+        $scope.showBigImage_star = modal;
+      },{
+        scope:$scope,
+        animation:'slide-in-up'
+      }
+    );
+    //显示大图选择器
+    $ionicModal.fromTemplateUrl('templates/teacher/showBigImage.html',
+      function(modal){
+        $scope.showBigImage_star = modal;
+      },{
+        scope:$scope,
+        animation:'slide-in-up'
+      }
+    );
+
+    //打开选择器
+    $scope.openBigImage_star = function(modal){
+      showBigImage(modal);
+      $scope.showBigImage_star.show();
+    };
+
+    //关闭选择器
+    $scope.closeBigImage_hide = function(){
+      hideBigImage();
+      $scope.showBigImage_star.hide();
+    };
+
+
     $scope.showMoreContent = function(index){
       var objContent = document.getElementById(index+'contentLearn');
       var objMoreContent = document.getElementById(index+'moreContentLearn');
@@ -57,5 +100,5 @@ angular.module('starter')
         objContentState.innerHTML = '收起'
       }
 
-    }
+    };
   })

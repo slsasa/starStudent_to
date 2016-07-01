@@ -13,10 +13,10 @@
   <ion-content>
     <ion-list>
       <ion-item style="    border: none;">
-       <span ng-repeat="imgDetail in StyleItemList">
-         <p style="    margin: 5px 10px;">{{imgDetail['Time'] |date:'yyyy-MM-dd'}}</p>
-         <span ng-repeat="img in imgDetail['PicListRef']">
-           <img  ng-src="{{img['Url']}}" style="height: 30%;width: 30%;    margin: 0px 0px 0px 5px;">
+       <span ng-repeat="styleItem in styleList | orderBy: '-Time'">
+         <p style="margin: 5px 10px;">{{styleItem['Time'] |date:'yyyy-MM-dd'}}</p>
+         <span ng-repeat="img in styleItem['PicListRef']">
+           <img  ng-src="{{rootPicUrl+img['Url']}}" style="height: 110px;width:110px;    margin: 0px 0px 0px 5px;" ng-click="openBigImage_star(rootPicUrl+img['Url'])">
          </span>
          <hr style="border: 1px solid; color: #ddd;">
       </span>

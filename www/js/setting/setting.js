@@ -10,7 +10,7 @@ angular.module('starter')
         controller: 'settingCtrl'
       });
   })
-  .controller('settingCtrl',function($scope,userInfo){
+  .controller('settingCtrl',function($scope,userInfo,UserService,locals){
     $scope.type = userInfo.personType;
     $scope.settings = [{
      id:0,
@@ -19,4 +19,7 @@ angular.module('starter')
       id:1,
      title:'关于我们'
     }];
-   })
+
+    //清楚缓存
+
+   });

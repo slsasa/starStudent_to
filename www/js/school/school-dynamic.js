@@ -13,8 +13,16 @@ angular.module('starter')
   })
   .controller('schoolDynamicCtrl',function($scope, $state, $http, $ionicSlideBoxDelegate, $ionicLoading,userInfo) {
 
-    $scope.schoolDynamics = userInfo.schoolDynamics;
-    $scope.banner_list =  userInfo.banner_list;
+
+    $scope.images = [];
+    var schoolDynamics =  userInfo.schoolDynamics;
+    schoolDynamics.forEach(function(item){
+      $scope.images.push(rootPicUrl+item['IssuerAvatarRef']['Url']) ;
+
+    });
+
+    $scope.schoolDynamics = schoolDynamics;
+
 
 
     $scope.goDetail = function(dynamic){

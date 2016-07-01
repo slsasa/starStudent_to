@@ -42,12 +42,12 @@ angular.module('starter')
             if (user.UserType == 'student') {
 
               userInfo.personType = '_stu';
-              console.log(userInfo.personType);
+              //console.log(userInfo.personType);
               $state.go('tabs.home', {type: userInfo.personType});
             } else {
 
               userInfo.personType = '_teacher';
-              console.log(userInfo.personType);
+              //console.log(userInfo.personType);
               $state.go('tabs.home', {type: userInfo.personType})
             }
 

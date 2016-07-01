@@ -1,45 +1,21 @@
 /**
- * Created by sls on 16/5/10.
+ * Created by sls on 16/5/9.
  */
 angular.module('starter')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('my-style', {
-        url: '/teacher-teacher/my-style',
-        templateUrl: 'templates/teacher/my-style.html',
+      .state('style-img',{
+        url:'/style-img',
         cache: true,
-        controller: 'myStyleCtrl'
-
+        templateUrl:'templates/teacher/style-img.html',
+        controller:'styleImgCtrl',
       });
   })
-  .controller('myStyleCtrl', function ($scope, $state,userInfo,$ionicPopup,$ionicModal, $http) {
 
+  .controller('styleImgCtrl',function($scope, $ionicModal,userInfo){
+
+    $scope.teacher = userInfo.teacherInfo;
     $scope.rootPicUrl = rootPicUrl;
-
-    $scope.goAddImg = function(){
-      $state.go('add-img')
-    };
-
-    var url = rootUrl + '/teacher_style/get_self_style';
-    var query = {
-      TeacherId: userInfo['_id']
-    };
-
-    var update = function () {
-      $http.get(url, {params: query})
-        .success(function (result) {
-          var data = result['data'];
-          $scope.styleList = data['StyleItem'];
-
-        })
-        .error(function (err) {
-          console.log(err)
-        });
-    };
-
-    $scope.$on('$ionicView.beforeEnter', function () {
-      update();
-    });
 
     //显示大图
     var showBigImage= function(imageUrl){
@@ -50,7 +26,6 @@ angular.module('starter')
     var hideBigImage = function () {
       $scope.bigImage = false;
     };
-
 
     //显示大图选择器
     $ionicModal.fromTemplateUrl('templates/teacher/showBigImage.html',
@@ -72,6 +47,7 @@ angular.module('starter')
     $scope.closeBigImage_hide = function(){
       hideBigImage();
       $scope.showBigImage_star.hide();
-    };
+    }
 
-  });
+
+  })

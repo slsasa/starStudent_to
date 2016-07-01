@@ -15,6 +15,7 @@
   </ion-nav-title>
 
   <ion-content style="background-color: #f1f1f1">
+
     <div class="list" style="padding: 15px 0px;">
       <ion-item class="item" ng-repeat="myDynamic in  myDynamics | orderBy:'-IssueTime'">
         <p style="margin: 5px 0px 0px 10px;">{{myDynamic['IssueTime'] | date : 'yyyy-MM-dd'}}</p>
@@ -24,12 +25,16 @@
           <div ng-if="myDynamic['Content'].length >36">
 
             <a ng-repeat="img in myDynamic['PicListRef']">
-              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 100px;height:100px">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 100px;height:100px" ng-click="openBigImage_star(rootPicUrl+ img['Url'])">
             </a>
             <div id="{{$index+'contentMyDynamic'}}"> {{myDynamic['Content'] |ifMore}}</div>
-            <div id="{{$index+'moreContentMyDynamic'}}" style="display: none">
-
-              <p>{{myDynamic['Content']}}</p>
+            <div id="{{$index+'moreContentMyDynamic'}}" style="display: none"><br>
+             <span class="row">
+              <i class="ion-ios-heart-outline" style="color:#f96a9f " ng-if="myDynamic['LikeName'].length>0"></i>
+            <p ng-repeat="likeName in myDynamic['LikeName']" style="color: #009689">
+              &nbsp;&nbsp;{{likeName}},
+            </p>
+            </span>
             </div>
 
             <div>
@@ -39,15 +44,22 @@
 
           <div ng-if="myDynamic['Content'].length <=36">
             <a ng-repeat="img in myDynamic['PicListRef']">
-              <img ng-src="{{rootPicUrl+ img['Url']}}" style="width: 100px;height:100px">
+              <img ng-src="{{rootPicUrl+ img['Url']}}" ng-click="openBigImage_star(rootPicUrl+ img['Url'])" style="width: 100px;height:100px">
             </a>
              <p> {{myDynamic['Content']}}</p>
+            <br>
+             <span class="row">
+              <i class="ion-ios-heart-outline" style="color:#f96a9f " ng-if="myDynamic['LikeName'].length>0"></i>&nbsp;
+            <p ng-repeat="likeName in myDynamic['LikeName']" style="color: #009689">
+              {{likeName}},
+            </p>
+            </span>
           </div>
         </div>
         <div class="comments">
           <div id="{{$index+'MyDynamic'}}" style="display: none; margin: 0px 34px -36px 10px;">
-          <a class=" button buttonDy" ng-click="likeAdd($index,myDynamic._id)"><i class="ion-ios-heart-outline" style="  font-size: 26px;"></i>点赞</a>
-          <a class=" button buttonDy" ng-click="shareWeChat($index,myDynamic._id)"><i class="ion-ios-redo-outline" style="   font-size: 30px;"></i>分享</a>
+            <a class="button buttonDy" style="line-height: 26px;width: 75px;height:26px;margin-bottom: 12px;font-size: 16px" ng-click="likeAdd($index,myDynamic._id)"><i style="margin: 0 3px 0 0" class="ion-ios-heart-outline"></i>赞</a>
+            <a class="button buttonDy" style="line-height: 26px;width: 75px;height:26px;margin-bottom: 12px;font-size: 16px" ng-click="shareWeChat($index,myDynamic._id)"><i class="ion-ios-redo-outline"></i>分享</a>
         </div>
           <img src="img/dp.png" ng-click="showClickDynamic($index)" style="height: 15px; width: 23px;"/>
         </div>

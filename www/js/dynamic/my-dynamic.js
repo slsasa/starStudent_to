@@ -6,13 +6,13 @@ angular.module('starter')
     $stateProvider
       .state('my-dynamic', {
         url: '/my-dynamic',
-        cache:false,
+        cache:true,
         templateUrl: 'templates/dynamic/my-dynamic.html',
         controller: 'myDynamicCtrl'
 
       });
   })
-  .controller('myDynamicCtrl', function ($scope, $ionicPopup,$state, $http, userInfo, $ionicLoading) {
+  .controller('myDynamicCtrl', function ($scope, $ionicPopup,$state, $http, userInfo,$ionicModal, $ionicLoading) {
 
     $scope.rootPicUrl =  rootPicUrl;
     $scope.type = userInfo.personType;
@@ -59,6 +59,7 @@ angular.module('starter')
             title:'成功',
             template:'点赞成功'
           });
+          update();
           $scope.objClick.style.display = "none";
 
         })
@@ -86,6 +87,7 @@ angular.module('starter')
       $scope.objClick.style.display = "none";
       isInstalleagdWeChat();
       var myDynamic = searchIndex($scope.myDynamics,id);
+      if(myDynamic['Content']!='  '){
       Wechat.share({
         text: myDynamic['Content'],
         scene:  Wechat.Scene.TIMELINE  // share to Timeline
@@ -96,12 +98,38 @@ angular.module('starter')
         });
       }, function (reason) {
         $ionicPopup.alert({
-          title:'Failed' ,
-          template:reason
+          title:'提示' ,
+          template:'分享失败'+reason
         });
       });
-
-
+    }else{
+        var message = {
+          title: "This is a Title",
+          description: "Sending from test application",
+          //text: "分享是什么鬼 ",
+          //mediaTagName: "TEST-TAG-001",
+          messageExt: "这是第三方带的测试字段",
+          messageAction: "<action>dotalist</action>",
+          media: {
+            type: Wechat.Type.IMAGE,
+            image:rootPicUrl+ myDynamic['PicListRef'][0]['Url']
+          }
+        };
+        Wechat.share({
+          message:message,
+          scene: Wechat.Scene.TIMELINE   // share to Timeline
+        }, function () {
+          $ionicPopup.alert({
+            title:'成功',
+            template:'分享成功'
+          });
+        }, function (reason) {
+          $ionicPopup.alert({
+            title:'失败',
+            template:'分享失败:'+reason
+          });
+        });
+      }
     }
 
 
@@ -137,7 +165,40 @@ angular.module('starter')
 
 
     $scope.goIssue = function () {
-      $state.go('issue')
-    }
+      $state.go('issue');
+    };
+
+    //显示大图
+    var showBigImage= function(imageUrl){
+      $scope.imageUrl = imageUrl;
+      $scope.bigImage = true;
+    };
+    $scope.bigImage = false;    //初始默认大图是隐藏的
+    var hideBigImage = function () {
+      $scope.bigImage = false;
+    };
+
+
+    //显示大图选择器
+    $ionicModal.fromTemplateUrl('templates/teacher/showBigImage.html',
+      function(modal){
+        $scope.showBigImage_star = modal;
+      },{
+        scope:$scope,
+        animation:'slide-in-up'
+      }
+    );
+
+    //打开选择器
+    $scope.openBigImage_star = function(modal){
+      showBigImage(modal);
+      $scope.showBigImage_star.show();
+    };
+
+    //关闭选择器
+    $scope.closeBigImage_hide = function(){
+      hideBigImage();
+      $scope.showBigImage_star.hide();
+    };
 
   })

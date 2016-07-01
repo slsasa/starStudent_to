@@ -1,12 +1,12 @@
 <ion-view>
   <ion-nav-title>
-    <span class="title">我的报名</span>
+    <span class="title">活动详情</span>
   </ion-nav-title>
   <ion-nav-buttons side="left light">
     <button class="button light button-icon icon ion-ios-arrow-back" ui-sref="tabs.apply"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <button class="button light button-icon icon ion-android-share-alt" ng-click="shareApply()"></button>
+    <button class="button light button-icon icon ion-android-share-alt" ng-click="shareWeChat()"></button>
   </ion-nav-buttons>
   <ion-content  style="background-color: #f1f1f1">
 
@@ -30,6 +30,6 @@
 
     <p class="content_details">{{apply['Content']}}</p>
     <a class="button button-pink width-sumbit-btn " style="width: 60%;margin-left: 20%"
-       ng-click="goSubmitApply(apply['_id'])">我要报名</a>
+       ng-click="goSubmitApply()">我要报名</a>
   </ion-content>
 </ion-view>

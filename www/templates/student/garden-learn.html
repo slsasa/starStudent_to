@@ -26,7 +26,7 @@
           <p>{{learn['Time'] |date:'yyyy/MM/dd'}}</p>
           <div ng-if="learn['Content'].length > 26">
             <a ng-repeat="image in learn['PicListRef']">
-              <img ng-src="{{rootPicUrl + image['Url']}}" style="width: 100px;height: 100px">
+              <img ng-src="{{rootPicUrl + image['Url']}}" style="width: 100px;height: 100px" ng-click="openBigImage_star(rootPicUrl + image['Url'])">
             </a>
             <div id="{{$index+'contentLearn'}}"> {{learn['Content'] | ifMore}}</div>
             <div id="{{$index+'moreContentLearn'}}" style="display: none"> {{learn['Content']}}</div>
@@ -38,7 +38,7 @@
           </div>
           <div ng-if="learn['Content'].length <= 26">
             <a ng-repeat="image in learn['PicListRef']">
-              <img ng-src="{{rootPicUrl + image['Url']}}" style="width: 100px;height: 100px">
+              <img ng-src="{{rootPicUrl + image['Url']}}" style="width: 100px;height: 100px"  ng-click="openBigImage_star(rootPicUrl + image['Url'])">
             </a>
             <p>{{learn['Content']}}</p>
             <br>

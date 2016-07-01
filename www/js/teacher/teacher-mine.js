@@ -6,7 +6,8 @@ angular.module('starter')
     $stateProvider
       .state('teacher-mine',{
         url:'/teacher-mine',
-        templateUrl:'templates/teacherstyle/teacher-mine.html',
+        cache: true,
+        templateUrl:'templates/teacher/teacher-mine.html',
         controller:'teacherMineCtrl'
 
       });
@@ -84,7 +85,7 @@ angular.module('starter')
 
     $scope.goPersonalMine = function(teacher){
       userInfo.teacherInfo = teacher;
-      $state.go('personal-style');
+      $state.go('teacher-style');
     }
     $scope.goWorks = function(teacher){
       userInfo.teacherInfo = teacher;

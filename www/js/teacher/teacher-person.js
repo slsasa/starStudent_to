@@ -25,7 +25,7 @@ angular.module('starter')
           data.PicAvatarRef.Url = rootPicUrl + data.PicAvatarRef.Url;
           data.PicBgRef.Url = rootPicUrl + data.PicBgRef.Url;
           $scope.teacherInfo = data;
-          console.log($scope.teacherInfo);
+          console.log('teacher----------->',$scope.teacherInfo);
         })
         .error(function(err){
           $ionicPopup.alert({
@@ -148,11 +148,12 @@ angular.module('starter')
     };
 
     $scope.goWorksLog = function(){
+      userInfo.teacher = $scope.teacherInfo ;
       $state.go('my-works');
     };
 
-    $scope.goTerSetting = function(teacher){
-      $state.go('setting',{type:teacher});
+    $scope.goSetting = function(){
+      $state.go('setting');
     };
 
     $scope.outLogin = function(){

@@ -4,7 +4,7 @@
   </ion-nav-title>
 
   <ion-nav-buttons side="right" >
-    <button class="button light button-icon icon ion-android-share-alt" ></button>
+    <button class="button light button-icon icon ion-android-share-alt" ng-click="shareWeChat()"></button>
   </ion-nav-buttons>
   <ion-content style="background: #eeeeee">
 
@@ -20,6 +20,6 @@
       <p>截止时间:{{myApply['Time'] | date:'yyyy-MM-dd'}}</p>
     </div>
     <br>
-    <p>{{myApply.content}}</p>
+    <p>{{myApply['SignProjectRef']['Content']}}</p>
   </ion-content>
 </ion-view>

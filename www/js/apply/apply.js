@@ -44,6 +44,7 @@ angular.module('starter')
     $scope.goApplyDetail = function(apply){
       userInfo.apply = apply;
 
+
       $state.go('applyDetail');
     }
   });

@@ -11,7 +11,7 @@ angular.module('starter')
 
       });
   })
-  .controller('postGardenCtrl',function($scope, $cordovaImagePicker, $cordovaFileTransfer, $ionicPopup,$http,$ionicLoading, userInfo){
+  .controller('postGardenCtrl',function($scope, $cordovaImagePicker, $cordovaFileTransfer, $ionicPopup,$http,$ionicLoading, $state,userInfo){
 
     $scope.post_info = {
       content: '',
@@ -110,6 +110,7 @@ angular.module('starter')
             $scope.photos = [];
             $scope.post_info.content = '';
             $scope.post_info.link = '';
+            $state.go('garden-learn');
 
           })
           .error(function(err){

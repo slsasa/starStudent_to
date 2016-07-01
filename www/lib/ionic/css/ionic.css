@@ -6629,14 +6629,14 @@ button.item.item-button-right {
 .card,
 .list-inset {
   overflow: hidden;
-  margin: 20px 10px;
+  margin: 10px 0 0 10px;
   border-radius: 2px;
   background-color: #fff; }
 
 .card {
   padding-top: 1px;
   padding-bottom: 1px;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.3); }
+  }
   .card .item {
     border-left: 0;
     border-right: 0; }

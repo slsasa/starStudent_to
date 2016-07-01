@@ -58,7 +58,7 @@ angular.module('starter')
         .error(function (err) {
           $ionicPopup.alert({
             title: '提醒',
-            template: '出错'+err
+            template:'出错'+err
           });
           $ionicLoading.hide();
         });

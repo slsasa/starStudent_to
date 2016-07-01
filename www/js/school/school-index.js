@@ -27,16 +27,12 @@ angular.module('starter')
       //获取校园动态数据
       $http.get(urlSchool)
         .success(function(result){
-          var banner_list = [];
-          var data = result.data;
 
-          data[0]['PicListRef'].forEach(function (item) {
-            banner_list.push(rootPicUrl + item['Url'])
-          });
+          var data = result.data;
 
           $scope.dynamics = data;
           userInfo.schoolDynamics = data;
-          userInfo.banner_list = banner_list;
+
 
           $ionicSlideBoxDelegate.update();
           $ionicSlideBoxDelegate.loop(true);
@@ -136,6 +132,12 @@ angular.module('starter')
       $state.go('school-intro');
     };
 
+    //跳转到报名详情
+    $scope.goApplyDetail = function(apply){
+      userInfo.apply = apply;
+      $state.go('applyDetail');
+    }
+
     //放大图片
     $scope.goMagnifyImg = function(banner){
       userInfo.banner = banner;
@@ -149,7 +151,7 @@ angular.module('starter')
         $(".content ul").css({"margin-left":0})
       })
     }
-    setInterval(scroll,10000);
+    setInterval(scroll,5000);
 
 
 

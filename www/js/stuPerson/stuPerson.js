@@ -60,8 +60,8 @@ angular.module('starter')
       $state.go('techer-comment');
     }
 
-    $scope.goStuSetting = function(stu){
-      $state.go('setting',{type:stu});
+    $scope.goSetting = function(){
+      $state.go('setting');
     }
 
     $scope.goStuMyDynamic = function(type){
@@ -86,14 +86,7 @@ angular.module('starter')
 
     }
 
-    //var remember =function(){
-    //  if(userInfo.checked ==true){
-    //    $rootScope.user.num  =  userInfo.userNum;
-    //    $rootScope.user.pwd  =  userInfo.userPwd;
-    //  }else{
-    //    $rootScope.user.pwd = '';
-    //  }
-    //}
+
 
     $scope.replaceImage = function(){
 
@@ -152,8 +145,8 @@ angular.module('starter')
                   $ionicPopup.alert({
                     title:'失败',
                     template:'头像修改失败'+err
-                  })
-                })
+                  });
+                });
             }
 
         }, function (error) {
@@ -163,8 +156,6 @@ angular.module('starter')
           });
 
         });
-
-
     }
 
 

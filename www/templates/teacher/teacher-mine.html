@@ -6,9 +6,6 @@
     <button class="button light button-icon icon ion-ios-arrow-back" ui-sref="tabs.home"></button>
   </ion-nav-buttons>
 
-  <!--<ion-nav-buttons side="right">-->
-    <!--<button class="button button-icon icon ion-ios-search-strong" ui-sref="tabs.home"></button>-->
-  <!--</ion-nav-buttons>-->
   <ion-content style="background-color: #f1f1f1">
 
     <div class="bar-subheader" style="margin: 6px;text-align: center">
@@ -25,8 +22,10 @@
           <p style="text-align: justify;text-indent: 2em;margin: 5px 10px 0px 0px;">{{teacher['Content'] | ifContentMore}}</p>
 
           <div style="float: right">
-            <a class="teaMine button"  ng-click="goPersonalMine(teacher)">个人风采</a>
-            <a class="teaMine button" ng-click="goWorks(teacher)">作品中心</a>
+            <div  class="row">
+              <a class="button teaMine col-30" style="font-size: 14px" ng-click="goPersonalMine(teacher)"><strong>个人风采</strong></a>
+              <a class="button teaMine col-30" style="font-size: 14px" ng-click="goWorks(teacher)"><strong>作品中心</strong></a>
+            </div>
           </div>
         </div>
       </div>
@@ -41,10 +40,12 @@
           <img ng-src="{{teacher['TeacherAvatarRef']['Url']}}">
           <h4 style=" margin: 18px 0px 0px 0;">{{teacher['TeacherName']}}</h4>
           <p style="    text-indent: 2em;text-align: justify;margin: 5px 10px 0px 0px;">{{teacher['Content'] |ifContentMore}}</p>
-          <div style="float: right">
-            <a class="teaMine button"  ng-click="goPersonalMine(teacher)">个人风采</a>
-            <a class="teaMine button" ng-click="goWorks(teacher)">作品中心</a>
 
+          <div style="float: right">
+          <div  class="row">
+            <a class="button teaMine col-30" style="font-size: 14px" ng-click="goPersonalMine(teacher)"><strong>个人风采</strong></a>
+            <a class="button teaMine col-30" style="font-size: 14px" ng-click="goWorks(teacher)"><strong>作品中心</strong></a>
+          </div>
           </div>
         </div>
       </div>

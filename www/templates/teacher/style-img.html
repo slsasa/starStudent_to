@@ -5,12 +5,11 @@
       <ion-item>
         <span ng-repeat="imgDetail in teacher['StyleItem'] |orderBy:'-Time'" >
          <p>{{imgDetail['Time'] |date:'yyyy-MM-dd'}}</p>
-         <span ng-repeat="img in imgDetail['PicListRef'] track by $index">
-           <img ng- src="{{img}}" style="height: 30%;width: 30%">
+         <span ng-repeat="img in imgDetail['PicListRef']">
+           <img ng-src="{{rootPicUrl + img['Url']}}" style="height: 110px;width:110px" ng-click="openBigImage_star(rootPicUrl + img['Url'])">
          </span>
           <hr style="border: solid #dddddd 0.5px">
         </span>
-
 
       </ion-item>
 

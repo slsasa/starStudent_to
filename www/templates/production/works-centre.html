@@ -13,14 +13,14 @@
 
     <div id="logCentre" class="list">
 
-      <ion-item ng-repeat="TeacherLog in TeacherLogList">
-        <p style="margin: 10px 0 0 10px;">
+      <ion-item ng-repeat="TeacherLog in TeacherLogList | orderBy:'-Time'">
+        <p style="margin: 10px 0 0 10px;color: #ec4c89;">
           {{TeacherLog['Title']}}
         </p>
-        <p style=" padding: 0 10px; text-align: justify;text-indent: 2em;">{{TeacherLog['Content']}}</p>
+        <p style=" padding: 0 10px; text-align: justify;text-indent: 2em;">{{TeacherLog['Content'] |ifContentMore}}</p>
         <br>
       <p style="float: left ;margin: 0 0 0 10px;color: #b2b2b2;">{{TeacherLog['Time'] | date:'yyyy-MM-dd'}}</p>
-      <a class="rightbtom" ng-click="goLogDetail(TeacherLog)" style="float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
+      <a class="rightbtom" ng-click="goLogDetail(TeacherLog)" style="color: #009689;float: right;line-height: 25px;margin: 0px 10px 5px 0px;">>>详情</a>
       </ion-item>
     </div>
 

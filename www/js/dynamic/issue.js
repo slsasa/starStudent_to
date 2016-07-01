@@ -12,7 +12,7 @@ angular.module('starter')
       });
   })
 
-  .controller('issueCtrl',function($scope, userInfo, $http, $ionicHistory, $ionicPopup,$cordovaImagePicker,$cordovaFileTransfer,$ionicLoading){
+  .controller('issueCtrl',function($scope,$state, userInfo, $http, $ionicHistory, $ionicPopup,$cordovaImagePicker,$cordovaFileTransfer,$ionicLoading){
 
     $scope.photos = [];
     $scope.clickPhoto = function () {
@@ -62,8 +62,6 @@ angular.module('starter')
 
     $scope.onSubmit = function(){
 
-
-
      if($scope.photos.length != 0 || $scope.msg.content) {
 
        //post图片
@@ -93,11 +91,20 @@ angular.module('starter')
        };
        async_map($scope.photos, function (id_list) {
          var url = rootUrl + "/dynamic/add";
-         var data = {
-           IssuerId: userInfo._id,
-           Content: $scope.msg.content,
-           PicListRef: id_list
+         if($scope.msg.content != '') {
+           var data = {
+             IssuerId: userInfo._id,
+             Content: $scope.msg.content,
+             PicListRef: id_list
+           }
+         }else{
+           var data = {
+             IssuerId: userInfo._id,
+             Content: '  ',
+             PicListRef: id_list
+           }
          }
+
 
          $http.post(url, data)
            .success(function (result) {
@@ -109,16 +116,16 @@ angular.module('starter')
              });
              $scope.msg.content = '';
              $scope.photos = [];
+             $state.go('my-dynamic');
            })
            .error(function (err) {
              $ionicLoading.hide();
              $ionicPopup.alert({
-               title: 'err',
-               template: '发布失败'
-             })
-             console.log(JSON.stringify(err)
-             );
-           })
+               title: '错误',
+               template: '发布失败:'+err
+             });
+
+           });
 
        });
      }else{

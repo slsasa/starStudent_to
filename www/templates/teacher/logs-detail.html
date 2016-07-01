@@ -4,21 +4,24 @@
   </ion-nav-title>
 
   <ion-content>
-    <h5 style="text-align: center">{{log['Title']}}</h5>
+    <h4 style="text-align: center">{{log['Title']}}</h4>
     <span>
-     <div>
-       <p style=" float: left; margin:0px 5% 0px 10px;"> 类型:教学日志</p>
-       <p style=" float: left;margin:0px 5% 0px 10px;">作者:{{teacher.name}}</p>
-       <p>{{log['Time']|date:'yyyy-MM-dd'}}</p>
+     <div class="row" style="color: #69717d">
+       <p class="col"> 类型:教学日志</p>
+       <p class="col">作者:{{teacher['Name']}}</p>
+       <p class="col">时间:{{log['Time']|date:'yyyy-MM-dd'}}</p>
      </div>
       <div >
         <a style="margin: 0 7% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #5D97F9;" class="ion-android-contacts"></i>{{log['ReplyList'].length}}</a>
-        <a style="margin: 0 12% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #44c6fb;" class="ion-thumbsup" ></i>{{log['LinkListRef'].length}}</a>
+        <a style="margin: 0 12% 0px 25px;"><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #44c6fb;" class="ion-thumbsup" ></i>{{log['LikeListRef'].length}}</a>
         <a ><i style=" margin: 0 5px -16px 0px;font-size: 30px;color: #f48b46;" class="ion-android-share-alt"></i>{{log['ShareCount']}}</a>
       </div>
     </span>
 
-    <div style="margin:10px 10px 0px 10px;text-align: justify;text-indent: 2em;">
+    <a  ng-repeat="image in log['PicListRef'] track  by $index">
+      <img ng-src="{{rootPicUrl + image['Url']}}" style="width: 420px;height: 320px">
+    </a>
+    <div style="margin:10px 10px 0px 10px;text-align: justify;text-indent: 2em;color: #69717d;font-size: 18px">
       {{log['Content']}}
     </div>
 

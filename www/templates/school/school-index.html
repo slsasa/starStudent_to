@@ -49,9 +49,10 @@
     <ion-slide-box does-continue="true" auto-play="true" show-pager="false" >
       <ion-slide ng-repeat="apply in applys">
 
-        <h5 style="color:#429EDC">{{apply['Title']}}</h5>
-        <img ng-src="{{rootPicUrl + apply['PicRef']['Url']}}" style="width: 100%;height: 140px">
-
+        <div style="background-color: white" ng-click="goApplyDetail(apply)">
+          <p style="color: #429edc"><strong>{{apply['Title']}}</strong></p>
+          <img ng-src="{{rootPicUrl + apply['PicRef']['Url']}}" style="width: 100%;height: 140px">
+        </div>
       </ion-slide>
     </ion-slide-box>
 

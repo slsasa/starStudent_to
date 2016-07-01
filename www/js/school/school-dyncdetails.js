@@ -15,6 +15,5 @@ angular.module('starter')
   .controller('dynamicDetailsCtrl',function($scope,userInfo){
 
     $scope.dynamic =  userInfo.dynamicDetail;
-    userInfo.dynamicDetail = {};
 
   })

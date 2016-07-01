@@ -10,7 +10,7 @@ angular.module('starter')
         controller:'addImgCtrl'
       });
   })
-  .controller('addImgCtrl',function($scope,$http,$ionicPopup,$cordovaImagePicker,$cordovaFileTransfer,$ionicHistory,$ionicLoading,$ionicPopup,userInfo){
+  .controller('addImgCtrl',function($scope,$state,$http,$ionicPopup,$cordovaImagePicker,$cordovaFileTransfer,$ionicHistory,$ionicLoading,$ionicPopup,userInfo){
     $scope.photos = [];
     $scope.clickPhoto = function () {
       var options = {
@@ -78,7 +78,7 @@ angular.module('starter')
         })
       };
       async_map($scope.photos, function (id_list) {
-        alert($scope.photos.length);
+
         var url = rootUrl  + '/teacher_style/add_style';
         var data = {
           TeacherId : userInfo._id,
@@ -92,8 +92,9 @@ angular.module('starter')
               title:'提醒',
               template:'上传成功'
             });
-            //console.log('上传数据------',result);
-            //alert('上传成功'+JSON.stringify(result));
+
+            $state.go('my-style');
+
           })
           .error(function(err){
             $ionicLoading.hide();
@@ -101,7 +102,7 @@ angular.module('starter')
               title:'提醒',
               template:'上传失败'
             });
-            //alert('上传失败:'+err);
+
           });
       });
     }
