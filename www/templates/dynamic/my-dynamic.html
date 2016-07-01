@@ -40,13 +40,18 @@
             <div>
               <a ng-click="showContent($index)" id="{{ $index +'dynamicMyContentState'}}" style="color: #f96a9f;">全文</a>
             </div>
-          </div>
+            <div class="likeName">
+              <p style="float:left;color: #f65492" ng-repeat="likeName in   myDynamic['LikeName']">{{likeName}}</p>
+
+            </div>
+           </div>
 
           <div ng-if="myDynamic['Content'].length <=36">
             <a ng-repeat="img in myDynamic['PicListRef']">
               <img ng-src="{{rootPicUrl+ img['Url']}}" ng-click="openBigImage_star(rootPicUrl+ img['Url'])" style="width: 100px;height:100px">
             </a>
              <p> {{myDynamic['Content']}}</p>
+<!--<<<<<<< HEAD-->
             <br>
              <span class="row">
               <i class="ion-ios-heart-outline" style="color:#f96a9f " ng-if="myDynamic['LikeName'].length>0"></i>&nbsp;
@@ -54,6 +59,10 @@
               {{likeName}},
             </p>
             </span>
+<!--=======-->
+            <!--<div class="likeName">-->
+              <!--<p style="float:left;color: #f65492" ng-repeat="likeName in   myDynamic['LikeName']">{   </div>-->
+<!--&gt;>>>>>> 0fd8bc45081397f38994d87256ae04d4314be7c7-->
           </div>
         </div>
         <div class="comments">
@@ -61,8 +70,8 @@
             <a class="button buttonDy" style="line-height: 26px;width: 75px;height:26px;margin-bottom: 12px;font-size: 16px" ng-click="likeAdd($index,myDynamic._id)"><i style="margin: 0 3px 0 0" class="ion-ios-heart-outline"></i>赞</a>
             <a class="button buttonDy" style="line-height: 26px;width: 75px;height:26px;margin-bottom: 12px;font-size: 16px" ng-click="shareWeChat($index,myDynamic._id)"><i class="ion-ios-redo-outline"></i>分享</a>
         </div>
-          <img src="img/dp.png" ng-click="showClickDynamic($index)" style="height: 15px; width: 23px;"/>
         </div>
+        <img src="img/dp.png" ng-click="showClickDynamic($index)" style="height: 15px; width: 23px;margin: 2px 5px 20px 0px;float: right;"/>
       </ion-item>
     </div>
 

@@ -83,10 +83,7 @@ angular.module('starter')
           },
           {text:"否"}]
       });
-
     }
-
-
 
     $scope.replaceImage = function(){
 

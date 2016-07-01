@@ -16,9 +16,9 @@ angular.module('starter')
   .controller('homeCtrl',function($rootScope,$scope, $state, $http,$ionicPopup, $ionicSlideBoxDelegate,$ionicLoading ,userInfo){
 
     $scope.rootPicUrl = rootPicUrl;
+
+
     //学校动态
-
-
     var update = function(){
       var urlSchool = rootUrl + "/dynamic/get_all_list?DyType=school";
       var url = rootUrl + "/banner/get_list";
@@ -125,7 +125,7 @@ angular.module('starter')
 
     //跳转到教师风采
     $scope.goTeacherStyle = function(){
-      $state.go('teacher-mine')
+      $state.go('teacher-mine');
     };
     //关于学校简介　
     $scope.goIntro = function(){
