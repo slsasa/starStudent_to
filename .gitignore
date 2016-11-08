@@ -3,5 +3,6 @@
 
 node_modules/
 platforms/
+.DS_Store/
 plugins/
 .idea/*
