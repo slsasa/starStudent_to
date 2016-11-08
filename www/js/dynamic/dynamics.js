@@ -22,44 +22,6 @@ angular.module('starter')
     //判断是在校园动态，还是学员动态还是教师动态
     $scope.flag = "student";
 
-    var calcTime = function( timeString ) {
-      var tmp = new Date().getTime() - new Date(timeString).getTime();
-      tmp = tmp / (1000);
-      var level = 1;
-
-      while ( tmp > 60 ) {
-        tmp /= 60;
-        level += 1;
-        if ( level >= 3 ) break;
-      }
-      if ( tmp > 24 ) {
-        level += 1;
-        tmp /= 24;
-      }
-      var difTimeRes = parseInt(tmp);
-      if ( difTimeRes > 30 ) {
-        difTimeRes = new Date(timeString).toLocaleDateString()
-        level += 1 ;
-      }
-      switch ( level ) {
-        case 1:
-          difTimeRes += '秒前'
-          break;
-        case 2:
-          difTimeRes += ' 分钟前'
-          break;
-        case 3:
-          difTimeRes += ' 小时前'
-          break;
-        case 4:
-          difTimeRes += ' 天前'
-          break;
-        default:
-          // bu 处理
-          break;
-      }
-      return difTimeRes;
-    }
 
     var update = function(type){
       $ionicLoading.show();
@@ -95,54 +57,6 @@ angular.module('starter')
     });
 
 
-    //初始化获得页面元素
-    var initDoc = function() {
-      //获取school ,student,teacher三个div
-      $scope.objSchool = document.getElementById('school');
-      $scope.objStudent = document.getElementById('student');
-      $scope.objTeacher = document.getElementById('teacher');
-
-      //获取页面上方 school ,student,teacher按钮，并初始化按钮状态
-      $scope.objSchoolClick = document.getElementById('showSchoolClick');
-      $scope.objStuClick = document.getElementById('showStudentClick');
-      $scope.objTeacherClick = document.getElementById('showTeacherClick');
-
-      $scope.objStuClick.style.backgroundColor = "#F96A9F";
-      $scope.objStuClick.style.color = "#fff";
-    }
-    initDoc();
-
-    //学校动态按钮,显示学校动态内容，并改变学校动态按钮状态
-    $scope.showSchoolDynamic = function () {
-
-      $scope.flag = "school";
-      $scope.objStudent.style.display = "none";
-      $scope.objTeacher.style.display = "none";
-      $scope.objSchool.style.display = "";
-      if ($scope.objSchool.style.display == "") {
-
-        changeColorBg("", "#F96A9F", "");
-        changeColorFont("black", "#fff", "black");
-
-      }
-
-    };
-
-    //学员动态按钮,显示学员动态内容，并改变学员动态按钮状态
-    $scope.showStudentDynamic = function () {
-
-      $scope.flag = "student";
-      $scope.objTeacher.style.display = "none";
-      $scope.objSchool.style.display = "none";
-      $scope.objStudent.style.display = "";
-      if ($scope.objStudent.style.display == "") {
-        changeColorBg("#F96A9F", "", "");
-        changeColorFont("#fff", "black", "black");
-
-      }
-
-
-    };
 
     //教师动态按钮,显示教师动态内容，并改变教师动态按钮状态
     $scope.showTeacherDynamic = function () {
@@ -199,56 +113,6 @@ angular.module('starter')
         $scope.terObjClick.style.display = "";
       } else {
         $scope.terObjClick.style.display = "none";
-      }
-    };
-
-
-    //动态内容全部显示
-    $scope.showContentSchool = function (schoolId) {
-      var objStateContent = document.getElementById(schoolId+'stateSch');
-      var objMoreContent = document.getElementById(schoolId + "moreContentSchool");
-      var objContentSchool = document.getElementById(schoolId + "contentSchool");
-      if (objMoreContent.style.display == "none") {
-        objContentSchool.style.display = "none";
-        objMoreContent.style.display = "";
-        objStateContent.innerHTML = '收起';
-
-      } else {
-        objMoreContent.style.display = "none";
-        objContentSchool.style.display = "";
-        objStateContent.innerHTML = '全文';
-
-      }
-    };
-
-    $scope.showContentStu = function (stuId) {
-      var objMoreContent = document.getElementById(stuId + "moreContentStu");
-      var objContentSchool = document.getElementById(stuId + "contentStu");
-      var objStateContent = document.getElementById(stuId+'stateStu');
-
-      if (objMoreContent.style.display == "none") {
-        objContentSchool.style.display = "none";
-        objMoreContent.style.display = "";
-        objStateContent.innerHTML = '收起';
-      } else {
-        objMoreContent.style.display = "none";
-        objContentSchool.style.display = "";
-        objStateContent.innerHTML = '全文';
-      }
-    };
-
-    $scope.showContentTer = function (teacherId) {
-      var objMoreContent = document.getElementById(teacherId + "moreContentTer");
-      var objContentSchool = document.getElementById(teacherId + "contentTer");
-      var objContentState = document.getElementById(teacherId + 'stateTer');
-      if (objMoreContent.style.display == "none") {
-        objContentSchool.style.display = "none";
-        objMoreContent.style.display = "";
-        objContentState.innerHTML = '收起';
-      } else {
-        objMoreContent.style.display = "none";
-        objContentSchool.style.display = "";
-        objContentState.innerHTML = '全文';
       }
     };
 
@@ -313,7 +177,8 @@ angular.module('starter')
 
     //微信分享
     var wechatShare = function(content,image){
-      if(content!= '  '){
+
+      if(content!= '  ' || image === undefined){
         Wechat.share({
           text: content,
           scene:  Wechat.Scene.TIMELINE  // share to Timeline
@@ -367,9 +232,12 @@ angular.module('starter')
           $scope.schObjClick.style.display = "none";
 
           var schoolDynamic = searchIndex($scope['schoolDynamics'],Id) ;
+          //console.log("dynamic -> "+ JSON.stringify(schoolDynamic['PicListRef']) === '' );
 
+          //console.log($scope['schoolDynamics']);
           isInstalleagdWeChat();
-          wechatShare(schoolDynamic['Content'],schoolDynamic['PicListRef'][0]['Url']);
+          wechatShare(schoolDynamic['Content'], undefined);
+
 
           break;
         case 'student':

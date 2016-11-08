@@ -1,6 +1,5 @@
 
-var rootUrl = "http://112.124.118.133:3000";
-var rootPicUrl = "http://112.124.118.133:3000/";
+
 
 var isInstalleagdWeChat = function(){
   //share Wechat 检测用户是否安装了微信
@@ -133,7 +132,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     return function(input){
       input = input || [];
       if(input.length > 34){
-        return input.slice(0,34);
+          return input.slice(0,34)
       }else{
         return input;
       }
